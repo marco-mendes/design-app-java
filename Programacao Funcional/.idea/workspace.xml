@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b3baa8d-9bc8-44ba-a453-7ae507585176" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/laboratorio3/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio3/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/laboratorio4/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/laboratorio4/exemplos/IFConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,12 +15,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/laboratorio3/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="187">
-                <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
+              <first_editor relative-caret-position="102">
+                <caret line="6" column="14" lean-forward="true" selection-end-line="6" selection-end-column="14" />
                 <folding>
                   <element signature="e#1053#1054#0" expanded="true" />
                   <element signature="e#1080#1081#0" expanded="true" />
@@ -45,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+            <state>
+              <caret lean-forward="true" />
               <folding>
                 <element signature="e#488#489#0" expanded="true" />
                 <element signature="e#515#516#0" expanded="true" />
@@ -54,6 +56,30 @@
                 <element signature="e#571#572#0" expanded="true" />
                 <element signature="e#600#601#0" expanded="true" />
                 <element signature="e#628#629#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/laboratorio4/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="204">
+                <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/laboratorio4/exemplos/IFConsumer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,13 +120,15 @@
         <option value="$PROJECT_DIR$/src/laboratorio2/IFFunctionExercicio.java" />
         <option value="$PROJECT_DIR$/src/laboratorio2/exemplos/ExemploIFFunction.java" />
         <option value="$PROJECT_DIR$/src/laboratorio1/exercicio/LambdasExercicio.java" />
-        <option value="$PROJECT_DIR$/src/README.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/laboratorio2/README.md" />
         <option value="$PROJECT_DIR$/src/laboratorio1/README.md" />
         <option value="$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java" />
         <option value="$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java" />
         <option value="$PROJECT_DIR$/src/laboratorio3/README.md" />
+        <option value="$PROJECT_DIR$/src/README.md" />
+        <option value="$PROJECT_DIR$/src/laboratorio4/README.md" />
+        <option value="$PROJECT_DIR$/src/laboratorio4/exemplos/IFConsumer.java" />
       </list>
     </option>
   </component>
@@ -168,6 +196,19 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="laboratorio3" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio4" type="462c0819:PsiDirectoryNode" />
+              <item name="exemplos" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -175,7 +216,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560973404499" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560978248391" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -197,7 +238,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.IFPredicateExercicio">
+  <component name="RunManager" selected="Application.IFConsumer">
     <configuration name="ExemploIFFunction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="laboratorio2.exemplos.ExemploIFFunction" />
       <module name="Laboratorios TRT" />
@@ -217,6 +258,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="laboratorio3.exemplos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IFConsumer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="laboratorio4.exemplos.IFConsumer" />
+      <module name="Laboratorios TRT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="laboratorio4.exemplos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -250,26 +304,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LambdasExercicio" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="laboratorio1.exercicio.LambdasExercicio" />
-      <module name="Laboratorios TRT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="laboratorio1.exercicio.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.IFConsumer" />
         <item itemvalue="Application.IFPredicateExercicio" />
         <item itemvalue="Application.ExemploIFPredicate" />
         <item itemvalue="Application.ExemploIFFunction" />
         <item itemvalue="Application.IFFunctionExercicio" />
-        <item itemvalue="Application.LambdasExercicio" />
       </list>
     </recent_temporary>
   </component>
@@ -299,7 +340,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.26096824" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -331,13 +372,6 @@
     <entry file="file://$USER_HOME$/Estudos/JavaOnline/src/ZZKstreams/test/StreamTest4Reduce.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/Estudos/JavaOnline/src/ZZKstreams/test/StreamTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Estudos/JavaOnline/src/ZZKstreams/test/StreamTest6Collectors1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-31" />
@@ -356,16 +390,6 @@
           <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Estudos/JavaOnline/src/ZZKstreams/test/StreamTest2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Estudos/JavaOnline/src/ZZKstreams/test/StreamTest3.java">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercicios1/classes/Pessoa.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/exercicios1/FunctionsExercicio.java" />
@@ -443,16 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="51">
-            <caret line="3" column="150" selection-start-line="3" selection-start-column="150" selection-end-line="3" selection-end-column="150" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -491,10 +505,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="85">
+            <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#488#489#0" expanded="true" />
             <element signature="e#515#516#0" expanded="true" />
@@ -506,18 +537,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/laboratorio3/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="187">
-            <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
+          <first_editor relative-caret-position="102">
+            <caret line="6" column="14" lean-forward="true" selection-end-line="6" selection-end-column="14" />
             <folding>
               <element signature="e#1053#1054#0" expanded="true" />
               <element signature="e#1080#1081#0" expanded="true" />
@@ -528,6 +552,43 @@
             </folding>
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Estudos/JavaOnline/src/ZZKstreams/test/StreamTest2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Estudos/JavaOnline/src/ZZKstreams/test/StreamTest3.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Estudos/JavaOnline/src/ZZKstreams/test/StreamTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laboratorio4/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="204">
+            <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laboratorio4/exemplos/IFConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

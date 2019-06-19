@@ -7,7 +7,8 @@
 ### Introdução
 A interface funcional **Predicate** foi projetada para ser usada em situações em que um teste precisa ser executado e um valor booleano precisa ser retornado.
 
-O método usado para executarmos as funções do tipo Predicate é o método **test()** que recebe uma expressão Lambda e deve retornar um valor booleano após a execução da mesma.
+O método usado para executarmos as funções do tipo Predicate é o método **test()**.
+<br/>A interface funcional Predicate deve receber uma expressão Lambda que retorne um valor booleano, o valor deste teste será o valor retornado pelo Predicate após a execução do método **test()**.
 
 Assim como a interface funcional **Function** a interface funcional **Predicate** também pode ser usada como parâmetro em métodos.
 
@@ -42,12 +43,12 @@ public class ExemploIFPredicate {
 
 Além do método **test()** a interface funcional **Predicate** também possui outros 4 métodos que podemos utilizar.
 <br/>Entre eles possuímos 3 métodos que não sao estáticos: **and()**, **or()** e **negate()**.  
-<br/>Possuímos também 1 método estático: **Predicate.isEqual()**
+Possuímos também 1 método estático: **Predicate.isEqual()**
 
 ### Método and()
-Este método é equivalente ao operador lógico **E**, o mesmo é executado após o método **test()** ser executado.
+Este método é equivalente ao operador lógico **&&**, o mesmo é executado após o método **test()** ser executado.
 <br/>Exemplo: 
-<br/>Suponhamos que queremos verificar a idade de uma pessoa e informar se ela é adulta e não é idosa.
+<br/>Suponhamos que queremos verificar a idade de uma pessoa e informar se ela é maior de idade **e** não é idosa.
 
 Poderíamos fazer isso da seguinte forma usando o método **and()**:
 ```java
@@ -58,9 +59,9 @@ System.out.println("É maior de idade e não é idoso? " + testeMaioridadeENaoId
 ```
 
 ### Método or()
-Este método é equivalente ao operador lógico **OU**, o mesmo é executado após o método **test()** ser executado.
+Este método é equivalente ao operador lógico **||**, o mesmo é executado após o método **test()** ser executado.
 <br/>Exemplo:
-<br/>Suponhamos que queremos verificar se um nome informado é "Jose" ou "Maria".
+<br/>Suponhamos que queremos verificar se um nome informado é "Jose" **ou** "Maria".
 
 Poderíamos fazer isso da seguinte forma usando o método **or()**:
 ```java
@@ -86,11 +87,11 @@ System.out.println(result2);
 ```
 
 ### Método estático Predicate.isEqual()
-Este método verificar se uma entrada é equivalente ao esperado.
-Este método é estático e seu uso é diferente dos demais.
+Este método verifica se uma entrada é equivalente ao esperado.
+<br/>Este método é estático e seu uso é diferente dos demais.
 <br/>Exemplo:
-<br/>Suponhamos que queremos verificar se uma entrada é equivalente à "Brasileiro"
-Poderíamos fazer isso da seguinte forma usando o método **Predicate.isEqual()**:
+<br/>Suponhamos que queremos verificar se uma entrada é equivalente à "Brasileiro".
+<br/>Poderíamos fazer isso da seguinte forma usando o método **Predicate.isEqual()**:
 ```java
 Predicate<String> isBrasileiro = Predicate.isEqual("Brasileiro");
 System.out.println("É Brasileiro? " + isBrasileiro.test("Brasileiro"));
@@ -101,3 +102,57 @@ Este método também pode ser útil para comparar objetos.
 
 
 ### Exercício
+Com base no código abaixo ajuste a lógica dos 2 Predicates para atender os seguinte requisitos:
+<br/> * O primeiro Predicate deve verificar se a Instância do Objeto Pessoa é do sexo MASCULINO.
+<br/> * O segundo Predicate deve verificar se a Instância do objeto Pessoa é do sexo MASCULINO e tem idade superior a 20 anos.
+<br/> * Utilize o primeiro Predicate para montar o segundo.
+```java
+import java.util.function.Predicate;
+
+public class IFPredicateExercicio {
+
+    public static void main(String[] args) {
+        // A resolver
+        Predicate<Pessoa> sexoMaculino = ??? -> ???;
+        Predicate<Pessoa> sexoMasculinoMaiorDeVinteAnos = ???;
+
+        Pessoa pessoa = new Pessoa("João", Sexo.MASCULINO, 35);
+        Pessoa pessoa1 = new Pessoa("João", Sexo.MASCULINO, 16);
+        Pessoa pessoa2 = new Pessoa("Maria", Sexo.FEMININO, 25);
+
+        System.out.println("É Homem e maior de 20 anos? " + sexoMasculinoMaiorDeVinteAnos.test(pessoa));
+        System.out.println("É Homem e maior de 20 anos? " + sexoMasculinoMaiorDeVinteAnos.test(pessoa1));
+        System.out.println("É Homem e maior de 20 anos? " + sexoMasculinoMaiorDeVinteAnos.test(pessoa2));
+
+    }
+
+}
+
+enum  Sexo {
+    MASCULINO, FEMININO, OUTROS
+}
+
+class Pessoa {
+    String nome;
+    Sexo sexo;
+    int idade;
+
+    public Pessoa(String nome, Sexo sexo, int idade) {
+        this.nome = nome;
+        this.sexo = sexo;
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+}
+```
