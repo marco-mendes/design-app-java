@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b3baa8d-9bc8-44ba-a453-7ae507585176" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/laboratorio3/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laboratorio1/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio1/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laboratorio2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio2/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,37 +20,18 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
+        <entry file="file://$PROJECT_DIR$/src/laboratorio3/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="357">
-                <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/laboratorio2/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="428">
-                <caret line="128" column="2" selection-start-line="128" selection-start-column="2" selection-end-line="128" selection-end-column="2" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/laboratorio1/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="207">
-                <caret line="21" column="87" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="87" />
+              <first_editor relative-caret-position="85">
+                <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
                 <folding>
-                  <element signature="imports" expanded="true" />
+                  <element signature="e#1053#1054#0" expanded="true" />
+                  <element signature="e#1080#1081#0" expanded="true" />
+                  <element signature="e#1108#1109#0" expanded="true" />
+                  <element signature="e#1135#1136#0" expanded="true" />
+                  <element signature="e#1163#1164#0" expanded="true" />
+                  <element signature="e#1191#1192#0" expanded="true" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -54,13 +40,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="51">
-                <caret line="3" column="150" selection-start-line="3" selection-start-column="150" selection-end-line="3" selection-end-column="150" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="53" column="1" lean-forward="true" selection-start-line="2" selection-end-line="53" selection-end-column="1" />
+              <folding>
+                <element signature="e#488#489#0" expanded="true" />
+                <element signature="e#515#516#0" expanded="true" />
+                <element signature="e#544#545#0" expanded="true" />
+                <element signature="e#571#572#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,10 +96,13 @@
         <option value="$PROJECT_DIR$/src/laboratorio2/IFFunctionExercicio.java" />
         <option value="$PROJECT_DIR$/src/laboratorio2/exemplos/ExemploIFFunction.java" />
         <option value="$PROJECT_DIR$/src/laboratorio1/exercicio/LambdasExercicio.java" />
-        <option value="$PROJECT_DIR$/src/laboratorio2/README.md" />
-        <option value="$PROJECT_DIR$/src/laboratorio1/README.md" />
         <option value="$PROJECT_DIR$/src/README.md" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/laboratorio2/README.md" />
+        <option value="$PROJECT_DIR$/src/laboratorio1/README.md" />
+        <option value="$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java" />
+        <option value="$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java" />
+        <option value="$PROJECT_DIR$/src/laboratorio3/README.md" />
       </list>
     </option>
   </component>
@@ -142,7 +141,34 @@
               <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
               <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio1" type="462c0819:PsiDirectoryNode" />
+              <item name="exercicio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="laboratorio2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio2" type="462c0819:PsiDirectoryNode" />
+              <item name="exemplos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio2" type="462c0819:PsiDirectoryNode" />
+              <item name="exercicio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio3" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -151,7 +177,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560956554833" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560971607741" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -173,13 +199,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ExemploIFFunction">
+  <component name="RunManager" selected="Application.IFPredicateExercicio">
     <configuration name="ExemploIFFunction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="laboratorio2.exemplos.ExemploIFFunction" />
       <module name="Laboratorios TRT" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="laboratorio2.exemplos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExemploIFPredicate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="laboratorio3.exemplos.ExemploIFPredicate" />
+      <module name="Laboratorios TRT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="laboratorio3.exemplos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -200,12 +239,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LambdaTest3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ZZHlambdas.test.LambdaTest3" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Estudos/JavaOnline/src/ZZHlambdas/test" />
+    <configuration name="IFPredicateExercicio" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="laboratorio3.exercicio.IFPredicateExercicio" />
+      <module name="Laboratorios TRT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ZZHlambdas.test.*" />
+          <option name="PATTERN" value="laboratorio3.exercicio.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -228,10 +267,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.IFPredicateExercicio" />
+        <item itemvalue="Application.ExemploIFPredicate" />
         <item itemvalue="Application.ExemploIFFunction" />
         <item itemvalue="Application.IFFunctionExercicio" />
         <item itemvalue="Application.LambdasExercicio" />
-        <item itemvalue="Application.LambdaTest3" />
       </list>
     </recent_temporary>
   </component>
@@ -288,34 +328,6 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3289689" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Estudos/JavaOnline/src/ZZKstreams/test/StreamTest4Reduce.java">
@@ -443,11 +455,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="340">
+            <caret line="20" column="111" selection-start-line="20" selection-start-column="111" selection-end-line="20" selection-end-column="111" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/laboratorio1/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="207">
-            <caret line="21" column="87" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="87" />
+          <first_editor relative-caret-position="306">
+            <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
             <folding>
               <element signature="imports" expanded="true" />
             </folding>
@@ -459,23 +486,44 @@
     <entry file="file://$PROJECT_DIR$/src/laboratorio2/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="428">
-            <caret line="128" column="2" selection-start-line="128" selection-start-column="2" selection-end-line="128" selection-end-column="2" />
+          <first_editor relative-caret-position="459">
+            <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+    <entry file="file://$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="53" column="1" lean-forward="true" selection-start-line="2" selection-end-line="53" selection-end-column="1" />
+          <folding>
+            <element signature="e#488#489#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#544#545#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laboratorio3/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="357">
-            <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <first_editor relative-caret-position="85">
+            <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+            <folding>
+              <element signature="e#1053#1054#0" expanded="true" />
+              <element signature="e#1080#1081#0" expanded="true" />
+              <element signature="e#1108#1109#0" expanded="true" />
+              <element signature="e#1135#1136#0" expanded="true" />
+              <element signature="e#1163#1164#0" expanded="true" />
+              <element signature="e#1191#1192#0" expanded="true" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>
