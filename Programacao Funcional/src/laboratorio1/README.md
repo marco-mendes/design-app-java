@@ -19,7 +19,7 @@ Além disso vimos também que para realizar o uso de Lambdas precisamos de uma i
 
 Um exemplo do uso e Lambdas é para realizar a ordenação de uma lista.Um exemplo do uso e Lambdas é para realizar a ordenação de uma lista.
 
-Neste exemplo vemos como era realizada a ordenação de listas através do método sort() antes do uso das Lambdas onde era necessário criarmos uma classe anônima dentro da invocação do método  sort() :
+Neste exemplo vemos como era realizada a ordenação de listas através do método **sort()** antes do uso das Lambdas onde era necessário criarmos uma classe anônima dentro da invocação do método  **sort()**:
 
 ```java
 public static void ordenacaoAntesLambdas(){
