@@ -89,8 +89,8 @@ System.out.println(result2);
 Este método verifica se uma entrada é equivalente ao esperado.
 <br/>Este método é estático e seu uso é diferente dos demais.
 <br/>Exemplo:
-<br/>Suponhamos que queremos verificar se uma entrada é equivalente à "Brasileiro"
-Poderíamos fazer isso da seguinte forma usando o método **Predicate.isEqual()**:
+<br/>Suponhamos que queremos verificar se uma entrada é equivalente à "Brasileiro".
+<br/>Poderíamos fazer isso da seguinte forma usando o método **Predicate.isEqual()**:
 ```java
 Predicate<String> isBrasileiro = Predicate.isEqual("Brasileiro");
 System.out.println("É Brasileiro? " + isBrasileiro.test("Brasileiro"));
