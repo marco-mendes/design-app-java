@@ -17,16 +17,8 @@
         <entry file="file://$PROJECT_DIR$/src/laboratorio3/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="425">
-                <caret line="106" column="8" selection-start-line="106" selection-start-column="8" selection-end-line="106" selection-end-column="8" />
-                <folding>
-                  <element signature="e#1053#1054#0" expanded="true" />
-                  <element signature="e#1080#1081#0" expanded="true" />
-                  <element signature="e#1108#1109#0" expanded="true" />
-                  <element signature="e#1135#1136#0" expanded="true" />
-                  <element signature="e#1163#1164#0" expanded="true" />
-                  <element signature="e#1191#1192#0" expanded="true" />
-                </folding>
+              <first_editor relative-caret-position="187">
+                <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               </first_editor>
               <second_editor />
             </state>
@@ -171,7 +163,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560972394186" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560972515873" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -508,16 +500,8 @@
     <entry file="file://$PROJECT_DIR$/src/laboratorio3/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="425">
-            <caret line="106" column="8" selection-start-line="106" selection-start-column="8" selection-end-line="106" selection-end-column="8" />
-            <folding>
-              <element signature="e#1053#1054#0" expanded="true" />
-              <element signature="e#1080#1081#0" expanded="true" />
-              <element signature="e#1108#1109#0" expanded="true" />
-              <element signature="e#1135#1136#0" expanded="true" />
-              <element signature="e#1163#1164#0" expanded="true" />
-              <element signature="e#1191#1192#0" expanded="true" />
-            </folding>
+          <first_editor relative-caret-position="187">
+            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           </first_editor>
           <second_editor />
         </state>
