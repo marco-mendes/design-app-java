@@ -86,8 +86,8 @@ System.out.println(result2);
 ```
 
 ### Método estático Predicate.isEqual()
-Este método verificar se uma entrada é equivalente ao esperado.
-Este método é estático e seu uso é diferente dos demais.
+Este método verifica se uma entrada é equivalente ao esperado.
+<br/>Este método é estático e seu uso é diferente dos demais.
 <br/>Exemplo:
 <br/>Suponhamos que queremos verificar se uma entrada é equivalente à "Brasileiro"
 Poderíamos fazer isso da seguinte forma usando o método **Predicate.isEqual()**:
@@ -103,7 +103,7 @@ Este método também pode ser útil para comparar objetos.
 ### Exercício
 Com base no código abaixo ajuste a lógica dos 2 Predicates para atender os seguinte requisitos:
 <br/> * O primeiro Predicate deve verificar se a Instância do Objeto Pessoa é do sexo MASCULINO
-<br/> * O segundo Predicate deve verificar se a Instância do objeto Pessoa é do sexo MASCULINO e tem idade superior a 20 anos:
+<br/> * O segundo Predicate deve verificar se a Instância do objeto Pessoa é do sexo MASCULINO e tem idade superior a 20 anos, use o primeiro Predicate para montar o segundo:
 ```java
 import java.util.function.Predicate;
 
