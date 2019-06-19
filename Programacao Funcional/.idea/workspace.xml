@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b3baa8d-9bc8-44ba-a453-7ae507585176" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laboratorio2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio2/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="3b3baa8d-9bc8-44ba-a453-7ae507585176" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +15,12 @@
         <entry file="file://$PROJECT_DIR$/src/laboratorio2/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="493">
-                <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+              <first_editor relative-caret-position="17">
+                <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+                <folding>
+                  <element signature="e#627#628#0" expanded="true" />
+                  <element signature="e#671#672#0" expanded="true" />
+                </folding>
               </first_editor>
               <second_editor />
             </state>
@@ -102,7 +103,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560954824387" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560955068874" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -415,8 +416,12 @@
     <entry file="file://$PROJECT_DIR$/src/laboratorio2/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="493">
-            <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+          <first_editor relative-caret-position="17">
+            <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+            <folding>
+              <element signature="e#627#628#0" expanded="true" />
+              <element signature="e#671#672#0" expanded="true" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>

@@ -20,7 +20,7 @@ import java.util.function.Function;
 
 public class ExemploIFFunction {
     
-      public static void main(String[] args) {
+  public static void main(String[] args) {
     Function<Integer, Integer> funcaoDobro = n -> n * 2;
     // Imprime no console o valor 20
     System.out.println(funcaoDobro.apply(10));
@@ -126,5 +126,6 @@ public class IFFunctionExercicio {
     return resultado;
 
   }
+  
 }
 ```
