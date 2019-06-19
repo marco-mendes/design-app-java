@@ -18,7 +18,15 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="187">
-                <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+                <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
+                <folding>
+                  <element signature="e#1053#1054#0" expanded="true" />
+                  <element signature="e#1080#1081#0" expanded="true" />
+                  <element signature="e#1108#1109#0" expanded="true" />
+                  <element signature="e#1135#1136#0" expanded="true" />
+                  <element signature="e#1163#1164#0" expanded="true" />
+                  <element signature="e#1191#1192#0" expanded="true" />
+                </folding>
               </first_editor>
               <second_editor />
             </state>
@@ -27,14 +35,18 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="53" column="1" lean-forward="true" selection-start-line="2" selection-end-line="53" selection-end-column="1" />
+            <state relative-caret-position="417">
+              <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
               <folding>
                 <element signature="e#488#489#0" expanded="true" />
                 <element signature="e#515#516#0" expanded="true" />
@@ -86,8 +98,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/laboratorio2/README.md" />
         <option value="$PROJECT_DIR$/src/laboratorio1/README.md" />
-        <option value="$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java" />
         <option value="$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java" />
+        <option value="$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java" />
         <option value="$PROJECT_DIR$/src/laboratorio3/README.md" />
       </list>
     </option>
@@ -163,7 +175,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560972833943" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560973264140" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -479,13 +491,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="53" column="1" lean-forward="true" selection-start-line="2" selection-end-line="53" selection-end-column="1" />
+        <state relative-caret-position="417">
+          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
           <folding>
             <element signature="e#488#489#0" expanded="true" />
             <element signature="e#515#516#0" expanded="true" />
@@ -497,11 +506,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/laboratorio3/exemplos/ExemploIFPredicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/laboratorio3/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="187">
-            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
+            <folding>
+              <element signature="e#1053#1054#0" expanded="true" />
+              <element signature="e#1080#1081#0" expanded="true" />
+              <element signature="e#1108#1109#0" expanded="true" />
+              <element signature="e#1135#1136#0" expanded="true" />
+              <element signature="e#1163#1164#0" expanded="true" />
+              <element signature="e#1191#1192#0" expanded="true" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>
