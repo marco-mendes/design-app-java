@@ -8,7 +8,7 @@
 A interface funcional **Predicate** foi projetada para ser usada em situações em que um teste precisa ser executado e um valor booleano precisa ser retornado.
 
 O método usado para executarmos as funções do tipo Predicate é o método **test()**.
-<br/>A interface funcional Predicate deve receber uma expressão Lambda ou um método que retornem um valor booleano, o valor deste teste será o valor retornado pelo Predicate após a execução do método **test()**.
+<br/>A interface funcional Predicate deve receber uma expressão Lambda que retorne um valor booleano, o valor deste teste será o valor retornado pelo Predicate após a execução do método **test()**.
 
 Assim como a interface funcional **Function** a interface funcional **Predicate** também pode ser usada como parâmetro em métodos.
 
