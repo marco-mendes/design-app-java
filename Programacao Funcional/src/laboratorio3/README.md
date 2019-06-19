@@ -47,7 +47,7 @@ Possuímos também 1 método estático: **Predicate.isEqual()**
 ### Método and()
 Este método é equivalente ao operador lógico **&&**, o mesmo é executado após o método **test()** ser executado.
 <br/>Exemplo: 
-<br/>Suponhamos que queremos verificar a idade de uma pessoa e informar se ela é adulta e não é idosa.
+<br/>Suponhamos que queremos verificar a idade de uma pessoa e informar se ela é maior de idade **e** não é idosa.
 
 Poderíamos fazer isso da seguinte forma usando o método **and()**:
 ```java
@@ -60,7 +60,7 @@ System.out.println("É maior de idade e não é idoso? " + testeMaioridadeENaoId
 ### Método or()
 Este método é equivalente ao operador lógico **||**, o mesmo é executado após o método **test()** ser executado.
 <br/>Exemplo:
-<br/>Suponhamos que queremos verificar se um nome informado é "Jose" ou "Maria".
+<br/>Suponhamos que queremos verificar se um nome informado é "Jose" **ou** "Maria".
 
 Poderíamos fazer isso da seguinte forma usando o método **or()**:
 ```java
