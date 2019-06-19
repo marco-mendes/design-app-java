@@ -8,7 +8,8 @@
 [Caso queira se aprofundar mais](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html)
 
 ### Introdução Expressões Lambda
-Como vimos nos artigos de preparação, Lambda é uma forma clara e objetiva de representar um método usando apenas uma expressão.<br/>
+Como vimos nos artigos de preparação, Lambda é uma forma clara e objetiva de representar um método usando apenas uma expressão.
+
 Abaixo temos a estrutura de um lambda:
 ```java
 (parametro) -> corpo da função 
@@ -16,7 +17,8 @@ Abaixo temos a estrutura de um lambda:
 
 Além disso vimos também que para realizar o uso de Lambdas precisamos de uma interface funcional.
 
-Um exemplo do uso e Lambdas é para realizar a ordenação de uma lista.Um exemplo do uso e Lambdas é para realizar a ordenação de uma lista.<br/>
+Um exemplo do uso e Lambdas é para realizar a ordenação de uma lista.Um exemplo do uso e Lambdas é para realizar a ordenação de uma lista.
+
 Neste exemplo vemos como era realizada a ordenação de listas através do método sort() antes do uso das Lambdas onde era necessário criarmos uma classe anônima dentro da invocação do método  sort() :
 
 ```java
