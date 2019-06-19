@@ -42,10 +42,10 @@ public class ExemploIFPredicate {
 
 Além do método **test()** a interface funcional **Predicate** também possui outros 4 métodos que podemos utilizar.
 <br/>Entre eles possuímos 3 métodos que não sao estáticos: **and()**, **or()** e **negate()**.  
-<br/>Possuímos também 1 método estático: **Predicate.isEqual()**
+Possuímos também 1 método estático: **Predicate.isEqual()**
 
 ### Método and()
-Este método é equivalente ao operador lógico **E**, o mesmo é executado após o método **test()** ser executado.
+Este método é equivalente ao operador lógico **&&**, o mesmo é executado após o método **test()** ser executado.
 <br/>Exemplo: 
 <br/>Suponhamos que queremos verificar a idade de uma pessoa e informar se ela é adulta e não é idosa.
 
@@ -58,7 +58,7 @@ System.out.println("É maior de idade e não é idoso? " + testeMaioridadeENaoId
 ```
 
 ### Método or()
-Este método é equivalente ao operador lógico **OU**, o mesmo é executado após o método **test()** ser executado.
+Este método é equivalente ao operador lógico **||**, o mesmo é executado após o método **test()** ser executado.
 <br/>Exemplo:
 <br/>Suponhamos que queremos verificar se um nome informado é "Jose" ou "Maria".
 
