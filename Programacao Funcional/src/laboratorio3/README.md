@@ -102,8 +102,9 @@ Este método também pode ser útil para comparar objetos.
 
 ### Exercício
 Com base no código abaixo ajuste a lógica dos 2 Predicates para atender os seguinte requisitos:
-<br/> * O primeiro Predicate deve verificar se a Instância do Objeto Pessoa é do sexo MASCULINO
-<br/> * O segundo Predicate deve verificar se a Instância do objeto Pessoa é do sexo MASCULINO e tem idade superior a 20 anos, use o primeiro Predicate para montar o segundo:
+<br/> * O primeiro Predicate deve verificar se a Instância do Objeto Pessoa é do sexo MASCULINO.
+<br/> * O segundo Predicate deve verificar se a Instância do objeto Pessoa é do sexo MASCULINO e tem idade superior a 20 anos.
+<br/> * Use o primeiro Predicate para montar o segundo:
 ```java
 import java.util.function.Predicate;
 
