@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c6ed3a2a-db71-41d0-a458-9ae2830b897a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/laboratorio4/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio4/README.md" afterDir="false" />
+    <list default="true" id="200801a7-5cc4-4b66-bd1b-ceccfc35318a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laboratorio1/exercicio/LambdasExercicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio1/exercicio/LambdasExercicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laboratorio2/exercicio/IFFunctionExercicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio2/exercicio/IFFunctionExercicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,12 +22,30 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/laboratorio4/exemplos/ExemploIFConsumer.java">
+        <entry file="file://$PROJECT_DIR$/src/laboratorio1/exercicio/LambdasExercicio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="170">
+              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/laboratorio2/exercicio/IFFunctionExercicio.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -29,44 +53,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#319#320#0" expanded="true" />
-                <element signature="e#346#347#0" expanded="true" />
-                <element signature="e#375#376#0" expanded="true" />
-                <element signature="e#403#404#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/laboratorio4/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="85">
-                <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-                <folding>
-                  <element signature="e#537#538#0" expanded="true" />
-                  <element signature="e#564#565#0" expanded="true" />
-                  <element signature="e#592#593#0" expanded="true" />
-                  <element signature="e#620#621#0" expanded="true" />
-                </folding>
-              </first_editor>
-              <second_editor />
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -74,10 +67,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/laboratorio4/exemplos/IFConsumer.java" />
-        <option value="$PROJECT_DIR$/src/laboratorio4/exemplos/ExemploIFConsumer.java" />
+        <option value="$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java" />
         <option value="$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java" />
-        <option value="$PROJECT_DIR$/src/laboratorio4/README.md" />
+        <option value="$PROJECT_DIR$/src/laboratorio1/exercicio/LambdasExercicio.java" />
+        <option value="$PROJECT_DIR$/src/laboratorio2/exercicio/IFFunctionExercicio.java" />
       </list>
     </option>
   </component>
@@ -93,7 +86,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -110,27 +102,54 @@
               <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
               <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="laboratorio2" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio1" type="462c0819:PsiDirectoryNode" />
+              <item name="exercicio" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
               <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="laboratorio2" type="462c0819:PsiDirectoryNode" />
-              <item name="exemplos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio2" type="462c0819:PsiDirectoryNode" />
+              <item name="exercicio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio3" type="462c0819:PsiDirectoryNode" />
+              <item name="exercicio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio3" type="462c0819:PsiDirectoryNode" />
+              <item name="exercicio" type="462c0819:PsiDirectoryNode" />
+              <item name="IFPredicateExercicio.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
               <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="laboratorio4" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="laboratorio4" type="462c0819:PsiDirectoryNode" />
-              <item name="exemplos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
@@ -139,10 +158,19 @@
               <item name="laboratorio4" type="462c0819:PsiDirectoryNode" />
               <item name="exercicio" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Programacao Funcional" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programacao Funcional" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laboratorio4" type="462c0819:PsiDirectoryNode" />
+              <item name="exercicio" type="462c0819:PsiDirectoryNode" />
+              <item name="IFConsumerExercicio.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,50 +188,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.IFConsumerExercicio">
-    <configuration name="ExemploIFConsumer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="laboratorio4.exemplos.ExemploIFConsumer" />
-      <module name="Programacao Funcional" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="laboratorio4.exemplos.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IFConsumerExercicio" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="laboratorio4.exercicio.IFConsumerExercicio" />
-      <module name="Programacao Funcional" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="laboratorio4.exercicio.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.IFConsumerExercicio" />
-        <item itemvalue="Application.ExemploIFConsumer" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c6ed3a2a-db71-41d0-a458-9ae2830b897a" name="Default Changelist" comment="" />
-      <created>1561126765419</created>
+      <changelist id="200801a7-5cc4-4b66-bd1b-ceccfc35318a" name="Default Changelist" comment="" />
+      <created>1561139883383</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1561126765419</updated>
+      <updated>1561139883383</updated>
     </task>
     <servers />
   </component>
@@ -211,71 +205,77 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25340393" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/laboratorio4/exemplos/ExemploIFConsumer.java">
+    <entry file="file://$PROJECT_DIR$/src/laboratorio3/exercicio/IFPredicateExercicio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laboratorio1/exercicio/LambdasExercicio.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#346#347#0" expanded="true" />
-            <element signature="e#375#376#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-          </folding>
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/laboratorio4/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="85">
-            <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-            <folding>
-              <element signature="e#537#538#0" expanded="true" />
-              <element signature="e#564#565#0" expanded="true" />
-              <element signature="e#592#593#0" expanded="true" />
-              <element signature="e#620#621#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/laboratorio2/exercicio/IFFunctionExercicio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
         </state>
       </provider>
-      <provider editor-type-id="text-editor" />
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>9</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

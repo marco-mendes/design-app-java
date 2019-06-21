@@ -6,12 +6,8 @@ public class IFPredicateExercicio {
 
     public static void main(String[] args) {
         // A resolver
-        // Predicate<Pessoa> sexoMaculino = ??? -> ???;
-        // Predicate<Pessoa> sexoMasculinoMaiorDeVinteAnos = ???;
-
-        // Resolvido
-        Predicate<Pessoa> sexoMaculino = p -> p.getSexo().equals(Sexo.MASCULINO);
-        Predicate<Pessoa> sexoMasculinoMaiorDeVinteAnos = sexoMaculino.and(p -> p.getIdade() > 20);
+        Predicate<Pessoa> sexoMaculino = ??? -> ???;
+        Predicate<Pessoa> sexoMasculinoMaiorDeVinteAnos = ???;
 
         Pessoa pessoa = new Pessoa("João", Sexo.MASCULINO, 35);
         Pessoa pessoa1 = new Pessoa("João", Sexo.MASCULINO, 16);

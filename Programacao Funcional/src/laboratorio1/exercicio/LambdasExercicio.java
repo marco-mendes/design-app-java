@@ -9,9 +9,7 @@ public class LambdasExercicio {
 
         List<String> listaNomes = Arrays.asList("Joao", "Maria", "Dalva", "Vilma", "Carlos", "Roberto");
         // A resolver
-        // listaNomes.forEach(parametro -> expressão);
-        // Resolvido
-         listaNomes.forEach(p -> System.out.println(p));
+        listaNomes.forEach(parametro -> expressão);
 
     }
 }

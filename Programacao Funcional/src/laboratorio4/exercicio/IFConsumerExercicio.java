@@ -7,12 +7,8 @@ public class IFConsumerExercicio {
     public static void main(String[] args) {
 
         // A resolver
-        // Consumer<Pessoa> consumerImprimeNome = ??? -> ???;
-        // Consumer<Pessoa> consumerImprimeNomeEIdade = ??? -> ???;
-
-        //Resolvido
-        Consumer<Pessoa> consumerImprimeNome = p -> System.out.print("Nome: " + p.getNome() + " - ");
-        Consumer<Pessoa> consumerImprimeNomeEIdade = consumerImprimeNome.andThen(p -> System.out.print("Idade: " + p.getIdade()));
+        Consumer<Pessoa> consumerImprimeNome = ??? -> ???;
+        Consumer<Pessoa> consumerImprimeNomeEIdade = ??? -> ???;
 
         Pessoa p = new Pessoa("João", 32);
 
