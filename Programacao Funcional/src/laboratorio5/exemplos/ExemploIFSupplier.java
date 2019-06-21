@@ -8,5 +8,4 @@ public class ExemploIFSupplier {
         Supplier<Double> valorAleatorio = () -> Math.random();
         System.out.println(valorAleatorio.get());
     }
-
 }
