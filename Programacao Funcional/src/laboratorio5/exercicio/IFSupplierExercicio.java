@@ -18,6 +18,9 @@ public class IFSupplierExercicio {
         };
         System.out.println(generateString.get());
 
+        Supplier<List<String>> listaSupplier = () -> new ArrayList<>();
+
+
     }
 
 }
