@@ -6,22 +6,28 @@ import java.util.function.Function;
 public class IFFunctionExercicio {
 
     public static void main(String[] args) {
-
         double valor = 25;
 
-        // A resover
+        // Remova os comentários do método main() e do método calcula() para iniciar o exercício
+        /*
+
         Function<Double, Double> funcaoRaizQuadrada = (parametro) -> operacao;
         calcula(valor, funcaoRaizQuadrada);
 
+         */
+
     }
+
+    /*
 
     public static double calcula(double value, Function<Double, Double> operation){
 
-        // A resolver
         double resultado = ?????;
 
         System.out.println("Resultado da operação: " + resultado);
         return resultado;
+
     }
 
+    */
 }

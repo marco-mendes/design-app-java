@@ -6,13 +6,17 @@ public class IFConsumerExercicio {
 
     public static void main(String[] args) {
 
-        // A resolver
+        // Remova os comentários para iniciar o exercício
+        /*
+
         Consumer<Pessoa> consumerImprimeNome = ??? -> ???;
         Consumer<Pessoa> consumerImprimeNomeEIdade = ??? -> ???;
 
         Pessoa p = new Pessoa("João", 32);
 
         consumerImprimeNomeEIdade.accept(p);
+
+         */
     }
 
 }

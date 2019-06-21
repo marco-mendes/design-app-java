@@ -5,7 +5,10 @@ import java.util.function.Predicate;
 public class IFPredicateExercicio {
 
     public static void main(String[] args) {
-        // A resolver
+
+        // Remova os comentários para iniciar o exercício
+        /*
+
         Predicate<Pessoa> sexoMaculino = ??? -> ???;
         Predicate<Pessoa> sexoMasculinoMaiorDeVinteAnos = ???;
 
@@ -17,6 +20,8 @@ public class IFPredicateExercicio {
         System.out.println("É Homem e maior de 20 anos? " + sexoMasculinoMaiorDeVinteAnos.test(pessoa1));
         System.out.println("É Homem e maior de 20 anos? " + sexoMasculinoMaiorDeVinteAnos.test(pessoa2));
 
+
+         */
     }
 
 }
