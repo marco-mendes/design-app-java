@@ -23,7 +23,7 @@ public class ExemploIFConsumer {
 }
 ```
 
-Outro exemplo do uso de um Consumer está dentro do método forEach da interface List, podemos passar a ele uma expressão lambda como no exemplo abaixo:
+Outro exemplo do uso de um Consumer está dentro do método forEach da interface List, podemos passar a ele uma expressão lambda referente a um Consumer como no exemplo abaixo:
 ```java
 import java.util.function.Consumer;
 
@@ -60,8 +60,8 @@ verificaNumeroPar.accept(7);
 
 ### Exercício
 Como base no código abaixo altere os Consumers presentes no exercício para atenderem as seguintes condições:
-<br/> * O consumerImprimeNome deve imprimir o nome da instância do objeto pessoa.
-<br/> * O consumerImprimeNomeEIdade deve imprimir o nome e a idade da instância do objeto pessoa.
+<br/> * O consumerImprimeNome deve imprimir o atributo nome da instância do objeto pessoa.
+<br/> * O consumerImprimeNomeEIdade deve imprimir os atributos nome e idade da instância do objeto pessoa.
 <br/> * O consumerImprimeNomeEIdade deve ser criado usando como base o consumerImprimeNome. 
 ```java
 import java.util.function.Consumer;

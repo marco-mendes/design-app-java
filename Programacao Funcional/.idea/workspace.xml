@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6ed3a2a-db71-41d0-a458-9ae2830b897a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laboratorio4/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio4/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laboratorio4/exemplos/IFConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio4/exemplos/ExemploIFConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="170">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#319#320#0" expanded="true" />
                 <element signature="e#346#347#0" expanded="true" />
@@ -48,12 +41,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/laboratorio4/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="326">
-                <caret line="102" column="3" lean-forward="true" selection-start-line="102" selection-start-column="3" selection-end-line="102" selection-end-column="3" />
+              <first_editor relative-caret-position="85">
+                <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
                 <folding>
                   <element signature="e#537#538#0" expanded="true" />
                   <element signature="e#564#565#0" expanded="true" />
@@ -83,8 +76,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/laboratorio4/exemplos/IFConsumer.java" />
         <option value="$PROJECT_DIR$/src/laboratorio4/exemplos/ExemploIFConsumer.java" />
-        <option value="$PROJECT_DIR$/src/laboratorio4/README.md" />
         <option value="$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java" />
+        <option value="$PROJECT_DIR$/src/laboratorio4/README.md" />
       </list>
     </option>
   </component>
@@ -254,11 +247,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/laboratorio4/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="326">
-            <caret line="102" column="3" lean-forward="true" selection-start-line="102" selection-start-column="3" selection-end-line="102" selection-end-column="3" />
+          <first_editor relative-caret-position="85">
+            <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             <folding>
               <element signature="e#537#538#0" expanded="true" />
               <element signature="e#564#565#0" expanded="true" />
@@ -270,19 +276,6 @@
         </state>
       </provider>
       <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/laboratorio4/exercicio/IFConsumerExercicio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#346#347#0" expanded="true" />
-            <element signature="e#375#376#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
   </component>
 </project>
