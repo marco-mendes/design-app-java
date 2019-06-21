@@ -7,7 +7,7 @@ public class LambdasExercicio {
     public static void main(String[] args) {
 
         List<String> listaNomes = Arrays.asList("Joao", "Maria", "Dalva", "Vilma", "Carlos", "Roberto");
-        // Resolvido.
+        // Resolvido
         listaNomes.forEach(p -> System.out.println(p));
 
     }
