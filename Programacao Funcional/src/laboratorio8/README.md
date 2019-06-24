@@ -75,7 +75,7 @@ public class ExemploIFBinaryOperator {
 ```
 
 ### Exercício
-Com base no código abaixo altere o **BinaryOperator** para retornar a raiz quadrada da subtração dos números informados no método **apply()**.
+Com base no código abaixo altere o BinaryOperator para retornar a raiz quadrada da subtração dos números informados no método apply().
 ```java
 import java.util.function.BinaryOperator;
 
