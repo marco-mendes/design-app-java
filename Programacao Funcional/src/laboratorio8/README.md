@@ -8,6 +8,10 @@
 A Interface Funcional **BinaryOperator** faz parte do grupo de Interfaces Funcionais do tipo **Operator**.
 <br/>As interfaces do tipo **Operator** são casos especiais de uma função, a diferença é que as Interfaces do tipo Operator recebem e retornam o mesmo tipo de valor.
 
+Abordamos no [Laboratório 7](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio7/) o uso do **UnaryOperator** e abordaremos nesse Laboratório o uso da **BinaryOperator**, essas são as duas principais Interfaces Funcionais do tipo Operator.
+
+Também existem especializações de UnaryOperator e BinaryOperator que podem ser usadas com valores primitivos, como [DoubleUnaryOperator](https://www.geeksforgeeks.org/doubleunaryoperator-interface-in-java/) , [IntUnaryOperator](https://www.geeksforgeeks.org/intunaryoperator-interface-in-java/) , [LongUnaryOperator](https://www.geeksforgeeks.org/longunaryoperator-interface-in-java/) , [DoubleBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleBinaryOperator.html) , [IntBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/IntBinaryOperator.html) e [LongBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/LongBinaryOperator.html) porém não abordaremos o uso de cada uma delas nesses Laboratórios.
+
 <br/>O **BinaryOperator <T&gt;** estende o tipo **BiFunction <T, T, T>** e com isso herda os seguintes métodos da interface funcional de **BiFunction**:
  * apply()
  * andThen()
