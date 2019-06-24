@@ -6,7 +6,7 @@
 
 ### Introdução
 A Interface Funcional **BinaryOperator** faz parte do grupo de Interfaces Funcionais do tipo **Operator**.
-<br/>Ele representa um operador binário que utiliza dois operandos e opera neles para produzir um resultado.
+<br/>Ela representa um operador binário que utiliza dois operandos e opera neles para produzir um resultado.
 <br/>.
 <br/>O **BinaryOperator <T&gt;** estende o tipo **BiFunction <T, T, T>** e com isso herda os seguintes métodos da interface funcional de **BiFunction**:
  * apply()
