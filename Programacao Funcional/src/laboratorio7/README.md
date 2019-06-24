@@ -12,7 +12,7 @@ Abordaremos nesse Laboratório e no [Laboratório 8](https://github.com/corelioB
 
 Também existem especializações de UnaryOperator e BinaryOperator que podem ser usadas com valores primitivos, como [DoubleUnaryOperator](https://www.geeksforgeeks.org/doubleunaryoperator-interface-in-java/) , [IntUnaryOperator](https://www.geeksforgeeks.org/intunaryoperator-interface-in-java/) , [LongUnaryOperator](https://www.geeksforgeeks.org/longunaryoperator-interface-in-java/) , [DoubleBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleBinaryOperator.html) , [IntBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/IntBinaryOperator.html) e [LongBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/LongBinaryOperator.html) porém não abordaremos o uso de cada uma delas nesses Laboratórios.
 
-<br/>O UnaryOperator<T&gt; sobrecarrega o tipo Function<T, T> e assim herdando os seguintes métodos da interface funcional Function:
+<br/>O UnaryOperator<T&gt; sobrecarrega o tipo Function<T, T> e com isso herdando os seguintes métodos da interface funcional Function:
  * apply()
  * andThen()
  * compose()
