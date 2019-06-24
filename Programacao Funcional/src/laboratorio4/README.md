@@ -40,8 +40,8 @@ public class ExemploIFConsumer {
 ### Método andThen()
 Outro método da Interface Funcional Consumer é o método **andThen()**, ele recebe uma expressão lambda ou um Consumer como parâmetro.
 <br/>Seu funcionamento ocorre da seguinte forma:
-<br/> * Primeiro executa o método **accept()** com o comportamento definido para o Consumer.
-<br/> * Em seguida executa o comportamento inserido no método **andThen()**.
+ * Primeiro executa o método **accept()** com o comportamento definido para o Consumer.
+ * Em seguida executa o comportamento inserido no método **andThen()**.
 
 Exemplo de uso:
 <br/>Suponhamos que queremos receber um número, imprimir esse número e em seguida verificar se o mesmo é um número par. 
@@ -61,9 +61,9 @@ verificaNumeroPar.accept(7);
 
 ### Exercício
 Como base no código abaixo altere os Consumers presentes no exercício para atenderem as seguintes condições:
-<br/> * O consumerImprimeNome deve imprimir o atributo nome da instância do objeto pessoa.
-<br/> * O consumerImprimeNomeEIdade deve imprimir os atributos nome e idade da instância do objeto pessoa.
-<br/> * O consumerImprimeNomeEIdade deve ser criado usando como base o consumerImprimeNome. 
+ * O consumerImprimeNome deve imprimir o atributo nome da instância do objeto pessoa.
+ * O consumerImprimeNomeEIdade deve imprimir os atributos nome e idade da instância do objeto pessoa.
+ * O consumerImprimeNomeEIdade deve ser criado usando como base o consumerImprimeNome. 
 ```java
 import java.util.function.Consumer;
 
