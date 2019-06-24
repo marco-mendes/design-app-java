@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 ### Programação Funcional
@@ -19,3 +20,11 @@
 [Exemplos de programação funcional em Java](https://elo7.dev/introducao-a-programacao-funcional-com-java8/)
 
 [Índice dos Laboratórios](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src)
+=======
+## Indice do Gabarito
+
+### [Laboratório 1](https://github.com/corelioBH/design-app-java/tree/Gabarito/Programacao%20Funcional/src/gabarito/laboratorio1/)
+### [Laboratório 2](https://github.com/corelioBH/design-app-java/tree/Gabarito/Programacao%20Funcional/src/gabarito/laboratorio2/)
+### [Laboratório 3](https://github.com/corelioBH/design-app-java/tree/Gabarito/Programacao%20Funcional/src/gabarito/laboratorio3/)
+### [Laboratório 4](https://github.com/corelioBH/design-app-java/tree/Gabarito/Programacao%20Funcional/src/gabarito/laboratorio4/)
+>>>>>>> 9f5a0f43af4474438c48b419fd642b1f215af006
