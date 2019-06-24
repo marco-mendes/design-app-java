@@ -1,4 +1,4 @@
-package laboratorio6.exemplos;
+package laboratorio7.exemplos;
 
 import java.util.function.UnaryOperator;
 

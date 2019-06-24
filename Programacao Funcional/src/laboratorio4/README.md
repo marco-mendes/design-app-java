@@ -1,94 +1,146 @@
-# Laboratório Interface Funcional Consumer - Protótipo
+# Laboratório Interface Funcional Predicate - Protótipo
 
 ### Material de Preparação
-[Uso Interface Funcional Consumer com Exemplos](https://www.geeksforgeeks.org/java-8-consumer-interface-in-java-with-examples/)<br/>
-[Vários exemplos de uso da Interface Funcional Consumer](https://www.programcreek.com/java-api-examples/?api=java.util.function.Consumer)
+[Como usar Predicates](http://www.edneiparmigiani.com.br/java-8-como-usar-o-predicate/)<br/>
+[Predicate com Exemplos](https://www.geeksforgeeks.org/java-8-predicate-with-examples/)<br/>
+[Vários exemplos de uso da Interface Funcional Predicate](https://www.programcreek.com/java-api-examples/?api=java.util.function.Predicate)
 
 ### Introdução
-A Interface Funcional Consumer representa uma função que aceita um argumento e produz um resultado.
-<br/>No entanto, esse tipo de função não retorna nenhum valor.
-<br/>A expressão lambda atribuída a um objeto do tipo Consumer é usada para definir o comportamento de seu método **accept()**, que eventualmente aplica a operação atribuída ao Consumer em seu argumento.
-<br/>A interface Consumer é útil quando não precisamos retornar nenhum valor, pois a mesma funciona via efeitos colaterais.
+A interface funcional **Predicate** foi projetada para ser usada em situações em que um teste precisa ser executado e um valor booleano precisa ser retornado.
 
-Exemplo de uso básico:
-Temos aqui um consumer que recebe um número e imprime uma mensagem com o número recebido.
+O método usado para executarmos as funções do tipo Predicate é o método **test()**.
+<br/>A interface funcional Predicate deve receber uma expressão Lambda que retorne um valor booleano, o valor deste teste será o valor retornado pelo Predicate após a execução do método **test()**.
+
+Assim como a interface funcional **Function** a interface funcional **Predicate** também pode ser usada como parâmetro em métodos.
+
+Exemplo de uso básico desta interface funcional:
 ```java
-import java.util.function.Consumer;
+import java.util.function.Predicate;
 
-public class ExemploIFConsumer {
+public class ExemploIFPredicate {
 
     public static void main(String[] args) {
-        Consumer<Integer> display = n -> System.out.println("Imprimindo número: " + n);
-        display.accept(5);
+
+        // Exemplo com Lambda em linha única
+        Predicate<Integer> testeMaioridade = n -> (n > 18) ? true : false;
+
+        // Exemplo com Lambda Multilinha
+        Predicate<Integer> testeMaioridadeMultilinha = n -> {
+            if(n > 18){
+                return true;
+            } else {
+                return false;
+            }
+        };
+
+        System.out.println("É maior de idade? " + testeMaioridade.test(28));
+        System.out.println("É maior de idade? " + testeMaioridade.test(17));
+        System.out.println("É maior de idade? " + testeMaioridadeMultilinha.test(14));
+        System.out.println("É maior de idade? " + testeMaioridadeMultilinha.test(31));
+
     }
 }
 ```
 
-Outro exemplo do uso de um Consumer está dentro do método forEach da interface List, podemos passar a ele uma expressão lambda referente a um Consumer como no exemplo abaixo:
+Além do método **test()** a interface funcional **Predicate** também possui outros 4 métodos que podemos utilizar.
+<br/>Entre eles possuímos 3 métodos que não sao estáticos: **and()**, **or()** e **negate()**.  
+Possuímos também 1 método estático: **Predicate.isEqual()**
+
+### Método and()
+Este método é equivalente ao operador lógico **&&**, o mesmo é executado após o método **test()** ser executado.
+<br/>Exemplo: 
+<br/>Suponhamos que queremos verificar a idade de uma pessoa e informar se ela é maior de idade **e** não é idosa.
+
+Poderíamos fazer isso da seguinte forma usando o método **and()**:
 ```java
-import java.util.function.Consumer;
-
-public class ExemploIFConsumer {
-
-    public static void main(String[] args) {
-        List<Integer> integerList = Arrays.asList(1,2,3,4,5);
-        integerList.forEach(n -> System.out.println(n));
-    }
-}
+Predicate<Integer> testeMaioridade = n -> (n > 18) ? true : false;
+Predicate<Integer> testeMaioridadeENaoIdoso = testeMaioridade.and(n -> (n < 60) ? true : false);
+System.out.println("É maior de idade e não é idoso? " + testeMaioridadeENaoIdoso.test(65));
+System.out.println("É maior de idade e não é idoso? " + testeMaioridadeENaoIdoso.test(42));
 ```
 
-### Método andThen()
-Outro método da Interface Funcional Consumer é o método **andThen()**, ele recebe uma expressão lambda ou um Consumer como parâmetro.
-<br/>Seu funcionamento ocorre da seguinte forma:
- * Primeiro executa o método **accept()** com o comportamento definido para o Consumer.
- * Em seguida executa o comportamento inserido no método **andThen()**.
+### Método or()
+Este método é equivalente ao operador lógico **||**, o mesmo é executado após o método **test()** ser executado.
+<br/>Exemplo:
+<br/>Suponhamos que queremos verificar se um nome informado é "Jose" **ou** "Maria".
 
-Exemplo de uso:
-<br/>Suponhamos que queremos receber um número, imprimir esse número e em seguida verificar se o mesmo é um número par. 
-<br/>Podemos fazer isso desta forma:
+Poderíamos fazer isso da seguinte forma usando o método **or()**:
 ```java
-Consumer<Integer> imprime = n -> System.out.println("Imprimindo número: " + n);
-Consumer<Integer> verificaNumeroPar = imprime.andThen(i -> {
-    if(i % 2 == 0){
-        System.out.println("O número " + i + " é um número par");
-    } else {
-        System.out.println("O número " + i + " não é um número par");
-    }
-});
-verificaNumeroPar.accept(4);
-verificaNumeroPar.accept(7);
+Predicate<String> seChamaJose = nome -> (nome == "Jose") ? true : false;
+Predicate<String> seChamaJoseOuMaria = seChamaJose.or(nome -> (nome == "Maria") ? true : false);
+System.out.println("Se chama Jose ou Maria? " + seChamaJoseOuMaria.test("Jose"));
+System.out.println("Se chama Jose ou Maria? " + seChamaJoseOuMaria.test("Maria"));
+System.out.println("Se chama Jose ou Maria? " + seChamaJoseOuMaria.test("Draven"));
 ```
+
+### Método negate()
+Este método é equivalente a um operador de negação, o mesmo nega o resultado de algum Predicate.
+<br/>Exemplo:
+```java
+Predicate<Integer> maiorQueDez = (i) -> i > 10;
+
+Predicate<Integer> menorQueVinte = (i) -> i < 20;
+boolean result = maiorQueDez.and(menorQueVinte).test(15);
+System.out.println(result);
+
+boolean result2 = maiorQueDez.and(menorQueVinte).negate().test(15);
+System.out.println(result2);
+```
+
+### Método estático Predicate.isEqual()
+Este método verifica se uma entrada é equivalente ao esperado.
+<br/>Este método é estático e seu uso é diferente dos demais.
+<br/>Exemplo:
+<br/>Suponhamos que queremos verificar se uma entrada é equivalente à "Brasileiro".
+<br/>Poderíamos fazer isso da seguinte forma usando o método **Predicate.isEqual()**:
+```java
+Predicate<String> isBrasileiro = Predicate.isEqual("Brasileiro");
+System.out.println("É Brasileiro? " + isBrasileiro.test("Brasileiro"));
+System.out.println("É Brasileiro? " + isBrasileiro.test("Argentino"));
+```
+
+Este método também pode ser útil para comparar objetos.
+
 
 ### Exercício
-Como base no código abaixo altere os Consumers presentes no exercício para atenderem as seguintes condições:
- * O consumerImprimeNome deve imprimir o atributo nome da instância do objeto pessoa.
- * O consumerImprimeNomeEIdade deve imprimir os atributos nome e idade da instância do objeto pessoa.
- * O consumerImprimeNomeEIdade deve ser criado usando como base o consumerImprimeNome. 
+Com base no código abaixo ajuste a lógica dos 2 Predicates para atender os seguinte requisitos:
+ * O primeiro Predicate deve verificar se a Instância do Objeto Pessoa é do sexo MASCULINO.
+ * O segundo Predicate deve verificar se a Instância do objeto Pessoa é do sexo MASCULINO e tem idade superior a 20 anos.
+ * Utilize o primeiro Predicate para montar o segundo.
 ```java
-import java.util.function.Consumer;
+import java.util.function.Predicate;
 
-public class IFConsumerExercicio {
+public class IFPredicateExercicio {
 
     public static void main(String[] args) {
-
         // A resolver
-        Consumer<Pessoa> consumerImprimeNome = ??? -> ???;
-        Consumer<Pessoa> consumerImprimeNomeEIdade = ??? -> ???;
+        Predicate<Pessoa> sexoMaculino = ??? -> ???;
+        Predicate<Pessoa> sexoMasculinoMaiorDeVinteAnos = ???;
 
-        Pessoa p = new Pessoa("João", 32);
+        Pessoa pessoa = new Pessoa("João", Sexo.MASCULINO, 35);
+        Pessoa pessoa1 = new Pessoa("João", Sexo.MASCULINO, 16);
+        Pessoa pessoa2 = new Pessoa("Maria", Sexo.FEMININO, 25);
 
-        consumerImprimeNomeEIdade.accept(p);
+        System.out.println("É Homem e maior de 20 anos? " + sexoMasculinoMaiorDeVinteAnos.test(pessoa));
+        System.out.println("É Homem e maior de 20 anos? " + sexoMasculinoMaiorDeVinteAnos.test(pessoa1));
+        System.out.println("É Homem e maior de 20 anos? " + sexoMasculinoMaiorDeVinteAnos.test(pessoa2));
+
     }
 
+}
+
+enum  Sexo {
+    MASCULINO, FEMININO, OUTROS
 }
 
 class Pessoa {
-
     String nome;
+    Sexo sexo;
     int idade;
 
-    public Pessoa(String nome, int idade) {
+    public Pessoa(String nome, Sexo sexo, int idade) {
         this.nome = nome;
+        this.sexo = sexo;
         this.idade = idade;
     }
 
@@ -96,9 +148,12 @@ class Pessoa {
         return nome;
     }
 
+    public Sexo getSexo() {
+        return sexo;
+    }
+
     public int getIdade() {
         return idade;
     }
-
 }
 ```

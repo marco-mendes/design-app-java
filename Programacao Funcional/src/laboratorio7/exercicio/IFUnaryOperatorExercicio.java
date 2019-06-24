@@ -1,6 +1,4 @@
-package laboratorio6.exercicio;
-
-import java.util.function.UnaryOperator;
+package laboratorio7.exercicio;
 
 public class IFUnaryOperatorExercicio {
     public static void main(String[] args) {

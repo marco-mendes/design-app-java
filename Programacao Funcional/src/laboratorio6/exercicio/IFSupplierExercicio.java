@@ -1,6 +1,4 @@
-package laboratorio5.exercicio;
-
-import java.util.function.Supplier;
+package laboratorio6.exercicio;
 
 public class IFSupplierExercicio {
     public static void main(String[] args) {

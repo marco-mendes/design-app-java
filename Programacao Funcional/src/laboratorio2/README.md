@@ -33,7 +33,8 @@ public class ExemploIFFunction {
 A Interface Function possui outros métodos que podem nos ser úteis, são eles: **andThen()** e **compose()**
 
 ### Método andThen()
-O método **andThen()** executa uma operação após o termino da execução do método **apply()** o valor que a função retorna é o valor processado no método **andThen()**
+O método **andThen()** executa uma operação após o termino da execução do método **apply()**.
+<br/>O valor que a função retorna é o valor processado no método **andThen()**<br/>
 Exemplo:
 Imagine a seguinte situação, você precisa receber um número, multiplicá-lo por dois e após isso somar o resultado com 5 e retornar o valor após essa operação.
 Podemos fazer isso da seguinte forma:

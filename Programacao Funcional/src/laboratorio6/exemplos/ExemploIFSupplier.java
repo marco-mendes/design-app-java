@@ -1,4 +1,4 @@
-package laboratorio5.exemplos;
+package laboratorio6.exemplos;
 
 import java.util.Date;
 import java.util.function.Supplier;

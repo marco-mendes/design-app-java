@@ -1,6 +1,4 @@
-package laboratorio4.exercicio;
-
-import java.util.function.Consumer;
+package laboratorio5.exercicio;
 
 public class IFConsumerExercicio {
 

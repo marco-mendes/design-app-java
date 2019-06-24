@@ -1,6 +1,4 @@
-package laboratorio3.exercicio;
-
-import java.util.function.Predicate;
+package laboratorio4.exercicio;
 
 public class IFPredicateExercicio {
 
