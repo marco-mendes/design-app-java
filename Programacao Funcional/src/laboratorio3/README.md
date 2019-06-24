@@ -78,7 +78,7 @@ public class IFBiFunctionExercicio {
 
         BiFunction<Integer, Integer, Integer> areaRetangulo = ?????;
         BiFunction<Integer, Integer, Boolean> areaRetanguloMaiorQue100 = ?????;
-        System.out.println(areaRetanguloMaiorQue100.apply(20, 5));
+        System.out.println("Área do retângulo maior que 100? " + areaRetanguloMaiorQue100.apply(21, 5));
 
     }
 
