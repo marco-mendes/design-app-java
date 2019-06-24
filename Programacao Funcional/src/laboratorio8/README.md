@@ -15,7 +15,7 @@ A Interface Funcional BinaryOperator faz parte do grupo de Interfaces Funcionais
 O uso de cada um desses é abordado no [Laboratório 3](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3).
 <br/>Exemplos de uso dos mesmos com BinaryOperator podem ser observados nos materias de preparação.
 
-O que distingue um BinaryOperator de um BiFunciton normal é que ambos os seus argumentos e seu tipo de retorno são os mesmos.
+O que distingue um BinaryOperator de um BiFunction normal é que ambos os seus argumentos e seu tipo de retorno são os mesmos.
 
 Exemplo de uso básico do BinaryOperator:
 <br/>Suponhamos que queremos criar um BinaryOperator para somar 2 números e retornar o valor dessa soma.
