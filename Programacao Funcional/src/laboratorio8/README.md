@@ -7,7 +7,7 @@
 ### Introdução
 A Interface Funcional **BinaryOperator** faz parte do grupo de Interfaces Funcionais do tipo **Operator**.
 <br/>As interfaces do tipo **Operator** são casos especiais de uma função, a diferença é que as Interfaces do tipo Operator recebem e retornam o mesmo tipo de valor.
-<br/>.
+
 <br/>O **BinaryOperator <T&gt;** estende o tipo **BiFunction <T, T, T>** e com isso herda os seguintes métodos da interface funcional de **BiFunction**:
  * apply()
  * andThen()
@@ -15,9 +15,9 @@ A Interface Funcional **BinaryOperator** faz parte do grupo de Interfaces Funcio
 O uso de cada um desses é abordado no [Laboratório 3](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3).
 <br/>Exemplos de uso dos mesmos com BinaryOperator podem ser observados nos materias de preparação.
 
-O que distingue um BinaryOperator de um BiFunction normal é que ambos os seus argumentos e seu tipo de retorno são os mesmos.
+O que distingue um **BinaryOperator** de um **BiFunction** normal é que ambos os seus argumentos e seu tipo de retorno são os mesmos.
 
-Exemplo de uso básico do BinaryOperator:
+Exemplo de uso básico do **BinaryOperator**:
 <br/>Suponhamos que queremos criar um BinaryOperator para somar 2 números e retornar o valor dessa soma.
 <br/>Podemos fazer isso dessa forma:
 ```java
