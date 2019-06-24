@@ -1,4 +1,4 @@
-package gabarito.laboratorio5;
+package gabarito.laboratorio6;
 
 import java.util.function.Supplier;
 

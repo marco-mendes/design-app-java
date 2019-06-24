@@ -1,4 +1,4 @@
-package gabarito.laboratorio6;
+package gabarito.laboratorio7;
 
 import java.util.function.UnaryOperator;
 
