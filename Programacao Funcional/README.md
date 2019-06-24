@@ -18,4 +18,6 @@
 
 [Exemplos de programação funcional em Java](https://elo7.dev/introducao-a-programacao-funcional-com-java8/)
 
+
+### Laboratórios Programação Funcional
 [Índice dos Laboratórios](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src)
