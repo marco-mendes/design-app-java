@@ -5,10 +5,10 @@
 [Vários exemplos de uso da Interface Funcional BinaryOperator](https://www.programcreek.com/java-api-examples/?api=java.util.function.BinaryOperator)
 
 ### Introdução
-A Interface Funcional BinaryOperator faz parte do grupo de Interfaces Funcionais do tipo Operator.
+A Interface Funcional **BinaryOperator** faz parte do grupo de Interfaces Funcionais do tipo **Operator**.
 <br/>Ele representa um operador binário que utiliza dois operandos e opera neles para produzir um resultado.
-<br/>O BinaryOperator <T&gt; estende o tipo BiFunction <T, T, T>.
-<br/>Por isso, herda os seguintes métodos da interface BiFunction
+<br/>.
+<br/>O **BinaryOperator <T&gt;** estende o tipo **BiFunction <T, T, T>** e com isso herda os seguintes métodos da interface funcional de **BiFunction**:
  * apply()
  * andThen()
  
@@ -38,8 +38,8 @@ Além dos métodos herdados da interface BiFunction, a interface BinaryOperator 
  * maxBy()
  * minBy()
  
-### Método maxBy()
-Esse metodo retorna um BinaryOperator que retorna o maior dos dois elementos com base em um Comparator.
+### Método estático maxBy()
+Esse metodo retorna um BinaryOperator que retorna o maior dos dois elementos com base em um **Comparator**.
 <br/>Exemplo de uso:
 ```java
 import java.util.function.BinaryOperator;
@@ -56,8 +56,8 @@ public class ExemploIFBinaryOperator {
 }
 ```
 
-### Método minBy()
-Esse metodo retorna um BinaryOperator que retorna o menor dos dois elementos com base em um Comparator.
+### Método estático minBy()
+Esse metodo retorna um BinaryOperator que retorna o menor dos dois elementos com base em um **Comparator**.
 <br/>Exemplo de uso:
 ```java
 import java.util.function.BinaryOperator;
@@ -75,3 +75,18 @@ public class ExemploIFBinaryOperator {
 ```
 
 ### Exercício
+Com base no código abaixo altere o BinaryOperator para retornar a raiz quadrada da subtração dos números informados no método **apply()**.
+```java
+import java.util.function.BinaryOperator;
+
+public class IFBinaryOperatorExercicio {
+
+    public static void main(String[] args) {
+
+        BinaryOperator<Double> obtemRaizQuadradaDaSubtracao = ?????;
+        System.out.println(obtemRaizQuadradaDaSubtracao.apply(70.0, 6.0));
+        
+    }
+
+}
+```
