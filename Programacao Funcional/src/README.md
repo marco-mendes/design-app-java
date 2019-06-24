@@ -7,3 +7,4 @@
 #### [Laboratório 5 - Interface Funcional Consumer](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio5/)
 #### [Laboratório 6 - Interface Funcional Supplier](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio6/)
 #### [Laboratório 7 - Interface Funcional UnaryOperator](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio7/)
+#### [Laboratório 8 - Interface Funcional BinaryOperator](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio8/)
