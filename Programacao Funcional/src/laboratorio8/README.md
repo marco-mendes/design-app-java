@@ -34,12 +34,12 @@ public class ExemploIFBinaryOperator {
 ```
 
 ### Outros métodos do BinaryOperator
-Além dos métodos herdados da interface BiFunction, a interface BinaryOperator possui dois métodos estáticos que podemos usar, são eles:
+Além dos métodos herdados da interface **BiFunction**, a interface **BinaryOperator** possui dois métodos estáticos que podemos usar, são eles:
  * maxBy()
  * minBy()
  
 ### Método estático maxBy()
-Esse metodo retorna um BinaryOperator que retorna o maior dos dois elementos com base em um **Comparator**.
+Esse metodo retorna um **BinaryOperator** que retorna o maior dos dois elementos com base em um **Comparator**.
 <br/>Exemplo de uso:
 ```java
 import java.util.function.BinaryOperator;
