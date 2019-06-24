@@ -34,7 +34,8 @@ public class ExemploIFUnaryOperator {
 ```
 
 ### Exercício
-Com base no código abaixo crie um UnaryOperator que deve receber um valor do tipo Double referente ao valor de uma mercadoria e deve aplicar sobre este valor um imposto de 10% retornando assim o valor da mercadoria com o valor do imposto já incluído.
+Com base no código abaixo crie um UnaryOperator que deve receber um valor do tipo Double referente ao valor de uma mercadoria.
+<br/>Você deve aplicar sobre este valor um imposto de 10% retornando assim o valor da mercadoria com o valor do imposto já incluído.
 ```java
 import java.util.function.UnaryOperator;
 
