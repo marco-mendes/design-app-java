@@ -13,9 +13,40 @@ A Interface Funcional UnaryOperator faz parte do grupo de Interfaces Funcionais 
  * compose()
 
 O uso de cada um desses é abordado no [Laboratório 2](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio2).
-<br/>Exemplos de uso dos mesmos podem ser observados nos materias de preparação.
+<br/>Exemplos de uso dos mesmos com UnaryOperator podem ser observados nos materias de preparação.
 
 Exemplo de uso básico do UnaryOperator:
- 
+<br/>Suponhamos que queremos criar um UnaryOperator para extrair a raiz quadrada de um número.
+<br/>Podemos fazer isso dessa forma:
+```java
+import java.util.function.UnaryOperator;
 
+public class ExemploIFUnaryOperator {
 
+    public static void main(String[] args) {
+
+        UnaryOperator<Double> obtemRaizQuadrada = (valor) -> Math.sqrt(valor);
+        System.out.println("Raiz Quadrada: " + obtemRaizQuadrada.apply(25.0));
+
+    }
+
+}
+```
+
+### Exercício
+Com base no código abaixo crie um UnaryOperator que deve receber um valor do tipo Double referente ao valor de uma mercadoria e deve aplicar sobre este valor um imposto de 10% retornando assim o valor da mercadoria com o valor do imposto já incluído.
+```java
+import java.util.function.UnaryOperator;
+
+public class ExemploIFUnaryOperator {
+
+    public static void main(String[] args) {
+
+        UnaryOperator<Double> aplicaImposto = ????;
+        Double valorMercadoria = 2500.00;
+        System.out.println("Valor total mercadoria com imposto: " + aplicaImposto.apply(valorMercadoria));
+
+    }
+
+}
+```
