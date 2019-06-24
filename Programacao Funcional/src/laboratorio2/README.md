@@ -1,8 +1,8 @@
 # Laboratório Interface Funcional Function - Protótipo
 
 ### Material de Preparação
-
-[Interface Funcional Function](https://www.geeksforgeeks.org/function-interface-in-java-with-examples/)
+[Interface Funcional Function](https://www.geeksforgeeks.org/function-interface-in-java-with-examples/)<br/>
+[Vários exemplos de uso da Interface Funcional Function](https://www.programcreek.com/java-api-examples/?api=java.util.function.Function)
 
 ### Introdução
 

@@ -1,7 +1,8 @@
 # Laboratório Interface Funcional Consumer - Protótipo
 
 ### Material de Preparação
-[Uso Interface Funcional Consumer com Exemplos](https://www.geeksforgeeks.org/java-8-consumer-interface-in-java-with-examples/)
+[Uso Interface Funcional Consumer com Exemplos](https://www.geeksforgeeks.org/java-8-consumer-interface-in-java-with-examples/)<br/>
+[Vários exemplos de uso da Interface Funcional Consumer](https://www.programcreek.com/java-api-examples/?api=java.util.function.Consumer)
 
 ### Introdução
 A Interface Funcional Consumer representa uma função que aceita um argumento e produz um resultado.

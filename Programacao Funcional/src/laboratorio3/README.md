@@ -2,7 +2,8 @@
 
 ### Material de Preparação
 [Como usar Predicates](http://www.edneiparmigiani.com.br/java-8-como-usar-o-predicate/)<br/>
-[Predicate com Exemplos](https://www.geeksforgeeks.org/java-8-predicate-with-examples/)
+[Predicate com Exemplos](https://www.geeksforgeeks.org/java-8-predicate-with-examples/)<br/>
+[Vários exemplos de uso da Interface Funcional Predicate](https://www.programcreek.com/java-api-examples/?api=java.util.function.Predicate)
 
 ### Introdução
 A interface funcional **Predicate** foi projetada para ser usada em situações em que um teste precisa ser executado e um valor booleano precisa ser retornado.
