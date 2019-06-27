@@ -130,13 +130,13 @@ A expressão lambda deve respeitar o contrato da interface ao qual ela será con
 
 Podemos exemplificar o uso de Interfaces Funcionais com lambda da seguinte forma:
 
-Possuímos a interface funcional chamada **TestaAlgo**, essa interface tem como objetivo executar um teste lambda e retornar o resultado do mesmo.
+Possuímos a interface funcional chamada **TestaAlgo**, essa interface recebe um parâmetro genérico e tem como objetivo executar um teste lambda e retornar o resultado do mesmo.
 
 O método **test()** irá executar a expressão lambda recebida pela interface **TestaAlgo**.
 
 ```java
-interface TestaAlgo {
-    boolean test(List<Integer> lista);
+interface TestaAlgo<T> {
+    boolean test(T t);
 }
 ```
 
@@ -145,7 +145,7 @@ interface TestaAlgo {
 Podemos usar essa interface da seguinte forma:
 
 ```java
-TestaAlgo testador = (lista) -> lista.size() > 5;
+TestaAlgo<List<Integer>> testador = (lista) -> lista.size() > 5;
 List<Integer> listaNumeros = Arrays.asList(1,2,3,4,5,6);
 
 System.out.println("Resultado do teste: ");
@@ -184,11 +184,7 @@ Aqui possuímos a classe que irá utilizar essa interface:
 class Calculadora {
 
     public static void main(String[] args) {
-
-        System.out.println(calcular((a, b) -> a + b, 5, 20));
-        // Outra forma de usar a interface Operator
-        Operator<Integer> calculador = (a, b) -> a * b;
-        System.out.println(calculador.apply(5, 10));
+		System.out.println(calcular((a, b) -> a + b, 5, 20));
     }
 
     public static <T> T calcular(Operator<T> operacao, T value1, T value2){
