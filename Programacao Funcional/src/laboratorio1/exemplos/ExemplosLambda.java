@@ -53,7 +53,7 @@ public class ExemplosLambda {
     }
 
     public static void usoInterfaceFuncionalComLambda(){
-        TestaAlgo testador = (lista) -> lista.size() > 5;
+        TestaAlgo<List<Integer>> testador = (lista) -> lista.size() > 5;
         List<Integer> listaNumeros = Arrays.asList(1,2,3,4,5,6);
 
         System.out.println("Resultado do teste: ");
@@ -62,9 +62,6 @@ public class ExemplosLambda {
 
     public static void exemploInferenciaTipos(){
         System.out.println(Calculadora.calcular((a, b) -> a + b, 5, 20));
-        // Outra forma de usar a interface Operator
-        Operator<Integer> calculador = (a, b) -> a * b;
-        System.out.println(calculador.apply(5, 10));
     }
 
 }
@@ -83,6 +80,6 @@ interface Operator<T> {
 
 }
 
-interface TestaAlgo {
-    boolean test(List<Integer> lista);
+interface TestaAlgo<T> {
+    boolean test(T t);
 }
