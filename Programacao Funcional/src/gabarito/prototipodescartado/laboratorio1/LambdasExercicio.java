@@ -1,4 +1,4 @@
-package gabarito.laboratorio1;
+package gabarito.prototipodescartado.laboratorio1;
 
 import java.util.Arrays;
 import java.util.List;

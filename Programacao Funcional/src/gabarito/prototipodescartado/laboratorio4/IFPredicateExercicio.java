@@ -1,4 +1,4 @@
-package gabarito.laboratorio4;
+package gabarito.prototipodescartado.laboratorio4;
 
 import java.util.function.Predicate;
 

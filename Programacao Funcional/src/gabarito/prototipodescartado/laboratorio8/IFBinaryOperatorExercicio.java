@@ -1,4 +1,4 @@
-package gabarito.laboratorio8;
+package gabarito.prototipodescartado.laboratorio8;
 
 import java.util.function.BinaryOperator;
 

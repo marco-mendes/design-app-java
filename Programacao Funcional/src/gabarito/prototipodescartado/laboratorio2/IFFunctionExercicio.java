@@ -1,4 +1,4 @@
-package gabarito.laboratorio2;
+package gabarito.prototipodescartado.laboratorio2;
 
 import java.util.function.Function;
 

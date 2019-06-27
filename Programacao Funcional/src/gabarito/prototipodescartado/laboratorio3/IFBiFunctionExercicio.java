@@ -1,4 +1,4 @@
-package gabarito.laboratorio3;
+package gabarito.prototipodescartado.laboratorio3;
 
 import java.util.function.BiFunction;
 
