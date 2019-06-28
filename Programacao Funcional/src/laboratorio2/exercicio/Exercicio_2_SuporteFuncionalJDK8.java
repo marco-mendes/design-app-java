@@ -13,8 +13,6 @@ public class Exercicio_2_SuporteFuncionalJDK8 {
         pessoas.add(new Pessoa("João", 29));
         pessoas.add(new Pessoa("Josefina", 21));
 
-        pessoas.forEach(Pessoa::imprimePessoa);
-
     }
 
 }
