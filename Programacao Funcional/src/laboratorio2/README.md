@@ -24,6 +24,7 @@ Dentre eles possuímos:
 * Interfaces Funcionais
 * Métodos Default
 * Method Reference
+* Melhorias na interface Collections
 
 
 
@@ -31,7 +32,7 @@ Além dessas melhorias possuímos também as Streams.
 
 Em resumos as Streams foram introduzidas para facilitar a manipulação e computação de dados dentro de uma coleção.
 
-As Streams são abordadas nos próximos laboratórios com mais detalhes.
+As Streams serão abordadas nos próximos laboratórios com mais detalhes.
 
 
 
@@ -88,7 +89,7 @@ public class ExemplosSuporteFuncionalJDK8 {
 
     public static void main(String[] args) {
         UsoDefaultExemplo usoDefaultExemplo = new UsoDefaultExemplo();
-        usoDefaultExemplo.MeuNovoMetodo();
+        usoDefaultExemplo.meuNovoMetodo();
     }
 
 }
@@ -102,28 +103,28 @@ class UsoDefaultExemplo implements IntefaceComDefault {
 
 interface IntefaceComDefault {
 
-    default void MeuNovoMetodo(){
+    default void meuNovoMetodo(){
         System.out.println("Novo método");
     }
 
 }
 ```
 
-Como vimos não foi necessário sobrescrever o método **MeuNovoMetodo** da interface **IntefaceComDefault** para realizar o uso do novo método na classe **UsoDefaultExemplo**.
+Como vimos não foi necessário sobrescrever o método **meuNovoMetodo** da interface **IntefaceComDefault** para realizar o uso do novo método na classe **UsoDefaultExemplo**.
 
 Isso ocorre pois o modificador default nos permite criar uma implementação concreta de método dentro de uma interface, e não nos obriga a implementar os métodos com esse modificador ao usarmos essa interface.
 
-Para se aprofundar mais em métodos default leia o material de preparação sobre [métodos default]([https://medium.com/@RafaelSermenho/m%C3%A9todos-default-java-8-d0ca312fea47](https://medium.com/@RafaelSermenho/métodos-default-java-8-d0ca312fea47))
+Para se aprofundar mais em métodos default leia o material de preparação sobre [métodos default](https://dzone.com/articles/interface-default-methods-java)
 
 
 
 ### Method Reference
 
-**Method References são um tipo especial de expressões lambda** .
+**Method References** são um tipo especial de expressões lambda.
 
 Eles são frequentemente usados para criar expressões lambda simples referenciando métodos existentes.
 
-Existem quatro tipos de referências de métodos:
+Existem quatro tipos de Method Reference:
 
 - Métodos estáticos
 - Métodos de instância de objetos específicos
@@ -132,19 +133,41 @@ Existem quatro tipos de referências de métodos:
 
 
 
-O uso de cada um deles foi exemplificado no material de preparação.
+Cada um deles exemplificado no material de preparação.
+
+Abordaremos nesse laboratório apenas um exemplo de uso básico de **Method References**.
+
+Exemplo de uso básico: 
+
+```java
+
+public class ExemplosSuporteFuncionalJDK8 {
+
+    public static void main(String[] args) {
+        List<String> nomes = Arrays.asList("Marry", "Jhon", "Natasha");
+        nomes.forEach(ExemplosSuporteFuncionalJDK8::imprimeValorMaiusculo);
+    }
+    
+    public static void imprimeValorMaiusculo(String value){
+        System.out.println(value.toUpperCase());
+    }
+
+}
+```
+
+
 
 
 
 ### Exercício 1
 
-Com base no código abaixo implemente os seguintes métodos na interface Calculator de forma a não quebrar o código existente:
+Com base no código abaixo implemente os seguintes métodos na interface **Calculator** de forma a não quebrar o código já existente:
 
 * calculaRaizQuadrada: Este método deve receber um valor do tipo inteiro e retornar a raiz quadrada do mesmo.
 * elevarAoCubo: Este método deve receber um valor do tipo inteiro e retornar esse valor elevado ao cubo.
 
 ```java
-public class ExercicioSuporteFuncionalJDK8 implements Calculator {
+public class Exercicio_1_SuporteFuncionalJDK8 implements Calculator {
 
     public static void main(String[] args) {
         
@@ -168,7 +191,7 @@ interface Calculator {
 
 ### Exercício 2
 
-Com base no código resolvido abaixo utilize o método forEach da lista de Pessoas para acessar o método imprimePessoa através de **Method Reference** para imprimir o nome de cada pessoa na lista.
+Com base no código abaixo utilize o método **forEach** da lista de Pessoas para acessar o método **imprimePessoa** através de **Method Reference**.
 
 ```java
 public class Exercicio_2_SuporteFuncionalJDK8 {
