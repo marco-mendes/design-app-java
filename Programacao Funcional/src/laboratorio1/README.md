@@ -1,12 +1,12 @@
 ## Introdução aos conceitos básicos da Programação Funcional e uso básico de Lambdas
 
 ### Materiais de preparação
-[Introdução da Programaçao Funcional](https://medium.com/labs-olx-brasil/programa%C3%A7%C3%A3o-funcional-vis%C3%A3o-geral-59ebdb4be244)
+[Introdução da Programaçao Funcional](https://medium.com/labs-olx-brasil/programa%C3%A7%C3%A3o-funcional-vis%C3%A3o-geral-59ebdb4be244)<br/>
 [Introdução à Lambdas](http://blog.gabrielamorim.com/java-8-expressoes-lambda-closures-interfaces-funcionais-e-um-pouco-mais/)<br/>
 [Como escrever Lambdas multilinha](https://www.gunnargissel.com/how-to-write-a-multiline-lambda-in-java8.html)<br/>
 [Algumas dicas e melhores práticas sobre Lambdas](https://www.baeldung.com/java-8-lambda-expressions-tips)<br/>
 [Uso de lambdas com Functions, Streams e Collections](https://rodrigouchoa.wordpress.com/2014/05/20/novidades-do-java-8-lambda-expressions/)<br/>
-[Caso queira se aprofundar mais em Lambdas](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html)
+[Caso queira se aprofundar mais em Lambdas](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html)<br/>
 [Inferência de Tipos](https://www.oodlestechnologies.com/blogs/Type-Inference-Of-Lambda-Expressions-In-Java-8/)
 
 No material de preparação foi apresentada uma visão geral sobre a Programação Funcional e alguns de seus conceitos básicos como:
