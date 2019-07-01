@@ -89,10 +89,10 @@ O exemplo acima também pode ser considerado uma Function Composition.
 
 #### Uso da interface funcional Function como parâmetro de método
 
-O Java também aceita funções como parâmetros em métodos.
-Imagine a seguinte situação:
-Sempre que você chamar um método X você gostaria que este método realizasse determinada operação matemática porém você não sabe ao certo qual operação vai ser executada.
-Para resolver isso você pode passar como parâmetro uma função ou uma expressão Lambda com o que deve ser executado.
+O Java também aceita funções como parâmetros em métodos.<br/>
+Imagine a seguinte situação:<br/>
+Sempre que você chamar um método X você gostaria que este método realizasse determinada operação matemática porém você não sabe ao certo qual operação vai ser executada.<br/>
+Para resolver isso você pode passar como parâmetro uma função ou uma expressão Lambda com o que deve ser executado.<br/>
 Podemos fazer isso desta forma:
 
 
@@ -119,7 +119,7 @@ public class ExemploIFFunction {
 ```
 
 ### Introdução Interface Funcional BiFunction
-A Interface funcional BiFunction representa uma função que aceita dois argumentos e produz um resultado.
+A Interface funcional BiFunction representa uma função que aceita dois argumentos e produz um resultado.<br/>
 Para criar uma BiFunction precisamos de 3 parâmetros em seu Diamond Operator(<>), são eles:
 
  * T : denota o tipo do primeiro argumento para a função
