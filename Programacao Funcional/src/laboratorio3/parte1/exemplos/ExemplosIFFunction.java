@@ -1,13 +1,16 @@
-package prototipodescartado.laboratorio2.exemplos;
+package laboratorio3.parte1.exemplos;
 
 import java.util.function.Function;
 
-public class ExemploIFFunction {
+public class ExemplosIFFunction {
 
     public static void main(String[] args) {
         exemplosUsoFunction();
-        exemploFunctionComposition();
+        System.out.println("----");
+        exemploBasicoFunctionComposition();
+        System.out.println("----");
         exemploLambdaComoParametroDeMetodo();
+        System.out.println("----");
         exemploFuncaoComoParametroDeMetodo();
     }
 
@@ -31,7 +34,7 @@ public class ExemploIFFunction {
 
     }
 
-    private static void exemploFunctionComposition() {
+    private static void exemploBasicoFunctionComposition() {
 
         Function<Integer, Integer> calcularDobro = n -> n * 2;
         Function<Integer, Integer> calcularDobroMaisCinco = calcularDobro.andThen(n -> n * 5);
