@@ -136,7 +136,8 @@ Um exemplo básico do uso da interface BiFunction seria para realizar o calculo 
 <br/>No exemplo abaixo iremos realizar a seguinte operação:
 
  * Somar os dois números recebido e retornar essa soma.
-<br/>Podemos fazer isso desta forma:
+
+Podemos fazer isso desta forma:
 ```java
 import java.util.function.BiFunction;
 

@@ -18,8 +18,8 @@ A Function Composition foi um [conceito abordado em um dos materias de preparaç
 
   
 ### Conteúdo:
- * [Function]()
- * [Predicate]()
- * [Consumer]()
- * [Supplier]()
- * [Operator]()
+ * [Function](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte1)
+ * [Predicate](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte2)
+ * [Consumer](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte3)
+ * [Supplier](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte4)
+ * [Operator](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte5)
