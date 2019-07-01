@@ -24,22 +24,14 @@ Dentre eles possuímos:
 * Interfaces Funcionais
 * Métodos Default
 * Method Reference
-* Melhorias na interface Collections
-
-
-
-Além dessas melhorias possuímos também as Streams.
-
-Em resumos as Streams foram introduzidas para facilitar a manipulação e computação de dados dentro de uma coleção.
-
-As Streams serão abordadas nos próximos laboratórios com mais detalhes.
+* Melhorias na interface Collection
 
 
 
 ### Expressões Lambda
 
-Como vimos no laboratório 1 as expressões Lambda são uma forma clara e objetiva de representar um método usando apenas uma expressão.
-
+Como vimos no laboratório 1 as expressões Lambda são uma forma clara e objetiva de representar um método usando apenas uma expressão.<br/>
+Vimos também que assim como métodos as expressões Lambda também podem retornar exceções e vimos como realizar o tratamento básico das mesmas.<br/>
 Esta foi uma das abordagens do Java 8 para a programação funcional.
 
 
@@ -155,8 +147,13 @@ public class ExemplosSuporteFuncionalJDK8 {
 }
 ```
 
+### Melhorias na Interface Collection
+Um outro ponto que veio junto ao JDK8 foram as Streams.<br/>
+Em resumos as Streams foram introduzidas para facilitar a manipulação e computação de dados dentro de uma coleção.<br/>
+A Interface Collection e as demais interfaces que a utilizam foram incrementadas com o suporte aos Streams para facilitar a computação de dados dentro das mesmas.<br/>
+O uso de Streams será abordado nos próximos laboratórios detalhadamente.
 
-
+Além disso alguns métodos que esperavam uma interface funcional podem receber expressões Lambda em seu lugar, um exemplo é o método **forEach** da Interface **List**.
 
 
 ### Exercício 1
