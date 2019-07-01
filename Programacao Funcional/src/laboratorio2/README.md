@@ -4,10 +4,8 @@
 
 ### Materiais de preparação
 
-[Métodos Default](https://dzone.com/articles/interface-default-methods-java)
-
-[Method Reference](https://www.baeldung.com/java-method-references)
-
+[Métodos Default](https://dzone.com/articles/interface-default-methods-java)<br/>
+[Method Reference](https://www.baeldung.com/java-method-references)<br/>
 [Mais exemplos Method Reference](https://www.javatpoint.com/java-8-method-reference)
 
 
