@@ -6,6 +6,7 @@
 [Como escrever Lambdas multilinha](https://www.gunnargissel.com/how-to-write-a-multiline-lambda-in-java8.html)<br/>
 [Algumas dicas e melhores práticas sobre Lambdas](https://www.baeldung.com/java-8-lambda-expressions-tips)<br/>
 [Uso de lambdas com Functions, Streams e Collections](https://rodrigouchoa.wordpress.com/2014/05/20/novidades-do-java-8-lambda-expressions/)<br/>
+[Manipulação de Exceção com Expressões Lambda](https://www.oodlestechnologies.com/blogs/Exception-Handling-with-Lambda-Expressions/)<br/>
 [Caso queira se aprofundar mais em Lambdas](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html)<br/>
 [Inferência de Tipos](https://www.oodlestechnologies.com/blogs/Type-Inference-Of-Lambda-Expressions-In-Java-8/)
 
@@ -162,6 +163,50 @@ No exemplo acima estamos testando através de uma expressão lambda se a lista r
 
 Ao executar o método **test()** teremos o retorno true indicando que a lista possui mais de 5 elementos.
 
+
+### Tratamento de Exceptions com Lambda
+
+Uma expressão Lambda pode lança uma exceção, mas essa exceção deve ser compatível com aquelas especificadas na cláusula **throws** do método na interface funcional.
+
+Se um corpo de expressão lambda lançar uma exceção a mesma deve ser igual ou subtipo da exceção declarada na cláusula **throws** da interface funcional.
+
+Se uma interface funcional não especificar nenhuma exceção com uma cláusula **throws**, a expressão Lambda também não poderá gerar nenhuma exceção.
+
+
+Suponhamos que temos uma interface funcional chamada **CalculoComum**, essa interface realiza uma operação com 2 números inteiros e retorna um resultado com base na operação definida pela expressão lambda.
+
+No exemplo abaixo simulamos um caso comum de erro no Java, uma divisão por 0 e exemplificamos o tratamento da mesma.
+
+```java
+public class ExemploLambdaComException {
+
+    public static void main(String[] args) {
+
+        CalculoComum calculoComum = (numero1, numero2) -> {
+
+            try {
+                int resultado = numero1 / numero2;
+                System.out.println(resultado);
+            } catch (ArithmeticException e) {
+                System.out.println("Operação inválida: " + e.getMessage());
+                e.printStackTrace();
+            }
+
+        };
+
+        calculoComum.calculaEImprimeResultado(10,2);
+        calculoComum.calculaEImprimeResultado(5,0);
+
+    }
+
+}
+
+interface CalculoComum {
+
+    void calculaEImprimeResultado(int numero1, int numero2) throws ArithmeticException;
+
+}
+```
 
 
 ### Inferência de Tipos
