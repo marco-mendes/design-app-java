@@ -5,7 +5,6 @@
 [Introdução à Lambdas](http://blog.gabrielamorim.com/java-8-expressoes-lambda-closures-interfaces-funcionais-e-um-pouco-mais/)<br/>
 [Como escrever Lambdas multilinha](https://www.gunnargissel.com/how-to-write-a-multiline-lambda-in-java8.html)<br/>
 [Algumas dicas e melhores práticas sobre Lambdas](https://www.baeldung.com/java-8-lambda-expressions-tips)<br/>
-[Uso de lambdas com Functions, Streams e Collections](https://rodrigouchoa.wordpress.com/2014/05/20/novidades-do-java-8-lambda-expressions/)<br/>
 [Manipulação de Exceção com Expressões Lambda](https://www.oodlestechnologies.com/blogs/Exception-Handling-with-Lambda-Expressions/)<br/>
 [Caso queira se aprofundar mais em Lambdas](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html)<br/>
 [Inferência de Tipos](https://www.oodlestechnologies.com/blogs/Type-Inference-Of-Lambda-Expressions-In-Java-8/)

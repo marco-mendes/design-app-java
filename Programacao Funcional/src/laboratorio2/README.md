@@ -155,6 +155,7 @@ O uso de Streams será abordado nos próximos laboratórios detalhadamente.
 
 Além disso alguns métodos que esperavam uma interface funcional podem receber expressões Lambda em seu lugar, um exemplo é o método **forEach** da Interface **List**.
 
+Caso queira dar uma conferida antecipada nessas melhorias pode dar uma olhanda neste [link](https://rodrigouchoa.wordpress.com/2014/05/20/novidades-do-java-8-lambda-expressions/)<br/>
 
 ### Exercício 1
 
