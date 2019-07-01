@@ -39,7 +39,7 @@ public class ExemploIFFunction {
 }
 ```
 
-A Interface Function possui outros métodos que podem nos ser úteis, são eles: **andThen()** e **compose()**.
+A Interface Function possui outros métodos que podem nos ser úteis, são eles: **andThen()** e **compose()**.<br/>
 Ambos os métodos podem ser usados para Composição de Funções(Function Composition).
 
 #### Método andThen()
@@ -71,9 +71,9 @@ Neste exemplo primeiro o valor recebido será multiplicado por 2, e após isso o
 
 #### Método compose()
 
-O método **compose()** executa uma operação antes da execução do método **apply()**, o valor retornado por este método é usado para a operação do método **apply()**.
-Exemplo:
-Imagine a seguinte situação, você precisa receber um número, somá-lo com 5, e somente após isso multiplicá-lo por 2;
+O método **compose()** executa uma operação antes da execução do método **apply()**, o valor retornado por este método é usado para a operação do método **apply()**.<br/>
+Exemplo:<br/>
+Imagine a seguinte situação, você precisa receber um número, somá-lo com 5, e somente após isso multiplicá-lo por 2.<br/>
 Podemos fazer isso da seguinte forma:
 
 ```java
