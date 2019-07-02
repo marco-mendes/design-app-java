@@ -10,10 +10,10 @@ Os 5 principais tipos são:
  * Operator: Recebe argumentos e executa qualquer tipo de operação.
   
 ### Os 5 principais tipos de Interfaces Funcionais:
-Para melhor compreensão dividiremos esse laboratório em 5 partes, cada uma abordando uma tipo de Interface Funcional presente no Java 8.
+Para melhor compreensão dividiremos esse laboratório em 5 partes, cada uma abordando um tipo de Interface Funcional presente no Java 8.
 
- * [Function](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte1)
- * [Predicate](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte2)
- * [Consumer](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte3)
- * [Supplier](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte4)
- * [Operator](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte5)
+ * [Inteface Funcional Tipo Function](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte1)
+ * [Inteface Funcional Tipo Predicate](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte2)
+ * [Inteface Funcional Tipo Consumer](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte3)
+ * [Inteface Funcional Tipo Supplier](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte4)
+ * [Inteface Funcional Tipo Operator](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte5)
