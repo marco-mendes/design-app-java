@@ -15,7 +15,7 @@ Também existem especializações de UnaryOperator e BinaryOperator que podem se
  * [IntBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/IntBinaryOperator.html)
  * [LongBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/LongBinaryOperator.html)
   
-Não abordaremos o uso de cada uma delas nesse Laboratório, caso queira saber mais basta acessar os links deixados como referência acima.
+Não abordaremos o uso de cada uma delas nesse Laboratório, caso queira saber mais basta acessar os links de referência acima.
  
  
 ### Material de Preparação
@@ -31,7 +31,7 @@ A Interface Funcional UnaryOperator faz parte do grupo de Interfaces Funcionais 
  * andThen()
  * compose()
 
-O uso de cada um desses métodos é abordado na [Parte 1 desse laboratório](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte1).
+O uso de cada um desses métodos é abordado na [parte 1 desse laboratório](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte1).
 <br/>Exemplos de uso dos mesmos com UnaryOperator podem ser observados nos materias de preparação.
 
 Exemplo de uso básico do UnaryOperator:
@@ -55,11 +55,11 @@ public class ExemploIFUnaryOperator {
 ### Introdução Interface Funcional BinaryOperator
 A Interface Funcional **BinaryOperator** faz parte do grupo de Interfaces Funcionais do tipo **Operator**.
 
-<br/>O **BinaryOperator <T&gt;** estende o tipo **BiFunction <T, T, T>** e com isso herdando os seguintes métodos da interface funcional **BiFunction**:
+O **BinaryOperator <T&gt;** estende o tipo **BiFunction <T, T, T>** e com isso herdando os seguintes métodos da interface funcional **BiFunction**:
  * apply()
  * andThen()
  
-O uso de cada um desses métodos é abordado na [Parte 1 desse laboratório](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte1).
+O uso de cada um desses métodos é abordado na [parte 1 desse laboratório](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte1).
 <br/>Exemplos de uso dos mesmos com BinaryOperator podem ser observados nos materias de preparação.
 
 O que distingue um **BinaryOperator** de um **BiFunction** normal é que ambos os seus argumentos e seu tipo de retorno são os mesmos.

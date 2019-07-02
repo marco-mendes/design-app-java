@@ -1,5 +1,10 @@
 package laboratorio3.parte5.exercicio;
 
+/*
+Com base no código abaixo altere o BinaryOperator para retornar a raiz quadrada da subtração dos números informados
+no método apply().
+* */
+
 public class ExercicioIFBinaryOperator {
 
     public static void main(String[] args) {
