@@ -4,9 +4,19 @@
 Abordaremos aqui as duas principais Interfaces Funcionais do tipo **Operator**, são elas:
  * UnaryOperator
  * BinaryOperator
-<br/>As interfaces do tipo **Operator** são casos especiais de uma função, a diferença é que as Interfaces do tipo Operator recebem e retornam o mesmo tipo de valor.
+
+As interfaces do tipo **Operator** são casos especiais de uma função, a diferença é que as Interfaces do tipo Operator recebem e retornam o mesmo tipo de valor.
  
-Também existem especializações de UnaryOperator e BinaryOperator que podem ser usadas com valores primitivos, como [DoubleUnaryOperator](https://www.geeksforgeeks.org/doubleunaryoperator-interface-in-java/) , [IntUnaryOperator](https://www.geeksforgeeks.org/intunaryoperator-interface-in-java/) , [LongUnaryOperator](https://www.geeksforgeeks.org/longunaryoperator-interface-in-java/) , [DoubleBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleBinaryOperator.html) , [IntBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/IntBinaryOperator.html) e [LongBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/LongBinaryOperator.html) porém não abordaremos o uso de cada uma delas nesse Laboratório.
+Também existem especializações de UnaryOperator e BinaryOperator que podem ser usadas com valores primitivos, como:
+ * [DoubleUnaryOperator](https://www.geeksforgeeks.org/doubleunaryoperator-interface-in-java/)
+ * [IntUnaryOperator](https://www.geeksforgeeks.org/intunaryoperator-interface-in-java/)
+ * [LongUnaryOperator](https://www.geeksforgeeks.org/longunaryoperator-interface-in-java/)
+ * [DoubleBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleBinaryOperator.html)
+ * [IntBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/IntBinaryOperator.html)
+ * [LongBinaryOperator](https://docs.oracle.com/javase/8/docs/api/java/util/function/LongBinaryOperator.html)
+  
+Não abordaremos o uso de cada uma delas nesse Laboratório, caso queira saber mais basta acessar os links deixados como referência acima.
+ 
  
 ### Material de Preparação
 [Uso Interface Funcional UnaryOperator com Exemplos](https://www.geeksforgeeks.org/unaryoperator-interface-in-java/)<br/>
