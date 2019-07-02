@@ -7,6 +7,8 @@ Como base no código abaixo altere os Consumers presentes no exercício para ate
  * O consumerImprimeNomeEIdade deve ser criado usando como base o consumerImprimeNome.
 * */
 
+import java.util.function.Consumer;
+
 public class ExercicioIFConsumer {
 
     public static void main(String[] args) {
