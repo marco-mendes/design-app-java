@@ -8,11 +8,10 @@ Os 5 principais tipos são:
  * Consumer: Recebe argumentos porém não retorna um valor.
  * Supplier: Não recebe argumentos porém retorna um valor.
  * Operator: Recebe argumentos e executa qualquer tipo de operação.
-
+  
+### Os 5 principais tipos de Interfaces Funcionais:
 Para melhor compreensão dividiremos esse laboratório em 5 partes, cada uma abordando uma tipo de Interface Funcional presente no Java 8.
 
-  
-### Conteúdo:
  * [Function](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte1)
  * [Predicate](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte2)
  * [Consumer](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte3)
