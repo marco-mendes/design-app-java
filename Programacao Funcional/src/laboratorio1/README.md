@@ -12,11 +12,11 @@
 No material de preparação foi apresentada uma visão geral sobre a Programação Funcional e alguns de seus conceitos básicos como:
 
 - Lambda 
-- Inferência de tipos
 - Function Composition
-- Funções puras e Impuras
 - Funções de ordem superior
-
+- Funções puras e Impuras
+- Interfaces Funcionais
+- Inferência de tipos
 
 
 Além disso foi abordado também as diferenças entre Programação Funcional e Programação Orientada a Objetos(POO)
