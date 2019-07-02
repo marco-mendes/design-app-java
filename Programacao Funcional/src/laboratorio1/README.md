@@ -1,4 +1,4 @@
-## Introdução aos conceitos básicos da Programação Funcional e uso básico de Lambdas
+## Introdução aos conceitos básicos da Programação Funcional
 
 ### Materiais de preparação
 [Introdução da Programaçao Funcional](https://medium.com/labs-olx-brasil/programa%C3%A7%C3%A3o-funcional-vis%C3%A3o-geral-59ebdb4be244)<br/>
