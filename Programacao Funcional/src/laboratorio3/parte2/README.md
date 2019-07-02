@@ -1,4 +1,4 @@
-# Interface Funcional Predicate
+## Interface Funcional Predicate
 
 ### Material de Preparação
 [Como usar Predicates](http://www.edneiparmigiani.com.br/java-8-como-usar-o-predicate/)<br/>
@@ -17,7 +17,7 @@ Exemplo de uso básico desta interface funcional:
 ```java
 import java.util.function.Predicate;
 
-public class ExemploIFPredicate {
+public class ExemplosIFPredicate {
 
     public static void main(String[] args) {
 
@@ -110,7 +110,7 @@ Com base no código abaixo ajuste a lógica dos 2 Predicates para atender os seg
 ```java
 import java.util.function.Predicate;
 
-public class IFPredicateExercicio {
+public class ExercicioIFPredicate {
 
     public static void main(String[] args) {
         // A resolver
