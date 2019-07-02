@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class ExemplosIFConsumer {
+public class
+ExemplosIFConsumer {
 
     public static void main(String[] args) {
 

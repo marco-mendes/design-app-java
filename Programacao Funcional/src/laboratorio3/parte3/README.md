@@ -10,7 +10,7 @@ A Interface Funcional Consumer representa uma função que aceita um argumento e
 <br/>A expressão lambda atribuída a um objeto do tipo Consumer é usada para definir o comportamento de seu método **accept()**, que eventualmente aplica a operação atribuída ao Consumer em seu argumento.
 <br/>A interface Consumer é útil quando não precisamos retornar nenhum valor, pois a mesma funciona via efeitos colaterais.
 
-Exemplo de uso básico:
+Exemplo de uso básico:<br/>
 Temos aqui um consumer que recebe um número e imprime uma mensagem com o número recebido.
 ```java
 import java.util.function.Consumer;
