@@ -1,4 +1,4 @@
-package laboratorio3.parte3.exercicios;
+package laboratorio3.parte3.exercicio;
 
 /*
 Como base no código abaixo altere os Consumers presentes no exercício para atenderem as seguintes condições:
@@ -6,8 +6,6 @@ Como base no código abaixo altere os Consumers presentes no exercício para ate
  * O consumerImprimeNomeEIdade deve imprimir os atributos nome e idade da instância do objeto pessoa.
  * O consumerImprimeNomeEIdade deve ser criado usando como base o consumerImprimeNome.
 * */
-
-import java.util.function.Consumer;
 
 public class ExercicioIFConsumer {
 

@@ -3,7 +3,7 @@ package laboratorio3.parte4.exemplos;
 import java.util.Date;
 import java.util.function.Supplier;
 
-public class ExemplosIFSupplier {
+public class ExemploIFSupplier {
 
     public static void main(String[] args) {
 

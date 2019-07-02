@@ -32,7 +32,7 @@ Com base no código abaixo crie um Supplier que retorne um valor aleatório do t
 ```java
 import java.util.function.Supplier;
 
-public class IFSupplierExercicio {
+public class ExercicioIFSupplier {
     public static void main(String[] args) {
         Supplier<Double> valorAleatorio = ????;
         System.out.println(valorAleatorio.get());
