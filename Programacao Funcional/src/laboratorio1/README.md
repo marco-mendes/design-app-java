@@ -27,7 +27,6 @@ Neste laboratório abordaremos uma visão prática sobre o uso básico de Lambda
 Conceitos como **Function Composition** e **Funções de Ordem superior** serão abordados com mais detalhes nos próximos laboratórios em conjunto com as **Streams** e a **Interface Funcional Function**.
 
 
-
 ### Introdução Expressões Lambda
 
 Como vimos nos artigos de preparação, Lambda é uma forma clara e objetiva de representar um método usando apenas uma expressão.
@@ -81,7 +80,10 @@ public static void ordenacaoComLambdas(){
 ```
 Este é apenas um dos exemplo de uso dentro da interface List.
 
-
+### Function Composition
+A Function Composition é uma técnica para combinar múltiplas funções em uma única função que usa as funções combinadas internamente.<br/>
+O Java vem com suporte interno para Function Composition para tornar o trabalho mais fácil para você.<br/>
+Veremos alguns exemplos de Function Composition nos próximos laboratórios.
 
 ### Funções puras e impuras com Lambda
 
