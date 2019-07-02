@@ -15,7 +15,7 @@ Temos aqui um consumer que recebe um número e imprime uma mensagem com o númer
 ```java
 import java.util.function.Consumer;
 
-public class ExemploIFConsumer {
+public class ExemplosIFConsumer {
 
     public static void main(String[] args) {
         Consumer<Integer> display = n -> System.out.println("Imprimindo número: " + n);
@@ -28,7 +28,7 @@ Outro exemplo do uso de um Consumer está dentro do método forEach da interface
 ```java
 import java.util.function.Consumer;
 
-public class ExemploIFConsumer {
+public class ExemplosIFConsumer {
 
     public static void main(String[] args) {
         List<Integer> integerList = Arrays.asList(1,2,3,4,5);
@@ -67,7 +67,7 @@ Como base no código abaixo altere os Consumers presentes no exercício para ate
 ```java
 import java.util.function.Consumer;
 
-public class IFConsumerExercicio {
+public class ExercicioIFConsumer {
 
     public static void main(String[] args) {
 
