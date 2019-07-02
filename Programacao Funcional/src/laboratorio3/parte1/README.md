@@ -21,7 +21,8 @@ Agora iremos falar sobre a interface funcional Function, que nos permite passar 
 
 A interface Function recebe um argumento, realiza uma operação no mesmo e retorna o tipo especificado de dado após a execução da expressão lambda passada a ele.
 
-Um exemplo de uso da interface Function poderia ser de receber um valor e realizar uma operação em cima deste valor.<br/>Para executar a função usamos o método **apply()** informando o valor que será usado na função.
+Um exemplo de uso da interface Function poderia ser de receber um valor e realizar uma operação em cima deste valor.<br/>
+Para executar a função usamos o método **apply()** informando o valor que será usado na função.<br/>
 Vamos imaginar uma situação que seja necessário receber um número e retornar o dobro do número informado usando a interface Function.
 Poderíamos realizar isso desta forma:
 

@@ -11,11 +11,6 @@ Os 5 principais tipos são:
 
 Para melhor compreensão dividiremos esse laboratório em 5 partes, cada uma abordando uma tipo de Interface Funcional presente no Java 8.
 
-### Conceito de Function Composition
-A Function Composition é uma técnica para combinar múltiplas funções em uma única função que usa as funções combinadas internamente.<br/>
-O Java vem com suporte interno para Function Composition para tornar o trabalho mais fácil para você.<br/>
-A Function Composition foi um [conceito abordado em um dos materias de preparação do primeiro laboratório](https://medium.com/labs-olx-brasil/programa%C3%A7%C3%A3o-funcional-vis%C3%A3o-geral-59ebdb4be244), veremos alguns exemplos de uso no decorrer deste laboratório com métodos como **compose()** e **andThen()**.
-
   
 ### Conteúdo:
  * [Function](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/parte1)

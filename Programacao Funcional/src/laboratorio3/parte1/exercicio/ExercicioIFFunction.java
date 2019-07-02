@@ -1,6 +1,10 @@
 package laboratorio3.parte1.exercicio;
 
-// Exercício relacionado a Interface Funcional Function
+import java.util.function.Function;
+
+/*
+ Através do seguinte código calcule a raiz quadrada do número informado e imprima o resultado no console
+*/
 public class ExercicioIFFunction {
 
     public static void main(String[] args) {
@@ -13,7 +17,6 @@ public class ExercicioIFFunction {
         calcula(valor, funcaoRaizQuadrada);
 
          */
-
     }
 
     /*

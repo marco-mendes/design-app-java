@@ -11,11 +11,11 @@
 
 No material de preparação foi apresentada uma visão geral sobre a Programação Funcional e alguns de seus conceitos básicos como:
 
-- Function Composition
 - Lambda 
 - Inferência de tipos
-- Funções puras e Impuras (Conceito)
-- Funções de ordem superior (Conceito)
+- Function Composition
+- Funções puras e Impuras
+- Funções de ordem superior
 
 
 
@@ -23,8 +23,6 @@ Além disso foi abordado também as diferenças entre Programação Funcional e 
 
 
 Neste laboratório abordaremos uma visão prática sobre o uso básico de Lambdas, veremos como a Inferência de tipos é aplicada na prática além de exemplos de funções puras e impuras com lambdas.
-
-Conceitos como **Function Composition** e **Funções de Ordem superior** serão abordados com mais detalhes nos próximos laboratórios em conjunto com as **Streams** e a **Interface Funcional Function**.
 
 
 ### Introdução Expressões Lambda
@@ -80,10 +78,15 @@ public static void ordenacaoComLambdas(){
 ```
 Este é apenas um dos exemplo de uso dentro da interface List.
 
-### Function Composition
+### Function Composition (Conceito)
 A Function Composition é uma técnica para combinar múltiplas funções em uma única função que usa as funções combinadas internamente.<br/>
 O Java vem com suporte interno para Function Composition para tornar o trabalho mais fácil para você.<br/>
 Veremos alguns exemplos de Function Composition nos próximos laboratórios.
+
+
+### Funções de ordem superior (Conceito)
+Uma função de ordem superior é qualquer função que: ou recebe uma função como argumento, ou retorna uma função ou as duas coisas.<br/>
+Exemplos de uso serão mostrados nos próximos laboratórios.
 
 ### Funções puras e impuras com Lambda
 
