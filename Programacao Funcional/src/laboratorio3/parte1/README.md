@@ -1,7 +1,7 @@
 ## Interfaces Funcionais Function e BiFunction
 
 ### Introdução Geral
-Neste laboratório abordaremos as duas principais Interfaces Funcionais do tipo **Function**, são elas:
+Abordaremos aqui as duas principais Interfaces Funcionais do tipo **Function**, são elas:
  * Function
  * BiFunction
 
@@ -46,8 +46,8 @@ Ambos os métodos podem ser usados para Composição de Funções(Function Compo
 #### Método andThen()
 O método **andThen()** executa uma operação após o termino da execução do método **apply()**.
 <br/>O valor que a função retorna é o valor processado no método **andThen()**<br/>
-Exemplo:
-Imagine a seguinte situação, você precisa receber um número, multiplicá-lo por dois e após isso somar o resultado com 5 e retornar o valor após essa operação.
+Exemplo:<br/>
+Imagine a seguinte situação, você precisa receber um número, multiplicá-lo por dois e após isso somar o resultado com 5 e retornar o valor após essa operação.<br/>
 Podemos fazer isso da seguinte forma:
 
 ```java
@@ -56,7 +56,7 @@ Function<Integer, Integer> funcaoDobroMaisCinco = funcaoDobro.andThen(n -> n + 5
 // Imprime no console o valor 25
 System.out.println(funcaoDobroMaisCinco.apply(10));
 ```
-Conforme mostrado no exemplo acima utilizamos o método **andThen** para criar uma função composta e atribuimos o resultado a outra função.
+Conforme mostrado no exemplo acima utilizamos o método **andThen** para criar uma função composta e atribuimos o resultado a outra função.<br/>
 Este é um exemplo de function composition.
 
 Abaixo outra forma de executar esta mesma operação
