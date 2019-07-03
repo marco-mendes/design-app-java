@@ -1,7 +1,7 @@
-## Funções puras e Funções de Ordem Superior em Java
+## Funções Puras e Funções de Ordem Superior em Java
 
 ### Material de Referência
-[Funções puras e Impuras](https://tableless.com.br/o-que-sao-funcoes-puras/)<br/>
+[Funções Puras e Impuras](https://tableless.com.br/o-que-sao-funcoes-puras/)<br/>
 [Funções de ordem superior](http://tutorials.jenkov.com/java-functional-programming/higher-order-functions.html)
 
 ### Introdução
