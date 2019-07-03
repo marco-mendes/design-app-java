@@ -2,6 +2,10 @@ package laboratorio4.exercicio;
 
 import java.util.function.Function;
 
+/*
+* Com base no código abaixo faça com que a função multiplicaNumeroPor2 se torne uma função pura novamente
+* */
+
 public class ExercicioFuncoesPuras {
 
     public static void main(String[] args) {

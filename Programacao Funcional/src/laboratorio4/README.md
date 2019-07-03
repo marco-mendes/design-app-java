@@ -24,7 +24,7 @@ Neste exemplo estamos dependendo únicamente dos valores internos de nossa expre
 
 
 ### Funções de Ordem Superior
-Uma função de ordem superior pode ser considerado como uma função ou método que usa uma função como parâmetro ou retorna uma função após sua execução.
+Uma função de ordem superior pode ser considerado como uma função ou método que usa uma função como parâmetro ou retorna uma função após sua execução.<br/>
 Exemplo:
 ```java
 import java.util.function.Function;
