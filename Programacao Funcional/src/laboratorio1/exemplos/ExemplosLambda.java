@@ -1,85 +1,71 @@
 package laboratorio1.exemplos;
 
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
 public class ExemplosLambda {
+
     public static void main(String[] args) {
-        ordenacaoAntesLambdas();
-        ordenacaoComLambdas();
-        funcaoPura();
-        funcaoImpura();
-        usoInterfaceFuncionalComLambda();
-        exemploInferenciaTipos();
+        System.out.println(ordenaListaProdutosSemLambdas());
+        System.out.println(ordenaListaProdutosComLambdas());
     }
 
-    public static void ordenacaoAntesLambdas(){
-        List<String> listaNomes = obtemListaTeste();
-        listaNomes.sort(new Comparator<String>() {
+
+    public static List<Produto> ordenaListaProdutosSemLambdas(){
+        List<Produto> produtos = obtemListaProdutos();
+        produtos.sort(new Comparator<Produto>() {
             @Override
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
+            public int compare(Produto o1, Produto o2) {
+                return o1.getPreco().compareTo(o2.getPreco());
             }
         });
-        System.out.println(listaNomes);
-
+        return produtos;
     }
 
-    public static void ordenacaoComLambdas(){
-        List<String> listaNomes = obtemListaTeste();
-        listaNomes.sort((c1, c2) -> c1.compareTo(c2));
-        System.out.println(listaNomes);
+    public static List<Produto> ordenaListaProdutosComLambdas(){
+        List<Produto> produtos = obtemListaProdutos();
+        produtos.sort((c1, c2) -> c1.getPreco().compareTo(c2.getPreco()));
+        return produtos;
     }
 
-    public static List<String> obtemListaTeste(){
-        List<String> listaNomes1 = Arrays.asList("Joao", "Maria", "Dalva", "Vilma", "Carlos", "Roberto");
-        return listaNomes1;
-    }
-
-    public static void funcaoPura(){
-        List<Integer> lista = Arrays.asList(1,2,3,4,5);
-
-        lista.forEach((v) -> System.out.println(v * 2));
-    }
-
-    public static void funcaoImpura(){
-        List<Integer> lista = Arrays.asList(1,2,3,4,5);
-
-        int multiplicador = 5;
-
-        lista.forEach((v) -> System.out.println(v * multiplicador));
-    }
-
-    public static void usoInterfaceFuncionalComLambda(){
-        TestaAlgo<List<Integer>> testador = (lista) -> lista.size() > 5;
-        List<Integer> listaNumeros = Arrays.asList(1,2,3,4,5,6);
-
-        System.out.println("Resultado do teste: ");
-        System.out.println("A Lista possui mais de 5 elementos? " + testador.test(listaNumeros));
-    }
-
-    public static void exemploInferenciaTipos(){
-        System.out.println(Calculadora.calcular((a, b) -> a + b, 5, 20));
+    public static List<Produto> obtemListaProdutos(){
+        List<Produto> listaProdutos = Arrays.asList(
+                new Produto("Samsung J5 Prime", 899.00),
+                new Produto("Xiaomi Mi 9", 2299.00),
+                new Produto("Notebook Dell Inspiron 5566 A50P", 2999.00),
+                new Produto("Impressora LexMark XXJ25", 799.00),
+                new Produto("TV LG 42 Polegadas" , 1899.00),
+                new Produto("Kindle 10A", 349.00)
+        );
+        return listaProdutos;
     }
 
 }
 
-class Calculadora {
+class Produto {
 
-    public static <T> T calcular(Operator<T> operacao, T value1, T value2){
-        return operacao.apply(value1,value2);
+    String nome;
+    Double preco;
+
+    public Produto(String nome, Double preco) {
+        this.nome = nome;
+        this.preco = preco;
     }
 
-}
+    public String getNome() {
+        return nome;
+    }
 
-interface Operator<T> {
+    public Double getPreco() {
+        return preco;
+    }
 
-    T apply(T a, T b);
-
-}
-
-interface TestaAlgo<T> {
-    boolean test(T t);
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "nome='" + nome + '\'' +
+                ", preco=" + preco +
+                '}';
+    }
 }
