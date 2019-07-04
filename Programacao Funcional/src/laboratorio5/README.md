@@ -8,7 +8,7 @@
 Neste laboratório abordaremos o uso de **Currying** e **Closures** com alguns exemplos em Java.
 
 ### Closures
-Alguma coisa...
+
 
 ### Currying
 Alguma coisa...
