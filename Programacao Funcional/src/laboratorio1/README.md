@@ -13,7 +13,7 @@ No material de preparação foi apresentada uma visão geral sobre a Programaç�
 - Lambda 
 - Function Composition
 - Funções de ordem superior
-- Funções puras e Impuras
+- Funções puras
 - Interfaces Funcionais
 - Inferência de tipos
 
@@ -21,7 +21,9 @@ No material de preparação foi apresentada uma visão geral sobre a Programaç�
 Além disso foi abordado também as diferenças entre Programação Funcional e Programação Orientada a Objetos(POO)
 
 
-Neste laboratório abordaremos uma visão prática sobre o uso básico de Lambdas, veremos como a Inferência de tipos é aplicada na prática além de exemplos de funções puras e impuras com lambdas.
+Neste laboratório abordaremos uma visão prática sobre o uso básico de Lambdas, veremos como a Inferência de tipos é aplicada na prática.<br/>
+Outros assuntos como Function composition, Funções de ordem superior e Funções puras serão abordados com mais detalhes futuramente.
+
 
 ### Introdução Expressões Lambda
 
