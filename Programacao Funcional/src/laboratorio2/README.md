@@ -86,7 +86,7 @@ Com base no código acima implemente os seguintes métodos na interface **Calcul
 * calculaRaizQuadrada: Este método deve receber um valor do tipo inteiro e retornar a raiz quadrada do mesmo.
 * elevarAoCubo: Este método deve receber um valor do tipo inteiro e retornar esse valor elevado ao cubo.
 
-Após a criação desses métodos utilize cada um deles na classe Exercicio_1 para validar o funcionamento.
+Após a criação desses métodos invoque cada um deles na classe Exercicio_1 para validar o funcionamento.
 
 ### Method Reference
 
@@ -173,7 +173,7 @@ class Pessoa {
 
     public void imprimePessoa(){
         String textoAImprimir = String.format("Nome: %s | Idade: %d", this.nome, this.idade);
-        System.out.println(textoAImprimir)
+        System.out.println(textoAImprimir);
     }
 
 }

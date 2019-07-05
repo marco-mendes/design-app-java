@@ -1,11 +1,5 @@
 package laboratorio2.exemplos;
 
-/*
-  Com base no código abaixo implemente os seguintes métodos na interface Calculator de forma a não quebrar o código já existente:
-  * calculaRaizQuadrada: Este método deve receber um valor do tipo inteiro e retornar a raiz quadrada do mesmo.
-  * elevarAoCubo: Este método deve receber um valor do tipo inteiro e retornar esse valor elevado ao cubo.
-
-*/
 
 import java.util.Arrays;
 import java.util.List;

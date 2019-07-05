@@ -5,10 +5,10 @@ import java.util.List;
 
 /*
 
-Com base no código acima implemente os seguintes métodos na interface **Calculator** de forma a não quebrar o código já existente:
-  * calculaRaizQuadrada: Este método deve receber um valor do tipo inteiro e retornar a raiz quadrada do mesmo.
-  * elevarAoCubo: Este método deve receber um valor do tipo inteiro e retornar esse valor elevado ao cubo.
-Após a criação desses métodos utilize cada um deles na classe Exercicio_1 para validar o funcionamento.
+  Com base no código acima implemente os seguintes métodos na interface **Calculator** de forma a não quebrar o código já existente:
+    * calculaRaizQuadrada: Este método deve receber um valor do tipo inteiro e retornar a raiz quadrada do mesmo.
+    * elevarAoCubo: Este método deve receber um valor do tipo inteiro e retornar esse valor elevado ao cubo.
+  Após a criação desses métodos invoque cada um deles na classe Exercicio_1 para validar o funcionamento.
 
 * */
 

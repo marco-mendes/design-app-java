@@ -3,6 +3,13 @@ package laboratorio2.exercicio;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+
+  Com base no código abaixo utilize o método forEach da lista de Pessoas para acessar o método imprimePessoa
+  através de Method Reference.
+
+*/
+
 public class Exercicio_2 {
 
     public static void main(String[] args) {
