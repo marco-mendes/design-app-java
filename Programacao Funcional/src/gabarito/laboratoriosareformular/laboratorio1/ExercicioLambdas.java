@@ -1,4 +1,4 @@
-package gabarito.laboratorio1;
+package gabarito.laboratoriosareformular.laboratorio1;
 
 public class ExercicioLambdas {
 

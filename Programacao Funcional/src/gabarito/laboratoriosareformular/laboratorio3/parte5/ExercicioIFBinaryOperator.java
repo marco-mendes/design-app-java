@@ -1,4 +1,4 @@
-package gabarito.laboratorio3.parte5;
+package gabarito.laboratoriosareformular.laboratorio3.parte5;
 
 import java.util.function.BinaryOperator;
 

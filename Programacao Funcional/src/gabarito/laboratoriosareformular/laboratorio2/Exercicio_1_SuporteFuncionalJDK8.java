@@ -1,7 +1,4 @@
-package gabarito.laboratorio2;
-
-import java.util.Arrays;
-import java.util.List;
+package gabarito.laboratoriosareformular.laboratorio2;
 
 public class Exercicio_1_SuporteFuncionalJDK8 implements Calculator {
 

@@ -1,4 +1,4 @@
-package gabarito.laboratorio3.parte3;
+package gabarito.laboratoriosareformular.laboratorio3.parte3;
 
 import java.util.function.Consumer;
 

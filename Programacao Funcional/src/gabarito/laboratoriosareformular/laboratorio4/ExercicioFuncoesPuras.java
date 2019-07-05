@@ -1,4 +1,4 @@
-package gabarito.laboratorio4;
+package gabarito.laboratoriosareformular.laboratorio4;
 
 import java.util.function.Function;
 

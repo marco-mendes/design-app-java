@@ -1,4 +1,4 @@
-package gabarito.laboratorio3.parte2;
+package gabarito.laboratoriosareformular.laboratorio3.parte2;
 
 import java.util.function.Predicate;
 

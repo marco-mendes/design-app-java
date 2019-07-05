@@ -1,4 +1,4 @@
-package gabarito.laboratorio2;
+package gabarito.laboratoriosareformular.laboratorio2;
 
 import java.util.ArrayList;
 import java.util.List;
