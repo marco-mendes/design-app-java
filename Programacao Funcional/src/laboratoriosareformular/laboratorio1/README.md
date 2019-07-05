@@ -2,7 +2,8 @@
 
 ### Materiais de preparação
 [Introdução da Programaçao Funcional](https://medium.com/labs-olx-brasil/programa%C3%A7%C3%A3o-funcional-vis%C3%A3o-geral-59ebdb4be244)<br/>
-[Introdução à Lambdas](https://medium.com/@kasunpdh/java-lambda-expressions-3195f677ed38)<br/>
+[Introdução à Lambdas](http://blog.gabrielamorim.com/java-8-expressoes-lambda-closures-interfaces-funcionais-e-um-pouco-mais/)<br/>
+[Como escrever Lambdas multilinha](https://www.gunnargissel.com/how-to-write-a-multiline-lambda-in-java8.html)<br/>
 [Algumas dicas e melhores práticas sobre Lambdas](https://www.baeldung.com/java-8-lambda-expressions-tips)<br/>
 [Manipulação de Exceção com Expressões Lambda](https://www.oodlestechnologies.com/blogs/Exception-Handling-with-Lambda-Expressions/)<br/>
 [Caso queira se aprofundar mais em Lambdas](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html)<br/>
@@ -22,6 +23,7 @@ Além disso foi abordado também as diferenças entre Programação Funcional e 
 
 
 Neste laboratório abordaremos uma visão prática sobre o uso básico de Lambdas, veremos como a Inferência de tipos é aplicada na prática além de exemplos de funções puras e impuras com lambdas.
+
 
 ### Introdução Expressões Lambda
 
@@ -50,79 +52,83 @@ Neste caso se a expressão Lambda precisar retornar algo recomendamos usar o pal
 Além disso vimos também que para realizar o uso de Lambdas precisamos de uma interface funcional.
 
 Um exemplo do uso de Lambdas é para realizar a ordenação de uma lista.
+
+Neste exemplo vemos como era realizada a ordenação de listas através do método **sort()** antes do uso das Lambdas onde era necessário criarmos uma classe anônima dentro da invocação do método  **sort()**:
+
 ```java
-public class Exemplo_1 {
-
-    public static void main(String[] args) {
-        System.out.println(ordenaListaProdutosSemLambdas());
-        System.out.println(ordenaListaProdutosComLambdas());
-    }
-
-
-    public static List<Produto> ordenaListaProdutosSemLambdas(){
-        List<Produto> produtos = obtemListaProdutos();
-        produtos.sort(new Comparator<Produto>() {
-            @Override
-            public int compare(Produto o1, Produto o2) {
-                return o1.getPreco().compareTo(o2.getPreco());
-            }
-        });
-        return produtos;
-    }
-    
-    public static List<Produto> ordenaListaProdutosComLambdas(){
-        List<Produto> produtos = obtemListaProdutos();
-        produtos.sort((c1, c2) -> c1.getPreco().compareTo(c2.getPreco()));
-        return produtos;
-    }
-
-    public static List<Produto> obtemListaProdutos(){
-        List<Produto> listaProdutos = Arrays.asList(
-                new Produto("Samsung J5 Prime", 899.00),
-                new Produto("Xiaomi Mi 9", 2299.00),
-                new Produto("Notebook Dell Inspiron 5566 A50P", 2999.00),
-                new Produto("Impressora LexMark XXJ25", 799.00),
-                new Produto("TV LG 42 Polegadas" , 1899.00),
-                new Produto("Kindle 10A", 349.00)
-        );
-        return listaProdutos;
-    }
-
-}
-
-class Produto {
-
-    String nome;
-    Double preco;
-
-    public Produto(String nome, Double preco) {
-        this.nome = nome;
-        this.preco = preco;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public Double getPreco() {
-        return preco;
-    }
-
+public static void ordenacaoAntesLambdas(){
+  List<String> listaNomes = Arrays.asList("Joao", "Maria", "Dalva", "Vilma", "Carlos", "Roberto");
+  listaNomes.sort(new Comparator<String>() {
     @Override
-    public String toString() {
-        return "Produto{" +
-                "nome='" + nome + '\'' +
-                ", preco=" + preco +
-                '}';
+    public int compare(String o1, String o2) {
+                  return o1.compareTo(o2);
     }
+  });
+  System.out.println(listaNomes);
 }
 ```
-Neste exemplo possuímos 2 métodos de ordenação da lista de produtos.<br/>
-O método **ordenaListaProdutosSemLambdas** exemplifica como era feita a ordenação de uma lista sem o uso de Lambdas, já o método **ordenaListaProdutosComLambdas** exemplifica como é simples e muito mais fácil realizar a mesma operação utilizando expressões Lambdas.
 
-#### Exercício 1
-Para aquecer o conhecimento recém obtido e com base no código de exemplo crie um método chamado **ordenaListaProdutosPorNome** para ordenar os produtos por nome e retornar a lista de produtos ordenada.<br/>
-Após isso invoque este método e imprima a lista retornada no console.
+Com o Java 8 já podemos substituir este trecho de código por esse através do uso de lambdas da seguinte forma:
+```java
+public static void ordenacaoComLambdas(){
+  List<String> listaNomes = Arrays.asList("Joao", "Maria", "Dalva", "Vilma", "Carlos", "Roberto");
+  listaNomes.sort((c1, c2) -> c1.compareTo(c2));
+  System.out.println(listaNomes);
+}
+```
+Este é apenas um dos exemplo de uso dentro da interface List.
+
+### Function Composition (Conceito)
+A Function Composition é uma técnica para combinar múltiplas funções em uma única função que usa as funções combinadas internamente.<br/>
+O Java vem com suporte interno para Function Composition para tornar o trabalho mais fácil para você.<br/>
+Veremos alguns exemplos de Function Composition nos próximos laboratórios.
+
+
+### Funções de ordem superior (Conceito)
+Uma função de ordem superior é qualquer função que: ou recebe uma função como argumento, ou retorna uma função ou as duas coisas.<br/>
+Exemplos de uso serão mostrados nos próximos laboratórios.
+
+### Funções puras e impuras com Lambda
+
+Conforme foi abordado no material de preparação as Funções Puras possuem 3 características básicas que são:
+
+* **Retorna sempre o mesmo resultado quando passados os mesmos parâmetros**
+
+* **Depende unicamente dos argumentos passados**
+
+* **Não produz efeitos colaterais (side effects)**
+
+  
+
+Podemos usar como exemplo de função pura o seguinte exemplo partindo da interface List:
+
+````java
+List<Integer> lista = Arrays.asList(1,2,3,4,5);
+
+lista.forEach((v) -> System.out.println(v * 2));
+````
+
+Neste exemplo estamos imprimindo o valor de todos os elementos de uma lista multiplicados por 2.
+
+
+
+Sobre as funções impuras:
+
+* **Sofrem interferência de fatores externos a expressão lambda.**
+* **Podem causar efeitos colaterais na aplicação, seja alterando o valor de alguma variável local da classe ou algo do tipo.**
+
+Podemos considerar o seguinte exemplo como uma função impura:
+
+```java
+List<Integer> lista = Arrays.asList(1,2,3,4,5);
+
+int multiplicador = 5;
+
+lista.forEach((v) -> System.out.println(v * multiplicador));
+```
+
+Neste exemplo a expressão lambda acessa uma variável externa à declaração de seu escopo, com isso seu retorno pode variar de acordo com o valor da variável **multiplicador**.
+
 
 
 ### Uso de Lambdas com Interfaces Funcionais
@@ -135,13 +141,13 @@ A expressão lambda deve respeitar o contrato da interface ao qual ela será con
 
 Podemos exemplificar o uso de Interfaces Funcionais com lambda da seguinte forma:
 
-Possuímos a interface funcional chamada **TestarAlgo**, essa interface recebe uma lista e tem como objetivo executar um teste lambda e retornar o resultado do mesmo.
+Possuímos a interface funcional chamada **TestaAlgo**, essa interface recebe um parâmetro genérico e tem como objetivo executar um teste lambda e retornar o resultado do mesmo.
 
-O método **test()** irá executar a expressão lambda recebida pela interface **TestarAlgo**.
+O método **test()** irá executar a expressão lambda recebida pela interface **TestaAlgo**.
 
 ```java
-interface TestarAlgo {
-    boolean test(List lista);
+interface TestaAlgo<T> {
+    boolean test(T t);
 }
 ```
 
@@ -150,33 +156,29 @@ interface TestarAlgo {
 Podemos usar essa interface da seguinte forma:
 
 ```java
-TestarAlgo testador = (lista) -> lista.size() > 5;
+TestaAlgo<List<Integer>> testador = (lista) -> lista.size() > 5;
 List<Integer> listaNumeros = Arrays.asList(1,2,3,4,5,6);
 
 System.out.println("Resultado do teste: ");
 System.out.println("A Lista possui mais de 5 elementos? " + testador.test(listaNumeros));
 ```
 
-#### Exercício 2
-Como base no exemplo acima altere a interface TestarAlgo para receber como parâmetro um número inteiro.<br/>
-Utilize a interface TestarAlgo para verificar se um número é um número par e imprima o resultado no console.<br/>
-Código base:
-```java
-public class Exercicio_2 {
+No exemplo acima estamos testando através de uma expressão lambda se a lista recebida como parâmetro possui mais de 5 elementos.
 
-    public static void main(String[] args) {
+Ao executar o método **test()** teremos o retorno true indicando que a lista possui mais de 5 elementos.
 
-    }   
-    
-}
-
-interface TestarAlgo {
-    boolean test(List lista);
-}
-```
 
 ### Tratamento de Exceptions com Lambda
-No material de preparação vimos como é feito o tratamento de exceptions utilizando Lambdas.<br/>
+
+Uma expressão Lambda pode lança uma exceção, mas essa exceção deve ser compatível com aquelas especificadas na cláusula **throws** do método na interface funcional.
+
+Se um corpo de expressão lambda lançar uma exceção a mesma deve ser igual ou subtipo da exceção declarada na cláusula **throws** da interface funcional.
+
+Se uma interface funcional não especificar nenhuma exceção com uma cláusula **throws**, a expressão Lambda também não poderá gerar nenhuma exceção.
+
+
+Suponhamos que temos uma interface funcional chamada **CalculoComum**, essa interface realiza uma operação com 2 números inteiros e retorna um resultado com base na operação definida pela expressão lambda.
+
 No exemplo abaixo simulamos um caso comum de erro no Java, uma divisão por 0 e exemplificamos o tratamento da mesma.
 
 ```java
@@ -210,6 +212,7 @@ interface CalculoComum {
 }
 ```
 
+
 ### Inferência de Tipos
 
 A inferência de tipos refere-se à detecção automática do tipo de dados de uma expressão em uma linguagem de programação.
@@ -231,7 +234,7 @@ interface Operator<T> {
 Aqui possuímos a classe que irá utilizar essa interface:
 
 ```java
-class Exemplo_3 {
+class Calculadora {
 
     public static void main(String[] args) {
 		System.out.println(calcular((a, b) -> a + b, 5, 20));
@@ -244,7 +247,7 @@ class Exemplo_3 {
 }
 ```
 
-Como podemos ver na classe **Exemplo_3** nosso método **calcular** recebe como parâmetro um objeto do tipo **Operator <T&gt;** e recebe 2 parâmetros genéricos.
+Como podemos ver na classe **Calculadora** nosso método **calcular** recebe como parâmetro um objeto do tipo **Operator <T&gt;** e recebe 2 parâmetros genéricos.
 
 Durante a execução do método **calcular** não definimos explicitamente nenhum tipo de dado e mesmo assim o programa compila e executa normalmente nos retornado a soma dos valores 5 e 20.
 
@@ -254,19 +257,20 @@ Isso ocorre pois o compilador "adivinha" o tipo de dados recebido e realiza a in
 
 
 
-#### Exercício
+### Exercício
 
 * Com base no código abaixo crie uma interface funcional chamada **ComplexOperator**, essa interface deve possuir um método que recebe um valor genérico e retorna um valor genérico.
-* Na classe **Exercicio_3** utilize a interface funcional **ComplexOperator** para calcular a raiz quadrada de um número.
+* Na classe **ExercicioLambda** utilize a interface funcional **ComplexOperator** para calcular a raiz quadrada de um número.
 * Utilize o número 25 como um exemplo para testar a interface **ComplexOperator** e imprima o resultado do teste.
 
 Código para o exercício:
 
 ```java
-class Exercicio_3 {
+class ExercicioLambda {
 
     public static void main(String[] args) {	 
     
     }
 }
 ```
+
