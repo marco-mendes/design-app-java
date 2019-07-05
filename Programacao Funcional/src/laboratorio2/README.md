@@ -26,7 +26,7 @@ Neste laboratório abordaremos o uso básico de Métodos Default e Method Refere
 Outros assuntos como as melhorias na interface Collection serão abordados nos próximos laboratórios.<br/>
 
 
-### Métodos Default
+#### Métodos Default
 
 Uma das novidades do Java 8 foram os métodos Default.
 
@@ -125,7 +125,7 @@ public class Exemplo_2 {
 ```
 
 
-### Exercício 2
+#### Exercício 2
 
 Com base no código abaixo utilize o método **forEach** da lista de Pessoas para acessar o método **imprimePessoa** através de **Method Reference**.
 
