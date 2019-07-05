@@ -3,6 +3,12 @@ package laboratorio1.exercicio;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+Com base no código de exemplo crie um método chamado ordenaListaProdutosPorNome para ordenar os produtos por nome e retornar a lista de produtos ordenada.
+Após isso invoque este método e imprima a lista retornada no console.
+* */
+
+
 public class Exercicio_1 {
 
     public static void main(String[] args) {
