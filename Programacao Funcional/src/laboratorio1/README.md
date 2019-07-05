@@ -18,7 +18,7 @@ No material de preparação foi apresentada uma visão geral sobre a Programaç�
 - Inferência de tipos
 
 
-Além disso foi abordado também as diferenças entre Programação Funcional e Programação Orientada a Objetos(POO)
+Além disso foi abordado também as diferenças entre Programação Funcional e Programação Orientada a Objetos(POO).
 
 
 Neste laboratório abordaremos uma visão prática sobre o uso básico de Lambdas, veremos como a Inferência de tipos é aplicada na prática e também veremos um exemplo de uso básico de interfaces funcionais<br/>
@@ -162,7 +162,7 @@ System.out.println("A Lista possui mais de 5 elementos? " + testador.test(listaN
 #### Exercício 2
 Como base no exemplo acima altere a interface TestarAlgo para receber como parâmetro um número inteiro.<br/>
 Utilize a interface TestarAlgo para verificar se um número é um número par, caso seja a expressão lambda deve retornar true caso contrário deve retornar false.<br/>
-Imprima o resultado do teste no console.
+Imprima o resultado do teste no console.<br/>
 Código base:
 ```java
 public class Exercicio_2 {
