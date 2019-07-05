@@ -256,7 +256,7 @@ Isso ocorre pois o compilador "adivinha" o tipo de dados recebido e realiza a in
 
 
 
-#### Exercício
+#### Exercício 3
 Com base no código do exemplo acima crie uma interface funcional chamada **ComplexOperator**, essa interface deve possuir um método chamado **apply** que recebe um valor genérico e retorna um valor genérico.<br/>
 Na classe **Exercicio_3** crie um método chamado **calculoComplexo** que receba como parâmetro um **ComplexOperator**, um parâmetro genérico e retorne um valor genérico.<br/>
 Invoque este método de forma a conseguir calcular a raiz quadrada do número passado como parâmetro e imprima o valor retornado.<br/>
