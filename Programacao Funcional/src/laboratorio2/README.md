@@ -26,7 +26,7 @@ Neste laboratório abordaremos o uso básico de Métodos Default e Method Refere
 Outros assuntos como as melhorias na interface Collection serão abordados nos próximos laboratórios.<br/>
 
 
-#### Métodos Default
+### Métodos Default
 
 Uma das novidades do Java 8 foram os métodos Default.
 
@@ -79,7 +79,7 @@ Como vimos não foi necessário sobrescrever o método **calculaMedia** da inter
 
 Isso ocorre pois o modificador default nos permite criar uma implementação concreta de método dentro de uma interface, e não nos obriga a implementar os métodos com esse modificador ao usarmos essa interface.
 
-### Exercício 1
+#### Exercício 1
 
 Com base no código acima implemente os seguintes métodos na interface **Calculator** de forma a não quebrar o código já existente:
 
