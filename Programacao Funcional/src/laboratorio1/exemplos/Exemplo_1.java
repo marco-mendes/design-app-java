@@ -6,12 +6,6 @@ import java.util.List;
 
 public class Exemplo_1 {
 
-    public static void main(String[] args) {
-        System.out.println(ordenaListaProdutosSemLambdas());
-        System.out.println(ordenaListaProdutosComLambdas());
-    }
-
-
     public static List<Produto> ordenaListaProdutosSemLambdas(){
         List<Produto> produtos = obtemListaProdutos();
         produtos.sort(new Comparator<Produto>() {
@@ -39,6 +33,11 @@ public class Exemplo_1 {
                 new Produto("Kindle 10A", 349.00)
         );
         return listaProdutos;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(ordenaListaProdutosSemLambdas());
+        System.out.println(ordenaListaProdutosComLambdas());
     }
 
 }

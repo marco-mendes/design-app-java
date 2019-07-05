@@ -55,12 +55,6 @@ Um exemplo do uso de Lambdas é para realizar a ordenação de uma lista.
 ```java
 public class Exemplo_1 {
 
-    public static void main(String[] args) {
-        System.out.println(ordenaListaProdutosSemLambdas());
-        System.out.println(ordenaListaProdutosComLambdas());
-    }
-
-
     public static List<Produto> ordenaListaProdutosSemLambdas(){
         List<Produto> produtos = obtemListaProdutos();
         produtos.sort(new Comparator<Produto>() {
@@ -88,6 +82,11 @@ public class Exemplo_1 {
                 new Produto("Kindle 10A", 349.00)
         );
         return listaProdutos;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(ordenaListaProdutosSemLambdas());
+        System.out.println(ordenaListaProdutosComLambdas());
     }
 
 }
@@ -236,12 +235,12 @@ Aqui possuímos a classe que irá utilizar essa interface:
 ```java
 class Exemplo_3 {
 
-    public static void main(String[] args) {
-		System.out.println(calcular((a, b) -> a + b, 5, 20));
-    }
-
     public static <T> T calcular(Operator<T> operacao, T value1, T value2){
         return operacao.apply(value1,value2);
+    }
+
+    public static void main(String[] args) {
+		System.out.println(calcular((a, b) -> a + b, 5, 20));
     }
 
 }
