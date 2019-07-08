@@ -10,7 +10,7 @@ Abordaremos aqui as duas principais Interfaces Funcionais do tipo **Function**, 
 [Interface Funcional Function](https://www.geeksforgeeks.org/function-interface-in-java-with-examples/)<br/>
 [Vários exemplos de uso da Interface Funcional Function](https://www.programcreek.com/java-api-examples/?api=java.util.function.Function)<br/>
 [Interface Funcional BiFunction](https://www.geeksforgeeks.org/java-bifunction-interface-methods-apply-and-addthen/)<br/>
-[Vários exemplos de uso da Interface Funcional BiFunction](https://www.programcreek.com/java-api-examples/?api=java.util.function.Bifunction)
+[Vários exemplos de uso da Interface Funcional BiFunction](https://www.programcreek.com/java-api-examples/?api=java.util.function.Bifunction)<br/>
 [Functional Composition](http://tutorials.jenkov.com/java-functional-programming/functional-composition.html)
 
 ### Introdução Interface Funcional Function
@@ -234,7 +234,7 @@ public class Exercicio_5 {
 
   public static void main(String[] args) {
 
-    Function<Double, Double> funcaoRaizQuadrada = (parametro) -> operacao;
+    Function<Double, Double> funcaoRaizQuadrada = ?????;
     double valor = 25;
     calcular(valor, funcaoRaizQuadrada);
 
