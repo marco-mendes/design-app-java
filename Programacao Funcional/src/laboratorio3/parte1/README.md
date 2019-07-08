@@ -88,7 +88,7 @@ public class Exemplo_3 {
 Neste exemplo o valor 10 é somado com 5 durante a execução do método **compose**, após isso o valor retornado pelo método compose é multiplicado por 2 durante a execução do método **apply** retornando o valor 30.
 
 #### Exercicio 2
-Com base no código abaixo altere a função **verificarAlunoAprovado** para que a mesma receba uma função composta baseada na função **calcularMedia** e retorne true caso a média seja maior que 6 e retorne false caso contrário.
+Com base no código abaixo altere a função **verificarAlunoAprovado** para que a mesma receba uma função composta baseada na função **calcularMedia** e retorne true caso a média seja maior que 6, caso contrário retorne false.
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -216,29 +216,21 @@ public class Exemplo_6 {
 ```
 
 #### Exercicio 5
-Através do seguinte código calcule a raiz quadrada do número informado e imprima o resultado no console:
+Com base no código abaixo invoque o método **calcular** passando como parâmetro para ele uma função que calcule a raiz quadrada do número informado como parâmetro.<br/>
+Após a invocação do método imprima o valor retornado no console.
 
 ```java
 import java.util.function.Function;
 
 public class Exercicio_5 {
+    
+    public static Double calcular (Double valor, Function<Double, Double> operation){
+        return operation.apply(valor);
+    }
 
-  public static double calcular(double value, Function<Double, Double> operation){
+    public static void main(String[] args) {
 
-    double resultado = ?????;
+    }
 
-    System.out.println("Resultado da operação: " + resultado);
-    return resultado;
-
-  }
-
-  public static void main(String[] args) {
-
-    Function<Double, Double> funcaoRaizQuadrada = ?????;
-    double valor = 25;
-    calcular(valor, funcaoRaizQuadrada);
-
-  }
-  
 }
 ```
