@@ -13,9 +13,6 @@ Abordaremos aqui as duas principais Interfaces Funcionais do tipo **Function**, 
 [Vários exemplos de uso da Interface Funcional BiFunction](https://www.programcreek.com/java-api-examples/?api=java.util.function.Bifunction)
 
 
-### Function Composition
-
-
 ### Introdução Interface Funcional Function
 A interface Function recebe um argumento, realiza uma operação no mesmo e retorna o tipo especificado de dado após a execução da expressão lambda passada a ele.<br/>
 A interface Function é estruturada da seguinte forma:<br/>
