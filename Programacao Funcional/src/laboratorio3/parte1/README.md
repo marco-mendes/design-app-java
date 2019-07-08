@@ -42,8 +42,8 @@ Com base no exemplo acima utilize a interface funcional Function para receber um
 Após criar a Function realize um teste e imprima no console o valor retornado por ela.<br/>
 Exemplo de retorno utilizando o parâmetro "Jhon": "Hello Jhon".
 
-#### Function Composition
-A Function Composition é uma técnica para combinar múltiplas funções em uma única função que utiliza as funções combinadas internamente.<br/>
+#### Functional Composition
+A Functional Composition é uma técnica para criar funções compostas dentro de uma única função que utiliza as funções combinadas internamente.<br/>
 Veremos alguns exemplos de uso a seguir nesta e nas outras partes do laboratório 3.
 
 #### Método **andThen()**
@@ -70,4 +70,32 @@ System.out.println(funcaoNumeroMaisCincoVezesDois.apply(10));
 ```
 Neste exemplo o valor 10 é somado com 5 durante a execução do método **compose**, após isso o valor retornado pelo método compose é multiplicado por 2 durante a execução do método **apply** retornando o valor 30.
 
+#### Exercicio 2
+Com base no código abaixo altere a função **verificarAlunoAprovado** para que a mesma receba uma função composta baseada na função **calcularMedia** e retorne true caso a média seja maior que 6 e retorne false caso contrário.
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
 
+public class Exercicio_2 {
+
+    public static void main(String[] args) {
+
+        Function<List<Integer>, Integer> calcularMedia = (lista) -> {
+            int soma = 0;
+            for(int valor : lista){
+                soma += valor;
+            }
+            int media = soma / lista.size();
+            System.out.println(String.format("Media: %d", media));
+            return media;
+        };
+        Function<List<Integer>, Boolean> verificarAlunoAprovado = ??????;
+
+        List<Integer> notas = Arrays.asList(10, 5, 8, 1, 9);
+        System.out.println(String.format("Aluno aprovado? %b", verificarAlunoAprovado.apply(notas)));
+
+    }
+
+}
+```
