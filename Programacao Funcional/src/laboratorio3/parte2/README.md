@@ -11,6 +11,8 @@ A interface funcional **Predicate** foi projetada para ser usada em situações 
 O método usado para executarmos as funções do tipo Predicate é o método **test()**.<br/>
 Exemplo de uso básico desta interface funcional:
 ```java
+import java.util.function.Predicate;
+
 public class Exemplo_1 {
 
     public static void main(String[] args) {
@@ -142,6 +144,6 @@ Este método verifica se uma entrada é equivalente ao esperado.<br/>
 Exemplo:
 ```java
 Predicate<String> isBrasileiro = Predicate.isEqual("Brasileiro");
-System.out.println("É Brasileiro? " + isBrasileiro.test("Brasileiro"));
-System.out.println("É Brasileiro? " + isBrasileiro.test("Argentino"));
+System.out.println(String.format("É Brasileiro? %b", isBrasileiro.test("Brasileiro")));
+System.out.println(String.format("É Brasileiro? %b", isBrasileiro.test("Argentino")));
 ```
