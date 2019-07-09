@@ -13,17 +13,9 @@ Com base no código abaixo siga os seguintes passos:
 public class Exercicio_3 {
 
     public static void main(String[] args) {
-
-        // Remova os comentários abaixo para iniciar o exercício!
-        /*
-
+        
         Produto produto1 = new Produto("Celular Galaxy J5 Prime", 899.00);
         Produto protudo2 = new Produto("Xiaomi Mi 8", 1999.00);
-
-        BinaryOperator<Produto> produtoMaisBarato = ?????;
-        BinaryOperator<Produto> produtoMaisCaro = ?????;
-
-        */
 
     }
 

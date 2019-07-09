@@ -119,7 +119,7 @@ public class Exemplo_3 {
 Como base no código abaixo altere os Consumers presentes no exercício para atenderem as seguintes condições:
  * O **consumerImprimeNome** deve imprimir o atributo nome da instância do objeto pessoa.
  * O **consumerImprimeNomeEIdade** deve imprimir os atributos nome e idade da instância do objeto pessoa.
- * O **consumerImprimeNomeEIdade** deve ser criado usando como base o consumerImprimeNome. 
+ * O **consumerImprimeNomeEIdade** deve ser criado usando como base o **consumerImprimeNome**. 
 ```java
 import java.util.function.Consumer;
 
