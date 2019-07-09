@@ -160,6 +160,8 @@ Com base no código abaixo siga os seguintes passos:
  * Utilize os métodos estáticos **maxBy** e **minBy** para criar esses 2 BinaryOperator.
  * Invoque cada um dos BinaryOperator utilizando os 2 objetos do tipo produto já criados e imprima no console o resultado de cada invocação.
  
+_Dica: O Diamond Operator do BinaryOperator deve utilizar um objeto do tipo Produto._
+ 
 ```java
 import java.util.function.BinaryOperator;
 
