@@ -14,11 +14,16 @@ Com base no código abaixo ajuste a lógica dos 2 Predicates para atender os seg
 public class Exercicio_2 {
 
     public static void main(String[] args) {
+
+        // Remova os comentários abaixo para iniciar o exercicio!
+
+        /*
+
         Predicate<Pessoa> sexoMaculino = (pessoa) ->  pessoa.getSexo().equals(Sexo.MASCULINO);
-        Predicate<Pessoa> sexoMasculinoOuFeminino = sexoMaculino.or(p -> p.getSexo().equals(Sexo.FEMININO));
+        Predicate<Pessoa> sexoMasculinoOuFeminino = ?????;
 
         Predicate<Pessoa> maiorDeIdade = (pessoa) -> pessoa.getIdade() > 18;
-        Predicate<Pessoa> maiorDeIdadeENaoIdosa = maiorDeIdade.and(pessoa -> pessoa.getIdade() < 65);
+        Predicate<Pessoa> maiorDeIdadeENaoIdosa = ?????;
 
         Pessoa pessoa = new Pessoa("João", Sexo.MASCULINO, 35);
         Pessoa pessoa1 = new Pessoa("Maria", Sexo.FEMININO, 25);
@@ -32,6 +37,8 @@ public class Exercicio_2 {
 
         System.out.println("Pessoa maior de idade e não idosa? " + maiorDeIdadeENaoIdosa.test(pessoa3));
         System.out.println("Pessoa maior de idade e não idosa? " + maiorDeIdadeENaoIdosa.test(pessoa4));
+
+        */
 
     }
 
