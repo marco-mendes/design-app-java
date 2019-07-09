@@ -123,7 +123,7 @@ Esse metodo retorna um **BinaryOperator** que retorna o maior dos dois elementos
 ```java
 import java.util.function.BinaryOperator;
 
-public class ExemploIFBinaryOperator {
+public class Exemplo_3 {
 
     public static void main(String[] args) {
 
@@ -141,7 +141,7 @@ Esse metodo retorna um BinaryOperator que retorna o menor dos dois elementos com
 ```java
 import java.util.function.BinaryOperator;
 
-public class ExemploIFBinaryOperator {
+public class Exemplo_4 {
 
     public static void main(String[] args) {
 
