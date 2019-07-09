@@ -25,7 +25,7 @@ public class Exemplo_1 {
 }
 ```
 
-### Exercício
+#### Exercício
 Com base no código abaixo crie um Supplier chamado **valorAleatorioSupplier** que retorne um valor aleatório do tipo Double.<br/>
 Invoque esse Supplier e imprima o valor retornado por ele no console.
 ```java

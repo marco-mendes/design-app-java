@@ -115,7 +115,7 @@ public class Exemplo_3 {
 }
 ```
 
-### Exercício 2
+#### Exercício 2
 Como base no código abaixo altere os Consumers presentes no exercício para atenderem as seguintes condições:
  * O **consumerImprimeNome** deve imprimir o atributo nome da instância do objeto pessoa.
  * O **consumerImprimeNomeEIdade** deve imprimir os atributos nome e idade da instância do objeto pessoa.
