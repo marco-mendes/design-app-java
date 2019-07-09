@@ -91,7 +91,7 @@ class Celular {
 
 ### Método andThen()
 Outro método da Interface Funcional Consumer é o método **andThen()**, ele recebe uma expressão lambda ou um Consumer como parâmetro.<br/>
-Seu comportamento é bem semelhante ao método **andThen** da **Interface Funcional Function**, a diferença é que este método não retorna um valor.
+Seu comportamento é bem semelhante ao método **andThen** da **Interface Funcional Function**, a diferença é que este método não retorna nenhum valor.
 
 Exemplo de uso:
 ```java
@@ -117,9 +117,9 @@ public class Exemplo_3 {
 
 ### Exercício 2
 Como base no código abaixo altere os Consumers presentes no exercício para atenderem as seguintes condições:
- * O consumerImprimeNome deve imprimir o atributo nome da instância do objeto pessoa.
- * O consumerImprimeNomeEIdade deve imprimir os atributos nome e idade da instância do objeto pessoa.
- * O consumerImprimeNomeEIdade deve ser criado usando como base o consumerImprimeNome. 
+ * O **consumerImprimeNome** deve imprimir o atributo nome da instância do objeto pessoa.
+ * O **consumerImprimeNomeEIdade** deve imprimir os atributos nome e idade da instância do objeto pessoa.
+ * O **consumerImprimeNomeEIdade** deve ser criado usando como base o consumerImprimeNome. 
 ```java
 import java.util.function.Consumer;
 

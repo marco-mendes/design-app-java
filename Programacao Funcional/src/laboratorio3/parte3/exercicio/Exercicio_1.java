@@ -17,11 +17,6 @@ public class Exercicio_1 {
         Celular c2 = new Celular("Mi 9", "Xiaomi", "Azul");
         Celular c3 = new Celular("G7", "LG", "Cinza");
 
-        Consumer<Celular> imprimeCelularConsumer = Celular::imprimeCelular;
-        imprimeCelularConsumer.accept(c1);
-        imprimeCelularConsumer.accept(c2);
-        imprimeCelularConsumer.accept(c3);
-
     }
 
 }
