@@ -110,7 +110,7 @@ public class Exemplo_3 {
         });
         verificaNumeroPar.accept(4);
         verificaNumeroPar.accept(7);
-    }
+    } 
 
 }
 ```
