@@ -12,11 +12,12 @@ public class Exercicio_1 {
     public static void main(String[] args) {
 
         // Remova os comentários abaixo para iniciar o exercício!
+
         /*
 
         UnaryOperator<Double> aplicaImposto = ?????;
         Double valorMercadoria = 2500.00;
-        System.out.println("Valor total mercadoria com imposto: " + aplicaImposto.apply(valorMercadoria));
+        System.out.println(String.format("Valor total mercadoria com imposto: %s", aplicaImposto.apply(valorMercadoria)));
 
         */
 

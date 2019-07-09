@@ -62,7 +62,7 @@ public class Exercicio_1 {
 
         UnaryOperator<Double> aplicaImposto = ????;
         Double valorMercadoria = 2500.00;
-        System.out.println("Valor total mercadoria com imposto: " + aplicaImposto.apply(valorMercadoria));
+        System.out.println(String.format("Valor total mercadoria com imposto: %s", aplicaImposto.apply(valorMercadoria)));
 
     }
 
