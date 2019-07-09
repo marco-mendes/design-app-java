@@ -2,6 +2,12 @@ package laboratorio3.parte2.exercicio;
 
 import java.util.function.Predicate;
 
+/*
+Com base no código abaixo crie um Predicate para verificar se uma idade recebida é de uma pessoa idosa.
+Caso o valor recebido seja maior que 65 retorne true, caso contrário retorne false.
+Invoque o predicate criado com um valor para teste e imprima no console o resultado.
+* */
+
 public class Exercicio_1 {
 
     public static void main(String[] args) {
