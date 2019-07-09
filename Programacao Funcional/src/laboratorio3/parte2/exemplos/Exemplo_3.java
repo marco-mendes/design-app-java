@@ -13,7 +13,7 @@ public class Exemplo_3 {
         Predicate<String> seChamaJoseOuMaria = seChamaJose.or(nome -> (nome == "Maria") ? true : false);
         imprimeResultado("Se chama Jose ou Maria? %b", seChamaJoseOuMaria.test("Jose"));
         imprimeResultado("Se chama Jose ou Maria? %b", seChamaJoseOuMaria.test("Maria"));
-        imprimeResultado("Se chama Jose ou Maria? %b", seChamaJoseOuMaria.test("Jose"));
+        imprimeResultado("Se chama Jose ou Maria? %b", seChamaJoseOuMaria.test("Draven"));
     }
 
 }

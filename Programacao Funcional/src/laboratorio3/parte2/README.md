@@ -50,21 +50,70 @@ public class Exercicio_1 {
 Este método é equivalente ao operador lógico **&&**, o mesmo é executado após o método **test()** ser executado.
 <br/>Exemplo: 
 ```java
-Predicate<Integer> testeMaioridade = n -> (n > 18) ? true : false;
-Predicate<Integer> testeMaioridadeENaoIdoso = testeMaioridade.and(n -> (n < 60) ? true : false);
-System.out.println("É maior de idade e não é idoso? " + testeMaioridadeENaoIdoso.test(65));
-System.out.println("É maior de idade e não é idoso? " + testeMaioridadeENaoIdoso.test(42));
+import java.util.function.Predicate;
+
+public class Exemplo_2 {
+
+    public static void imprimeResultado(String message, Boolean resultado){
+        System.out.println(String.format(message, resultado));
+    }
+
+    public static void main(String[] args) {
+
+        Carro c1 = new Carro("BMW", "Azul");
+        Carro c2 = new Carro("BMW", "Amarelo");
+
+        Predicate<Carro> predicateBmw = (carro) -> carro.modelo.equals("BMW") ? true : false;
+        Predicate<Carro> predicateBmwAzul = predicateBmw.and(carro -> carro.getCor().equals("Azul") ? true : false);
+
+        imprimeResultado("É uma BMW Azul? %b", predicateBmwAzul.test(c1));
+        imprimeResultado("É uma BMW Azul? %b", predicateBmwAzul.test(c2));
+
+    }
+
+}
+
+class Carro {
+
+    String modelo;
+    String cor;
+
+    public Carro(String modelo, String cor) {
+        this.modelo = modelo;
+        this.cor = cor;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+}
 ```
 
 ### Método or()
 Este método é equivalente ao operador lógico **||**, o mesmo é executado após o método **test()** ser executado.
 <br/>Exemplo:
 ```java
-Predicate<String> seChamaJose = nome -> (nome == "Jose") ? true : false;
-Predicate<String> seChamaJoseOuMaria = seChamaJose.or(nome -> (nome == "Maria") ? true : false);
-System.out.println("Se chama Jose ou Maria? " + seChamaJoseOuMaria.test("Jose"));
-System.out.println("Se chama Jose ou Maria? " + seChamaJoseOuMaria.test("Maria"));
-System.out.println("Se chama Jose ou Maria? " + seChamaJoseOuMaria.test("Draven"));
+import java.util.function.Predicate;
+
+public class Exemplo_3 {
+
+    public static void imprimeResultado(String message, Boolean resultado){
+        System.out.println(String.format(message, resultado));
+    }
+
+    public static void main(String[] args) {
+        Predicate<String> seChamaJose = nome -> (nome == "Jose") ? true : false;
+        Predicate<String> seChamaJoseOuMaria = seChamaJose.or(nome -> (nome == "Maria") ? true : false);
+        imprimeResultado("Se chama Jose ou Maria? %b", seChamaJoseOuMaria.test("Jose"));
+        imprimeResultado("Se chama Jose ou Maria? %b", seChamaJoseOuMaria.test("Maria"));
+        imprimeResultado("Se chama Jose ou Maria? %b", seChamaJoseOuMaria.test("Draven"));
+    }
+
+}
 ```
 
 #### Exercicio 2
