@@ -46,3 +46,52 @@ Por exemplo, a função **calculaRaizQuadrada** foi invocada com o valor 25, o v
   
 
 ### Currying
+Currying é um conceito de quebrar uma função com muitos argumentos em muitas funções com um único argumento, de tal forma que a saída é a mesma.<br/>
+O currying divide funções de ordem superior em uma série de funções em cascata menores que recebem um argumento e retornam uma função, exceto a última função em cascata que retorna o valor desejado.<br/>
+Exemplo:
+```java
+import java.util.function.Function;
+
+public class Exemplo_2 {
+
+    public static void main(String[] args) {
+
+        Function<Integer,
+                Function<Integer, Integer>> curryingSomaDoisValores = u -> v -> u + v;
+        System.out.println(
+                curryingSomaDoisValores
+                        .apply(5)
+                        .apply(10)
+        );
+
+    }
+
+}
+```
+Neste exemplo divimos a função em duas partes.
+
+Outro exemplo:
+```java
+public class Exemplo_3 {
+
+    public static void main(String[] args) {
+
+        Function<Integer,
+                Function<Integer,
+                        Function<Integer, Integer>>> curryingSomaTresValores = u -> v -> w -> u + v + w;
+        System.out.println(
+                curryingSomaTresValores
+                        .apply(5)
+                        .apply(10)
+                        .apply(15)
+        );
+
+    }
+
+}
+```
+Neste exemplo divimos a função em duas partes.
+
+#### Exercicio 2
+Com base nos exemplos acima crie um Currying que divida uma função em duas partes chamado **curryingMultiplicaValores**, o mesmo deve retornar o valor da multiplicação do valores recebidos pelo currying.<br/>
+_Dica: É bem semelhante ao Exemplo 2_
