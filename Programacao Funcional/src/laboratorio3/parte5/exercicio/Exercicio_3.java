@@ -10,7 +10,7 @@ Com base no código abaixo siga os seguintes passos:
  * Invoque cada um dos BinaryOperator utilizando os 2 objetos do tipo produto já criados e imprima no console o resultado.
 
  Dica: O Diamond Operator do BinaryOperator deve utilizar um objeto do tipo Produto.
- 
+
 * */
 
 public class Exercicio_3 {
