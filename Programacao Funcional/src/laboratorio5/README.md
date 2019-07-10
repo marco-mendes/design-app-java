@@ -90,8 +90,7 @@ public class Exemplo_3 {
 
 }
 ```
-Neste exemplo divimos a função em duas partes.
+Neste exemplo divimos a função em três partes.
 
 #### Exercicio 2
 Com base nos exemplos acima crie um Currying que divida uma função em duas partes chamado **curryingMultiplicaValores**, o mesmo deve retornar o valor da multiplicação do valores recebidos pelo currying.<br/>
-_Dica: É bem semelhante ao Exemplo 2_
