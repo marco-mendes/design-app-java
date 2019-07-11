@@ -20,7 +20,7 @@ Dentre eles possuímos:
 * Interfaces Funcionais
 * Métodos Default
 * Method Reference
-* Optional
+* Classe Optional
 * Melhorias na interface Collection
 
 O uso básico das expressões Lambda e Interfaces Funcionais foi abordado no laboratório 1.<br/>
@@ -184,10 +184,10 @@ class Pessoa {
 ### Introdução à Classe Optional
 A principal proposta deste recurso é encapsular o retorno de métodos e informar se um valor do tipo <T> está presente ou ausente.<br/>
 Com ele podemos:
- * Evitar erros NullPointerException
+ * Evitar erros NullPointerException.
  * Escrever código mais limpo e elegante.
 
-Os principais métodos da classe Optional são:
+Seus principais métodos são:
  * Optional.empty()
  * Optional.of()
  * Optional.ofNullable()
@@ -199,7 +199,7 @@ Os principais métodos da classe Optional são:
  * orElse()
  * orElseThrow()
  
-Utilizaremos a seguinte classe para alguns exercícios da classe Optional:
+Utilizaremos a seguinte classe em conjunto com os exercícios da classe Optional:
 ```java
 package laboratorio2.exercicio;
 
@@ -273,8 +273,7 @@ public class Produto {
 }
 ```
 
-  
- 
+   
 ### Criando Optionals:
 Os métodos utilizados para criar um Optional são:
  * Optional.empty(): Retorna uma instância de Optional vazia.
@@ -433,6 +432,8 @@ public class Exemplo_6 {
 Com base no código abaixo altere o método **filtraEImprimeSeHouverDescricao** para filtrar se a propriedade **descricao** está presente no Optional.<br/>
 Utilizando o Optional filtrado verifique se o Optional possui valor, se sim imprima a descrição do produto, se não imprima: "Descrição está vazia!"
 ```java
+package laboratorio2.exercicio;
+
 import java.util.Optional;
 
 public class Exercicio_5 {
@@ -458,9 +459,9 @@ public class Exercicio_5 {
 ```
 
 ### Métodos map() e flatMap()
-Os métodos map() e flatMap() são usados para transformar um objeto em outro.<br/>
-A diferença entre eles é que o método map() mapeia o objeto que será retornado com o mesmo não sendo um Optional, já o flatMap() mapeia o Objeto que será retornado com o mesmo sendo um Optional.<br/>
-No exemplo abaixo estamos transformando algumas propriedades de um objeto do tipo Celular em Strings.
+Os métodos **map()** e **flatMap()** são usados para transformar um Optional em outro objeto Optional.<br/>
+A diferença entre eles é que o método **map()** transforma o valor que será retornado para um novo Optional e o **flatMap()** transforma o valor que será retornado para um novo Optional com esse valor sendo um Optional.<br/>
+No exemplo abaixo estamos transformando um Optional do tipo Celular em um Optional do tipo String.
 ```java
 import java.util.Optional;
 
@@ -470,10 +471,13 @@ public class Exemplo_7 {
         Celular c1 = new Celular("Apple", "Iphone XR", "Novo Iphone XR");
 
         Optional<Celular> optionalCelular1 = Optional.of(c1);
-        
-        String nomeCelular = optionalCelular1.map(Celular::getMarca).get();
-        String descricaoCelular = optionalCelular1.flatMap(Celular::getDescricao).get();
 
+        Optional<String> marcaOptional = optionalCelular1.map(Celular::getMarca);
+        Optional<String> descricaoOptional = optionalCelular1.flatMap(Celular::getDescricao);
+
+        System.out.println(marcaOptional.get());
+        System.out.println(descricaoOptional.get());
+        
     }
 
 }
@@ -510,8 +514,10 @@ class Celular {
 ```
 
 #### Exercício 6
-Com base no código abaixo utilize map() e flatMap() para transformar e atribuir os valores das propriedades nome, tipo e descricao do objeto Produto para suas respectivas variáveis.
+Com base no código abaixo utilize **map()** e **flatMap()** para transformar e atribuir os valores das propriedades nome, tipo e descricao do objeto Produto para seus respectivos Optionals.
 ```java
+package laboratorio2.exercicio;
+
 import java.util.Optional;
 
 public class Exercicio_6 {
@@ -522,12 +528,13 @@ public class Exercicio_6 {
 
         Optional<Produto> optionalProduto = Optional.of(produto);
 
-        String nomeProduto = ?????;
-        TipoProduto tipoProduto = ?????;
-        String descricaoProduto = ?????;
+        Optional<String> nomeProdutoOptional = ?????;
+        Optional<TipoProduto> tipoProdutoOptional = ?????;
+        Optional<String> descricaoProtudoOptional = ?????;
 
         System.out.println(
-                String.format("Nome Produto: %s | Tipo Produto: %s | Descrição produto: %s", nomeProduto, tipoProduto, descricaoProduto)
+                String.format("Nome Produto: %s | Tipo Produto: %s | Descrição produto: %s",
+                        nomeProdutoOptional.get(), tipoProdutoOptional.get(), descricaoProtudoOptional.get())
         );
 
     }
@@ -535,3 +542,86 @@ public class Exercicio_6 {
 }
 ```
 
+### Métodos orElse() e orElseThrow()
+O método **orElse()** verifica se o valor do Optional está presente, se estiver o mesmo retorna o valor do Optional, caso contrário retorna o valor pré-definido dentro do método **orElse()**<br/> 
+Já o método **orElseThrow()** se o valor do Optional estiver presente o método retorna o valor do Optional, caso contrário retorna a Exception especificada dentro dele.<br/>
+Exemplo:
+```java
+import java.util.Optional;
+
+public class Exemplo_8 {
+
+    public static void exemploOrElse(){
+
+        Optional<Cachorro> cachorroSemChip = Optional.ofNullable(new Cachorro("Magrelinho"));
+        String resultado = cachorroSemChip.flatMap(Cachorro::getChipIdentificacao).orElse("Não possui chip de identificação!");
+        System.out.println(resultado);
+
+    }
+
+    public static void exemploOrElseThrow(){
+
+        Optional<Cachorro> cachorroSemChip = Optional.ofNullable(new Cachorro("Magrelinho"));
+        try{
+            String resultado = cachorroSemChip.flatMap(Cachorro::getChipIdentificacao).orElseThrow(() -> new Exception("Não possui chip de identificação!"));
+            System.out.println(resultado);
+        } catch (Exception e){
+            System.out.print("Ocorreu uma Exception: ");
+            System.out.print(e.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        exemploOrElse();
+        exemploOrElseThrow();
+    }
+
+}
+
+class Cachorro {
+
+    String nome;
+    String chipIdentificacao;
+
+    public Cachorro(String nome) {
+        this.nome = nome;
+    }
+
+    public Cachorro(String nome, String chipIdentificacao) {
+        this.nome = nome;
+        this.chipIdentificacao = chipIdentificacao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Optional<String> getChipIdentificacao() {
+        return Optional.ofNullable(chipIdentificacao);
+    }
+
+}
+```
+
+#### Exercício 7
+Com base no código abaixo atribua o valor da descrição do produto para a variável **descricaoProduto** utilizando o método **orElse()**, o valor retornado caso o Optional esteja vazio deve ser a seguinte mensagem: "Produto não possui descrição cadastrada".
+
+```java
+package laboratorio2.exercicio;
+
+import java.util.Optional;
+
+public class Exercicio_7 {
+
+    public static void main(String[] args) {
+
+        Produto produtoSemDescricao = new Produto("1", "Celular", TipoProduto.Eletronicos);
+        Optional<Produto> produtoSemDescricaoOptional = Optional.of(produtoSemDescricao);
+        
+        String descricaoProduto = ?????;
+        System.out.println(descricaoProduto);
+
+    }
+
+}
+```

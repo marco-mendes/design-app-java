@@ -3,6 +3,11 @@ package laboratorio2.exercicio;
 import java.util.List;
 import java.util.Optional;
 
+/*
+Com base no código abaixo implemente o seguinte comportamento no método imprimeSeEstiverPresente:
+Verifique se o valor do Optional está presente, se estiver imprima o valor do mesmo no console, caso contrário imprima a seguinte mensagem: "Produto não encontrado!"
+* */
+
 public class Exercicio_4 {
 
     public static Produto buscarProdutoPorId(String id){
@@ -16,11 +21,13 @@ public class Exercicio_4 {
     }
 
     public static void imprimeSeEstiverPresente(Optional<Produto> produto){
+    /*
         if(produto.isPresent()){
             System.out.println(produto.get());
         } else {
             System.out.println("Produto não encontrado!");
         }
+    */
     }
 
     public static void main(String[] args) {

@@ -9,8 +9,11 @@ public class Exemplo_7 {
 
         Optional<Celular> optionalCelular1 = Optional.of(c1);
 
-        String nomeCelualar = optionalCelular1.map(Celular::getMarca).get();
-        String descricaoCelular = optionalCelular1.flatMap(Celular::getDescricao).get();
+        Optional<String> marcaOptional = optionalCelular1.map(Celular::getMarca);
+        Optional<String> descricaoOptional = optionalCelular1.flatMap(Celular::getDescricao);
+
+        System.out.println(marcaOptional.get());
+        System.out.println(descricaoOptional.get());
 
     }
 
