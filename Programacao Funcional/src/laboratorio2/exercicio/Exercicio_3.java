@@ -18,7 +18,6 @@ public class Exercicio_3 {
     public static void main(String[] args) {
         //Produto produto = buscarProdutoPorId("5");
         Optional<Produto> produto = Optional.ofNullable(buscarProdutoPorId("5"));
-
     }
 
 }

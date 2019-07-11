@@ -181,12 +181,23 @@ class Pessoa {
 }
 ```
 
-### Classe Optional
+### Introdução à Classe Optional
 A principal proposta deste recurso é encapsular o retorno de métodos e informar se um valor do tipo <T> está presente ou ausente.<br/>
 Com ele podemos:
  * Evitar erros NullPointerException
- * Parar de fazer verificações de valores nulos do tipo if (cliente != null).
  * Escrever código mais limpo e elegante.
+
+Os principais métodos da classe Optional são:
+ * Optional.empty()
+ * Optional.of()
+ * Optional.ofNullable()
+ * isPresent()
+ * get()
+ * filter()
+ * map()
+ * flatMap()
+ * orElse()
+ * orElseThrow()
  
 Utilizaremos a seguinte classe para alguns exercícios da classe Optional:
 ```java
@@ -262,25 +273,14 @@ public class Produto {
 }
 ```
 
+  
  
-
-### Principais métodos da classe Optional
-Métodos para criação de um Optional: 
+### Criando Optionals:
+Os métodos utilizados para criar um Optional são:
  * Optional.empty(): Retorna uma instância de Optional vazia.
  * Optional.of(): Retorna um Optional com o valor fornecido, deve ser usado apenas quando se tem certeza que o valor recebido não é nulo.
  * Optional.ofNullable(): Caso o valor recebido não seja nulo retorna um Optional com o valor, caso contrário retorna um Optional vazio.
  
-Outros métodos de um Optional:
- * isPresent(): Verifica se um valor está presente no Optional, se existir retornar true, se não retorna false.
- * get(): Retorna o valor encapsulado no Optional, deve ser usado apenas com a certeza que o Optional não está vazio, caso contrário sua invocação irá retornar um NoSuchElementException.
- * filter(): Recebe um Predicate, se o valor estiver presente e o valor corresponder ao filtro retorna um Optional com o valor filtrado, se não, retorna um Optional vazio.
- * map(): Pode ser usado para transformar um valor em outro
- * flatMap(): Pode ser usado para transformar um valor em outro, a diferença deste método para o método map() é que este recebe um Optional
- * orElse(): Caso não seja encontrado retorna um valor padrão
- * orElseThrow(): Caso não seja encontrado retorna uma exception.
- 
- 
-### Criando Optionals:
 Exemplos de criação de um Optional:
 ```java
 import java.util.Optional;
@@ -326,8 +326,9 @@ public class Exercicio_3 {
 }
 ```
 
-### Utilizando método isPresent()
-Exemplo:
+### Método isPresent()
+Este método é responsável por verificar se um valor está presente no Optional, se o valor existir retorna true, se não retorna false.<br/>
+Exemplo de uso:
 ```java
 import java.util.Optional;
 
@@ -350,8 +351,9 @@ public class Exemplo_4 {
 }
 ```
 
-### Utilizando método get()
-Exemplo:
+### Método get()
+Retorna o valor encapsulado no Optional, deve ser usado apenas com a certeza que o Optional não está vazio, caso contrário sua invocação irá retornar um NoSuchElementException.<br/>
+Exemplo de uso:
 ```java
 import java.util.Optional;
 
@@ -404,8 +406,9 @@ public class Exercicio_4 {
 
 ```
 
-### Utilizando método filter()
-Exemplo:
+### Método filter()
+Este método é responsável por realizar uma filtragem no Optional, caso o Optional esteja de acordo com o filtro será retornado um Optional com o valor filtrado, caso contrário será retornado um Optional vazio.<br/>
+Exemplo de uso:
 ```java
 import java.util.Optional;
 
@@ -453,3 +456,82 @@ public class Exercicio_5 {
 
 }
 ```
+
+### Métodos map() e flatMap()
+Os métodos map() e flatMap() são usados para transformar um objeto em outro.<br/>
+A diferença entre eles é que o método map() mapeia o objeto que será retornado com o mesmo não sendo um Optional, já o flatMap() mapeia o Objeto que será retornado com o mesmo sendo um Optional.<br/>
+No exemplo abaixo estamos transformando algumas propriedades de um objeto do tipo Celular em Strings.
+```java
+import java.util.Optional;
+
+public class Exemplo_7 {
+
+    public static void main(String[] args) {
+        Celular c1 = new Celular("Apple", "Iphone XR", "Novo Iphone XR");
+
+        Optional<Celular> optionalCelular1 = Optional.of(c1);
+        
+        String nomeCelular = optionalCelular1.map(Celular::getMarca).get();
+        String descricaoCelular = optionalCelular1.flatMap(Celular::getDescricao).get();
+
+    }
+
+}
+
+class Celular {
+
+    String marca;
+    String modelo;
+    String descricao;
+
+    public Celular(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    public Celular(String marca, String modelo, String descricao) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.descricao = descricao;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public Optional<String> getDescricao() {
+        return Optional.ofNullable(descricao);
+    }
+}
+```
+
+#### Exercício 6
+Com base no código abaixo utilize map() e flatMap() para transformar e atribuir os valores das propriedades nome, tipo e descricao do objeto Produto para suas respectivas variáveis.
+```java
+import java.util.Optional;
+
+public class Exercicio_6 {
+
+    public static void main(String[] args) {
+
+        Produto produto = new Produto("1", "Sorvete", TipoProduto.Congelados, "Sorvete de Morango");
+
+        Optional<Produto> optionalProduto = Optional.of(produto);
+
+        String nomeProduto = ?????;
+        TipoProduto tipoProduto = ?????;
+        String descricaoProduto = ?????;
+
+        System.out.println(
+                String.format("Nome Produto: %s | Tipo Produto: %s | Descrição produto: %s", nomeProduto, tipoProduto, descricaoProduto)
+        );
+
+    }
+
+}
+```
+
