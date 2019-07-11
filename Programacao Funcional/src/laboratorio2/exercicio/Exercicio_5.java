@@ -10,14 +10,9 @@ Utilizando o Optional filtrado verifique se o Optional possui valor, se sim impr
 public class Exercicio_5 {
 
     public static void filtraEImprimeSeHouverDescricao(Optional<Produto> produto){
-        /*
-        Optional<Produto> filtrado = produto.filter(p -> p.getDescricao().isPresent());
-        if(filtrado.isPresent()){
-            System.out.println(filtrado.get().getDescricao());
-        } else {
-            System.out.println("Descrição está vazia");
-        }
-        */
+
+        // Insira a implementação aqui
+
     }
 
     public static void main(String[] args) {

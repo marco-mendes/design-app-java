@@ -11,18 +11,23 @@ public class Exercicio_6 {
 
     public static void main(String[] args) {
 
+        // Remova os comentários para começar o exercício!
+        /*
+
         Produto produto = new Produto("1", "Sorvete", TipoProduto.Congelados, "Sorvete de Morango");
 
         Optional<Produto> optionalProduto = Optional.of(produto);
 
-        Optional<String> nomeProdutoOptional = optionalProduto.map(Produto::getNome);
-        Optional<TipoProduto> tipoProdutoOptional = optionalProduto.map(Produto::getTipo);
-        Optional<String> descricaoProtudoOptional = optionalProduto.flatMap(Produto::getDescricao);
+        Optional<String> nomeProdutoOptional = ?????;
+        Optional<TipoProduto> tipoProdutoOptional = ?????;
+        Optional<String> descricaoProtudoOptional = ?????;
 
         System.out.println(
                 String.format("Nome Produto: %s | Tipo Produto: %s | Descrição produto: %s",
                         nomeProdutoOptional.get(), tipoProdutoOptional.get(), descricaoProtudoOptional.get())
         );
+
+        */
 
     }
 

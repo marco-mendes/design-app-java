@@ -11,11 +11,16 @@ public class Exercicio_7 {
 
     public static void main(String[] args) {
 
-        Produto produtoSemDescricao = new Produto("1", "Celular", TipoProduto.Eletronicos, "Celular");
+        // Remova os comentários para começar o exercício!
+        /*
+
+        Produto produtoSemDescricao = new Produto("1", "Celular", TipoProduto.Eletronicos, "Samsung Galaxy S9");
         Optional<Produto> produtoSemDescricaoOptional = Optional.of(produtoSemDescricao);
 
-        String descricaoProduto = produtoSemDescricaoOptional.flatMap(Produto::getDescricao).orElse("Produto não possui descrição cadastrada");
+        String descricaoProduto = ?????;
         System.out.println(descricaoProduto);
+
+        */
 
     }
 

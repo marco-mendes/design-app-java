@@ -21,17 +21,13 @@ public class Exercicio_4 {
     }
 
     public static void imprimeSeEstiverPresente(Optional<Produto> produto){
-    /*
-        if(produto.isPresent()){
-            System.out.println(produto.get());
-        } else {
-            System.out.println("Produto não encontrado!");
-        }
-    */
+
+        // Insira a implementação aqui
+
     }
 
     public static void main(String[] args) {
-        List<Produto> produtos = Produto.obtemProdutos();
+
         Optional<Produto> produtoId1 = Optional.ofNullable(buscarProdutoPorId("1"));
         Optional<Produto> produtoId50 = Optional.ofNullable(buscarProdutoPorId("50"));
 
