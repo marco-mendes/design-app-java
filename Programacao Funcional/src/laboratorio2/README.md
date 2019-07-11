@@ -5,6 +5,7 @@
 
 [Métodos Default](https://dzone.com/articles/interface-default-methods-java)<br/>
 [Method Reference](https://www.baeldung.com/java-method-references)<br/>
+[Classe Optional](https://medium.com/@racc.costa/optional-no-java-8-e-no-java-9-7c52c4b797f1)<br/>
 [Mais exemplos Method Reference](https://www.javatpoint.com/java-8-method-reference)
 
 
@@ -19,10 +20,11 @@ Dentre eles possuímos:
 * Interfaces Funcionais
 * Métodos Default
 * Method Reference
+* Optional
 * Melhorias na interface Collection
 
 O uso básico das expressões Lambda e Interfaces Funcionais foi abordado no laboratório 1.<br/>
-Neste laboratório abordaremos o uso básico de Métodos Default e Method Reference.<br/>
+Neste laboratório abordaremos o uso básico de Métodos Default, Method Reference e o uso da classe Optional para evitar o clássico erro NullPointerException.<br/>
 Outros assuntos como as melhorias na interface Collection serão abordados nos próximos laboratórios.<br/>
 
 
@@ -179,3 +181,275 @@ class Pessoa {
 }
 ```
 
+### Classe Optional
+A principal proposta deste recurso é encapsular o retorno de métodos e informar se um valor do tipo <T> está presente ou ausente.<br/>
+Com ele podemos:
+ * Evitar erros NullPointerException
+ * Parar de fazer verificações de valores nulos do tipo if (cliente != null).
+ * Escrever código mais limpo e elegante.
+ 
+Utilizaremos a seguinte classe para alguns exercícios da classe Optional:
+```java
+package laboratorio2.exercicio;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+enum TipoProduto {
+    Congelados, Bebidas, Eletrodomesticos, Eletronicos
+}
+
+public class Produto {
+
+    String id;
+    String nome;
+    TipoProduto tipo;
+    String descricao;
+
+
+    public Produto(String id, String nome, TipoProduto tipo) {
+        this.id = id;
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+
+    public Produto(String id, String nome, TipoProduto tipo, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.descricao = descricao;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public TipoProduto getTipo() {
+        return tipo;
+    }
+
+    public Optional<String> getDescricao() {
+        return Optional.ofNullable(descricao);
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                ", tipo=" + tipo +
+                ", descricao='" + descricao + '\'' +
+                '}';
+    }
+
+    public static List<Produto> obtemProdutos(){
+        List<Produto> produtos = Arrays.asList(
+                new Produto("1", "Sorvete", TipoProduto.Congelados),
+                new Produto("2", "Cerveja", TipoProduto.Bebidas),
+                new Produto("3", "Refrigerante", TipoProduto.Bebidas),
+                new Produto("4", "Geladeira", TipoProduto.Eletrodomesticos),
+                new Produto("5", "Chromecast", TipoProduto.Eletronicos, "Com ele você pode assistir seus filmes e séries em uma TV que não tenha a função Smart")
+        );
+        return produtos;
+    }
+
+
+}
+```
+
+ 
+
+### Principais métodos da classe Optional
+Métodos para criação de um Optional: 
+ * Optional.empty(): Retorna uma instância de Optional vazia.
+ * Optional.of(): Retorna um Optional com o valor fornecido, deve ser usado apenas quando se tem certeza que o valor recebido não é nulo.
+ * Optional.ofNullable(): Caso o valor recebido não seja nulo retorna um Optional com o valor, caso contrário retorna um Optional vazio.
+ 
+Outros métodos de um Optional:
+ * isPresent(): Verifica se um valor está presente no Optional, se existir retornar true, se não retorna false.
+ * get(): Retorna o valor encapsulado no Optional, deve ser usado apenas com a certeza que o Optional não está vazio, caso contrário sua invocação irá retornar um NoSuchElementException.
+ * filter(): Recebe um Predicate, se o valor estiver presente e o valor corresponder ao filtro retorna um Optional com o valor filtrado, se não, retorna um Optional vazio.
+ * map(): Pode ser usado para transformar um valor em outro
+ * flatMap(): Pode ser usado para transformar um valor em outro, a diferença deste método para o método map() é que este recebe um Optional
+ * orElse(): Caso não seja encontrado retorna um valor padrão
+ * orElseThrow(): Caso não seja encontrado retorna uma exception.
+ 
+ 
+### Criando Optionals:
+Exemplos de criação de um Optional:
+```java
+import java.util.Optional;
+
+public class Exemplo_3 {
+
+    public static void main(String[] args) {
+
+        Optional<String> optionalVazio = Optional.empty();
+        Optional<String> optionalNaoNulo = Optional.of("Valor recebido não é nulo!");
+        Optional<String> optionalPodeOuNaoSerNulo = Optional.ofNullable(null);
+        Optional<String> optionalPodeOuNaoSerNulo1 = Optional.ofNullable("Optional não nulo");
+
+    }
+
+}
+```
+
+
+#### Exercicio_3
+Com base no código abaixo altere a variável **produto** do método **main()** para ser do tipo Optional e receber o Optional que melhor se encaixe no cenário, lembrando que atualmente o valor recebido por essa variável pode ou não ser nulo.
+```java
+package laboratorio2.exercicio;
+
+import java.util.List;
+
+public class Exercicio_3 {
+
+    public static Produto buscarProdutoPorId(String id){
+        List<Produto> produtos = Produto.obtemProdutos();
+        for(Produto produto : produtos){
+            if(produto.id.equals(id)){
+                return produto;
+            }
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        Produto produto = buscarProdutoPorId("5");
+    }
+
+}
+```
+
+### Utilizando método isPresent()
+Exemplo:
+```java
+import java.util.Optional;
+
+public class Exemplo_4 {
+
+    public static void main(String[] args) {
+
+        Optional<String> optionalNulo = Optional.ofNullable(null);
+        Optional<String> optionalNaoNulo = Optional.ofNullable("Optional não nulo");
+
+        System.out.println(
+                String.format("O Optional contém algum valor? %b", optionalNulo.isPresent())
+        );
+        System.out.println(
+                String.format("O Optional contém algum valor? %b", optionalNaoNulo.isPresent())
+        );
+        
+    }
+
+}
+```
+
+### Utilizando método get()
+Exemplo:
+```java
+import java.util.Optional;
+
+public class Exemplo_5 {
+
+    public static void main(String[] args) {
+        Optional<String> optionalNaoNulo = Optional.of("Não nulo!");
+        System.out.println(optionalNaoNulo.get());
+    }
+
+}
+```
+
+#### Exercicio 4
+Com base no código abaixo implemente o seguinte comportamento no método **imprimeSeEstiverPresente**:<br/>
+Verifique se o valor do Optional está presente, se estiver imprima o valor do mesmo no console, caso contrário imprima a seguinte mensagem: "Produto não encontrado!"
+```java
+package laboratorio2.exercicio;
+
+import java.util.List;
+import java.util.Optional;
+
+public class Exercicio_4 {
+
+    public static Produto buscarProdutoPorId(String id){
+        List<Produto> produtos = Produto.obtemProdutos();
+        for(Produto produto : produtos){
+            if(produto.id.equals(id)){
+                return produto;
+            }
+        }
+        return null;
+    }
+
+    public static void imprimeSeEstiverPresente(Optional<Produto> produto){
+
+    }
+
+    public static void main(String[] args) {
+        List<Produto> produtos = Produto.obtemProdutos();
+        Optional<Produto> produtoId1 = Optional.ofNullable(buscarProdutoPorId("1"));
+        Optional<Produto> produtoId50 = Optional.ofNullable(buscarProdutoPorId("50"));
+
+        imprimeSeEstiverPresente(produtoId1);
+        imprimeSeEstiverPresente(produtoId50);
+
+    }
+
+}
+
+```
+
+### Utilizando método filter()
+Exemplo:
+```java
+import java.util.Optional;
+
+public class Exemplo_6 {
+
+    public static void main(String[] args) {
+
+        Optional<Integer> avaliacao = Optional.of(10);
+        Optional<Integer> avaliacaoFiltrada = avaliacao.filter(v -> v > 0);
+        if ((avaliacaoFiltrada.isPresent())) {
+            System.out.println(avaliacaoFiltrada.get());
+        } else {
+            System.out.println("Valor não está de acordo com o filtro");
+        }
+
+    }
+
+}
+```
+
+#### Exercicio 5
+Com base no código abaixo altere o método **filtraEImprimeSeHouverDescricao** para filtrar se a propriedade **descricao** está presente no Optional.<br/>
+Utilizando o Optional filtrado verifique se o Optional possui valor, se sim imprima a descrição do produto, se não imprima: "Descrição está vazia!"
+```java
+import java.util.Optional;
+
+public class Exercicio_5 {
+
+    public static void filtraEImprimeSeHouverDescricao(Optional<Produto> produto){
+        
+    }
+
+    public static void main(String[] args) {
+
+        Produto p1 = new Produto("1", "Geladeira", TipoProduto.Eletrodomesticos);
+        Produto p2 = new Produto("2", "Galaxy J5 Prime", TipoProduto.Eletronicos, "Celular Samgung Galaxy J5 Prime");
+
+        Optional<Produto> p1Optional = Optional.of(p1);
+        Optional<Produto> p2Optional = Optional.of(p2);
+
+        filtraEImprimeSeHouverDescricao(p1Optional);
+        filtraEImprimeSeHouverDescricao(p2Optional);
+
+    }
+
+}
+```
