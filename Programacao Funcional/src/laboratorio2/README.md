@@ -543,7 +543,7 @@ public class Exercicio_6 {
 ```
 
 ### Métodos orElse() e orElseThrow()
-O método **orElse()** verifica se o valor do Optional está presente, se estiver o mesmo retorna o valor do Optional, caso contrário retorna o valor pré-definido dentro do método **orElse()**<br/> 
+O método **orElse()** verifica se o valor do Optional está presente, se estiver o mesmo retorna o valor do Optional, caso contrário retorna o valor pré-definido dentro do método **orElse()**.<br/> 
 Já o método **orElseThrow()** se o valor do Optional estiver presente o método retorna o valor do Optional, caso contrário retorna a Exception especificada dentro dele.<br/>
 Exemplo:
 ```java
@@ -604,7 +604,8 @@ class Cachorro {
 ```
 
 #### Exercício 7
-Com base no código abaixo atribua o valor da descrição do produto para a variável **descricaoProduto** utilizando o método **orElse()**, o valor retornado caso o Optional esteja vazio deve ser a seguinte mensagem: "Produto não possui descrição cadastrada".
+Com base no código abaixo atribua o valor da descrição do produto para a variável **descricaoProduto** utilizando o método **orElse()**.<br/>
+O valor retornado caso o Optional esteja vazio deve ser a seguinte mensagem: "Produto não possui descrição cadastrada".
 
 ```java
 package laboratorio2.exercicio;
