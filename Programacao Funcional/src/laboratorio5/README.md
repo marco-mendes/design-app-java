@@ -5,7 +5,7 @@
 [Currying](https://www.geeksforgeeks.org/currying-functions-in-java-with-examples/)
 
 ### Introdução
-Neste laboratório abordaremos o uso de **Currying** e **Closures** com alguns exemplos em Java.
+Neste laboratório abordaremos o uso de **Closures** e **Currying** com alguns exemplos em Java.
 
 ### Closures
 Como vimos no material de preparação um Closure fornece acesso ao escopo de uma função externa dentro de uma função interna.<br/>
