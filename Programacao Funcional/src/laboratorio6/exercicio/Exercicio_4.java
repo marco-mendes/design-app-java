@@ -21,10 +21,6 @@ public class Exercicio_4 {
                 new Produto("Geladeira", 1299.99, Tipo.ELETRODOMESTICOS),
                 new Produto("Samsung J5 Prime", 899.99, Tipo.ELETRONICOS)
         );
-
-        Stream<Produto> streamProdutosFiltrados = listaProdutos.stream().filter(p -> p.getPreco() > 1299.99);
-        List<Produto> listaProdutosPrecoAcimaDe1299 = streamProdutosFiltrados.collect(Collectors.toList());
-        listaProdutosPrecoAcimaDe1299.forEach(p -> System.out.println(p));
     }
 
 }

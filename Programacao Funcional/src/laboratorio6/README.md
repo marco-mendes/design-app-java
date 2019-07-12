@@ -91,8 +91,8 @@ Neste exemplo criamos uma Stream a partir da interface List, esta é apenas a fo
 
 ### Operações Intermediárias e Operações Terminais
 Quando trabalhamos com a interface Stream devemos ter em mente que ela nos fornece dois tipos de operações:
- * Operações intermediárias retornam uma Stream, com operações intermediárias podemos realizar chamada de métodos Stream de forma encadeada.
- * Operações terminais retornam um valor ou o objeto esperado, com operações terminais não podemos mais acessar os métodos do Stream, para acessar os métodos Stream novamente deve ser criado outro Stream.
+ * Operações intermediárias: retornam uma Stream, com operações intermediárias podemos realizar chamada de métodos Stream de forma encadeada.
+ * Operações terminais: retornam um valor ou o objeto esperado, com operações terminais não podemos mais acessar os métodos do Stream, para acessar os métodos Stream novamente deve ser criado outro Stream.
 
 Alguns exemplos de operações intermediárias: filter(), map(), flatMap().<br/>
 Alguns exemplos de operações terminais: collect(Collectors.toList()), count(), max(), min(). 
@@ -184,8 +184,8 @@ public class Exercicio_2 {
 ```
 
 ### Operações max() e min()
-Operação max(): Encontrar um determinado objeto de uma lista que possua o maior valor de algum de seus atributos.<br/>
-Operação min(): Encontrar um determinado objeto de uma lista que possua o menor valor de algum de seus atributos.<br/>
+Operação **max()**: Encontrar um determinado objeto de uma lista que possua o maior valor de algum de seus atributos.<br/>
+Operação **min()**: Encontrar um determinado objeto de uma lista que possua o menor valor de algum de seus atributos.<br/>
 Essas duas operações retornam um objeto do tipo **Optional<T>** com base no tipo da lista no qual a operação está sendo executada.
 
 Exemplo de uso:
@@ -230,7 +230,7 @@ public class Exercicio_3 {
 ```
 
 ### Operação filter()
-A operação **filter()** é utilizada para realizarmos uma filtragem em um Stream e retornar um novo Stream com apenas os elementos que corresponderam a filtragem, desta forma os elementos que não corresponerem a filtragem não serão incluídos no novo Stream.<br/>
+A operação **filter()** é utilizada para realizarmos uma filtragem em um Stream e retornar um novo Stream com apenas os elementos que corresponderam a filtragem, dessa forma os elementos que não corresponerem a filtragem não serão incluídos no novo Stream.<br/>
 Exemplo de uso:
 ```java
 package laboratorio6.exemplos;
@@ -349,7 +349,7 @@ public class Exemplo_6 {
 Neste exemplo transformamos a lista de pessoas em uma Stream de Pessoas, em seguida utilizamos a operação **map()** para transformar o Stream de pessoas em um Stream de String povoando esta Stream com todas as propriedades **nome** da lista de pessoas.<br/>
 
 #### Exercício 5
-Com base no código abaixo, utilize a operação map() para montar uma nova lista contendo apenas os nomes de todos os produtos da lista de produtos.
+Com base no código abaixo, utilize a operação **map()** para montar uma nova lista contendo apenas os nomes de todos os produtos da lista de produtos.
 ```java
 package laboratorio6.exercicio;
 
@@ -379,7 +379,7 @@ public class Exercicio_5 {
 
 ### Operação flatMap()
 Em alguns casos desejamos obter uma lista que é o resultado da junção de várias outras listas.<br/>
-O flatMap() consegue obter este tipo de resultado concatenando várias listas, desde que elas sejam informadas no formato de uma Stream.<br/>
+O **flatMap()** consegue obter este tipo de resultado concatenando várias listas, desde que elas sejam informadas no formato de uma Stream.<br/>
 Exemplo:
 ```java
 package laboratorio6.exemplos;
@@ -413,10 +413,10 @@ public class Exemplo_7 {
 
 No exemplo acima criamos duas listas de pessoas, uma filtrando apenas pessoas do sexo masculino e a outra filtrando apenas pessoas do sexo feminino.<br/>
 Em seguida criamos a variável **listaTiposPessoas** que é uma lista que contém uma lista de pessoas e atribuímos a ela a lista de pessoas do sexo masculino e a lista de pessoas do sexo feminino.<br/>
-Através da **listaTiposPessoas** utilizamos a operação flatMap() para criar uma nova lista conténdo a junção das duas listas contidas na variável **listaTiposPessoas**.
+Através da **listaTiposPessoas** utilizamos a operação **flatMap()** para criar uma nova lista conténdo a junção das duas listas contidas na variável **listaTiposPessoas**.
 
 #### Exercício 6 
-Com base no código abaixo utilize a operação **flatMap()** para unificar a lista de eletronicos e a lista de eletrodomesticos em uma única lista de produtos.<br/>
+Com base no código abaixo utilize a operação **flatMap()** para unificar a lista de eletronicos e a lista de eletrodomesticos contidas na variável listaTiposProduto em uma única lista de produtos.<br/>
 Após criar a lista unificada imprima no console todos os elementos da lista.
 
 ```java

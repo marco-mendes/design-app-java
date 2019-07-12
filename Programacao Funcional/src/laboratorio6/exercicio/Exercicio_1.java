@@ -13,11 +13,14 @@ Com base no código abaixo transforme a lista em uma Stream e atribua a mesma pa
 public class Exercicio_1 {
 
     public static void main(String[] args) {
+        // Remova os comentários abaixo para iniciar o exercício!
+        /*
         List<String> listaNomes = Arrays.asList("João", "Maria", "Carla", "Roberta", "Jhon", "Sabrina");
-        Stream<String> listaConvertidaEmStream = listaNomes.stream();
+        Stream<String> listaConvertidaEmStream = ?????;
 
-        List<String> streamConvertidaEmLista = listaConvertidaEmStream.collect(Collectors.toList());
+        List<String> streamConvertidaEmLista = ?????;
         streamConvertidaEmLista.forEach(nome -> System.out.println(nome));
+        */
     }
 
 }

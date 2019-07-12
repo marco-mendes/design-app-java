@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /*
-Com base no código abaixo utilize a operação flatMap() para unificar a lista de eletronicos e a lista de eletrodomesticos em uma única lista de produtos.
+Com base no código abaixo utilize a operação flatMap() para unificar a lista de eletronicos e a lista de eletrodomesticos contidas na variável listaTiposProduto em uma única lista de produtos.
 Após criar a lista unificada imprima no console todos os elementos da lista.
 * */
 
@@ -33,8 +33,6 @@ public class Exercicio_6 {
 
         List<List<Produto>> listaTiposProduto = Arrays.asList(listaEletrodomesticos, listaEletronicos);
 
-        List<Produto> listaTodosOsTipos = listaTiposProduto.stream().flatMap(lista -> lista.stream()).collect(Collectors.toList());
-        listaTodosOsTipos.forEach(p -> System.out.println(p));
     }
 
 }

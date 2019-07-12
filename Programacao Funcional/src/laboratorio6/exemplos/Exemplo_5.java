@@ -12,7 +12,6 @@ public class Exemplo_5 {
 
         List<Pessoa> listaPessoasSexoFeminino = streamPessoasSexoFeminino.collect(Collectors.toList());
         listaPessoasSexoFeminino.forEach(p -> System.out.println(p));
-
     }
 
 }
