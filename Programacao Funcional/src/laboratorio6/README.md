@@ -1,10 +1,10 @@
-## Stream API e melhorias na interface Collection
+## Stream API
 
 ### Material de Referência
 [Stream API](https://blog.tecsinapse.com.br/stream-api-e-fun%C3%A7%C3%B5es-lambda-no-java-8-9941e8ae95d8)
 
 ### Introdução
-Neste laboratório abordaremos as Streams.<br/>
+Neste laboratório abordaremos as Streams que foram introduzidas como uma grande melhoria na interface Collection.<br/>
 Streams são um recurso introduzido no Java 8 que nos permite realizar o processamento de dados dentro de uma coleção através de expressões Lambda.<br/>
 Utilizaremos a classe Pessoa para os próximos exemplos:
 ```java
@@ -258,14 +258,20 @@ Considere a classe abaixo para este e os próximos exercícios:
 ```java
 package laboratorio6.exercicio;
 
+enum Tipo {
+    ELETRONICOS, ELETRODOMESTICOS, OUTROS
+}
+
 public class Produto {
 
     private String nome;
     private Double preco;
-
-    public Produto(String nome, Double preco) {
+    private Tipo tipo;
+    
+    public Produto(String nome, Double preco, Tipo tipo) {
         this.nome = nome;
         this.preco = preco;
+        this.tipo = tipo;
     }
 
     public String getNome() {
@@ -276,11 +282,16 @@ public class Produto {
         return preco;
     }
 
+    public Tipo getTipo() {
+        return tipo;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
                 "nome='" + nome + '\'' +
                 ", preco=" + preco +
+                ", tipo=" + tipo +
                 '}';
     }
 }
@@ -300,13 +311,12 @@ public class Exercicio_4 {
 
     public static void main(String[] args) {
         List<Produto> listaProdutos = Arrays.asList(
-                new Produto("Xiaomi Mi 9", 1799.99),
-                new Produto("Microondas", 299.00),
-                new Produto("IPhone XS", 5299.99),
-                new Produto("Notebook Dell", 2999.00),
-                new Produto("Geladeira", 1299.99),
-                new Produto("Samsung J5 Prime", 899.99)
-
+                new Produto("Xiaomi Mi 9", 1799.99, Tipo.ELETRONICOS),
+                new Produto("Microondas", 299.00, Tipo.ELETRODOMESTICOS),
+                new Produto("IPhone XS", 5299.99, Tipo.ELETRONICOS),
+                new Produto("Notebook Dell", 2999.00, Tipo.ELETRONICOS),
+                new Produto("Geladeira", 1299.99, Tipo.ELETRODOMESTICOS),
+                new Produto("Samsung J5 Prime", 899.99, Tipo.ELETRONICOS)
         );
     }
 
@@ -352,13 +362,12 @@ public class Exercicio_5 {
 
     public static void main(String[] args) {
         List<Produto> listaProdutos = Arrays.asList(
-                new Produto("Xiaomi Mi 9", 1799.99),
-                new Produto("Microondas", 299.00),
-                new Produto("IPhone XS", 5299.99),
-                new Produto("Notebook Dell", 2999.00),
-                new Produto("Geladeira", 1299.99),
-                new Produto("Samsung J5 Prime", 899.99)
-
+                new Produto("Xiaomi Mi 9", 1799.99, Tipo.ELETRONICOS),
+                new Produto("Microondas", 299.00, Tipo.ELETRODOMESTICOS),
+                new Produto("IPhone XS", 5299.99, Tipo.ELETRONICOS),
+                new Produto("Notebook Dell", 2999.00, Tipo.ELETRONICOS),
+                new Produto("Geladeira", 1299.99, Tipo.ELETRODOMESTICOS),
+                new Produto("Samsung J5 Prime", 899.99, Tipo.ELETRONICOS)
         );
 
         List<String> listaNomeProdutos = ?????;
@@ -370,7 +379,7 @@ public class Exercicio_5 {
 
 ### Operação flatMap()
 Em alguns casos desejamos obter uma lista que é o resultado da junção de várias outras listas.<br/>
-O flatMap consegue obter este tipo de resultado concatenando várias listas, desde que elas sejam informadas no formato de uma Stream.<br/>
+O flatMap() consegue obter este tipo de resultado concatenando várias listas, desde que elas sejam informadas no formato de uma Stream.<br/>
 Exemplo:
 ```java
 package laboratorio6.exemplos;
@@ -407,3 +416,41 @@ Em seguida criamos a variável **listaTiposPessoas** que é uma lista que conté
 Através da **listaTiposPessoas** utilizamos a operação flatMap() para criar uma nova lista conténdo a junção das duas listas contidas na variável **listaTiposPessoas**.
 
 #### Exercício 6 
+Com base no código abaixo utilize a operação **flatMap()** para unificar a lista de eletronicos e a lista de eletrodomesticos em uma única lista de produtos.<br/>
+Após criar a lista unificada imprima no console todos os elementos da lista.
+
+```java
+package laboratorio6.exercicio;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Exercicio_6 {
+
+    public static void main(String[] args) {
+        List<Produto> listaProdutos = Arrays.asList(
+                new Produto("Xiaomi Mi 9", 1799.99, Tipo.ELETRONICOS),
+                new Produto("Microondas", 299.00, Tipo.ELETRODOMESTICOS),
+                new Produto("IPhone XS", 5299.99, Tipo.ELETRONICOS),
+                new Produto("Notebook Dell", 2999.00, Tipo.ELETRONICOS),
+                new Produto("Geladeira", 1299.99, Tipo.ELETRODOMESTICOS),
+                new Produto("Samsung J5 Prime", 899.99, Tipo.ELETRONICOS)
+        );
+
+        List<Produto> listaEletronicos = listaProdutos
+                .stream()
+                .filter(p -> p.getTipo().equals(Tipo.ELETRONICOS))
+                .collect(Collectors.toList());
+
+        List<Produto> listaEletrodomesticos = listaProdutos
+                .stream()
+                .filter(p -> p.getTipo().equals(Tipo.ELETRODOMESTICOS))
+                .collect(Collectors.toList());
+        
+        List<List<Produto>> listaTiposProduto = Arrays.asList(listaEletrodomesticos, listaEletronicos);
+                
+    }
+
+}
+```

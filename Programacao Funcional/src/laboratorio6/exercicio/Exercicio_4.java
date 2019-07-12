@@ -14,13 +14,12 @@ public class Exercicio_4 {
 
     public static void main(String[] args) {
         List<Produto> listaProdutos = Arrays.asList(
-                new Produto("Xiaomi Mi 9", 1799.99),
-                new Produto("Microondas", 299.00),
-                new Produto("IPhone XS", 5299.99),
-                new Produto("Notebook Dell", 2999.00),
-                new Produto("Geladeira", 1299.99),
-                new Produto("Samsung J5 Prime", 899.99)
-
+                new Produto("Xiaomi Mi 9", 1799.99, Tipo.ELETRONICOS),
+                new Produto("Microondas", 299.00, Tipo.ELETRODOMESTICOS),
+                new Produto("IPhone XS", 5299.99, Tipo.ELETRONICOS),
+                new Produto("Notebook Dell", 2999.00, Tipo.ELETRONICOS),
+                new Produto("Geladeira", 1299.99, Tipo.ELETRODOMESTICOS),
+                new Produto("Samsung J5 Prime", 899.99, Tipo.ELETRONICOS)
         );
 
         Stream<Produto> streamProdutosFiltrados = listaProdutos.stream().filter(p -> p.getPreco() > 1299.99);

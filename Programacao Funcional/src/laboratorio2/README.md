@@ -21,7 +21,7 @@ Dentre eles possuímos:
 * Métodos Default
 * Method Reference
 * Classe Optional
-* Melhorias na interface Collection
+* Melhorias na interface Collection com as Streams
 
 O uso básico das expressões Lambda e Interfaces Funcionais foi abordado no laboratório 1.<br/>
 Neste laboratório abordaremos o uso básico de Métodos Default, Method Reference e o uso da classe Optional para evitar o clássico erro NullPointerException.<br/>

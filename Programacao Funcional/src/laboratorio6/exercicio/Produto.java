@@ -1,13 +1,19 @@
 package laboratorio6.exercicio;
 
+enum Tipo {
+    ELETRONICOS, ELETRODOMESTICOS, OUTROS
+}
+
 public class Produto {
 
     private String nome;
     private Double preco;
+    private Tipo tipo;
 
-    public Produto(String nome, Double preco) {
+    public Produto(String nome, Double preco, Tipo tipo) {
         this.nome = nome;
         this.preco = preco;
+        this.tipo = tipo;
     }
 
     public String getNome() {
@@ -18,11 +24,16 @@ public class Produto {
         return preco;
     }
 
+    public Tipo getTipo() {
+        return tipo;
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
                 "nome='" + nome + '\'' +
                 ", preco=" + preco +
+                ", tipo=" + tipo +
                 '}';
     }
 }
