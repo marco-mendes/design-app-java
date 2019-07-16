@@ -6,9 +6,9 @@
 ### Visão geral do Pattern Decorator
 Este padrão permite que um comportamento seja adicionado a um objeto individual, seja estaticamente ou dinâmicamente, sem afetar o comportamento de outros objetos da mesma classe.<br/>
 Os principais participantes do padrão Decorator estão representados abaixo:
- * **Component**: Especifica a interface base para todos os objetos que podem ter responsabilidades adicionadas a eles dinamicamente.
+ * **Component**: Especifica a interface base com um único método para todos os objetos que podem ter responsabilidades adicionadas a eles dinamicamente.
  * **ConcreteComponent**: Define um objeto concreto ao qual responsabilidades adicionais podem ser adicionadas.
- * **Decorador**: Mantém uma referência a um objeto Component e está em conformidade com a interface Component, este contém o objeto Component a ser decorado.
+ * **Decorador**: Define uma classe abstrata que implementa nosso Component, esta classe recebe um objeto do tipo Component e executa seu método único.
  * **ConcreteDecorator**: Define um objeto Decorator concreto com responsabilidades baseado em um ConcreteComponent.
 
 A relação entre eles é mostrada abaixo:<br/>
@@ -45,7 +45,7 @@ public class CarroBasico implements Carro {
 #### Implementação do Decorator
 Nosso Decorator pode ser implementado da seguinte forma:
 ```java
-public class CarroDecorator implements Carro {
+public abstract class CarroDecorator implements Carro {
 
     protected Carro carro;
 
