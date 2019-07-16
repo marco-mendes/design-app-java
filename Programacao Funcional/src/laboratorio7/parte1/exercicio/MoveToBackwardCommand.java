@@ -9,7 +9,7 @@ public class MoveToBackwardCommand implements Command {
     }
 
     @Override
-    public void move() {
+    public void execute() {
         receiver.moveToBackward();
     }
 }

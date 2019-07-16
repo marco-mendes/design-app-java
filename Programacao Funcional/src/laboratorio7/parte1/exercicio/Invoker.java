@@ -17,7 +17,7 @@ public class Invoker {
 
     public void run(){
         for(Command command : commands){
-            command.move();
+            command.execute();
         }
     }
 

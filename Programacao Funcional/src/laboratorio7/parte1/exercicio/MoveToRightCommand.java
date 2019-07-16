@@ -9,7 +9,7 @@ public class MoveToRightCommand implements Command {
     }
 
     @Override
-    public void move() {
+    public void execute() {
         receiver.moveToRight();
     }
 }

@@ -9,7 +9,7 @@ public class MoveToForwardCommand implements Command {
     }
 
     @Override
-    public void move() {
+    public void execute() {
         receiver.moveToForward();
     }
 }
