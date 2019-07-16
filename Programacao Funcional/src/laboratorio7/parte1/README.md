@@ -6,10 +6,10 @@
 ### Visão geral do Pattern Command
 O Pattern Command representa uma maneira de escrever e armazenar código genérico que sequencia e executa métodos com base em decisões em tempo de execução.<br/>
 Em uma implementação clássica, o padrão de comando requer a implementação de quatro componentes:
- * O Componente Command: É divido em duas partes, uma interface que define o método que irá executar o comando, e uma ou mais classes com uma implementação concreta baseada em um Receiver.
- * O Componente Receiver: Normalmente é divido em duas partes, uma interface que define quais comandos serão implementados e uma classe com a implementação concreta de todos os comandos especificados pela interface Receiver.
- * O Componente Invoker: É uma classe que implementa a interface Command, esta pode armazenar e executar todos os comandos que forem passados para ela mesmo não sabendo como é feita sua implementação dos mesmos.
- * O Componente Client É uma classe que irá controlar o processo de execução dos comandos, especificando quais comandos executar e em quais estágios do processo executá-los.
+ * **Command**: É divido em duas partes, uma interface que define o método que irá executar o comando, e uma ou mais classes com uma implementação concreta baseada em um Receiver.
+ * **Receiver**: Normalmente é divido em duas partes, uma interface que define quais comandos serão implementados e uma classe com a implementação concreta de todos os comandos especificados pela interface Receiver.
+ * **Invoker**: É uma classe que recebe e utiliza objetos baseados na interface Command, esta pode armazenar e executar todos os comandos que forem passados para ela mesmo não sabendo como é feita sua implementação dos mesmos.
+ * **Client**: É uma classe que irá controlar o processo de execução dos comandos, especificando quais comandos executar e em quais estágios do processo executá-los.
 
 A relação entre esses componentes é mostrada abaixo:<br/>
 <img src="https://gssachdeva.files.wordpress.com/2015/09/commandpattern.jpg"/>
@@ -17,7 +17,7 @@ A relação entre esses componentes é mostrada abaixo:<br/>
 Vamos ver um exemplo concreto do padrão de Command e após isso ver como ele é melhorado com expressões lambda.
 
 ### Implementação orientadas a objetos
-Suponha que tenhamos um editor de texto que tenha acões como abrir um arquivo, salvar o arquivo e fechar o arquivo, a implementação do Pattern Command neste cenário seria da seguinte forma:<br/>
+Suponha que tenhamos um editor de texto que tenha acões como abrir, salvar e fechar um arquivo, a implementação do Pattern Command neste cenário seria da seguinte forma:<br/>
 
 
 #### Componente Command
@@ -32,7 +32,7 @@ public interface Command {
 
 ```
 
-Classes com a implementação concreta de cada command baseadas em um Invoker:
+Classes com a implementação concreta de cada command baseadas em um Receiver:
 ```java
 public class OpenCommand implements Command {
 
@@ -165,7 +165,7 @@ Esta seria a forma de se implementar este Pattern antes da programação funcion
 
 ### Implementação Funcional
 Vimos acima como era feita a implemetanção do Pattern Command antes da programação funcional do Java 8, veremos aqui como melhorar essa implementação de forma a simplificar a mesma com o uso de Lambdas e Method Reference.<br/>
-Como nossa interface Command pode ser considerada uma interface funcional podemos passar para nosso Invoker expressões Lambda, reduzindo assim a quantia de código e remover também as classes de implementação concreta dos commands.
+Como nossa interface Command pode ser considerada uma interface funcional podemos passar para nosso Invoker expressões Lambda, reduzindo assim a quantia de código e removendo também as classes de implementação concreta dos commands.
 
 Nossa estrutura com a programação funcional seria a seguinte:
  
