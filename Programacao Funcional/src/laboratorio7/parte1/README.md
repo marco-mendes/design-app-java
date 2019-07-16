@@ -36,15 +36,15 @@ Classes com a implementação concreta de cada command baseadas em um Receiver:
 ```java
 public class OpenCommand implements Command {
 
-    ReceiverImplementation receiverImplementation;
+    ReceiverInterface receiver;
 
-    public OpenCommand(ReceiverImplementation receiverImplementation){
-        this.receiverImplementation = receiverImplementation;
+    public OpenCommand(ReceiverInterface receiver){
+        this.receiver = receiver;
     }
 
     @Override
     public void execute() {
-        receiverImplementation.open();
+        receiver.open();
     }
 }
 ```
@@ -52,15 +52,15 @@ public class OpenCommand implements Command {
 ```java
 public class CloseCommand implements Command {
 
-    ReceiverImplementation receiverImplementation;
+    ReceiverInterface receiver;
 
-    public CloseCommand(ReceiverImplementation receiverImplementation){
-        this.receiverImplementation = receiverImplementation;
+    public CloseCommand(ReceiverInterface receiver){
+        this.receiver = receiver;
     }
 
     @Override
     public void execute() {
-        receiverImplementation.close();
+        receiver.close();
     }
 }
 ```
@@ -68,15 +68,15 @@ public class CloseCommand implements Command {
 ```java
 public class SaveCommand implements Command {
 
-    ReceiverImplementation receiverImplementation;
+    ReceiverInterface receiver;
 
-    public SaveCommand(ReceiverImplementation receiverImplementation){
-        this.receiverImplementation = receiverImplementation;
+    public SaveCommand(ReceiverInterface receiver){
+        this.receiver = receiver;
     }
 
     @Override
     public void execute() {
-        receiverImplementation.save();
+        receiver.save();
     }
 }
 ```
@@ -155,6 +155,7 @@ public class Client {
         invoker.record(new OpenCommand(receiverImplementation));
         invoker.record(new CloseCommand(receiverImplementation));
         invoker.record(new SaveCommand(receiverImplementation));
+        invoker.run();
     }
 
 }

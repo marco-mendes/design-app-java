@@ -8,6 +8,7 @@ public class Client {
         invoker.record(new OpenCommand(receiverImplementation));
         invoker.record(new CloseCommand(receiverImplementation));
         invoker.record(new SaveCommand(receiverImplementation));
+        invoker.run();
     }
 
 }
