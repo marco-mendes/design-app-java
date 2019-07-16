@@ -8,10 +8,10 @@ Este padrão permite que um comportamento seja adicionado a um objeto individual
 Os principais participantes do padrão Decorator estão representados abaixo:<br/>
 <img src="https://gssachdeva.files.wordpress.com/2015/12/decorator.png?w=640"/>
 
- * Component: Especifica a interface base para todos os objetos que podem ter responsabilidades adicionadas a eles dinamicamente.
- * ConcreteComponent: Define um objeto concreto ao qual responsabilidades adicionais podem ser adicionadas.
- * Decorador: Mantém uma referência a um objeto Component e está em conformidade com a interface Component, este contém o objeto Component a ser decorado.
- * ConcreteDecorator: Define um objeto Decorator concreto com responsabilidades baseado em um ConcreteComponent.
+ * **Component**: Especifica a interface base para todos os objetos que podem ter responsabilidades adicionadas a eles dinamicamente.
+ * **ConcreteComponent**: Define um objeto concreto ao qual responsabilidades adicionais podem ser adicionadas.
+ * **Decorador**: Mantém uma referência a um objeto Component e está em conformidade com a interface Component, este contém o objeto Component a ser decorado.
+ * **ConcreteDecorator**: Define um objeto Decorator concreto com responsabilidades baseado em um ConcreteComponent.
  
 Vamos ver um exemplo concreto do padrão de Decorator e após isso ver como ele é melhorado com expressões lambda.
 
@@ -138,8 +138,33 @@ public class CarroDescriptionMain {
 ### Implementação Funcional
 Vimos acima como era feita a implemetanção do Pattern Decorator antes da programação funcional do Java 8, veremos aqui como melhorar essa implementação de forma a simplificar a mesma com o uso de Lambdas<br/>
 
-Utilizando a programação funcional nosso **Component**, **ConcreteComponent** e o **Decorator** não sofrem modificações.<br/>
-Já nossas classes **ConcreteDecorator** não tem mais utilizade pois podemos substituí-las facilmente por expressões Lambda conforme o exemplo abaixo:
+Utilizando a programação funcional nosso **Component** e **ConcreteComponent** não sofrem modificações.<br/>
+Já nossas classes **Decorator** e **ConcreteDecorator** não tem mais utilizade pois podemos substituí-las facilmente por expressões Lambda.<br/>
+Utilizando a programação funcional nossa implementação do Pattern Decorator seria resumida e esses 3 componentes:
+
+#### Interface Component:
+```java
+public interface Carro {
+
+    String describe();
+
+}
+```
+
+#### Implementação de um ConcreteComponent
+```java
+public class CarroBasico implements Carro {
+
+    @Override
+    public String describe() {
+        return "Carro básico";
+    }
+
+}
+```
+
+#### Utilizando Decorator com programação funcional
+No código abaixo podemos ver claramente que não precisamos mais das classes **Decorator** e **ConcreteDecorator** pois substituímos seu comportamente facilmente por expressões Lambda.<br/>
 ```java
 import java.util.ArrayList;
 import java.util.List;
