@@ -5,13 +5,14 @@
 
 ### Visão geral do Pattern Decorator
 Este padrão permite que um comportamento seja adicionado a um objeto individual, seja estaticamente ou dinâmicamente, sem afetar o comportamento de outros objetos da mesma classe.<br/>
-Os principais participantes do padrão Decorator estão representados abaixo:<br/>
-<img src="https://gssachdeva.files.wordpress.com/2015/12/decorator.png?w=640"/>
-
+Os principais participantes do padrão Decorator estão representados abaixo:
  * **Component**: Especifica a interface base para todos os objetos que podem ter responsabilidades adicionadas a eles dinamicamente.
  * **ConcreteComponent**: Define um objeto concreto ao qual responsabilidades adicionais podem ser adicionadas.
  * **Decorador**: Mantém uma referência a um objeto Component e está em conformidade com a interface Component, este contém o objeto Component a ser decorado.
  * **ConcreteDecorator**: Define um objeto Decorator concreto com responsabilidades baseado em um ConcreteComponent.
+
+A relação entre eles é mostrada abaixo:<br/>
+<img src="https://gssachdeva.files.wordpress.com/2015/12/decorator.png?w=640"/>
  
 Vamos ver um exemplo concreto do padrão de Decorator e após isso ver como ele é melhorado com expressões lambda.
 
