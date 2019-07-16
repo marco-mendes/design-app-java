@@ -191,4 +191,4 @@ public class CarroDescriptionMain {
 
 ### Exercício
 Seu objetivo nesse exercício é a melhoria de um código existente que aplica o Pattern Decorator, você deverá aplicar os recursos da programação funcional abordados nesse laboratório para melhoria do código existente.<br/>
-Você encontrará o código deste exercício neste [link]()
+Você encontrará o código deste exercício neste [link](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio7/parte2/exercicio)
