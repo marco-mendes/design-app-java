@@ -19,7 +19,6 @@ Vamos ver um exemplo concreto do padrão de Command e após isso ver como ele é
 ### Implementação orientadas a objetos
 Suponha que tenhamos um editor de texto que tenha acões como abrir, salvar e fechar um arquivo, a implementação do Pattern Command neste cenário seria da seguinte forma:<br/>
 
-
 #### Componente Command
 Nosso componente Command seria estruturado da seguinte forma:<br/>
 Interface Command:
