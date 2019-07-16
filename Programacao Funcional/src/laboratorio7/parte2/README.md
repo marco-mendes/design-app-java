@@ -141,9 +141,9 @@ Vimos acima como era feita a implemetanção do Pattern Decorator antes da progr
 
 Utilizando a programação funcional nosso **Component** e **ConcreteComponent** não sofrem modificações.<br/>
 Já nossas classes **Decorator** e **ConcreteDecorator** não tem mais utilizade pois podemos substituí-las facilmente por expressões Lambda.<br/>
-Utilizando a programação funcional nossa implementação do Pattern Decorator seria resumida e esses 3 componentes:
+Utilizando a programação funcional nossa implementação do Pattern Decorator seria resumida da seguinte forma:
 
-#### Interface Component:
+#### Implementação Interface Component:
 ```java
 public interface Carro {
 
@@ -164,7 +164,7 @@ public class CarroBasico implements Carro {
 }
 ```
 
-#### Utilizando Decorator com programação funcional
+#### Utilizando o Pattern Decorator com a programação funcional
 No código abaixo podemos ver claramente que não precisamos mais das classes **Decorator** e **ConcreteDecorator** pois substituímos seu comportamente facilmente por expressões Lambda.<br/>
 ```java
 import java.util.ArrayList;
