@@ -137,7 +137,7 @@ public class CarroDescriptionMain {
 
 
 ### Implementação Funcional
-Vimos acima como era feita a implemetanção do Pattern Decorator antes da programação funcional do Java 8, veremos aqui como melhorar essa implementação de forma a simplificar a mesma com o uso de Lambdas<br/>
+Vimos acima como era feita a implementanção do Pattern Decorator antes da programação funcional do Java 8, veremos aqui como melhorar essa implementação de forma a simplificar a mesma com o uso de Lambdas<br/>
 
 Utilizando a programação funcional nosso **Component** e **ConcreteComponent** não sofrem modificações.<br/>
 Já nossas classes **Decorator** e **ConcreteDecorator** não tem mais utilizade pois podemos substituí-las facilmente por expressões Lambda.<br/>
