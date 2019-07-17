@@ -2,7 +2,7 @@ package laboratorio7.parte2.exercicio;
 
 public class ConsolePSPDecorator extends ConsoleDeJogosDecorator {
 
-    ConsolePSPDecorator(ConsoleDeJogos consoleDeJogos){
+    public ConsolePSPDecorator(ConsoleDeJogos consoleDeJogos){
         super(consoleDeJogos);
     }
 

@@ -2,7 +2,7 @@ package laboratorio7.parte2.exercicio;
 
 public class ConsoleNintendoSwitchDecorator extends ConsoleDeJogosDecorator {
 
-    ConsoleNintendoSwitchDecorator(ConsoleDeJogos consoleDeJogos){
+    public ConsoleNintendoSwitchDecorator(ConsoleDeJogos consoleDeJogos){
         super(consoleDeJogos);
     }
 
