@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Post implements Subject {
 
-    List<Observer> observers = new ArrayList<>();
+    private List<Observer> observers = new ArrayList<>();
 
     @Override
     public void registerObserver(Observer o) {

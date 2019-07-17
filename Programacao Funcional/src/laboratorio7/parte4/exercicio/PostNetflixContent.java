@@ -1,9 +1,9 @@
-package laboratorio7.parte4.exemplos.antesjava8;
+package laboratorio7.parte4.exercicio;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Post implements Subject {
+public class PostNetflixContent implements Subject {
 
     private List<Observer> observers = new ArrayList<>();
 
@@ -13,9 +13,10 @@ public class Post implements Subject {
     }
 
     @Override
-    public void notifyObservers(String postagem) {
+    public void notifyObservers(NetflixContent conteudo) {
         for(Observer observer : this.observers){
-            observer.post(postagem);
+            observer.postContent(conteudo);
         }
     }
+
 }
