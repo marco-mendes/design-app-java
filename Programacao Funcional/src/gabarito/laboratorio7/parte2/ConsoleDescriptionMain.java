@@ -1,8 +1,6 @@
 package gabarito.laboratorio7.parte2;
 
-import gabarito.laboratorio7.parte2.classesdesnecessarias.ConsoleNintendoSwitchDecorator;
-import gabarito.laboratorio7.parte2.classesdesnecessarias.ConsolePSPDecorator;
-import gabarito.laboratorio7.parte2.classesdesnecessarias.ConsolePSVitaDecorator;
+import gabarito.laboratorio7.parte2.classesdesnecessarias.*;
 
 import java.util.ArrayList;
 import java.util.List;

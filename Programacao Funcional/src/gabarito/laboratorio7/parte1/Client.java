@@ -1,9 +1,6 @@
 package gabarito.laboratorio7.parte1;
 
-import gabarito.laboratorio7.parte1.classesdesnecessarias.MoveToBackwardCommand;
-import gabarito.laboratorio7.parte1.classesdesnecessarias.MoveToForwardCommand;
-import gabarito.laboratorio7.parte1.classesdesnecessarias.MoveToLeftCommand;
-import gabarito.laboratorio7.parte1.classesdesnecessarias.MoveToRightCommand;
+import gabarito.laboratorio7.parte1.classesdesnecessarias.*;
 
 public class Client {
 
