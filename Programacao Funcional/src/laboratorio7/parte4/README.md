@@ -7,18 +7,18 @@
 O padrão projeto Observer é uma solução comum quando um objeto precisa notificar automaticamente uma lista de outros objetos (chamados de observadores) quando algum evento acontece 
 (por exemplo, uma mudança de estado).<br/>
 Os principais componentes desse Pattern são:
- * Observer: Define uma interface de atualização para objetos que devem ser notificados sobre alterações em um Subject.
- * ConcreteObserver: implementa a interface de atualização do Observer para manter seu estado consistente com o do Subject.
- * Subject: Uma interface para adicionar e notificar objetos Observer.
- * ConcreteSubject: Armazena o estado de um objeto ConcreteObserver e envia notificações aos Observers caso o estado do mesmo mude.
+ * **Observer**: Define uma interface de atualização para objetos que devem ser notificados sobre alterações em um Subject.
+ * **ConcreteObserver**: Uma ou mais classes que implementam a interface Observer para receber notificações do Subject.
+ * **Subject**: Uma interface para adicionar e notificar objetos Observer.
+ * **ConcreteSubject**: Armazena o estado de um objeto ConcreteObserver e envia notificações aos Observers se o estado do mesmo mudar.
 
 Vamos ver um exemplo concreto do padrão de Observer e após isso ver como ele é melhorado com os recursos da programação funcional.
 
 ### Implementação orientadas a objetos
-Suponhamos que queremos criar um Observer receber notificações de um blog e notificar a algumas áreas de uma empresa se um post é interessante para aquela área através de algumas palavras chave.<br/>
+Suponhamos que queremos criar um Observer para receber notificações de um blog e notificar para algumas áreas de uma empresa se um post é interessante para aquela área através de algumas palavras chave.<br/>
 Podemos fazer isso dessa forma:
 
-#### Implementação Componente Observer
+#### Implementação Observer
 Nosso componente Observer poderia ser implementado da seguinte forma:
 ```java
 public interface Observer {
@@ -28,7 +28,7 @@ public interface Observer {
 }
 ```
 
-#### Implementação Componente ConcreteObserver
+#### Implementação ConcreteObserver
 Abaixo alguns exemplos de implementação do componente ConcreteObserver
 ```java
 public class AreaContabilidade implements Observer {
@@ -63,7 +63,7 @@ public class AreaTI implements Observer {
 }
 ```
 
-#### Implementação Componente Subject
+#### Implementação Subject
 Nosso componente Subject poderia ser implementado da seguinte forma:
 ```java
 public interface Subject {
@@ -74,7 +74,7 @@ public interface Subject {
 }
 ```
 
-#### Implementação Componente ConcreteSubject
+#### Implementação ConcreteSubject
 Nosso componente ConcreteSubject poderia ser implementado da seguinte forma:
 ```java
 import java.util.ArrayList;
