@@ -6,10 +6,10 @@
 ### Visão geral do Pattern Factory
 Esse Pattern nos permite criar objetos sem expor a lógica de instanciação dos mesmos ao cliente.<br/>
 Os principais componentes desse Pattern são:
- * Product: Define a interface de objetos que o método de Factory cria.
- * ConcreteProduct: Uma ou mais classes concretas que implementam a interface Product.
- * Factory: Implementa um método para criar objetos ConcreteProduct.
- * Client: Usa o Factory para criar um Product concreto.
+ * **Product**: Define a interface dos objetos que o objeto Factory irá criar.
+ * **ConcreteProduct**: Uma ou mais classes concretas que implementam a interface Product.
+ * **Factory**: Implementa um método para criar objetos ConcreteProduct.
+ * **Client**: Usa o Factory para criar um Product concreto.
  
 Vamos ver um exemplo concreto do padrão de Factory e após isso ver como ele é melhorado com os recursos da programação funcional.
 
@@ -91,7 +91,7 @@ public class CarFactoryMain {
 Vimos acima como era feita a implementanção do Pattern Factory antes da programação funcional do Java 8, 
 veremos aqui como melhorar essa implementação com o uso dos recursos da programação funcional.<br/>
 
-Utilizando a programação funcional seria necessário alterar apenas nossos componentes Factory e Client, os demais componenetes nao sofreriam modificações. 
+Utilizando a programação funcional seria necessário alterar apenas nossos componentes Factory e Client, os demais componenetes não sofreriam modificações. 
 
 #### Implementação do componente Factory
 Podemos reescrever o código de nosso CarFactory da seguinte forma:
