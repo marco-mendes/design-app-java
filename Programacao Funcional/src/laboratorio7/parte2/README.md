@@ -66,7 +66,7 @@ Abaixo alguns exemplos de implementação de Concrete Decorators
 ```java
 public class CarroCompactoDecorator extends CarroDecorator {
 
-    CarroCompactoDecorator(Carro carro){
+    public CarroCompactoDecorator(Carro carro){
         super(carro);
     }
 
@@ -80,7 +80,7 @@ public class CarroCompactoDecorator extends CarroDecorator {
 ```java
 public class CarroEsportivoDecorator extends CarroDecorator {
 
-    CarroEsportivoDecorator(Carro carro){
+    public CarroEsportivoDecorator(Carro carro){
         super(carro);
     }
 
@@ -95,7 +95,7 @@ public class CarroEsportivoDecorator extends CarroDecorator {
 ```java
 public class CarroSedaDecorator extends CarroDecorator {
 
-    CarroSedaDecorator(Carro carro){
+    public CarroSedaDecorator(Carro carro){
         super(carro);
     }
 
