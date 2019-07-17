@@ -4,7 +4,7 @@ public abstract class CarroDecorator implements Carro {
 
     protected Carro carro;
 
-    CarroDecorator(Carro carro){
+    public CarroDecorator(Carro carro){
         this.carro = carro;
     }
 
