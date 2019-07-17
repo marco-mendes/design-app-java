@@ -1,6 +1,6 @@
 package laboratorio7.parte2.exercicio;
 
-public class ConsoleDeJogosDecorator  implements ConsoleDeJogos{
+public abstract class ConsoleDeJogosDecorator  implements ConsoleDeJogos{
 
     protected ConsoleDeJogos consoleDeJogos;
 
