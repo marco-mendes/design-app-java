@@ -15,7 +15,7 @@ Os principais componentes desse Pattern são:
 Vamos ver um exemplo concreto do padrão de Observer e após isso ver como ele é melhorado com os recursos da programação funcional.
 
 ### Implementação orientadas a objetos
-Suponhamos que queremos criar um Observer para receber notificações de um blog e notificar para algumas áreas de uma empresa se um post é interessante para aquela área através de algumas palavras chave.<br/>
+Suponhamos que queremos criar um Observer para receber notificações de um blog e notificar para algumas áreas de uma empresa se um post é interessante para aquelas áreas através de algumas palavras chave.<br/>
 Podemos fazer isso dessa forma:
 
 #### Implementação Observer
@@ -108,6 +108,7 @@ public class ObserverMain {
         postagem.registerObserver(new AreaContabilidade());
         postagem.registerObserver(new AreaRH());
         postagem.registerObserver(new AreaTI());
+        
         postagem.notifyObservers("Postagem sobre contabilidade");
         postagem.notifyObservers("Postagem sobre rh");
         postagem.notifyObservers("Postagem sobre devops");
@@ -121,7 +122,7 @@ Vimos acima como era feita a implementanção do Pattern Observer antes da progr
 veremos aqui como melhorar essa implementação com o uso dos recursos da programação funcional.<br/>
 
 Utilizando a programação funcional nossos componenetes **Observer**, **Subject** e **ConcreteSubject** não sofrem modificações.<br/>
-Já nossas classes **ConcreteObserver** não tem mais utilizade pois podemos substituí-las facilmente por expressões Lambda durante o registro dos Observers no ConcreteSubject.<br/>
+Já nossas classes **ConcreteObserver** não tem mais utilizade pois podemos substituí-las facilmente por expressões Lambda durante o registro dos Observers no **ConcreteSubject**.<br/>
 
 #### Utilizando nosso Observer
 Exemplo de utilização do mesmo com a programação funcional:
