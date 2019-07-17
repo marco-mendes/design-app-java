@@ -1,5 +1,10 @@
 package gabarito.laboratorio7.parte1;
 
+import gabarito.laboratorio7.parte1.classesdesnecessarias.MoveToBackwardCommand;
+import gabarito.laboratorio7.parte1.classesdesnecessarias.MoveToForwardCommand;
+import gabarito.laboratorio7.parte1.classesdesnecessarias.MoveToLeftCommand;
+import gabarito.laboratorio7.parte1.classesdesnecessarias.MoveToRightCommand;
+
 public class Client {
 
     public static void implementacaoSemProgramacaoFuncional(){

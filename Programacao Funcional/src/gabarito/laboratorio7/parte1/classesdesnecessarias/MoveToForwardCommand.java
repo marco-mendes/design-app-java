@@ -1,4 +1,7 @@
-package gabarito.laboratorio7.parte1;
+package gabarito.laboratorio7.parte1.classesdesnecessarias;
+
+import gabarito.laboratorio7.parte1.Command;
+import gabarito.laboratorio7.parte1.ReceiverInterface;
 
 public class MoveToForwardCommand implements Command {
 
