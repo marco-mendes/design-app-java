@@ -8,7 +8,7 @@ O Pattern de Strategy é uma solução comum para representar uma família de al
 Você pode aplicar esse padrão a vários cenários, como validar uma entrada com  critérios diferentes, usando diferentes formas de analisar ou formatar uma entrada.
 
 Os principais componentes desse Pattern são:
- * **Interface Strategy**: Uma interface para representar algum algoritmo.
+ * **Strategy**: Uma interface para representar algum algoritmo.
  * **ConcreteStrategy**: Uma ou mais classes com implementações concretas da interface Strategy.
  * **Context**: Um ou mais clients que utilizam os objetos Strategy
  
@@ -23,8 +23,8 @@ Vamos ver um exemplo concreto do padrão de Strategy e após isso ver como ele �
 Suponhamos que estamos implementando uma lógica para realizar um pagamento de diversas formas diferentes e gostaríamos que a lógica aplicada para realizar este pagamento fosse decidida em tempo de execução.<br/>
 Podemos fazer isso dessa forma:
 
-#### Interface Strategy
-Podemos implementar nossa interface Strategy da seguinte forma:
+#### Implementação Strategy
+Podemos implementar nosso componente Strategy da seguinte forma:
 ```java
 public interface PaymentStrategy {
 
@@ -34,7 +34,7 @@ public interface PaymentStrategy {
 ```
 
 #### Implementação ConcreteStrategy
-Abaixo alguns exemplos de implementação concreta da Interface Strategy:
+Abaixo alguns exemplos de implementação do ConcreteStrategy:
 ```java
 public class PaymentInCredit implements PaymentStrategy {
     @Override
@@ -79,7 +79,8 @@ public class PaymentValidator {
 }
 ```
 
-#### Implementação do Context
+#### Implementação Context
+Podemos implementar nosso componente Context da seguinte forma:
 ```java
 public class PaymentClient {
 
@@ -104,7 +105,7 @@ Vimos acima como era feita a implementanção do Pattern Strategy antes da progr
 Utilizando a programação funcional nosso componente **Strategy** e nossa classe **StrategyValidator** não sofrem modificações, já nosso componente **ConcreteStrategy** não tem mais utilizade e pode ser substituído facilmente por expressões Lambda.<br/>
 
 #### Invocação do validator em um Context utilizando expressões lambda
-No exemplo abaixo vemos como substituir o uso do componente **ConcreteStrategy** por expressões Lambda:
+No exemplo abaixo vemos como substituir o uso do componente **ConcreteStrategy** por expressões Lambda no componente **Context**:
 ```java
 public class PaymentClient {
 
