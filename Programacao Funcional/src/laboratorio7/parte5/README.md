@@ -104,7 +104,7 @@ public class PaymentClient {
 Vimos acima como era feita a implementanção do Pattern Strategy antes da programação funcional do Java 8.<br/>
 Utilizando a programação funcional nosso componente **Strategy** e nossa classe **StrategyValidator** não sofrem modificações, já nosso componente **ConcreteStrategy** não tem mais utilizade e pode ser substituído facilmente por expressões Lambda.<br/>
 
-#### Invocação do validator em um Context utilizando expressões lambda
+#### Substituição ConcreteStrategy no componente Context utilizando expressões lambda
 No exemplo abaixo vemos como substituir o uso do componente **ConcreteStrategy** por expressões Lambda no componente **Context**:
 ```java
 public class PaymentClient {
