@@ -1,4 +1,4 @@
-package laboratorio7.parte5.exemplos.antesjava8;
+package laboratorio7.parte5.exemplos.depoisjava8;
 
 public interface PaymentStrategy {
 
