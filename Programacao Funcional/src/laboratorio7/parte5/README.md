@@ -80,7 +80,7 @@ public class PaymentValidator {
 ```
 
 #### Uso do Validator em um Client
-Abaixo um exemplo de uso do validator em um client:
+Abaixo um exemplo de uso do StrategyValidator em um client:
 ```java
 public class PaymentClient {
 
@@ -101,10 +101,8 @@ public class PaymentClient {
 
 
 ### Implementação Funcional
-Vimos acima como era feita a implementanção do Pattern Strategy antes da programação funcional do Java 8, 
-veremos aqui como melhorar essa implementação com o uso dos recursos da programação funcional.<br/>
-
-Utilizando a programação funcional nossas implementações concretas da interface Strategy não tem mais utilizade pois podemos substituí-las facilmente por expressões Lambda passadas no construtor de nosso StrategyValidator.<br/>
+Vimos acima como era feita a implementanção do Pattern Strategy antes da programação funcional do Java 8.<br/>
+Utilizando a programação funcional podemos remover nossas implementações concretas da interface Strategy e substituí-las facilmente por expressões Lambda.<br/>
 
 #### Invocação do validator utilizando expressões lambda
 No exemplo abaixo vemos como substituir o uso de classes concretas que implementam o Strategy por expressões Lambda:
