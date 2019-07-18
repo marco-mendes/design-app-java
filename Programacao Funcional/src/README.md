@@ -6,3 +6,4 @@
 #### [Laboratório 4 - Funções Puras e Funções de Ordem Superior em Java](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio4/)
 #### [Laboratório 5 - Uso de Currying e Closures com Java 8](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio5/)
 #### [Laboratório 6 - Stream API](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio6/)
+#### [Laboratório 7 - Padrões de projeto utilizando programação funcional](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio7/)
