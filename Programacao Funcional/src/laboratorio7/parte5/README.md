@@ -9,7 +9,7 @@ Você pode aplicar esse padrão a vários cenários, como validar uma entrada co
 
 Os principais componentes desse Pattern são:
  * **Interface Strategy**: Uma interface para representar algum algoritmo.
- * **Implementação concreta interface Strategy**: Uma ou mais classes com implementações concretas da interface Strategy.
+ * **ConcreteStrategy**: Uma ou mais classes com implementações concretas da interface Strategy.
  * **Context**: Um ou mais clients que utilizam os objetos Strategy
  
 A relação entre eles é mostrada abaixo:<br/>
@@ -33,7 +33,7 @@ public interface PaymentStrategy {
 }
 ```
 
-#### Implementação concreta Interface Strategy
+#### Implementação ConcreteStrategy
 Abaixo alguns exemplos de implementação concreta da Interface Strategy:
 ```java
 public class PaymentInCredit implements PaymentStrategy {
@@ -80,7 +80,6 @@ public class PaymentValidator {
 ```
 
 #### Implementação do Context
-Abaixo um exemplo de uso do StrategyValidator:
 ```java
 public class PaymentClient {
 
@@ -102,10 +101,10 @@ public class PaymentClient {
 
 ### Implementação Funcional
 Vimos acima como era feita a implementanção do Pattern Strategy antes da programação funcional do Java 8.<br/>
-Utilizando a programação funcional podemos remover nossas implementações concretas da interface Strategy e substituí-las facilmente por expressões Lambda.<br/>
+Utilizando a programação funcional nosso componente **Strategy** e nossa classe **StrategyValidator** não sofrem modificações, já nosso componente **ConcreteStrategy** não tem mais utilizade e pode ser substituído facilmente por expressões Lambda.<br/>
 
 #### Invocação do validator em um Context utilizando expressões lambda
-No exemplo abaixo vemos como substituir o uso de classes concretas que implementam o Strategy por expressões Lambda:
+No exemplo abaixo vemos como substituir o uso do componente **ConcreteStrategy** por expressões Lambda:
 ```java
 public class PaymentClient {
 
