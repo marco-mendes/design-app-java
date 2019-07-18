@@ -8,9 +8,9 @@ O Pattern de Strategy é uma solução comum para representar uma família de al
 Você pode aplicar esse padrão a vários cenários, como validar uma entrada com  critérios diferentes, usando diferentes formas de analisar ou formatar uma entrada.
 
 Os principais componentes desse Pattern são:
- * Interface Strategy: Uma interface para representar algum algoritmo.
- * Implementação concreta interface Strategy: Uma ou mais classes com implementações concretas da interface Strategy.
- * Client: Um ou mais clients que utilizam os objetos Strategy
+ * **Interface Strategy**: Uma interface para representar algum algoritmo.
+ * **Implementação concreta interface Strategy**: Uma ou mais classes com implementações concretas da interface Strategy.
+ * **Client**: Um ou mais clients que utilizam os objetos Strategy
  
 A relação entre eles é mostrada abaixo:<br/>
 <img src="https://3.bp.blogspot.com/-nZ3sD4Fw6MI/WwmEPvUJtDI/AAAAAAAACUA/9JWdM6bDFKsxz_-Slez90FLCctbjtwO1gCLcBGAs/s1600/stratergy_design_pattern.png"/>
@@ -20,7 +20,7 @@ Além dos 3 componentes acima podemos ter também um **StrategyValidator**, que 
 Vamos ver um exemplo concreto do padrão de Strategy e após isso ver como ele é melhorado com os recursos da programação funcional.
 
 ### Implementação orientadas a objetos
-Suponhamos que estamos implementando uma lógica para validar um pagamento e gostaríamos que a lógica aplicada para validar este pagamento fosse decidida em tempo de execução.<br/>
+Suponhamos que estamos implementando uma lógica para realizar um pagamento de diversas formas diferentes e gostaríamos que a lógica aplicada para realizar este pagamento fosse decidida em tempo de execução.<br/>
 Podemos fazer isso dessa forma:
 
 #### Interface Strategy
