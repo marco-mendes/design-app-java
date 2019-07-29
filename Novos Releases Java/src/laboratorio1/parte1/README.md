@@ -36,7 +36,7 @@ Exemplo:<br/>
 ### Invocando métodos
 Conforme vimos no tópico acima, declaramos um método chamado **imprimeAlgo**, a invocação do mesmo pode ser realizada da mesma forma que realizamos dentro de uma classe Java.<br/>
 Exemplo:<br/>
-<img src="https://github.com/corelioBH/design-app-java/blob/master/Novos%20Releases%20Java/src/laboratorio1/parte1/exemplos/exemplo4.PNG"/>
+<img src="./exemplos/exemplo4.PNG"/>
 
 #### Exercício 1
 Com base no que foi apresentado até agora utilize o Jshell para declarar um método chamado **soma** que receba dois números inteiros e imprima o valor da soma dos números recebidos.<br/>
