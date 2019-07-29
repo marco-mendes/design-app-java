@@ -43,19 +43,19 @@ Com base no que foi apresentado até agora utilize o Jshell para declarar um mé
 Após declarar o método **soma** o invoque utilizado quaisquer números inteiros como parâmetro para validar o funcionamento do mesmo.
 
 ### Declarando classes
-A declaração de classes no Jshell é bem semelhante a declaração de métodos, o Jshell reconhece que o que está sendo declarada uma classe, e ao pressionar a tecla ENTER o mesmo realiza uma quebra de linha até que a classe que está 
+A declaração de classes no Jshell é bem semelhante a declaração de métodos, o Jshell reconhece que o que está sendo declarado é uma classe, e ao pressionar a tecla ENTER o mesmo realiza uma quebra de linha até que a classe que está 
 sendo declarada seja corretamente finalizada.<br/>
 Exemplo:<br/>
 <img src="./exemplos/exemplo6.PNG"/>
 
 #### Exercício 2
-Utilizando o Jshell declare uma classe chamada **Produto**, a mesma deve possuir apenas dois atributos, um do tipo String chamado nome e outro do tipo Double chamado preco.<br/>
-Esta classe deve possuir um Contrutor e os métodos getters de ambos os atributos.
+Utilizando o Jshell declare uma classe chamada **Produto**, a mesma deve possuir apenas dois atributos, um do tipo String chamado **nome** e outro do tipo Double chamado **preco**.<br/>
+Esta classe deve possuir um Construtor com ambos os atributos e deve possuir também os métodos getters de ambos.
 
 **Atenção, não feche o Jshell após realizar este exercício, a classe criada no mesmo será utilizada no Exercício 3**
 
 ### Editando declarações no Jshell
-Para editar declarações no Jshell devemos primeiros obter o ID da declaração, podemos fazer isso utilizando o seguinte comando: **/list**<br/>
+Para editar declarações no Jshell devemos primeiro obter o ID da declaração, podemos fazer isso utilizando o seguinte comando: **/list**<br/>
 Conforme o exemplo abaixo o ID da classe declarada no tópico **Declarando Classes** possui o ID 1.<br/> 
 <img src="./exemplos/exemplo7.PNG"/>
 
