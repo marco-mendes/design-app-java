@@ -1,4 +1,10 @@
 ## Introdução aos principais recursos do Java 9
 
-### Material de preparação
-
+### Introdução
+Abordaremos neste laboratório os principais recursos introduzidos no Java 9.<br/>
+Para melhor compreensão do conteúdo dividiremos este laboratório em 5 partes, sendo elas:
+ - [Jshell]()
+ - [Jigsaw]()
+ - [Reative Streams]()
+ - [Pequenas modificações na linguagem]()
+ - [Novos métodos classe Optional]()
