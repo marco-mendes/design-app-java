@@ -72,7 +72,7 @@ Para realizar uma edição nessa janela basta apenas editar o conteúdo da decla
 Neste exemplo declaramos o método **imprimePessoa** para imprimir o nome da pessoa:<br/>
 <img src="./exemplos/exemplo10.PNG"/>
 
-Exemplo de uso do método declarado na edição:
+Exemplo de uso do método declarado na edição:<br/>
 <img src="./exemplos/exemplo11.PNG"/>
 
 #### Exercício 3
