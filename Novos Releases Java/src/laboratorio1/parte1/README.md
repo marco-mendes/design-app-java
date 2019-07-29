@@ -13,12 +13,12 @@ Abordaremos aqui o uso básico do Jshell.
 ### Iniciando o Jshell
 Com o JDK 9 ou superior instalado, basta executar o comando **jshell** para iniciá-lo.<br/>
 Exemplo:<br/>
-<img src="https://github.com/corelioBH/design-app-java/tree/master/Novos%20Releases%20Java/src/laboratorio1/parte1/exemplos/exemplo1.png"/>
+<img src="https://github.com/corelioBH/design-app-java/blob/master/Novos%20Releases%20Java/src/laboratorio1/parte1/exemplos/exemplo1.PNG"/>
 
 ### Fechando o Jshell
 Para fechar o Jshell basta executar o seguinte comando: **/exit**<br/>
 Exemplo:<br/>
-<img src="https://github.com/corelioBH/design-app-java/tree/master/Novos%20Releases%20Java/src/laboratorio1/parte1/exemplos/exemplo2.png"/>
+<img src="https://github.com/corelioBH/design-app-java/blob/master/Novos%20Releases%20Java/src/laboratorio1/parte1/exemplos/exemplo2.PNG"/>
 
 #### Exercício 1
 Com seu terminal aberto execute os comandos para iniciar e fechar o Jshell.
