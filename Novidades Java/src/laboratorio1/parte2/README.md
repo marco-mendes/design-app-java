@@ -31,7 +31,7 @@ A grande mudança é que dentro de nosso diretório source iremos possuir um ou 
 pacotes do Java no qual já estamos todos bem familiarizados.
 
 Um exemplo de estrutura dessa estrutura com o Java 9 seria a seguinte:
-<img src="./exemplo01.PNG"/><br/>
+<img src="./exemplos/exemplo01.PNG"/><br/>
 Analisando a estrutura de pastas:
  * Pasta Exemplo1 referente ao nome do projeto
  * Pasta src referente ao nosso diretório source
