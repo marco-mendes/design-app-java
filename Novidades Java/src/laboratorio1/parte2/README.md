@@ -64,8 +64,8 @@ module com.module.example {
 ```
 
 #### Exercício 1
-Com base no código contido deste [link]() 
+Com base no código contido deste [link](./exercicio/exercicio1/) 
 crie o arquivo **module-info.java** no local correto.<br/>
-O nome do módulo deve ser: **com.module.exercicio1**
+O nome do módulo deve ser: **com.module.hello**
 
 
