@@ -73,7 +73,7 @@ O nome do módulo deve ser: **com.module.hello**
 
 
 ### Diretiva requires
-A diretiva **requires** nos permite declarar que um módulos depende de outro para seu funcionamento, as dependências importadas com requires funcionam em tempo de execução 
+A diretiva **requires** nos permite declarar que um módulo depende de outro para seu funcionamento, as dependências importadas com requires funcionam em tempo de execução 
 e em tempo de compilação.<br/>
 No exemplo abaixo estamos declarando que o módulo module.a depende do module.b para funcionar:
 ```java
@@ -108,19 +108,20 @@ Pense que um módulo é um jardim murado e por padrão qualquer tipo de Java em 
 Como os tipos de um módulo não são acessíveis por padrão para os módulos externos precisamos realizar um processo de exportação de dependências e importação das mesmas 
 para que um ou mais módulos se comuniquem entre si.<br/>
 Exemplo:<br/>
-Dados dois módulos, com.module.a e com.module.b, suponha que precisamos que o módulo com.module.a acesse as dependências do módulo com.module.b, para fazer isso duas 
-condições precisam ser satisfeitas:
- * O módulo com.module.a precisa declarar sua dependência no módulo com.module.b, processo realizado utilizando a diretiva **requires**
- * O módulo com.module.b precisa declarar quais dos seus tipos podem ser acessados externamente por outros módulos, processo realizado utilizando a diretiva **exports**
+Dados dois módulos, **com.module.app** e **com.module.auth**, suponha que precisamos que o módulo **com.module.app** acesse as dependências do módulo **com.module.auth**, 
+para fazer isso duas condições precisam ser satisfeitas:
+ * O módulo **com.module.app** precisa declarar sua dependência no módulo **com.module.auth**, processo realizado utilizando a diretiva **requires**
+ * O módulo **com.module.auth** precisa declarar quais dos seus tipos podem ser acessados externamente por outros módulos, processo realizado utilizando a diretiva **exports**
 
-Supondo que o módulo com.module.b irá exportar o pacote com.service.validator para uso em outros módulos poderíamos realizar a comunicação entre esses dois módulos da seguinte forma:<br/>
+Supondo que o **módulo com.module.auth** irá exportar o pacote **com.service.validator** para uso em outros módulos poderíamos realizar a comunicação entre esses dois módulos da 
+seguinte forma:<br/>
 ```java
-module com.module.a {
-    requires com.module.b;
+module com.module.app {
+    requires com.module.auth;
 }
 ```
 ```java
-module com.module.b {
+module com.module.auth {
     exports com.service.validator;
 }
 ```
