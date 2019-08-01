@@ -1,4 +1,4 @@
-package com.module.hello;
+package com.hello;
 
 public class Exercicio {
 

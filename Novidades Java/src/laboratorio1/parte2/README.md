@@ -42,26 +42,29 @@ Analisando a estrutura de pastas:
 
 ### Nomeando um módulo
 As regras de nomenclatura do módulo são semelhantes a como nomeamos pacotes (pontos são permitidos, traços não são).<br/>
-É muito comum fazer nomes de modulo no estilo Reverse-DNS com o mesmo nome do pacote, como por exemplo, o pacote com.module.example terá um módulo com o mesno nome do pacote.
+É muito comum fazer nomes de modulo no estilo Reverse-DNS, como por exemplo com.module.example.
 
 
 ### O arquivo module-info.java
 O arquivo **module-info.java** contém toda a nossa definição de um módulo, o mesmo deve ser armazenado no diretório raiz do módulo como no exemplo abaixo:<br/> 
 <img src="./exemplos/exemplo02.PNG"/><br/>
 
-O arquivo **module-info.java** é estruturado da seguinte forma onde **module.name** irá corresponder ao nome do módulo e o corpo do mesmo irá conter suas diretivas de acesso:
+O arquivo **module-info.java** é declarado da seguinte forma onde **module.name** irá corresponder ao nome do módulo e o corpo do mesmo irá conter suas diretivas de acesso:
 ```java
 module module.name {
     //Diretivas de acesso
 }
 ```
 
-Um módulo chamado com.module.example poderia ser estruturado da seguinte forma:
+Um módulo chamado com.module.example poderia ser declarado da seguinte forma:
 ```java
 module com.module.example {
     //Diretivas de acesso
 }
 ```
+
+Uma declaração de módulo possui em seu corpo uma série de diretivas que nos permite infomar ao módulo o nível de permissão de acesso que seus pacotes possuem.<br/>
+No material de preparação foi abordada cada uma dessas diretivas, nos próximos tópicos abordaremos as diretivas **requires** e **exports** que são as duas mais usadas.
 
 #### Exercício 1
 Com base no código contido deste [link](./exercicio/exercicio1/) 
@@ -69,3 +72,63 @@ crie o arquivo **module-info.java** no local correto.<br/>
 O nome do módulo deve ser: **com.module.hello**
 
 
+### Diretiva requires
+A diretiva **requires** nos permite declarar que um módulos depende de outro para seu funcionamento, as dependências importadas com requires funcionam em tempo de execução 
+e em tempo de compilação.<br/>
+No exemplo abaixo estamos declarando que o módulo module.a depende do module.b para funcionar:
+```java
+module module.a {
+    requires module.b;
+}
+```
+
+Existe uma pequena variação da diretiva **requires**, essa é a diretiva **requires static**.<br/>
+O funcionamento da diretiva **requires static** é bem semelhante a diretiva **requires**, a diferença entre ele é que na diretiva **requires** temos dependências em tempo de 
+execução e compilação, já a diretiva **requires static** nos fornece dependências apenas em tempo de compilação.<br/>
+Exemplo:
+```java
+module module.a {
+    requires module.b;
+    requires static module.c;
+}
+```
+No exemplo acima definimos que o module.b é uma dependência de execução e compilação, definimos também que o module.c é uma dependência apenas de tempo de compilação.
+
+### Diretiva exports
+Em resumo a diretiva **exports** diz ao nosso módulo quais pacotes do mesmo estão acessíveis para outros módulos externamente.<br/>
+No exemplo abaixo estamos exportando o pacote fictício **com.service.valitador** para que o mesmo possa ser utilizado por módulos externos:
+```java
+module module.b {
+    exports com.service.valitador;
+}
+```
+
+### Comunicação entre módulos
+Pense que um módulo é um jardim murado e por padrão qualquer tipo de Java em um módulo é acessível apenas para os tipos dentro do mesmo módulo.<br/>
+Como os tipos de um módulo não são acessíveis por padrão para os módulos externos precisamos realizar um processo de exportação de dependências e importação das mesmas 
+para que um ou mais módulos se comuniquem entre si.<br/>
+Exemplo:<br/>
+Dados dois módulos, com.module.a e com.module.b, suponha que precisamos que o módulo com.module.a acesse as dependências do módulo com.module.b, para fazer isso duas 
+condições precisam ser satisfeitas:
+ * O módulo com.module.a precisa declarar sua dependência no módulo com.module.b, processo realizado utilizando a diretiva **requires**
+ * O módulo com.module.b precisa declarar quais dos seus tipos podem ser acessados externamente por outros módulos, processo realizado utilizando a diretiva **exports**
+
+Supondo que o módulo com.module.b irá exportar o pacote com.service.validator para uso em outros módulos poderíamos realizar a comunicação entre esses dois módulos da seguinte forma:<br/>
+```java
+module com.module.a {
+    requires com.module.b;
+}
+```
+```java
+module com.module.b {
+    exports com.service.validator;
+}
+```
+
+#### Exercício 2
+Com base no código contido deste [link](./exercicio/exercicio2/) faça com que o módulo **com.module.login** possa ser acessado pelo módulo **com.module.app** de forma que o módulo 
+**com.module.login** disponibilize o pacote **com.validator.login** para acesso externo em outros módulos.
+
+### Realizando o build dos módulos via cmd
+
+### Usando módulos via cmd
