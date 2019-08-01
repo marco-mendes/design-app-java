@@ -31,11 +31,16 @@ A grande mudança é que dentro de nosso diretório source iremos possuir um ou 
 pacotes do Java no qual já estamos todos bem familiarizados.
 
 Um exemplo de estrutura dessa estrutura com o Java 9 seria a seguinte:
-
+<img src="./exemplo01.PNG"/><br/>
+Analisando a estrutura de pastas:
+ * Pasta Exemplo1 referente ao nome do projeto
+ * Pasta src referente ao nosso diretório source
+ * Pasta com.modulo.exemplo referente ao nosso módulo
+ * As demais pastas dentro do diretório com.modulo.exemplo serão nossos pacotes
 
 ### Nomeando um módulo
 As regras de nomenclatura do módulo são semelhantes a como nomeamos pacotes (pontos são permitidos, traços não são).<br/>
-É muito comum fazer nomes de estilo estilo Reverse-DNS como por exemplo: com.module.example
+É muito comum fazer nomes de modulo no estilo Reverse-DNS com o mesmo nome do pacote, como por exemplo, o pacote com.module.example terá um módulo com o mesno nome do pacote.
 
 
 ### O arquivo module-info.java
