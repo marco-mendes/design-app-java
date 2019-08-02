@@ -107,28 +107,51 @@ module module.b {
 Pense que um módulo é um jardim murado e por padrão qualquer tipo de Java em um módulo é acessível apenas para os tipos dentro do mesmo módulo.<br/>
 Como os tipos de um módulo não são acessíveis por padrão para os módulos externos precisamos realizar um processo de exportação de dependências e importação das mesmas 
 para que um ou mais módulos se comuniquem entre si.<br/>
-Exemplo:<br/>
-Dados dois módulos, **com.module.app** e **com.module.auth**, suponha que precisamos que o módulo **com.module.app** acesse as dependências do módulo **com.module.auth**, 
-para fazer isso duas condições precisam ser satisfeitas:
- * O módulo **com.module.app** precisa declarar sua dependência no módulo **com.module.auth**, processo realizado utilizando a diretiva **requires**
- * O módulo **com.module.auth** precisa declarar quais dos seus tipos podem ser acessados externamente por outros módulos, processo realizado utilizando a diretiva **exports**
+Considere a seguinte estrutura para nosso projeto de exemplo:<br/>
+<img src="./exemplos/exemplo03.PNG">
 
-Supondo que o **módulo com.module.auth** irá exportar o pacote **com.service.validator** para uso em outros módulos poderíamos realizar a comunicação entre esses dois módulos da 
-seguinte forma:<br/>
+Precisamos que o módulo **com.module.app** acesse o pacote **com.service.validator** do módulo **com.module.auth**, para fazer isso duas condições precisam ser satisfeitas:
+ * O módulo **com.module.app** precisa declarar sua dependência no módulo **com.module.auth**, processo realizado utilizando a diretiva **requires**
+ * O módulo **com.module.auth** precisa declarar que o pacote **com.service.validator** pode ser acessado externamente por outros módulos, processo realizado utilizando a diretiva **exports**
+
+Para realizar a comunicação entre eles podemos configurar seus módulos da seguinte forma:
 ```java
+// Arquivo ./src/com.module.app/module-info.java
 module com.module.app {
     requires com.module.auth;
 }
 ```
 ```java
+// Arquivo ./src/com.module.auth/module-info.java
 module com.module.auth {
     exports com.service.validator;
 }
 ```
 
+Para usar um pacote de outro módulo em uma classe basta realizar o import normalmente ao pacote ou classe alvo.<br/>
+Exemplo:
+```java
+import com.service.validator.ValidatorService;
+
+public class Application {
+
+    public static void main(String[] args){
+        // Implementação de uso
+    }
+
+}
+```
+
+Você pode ver o código completo desse exemplo neste [link](./exemplos/exemplo03/).
+
+
 #### Exercício 2
-Com base no código contido deste [link](./exercicio/exercicio2/) faça com que o módulo **com.module.login** possa ser acessado pelo módulo **com.module.app** de forma que o módulo 
-**com.module.login** disponibilize o pacote **com.validator.login** para acesso externo em outros módulos.
+Considere a seguitne estrutura para esse exercício:<br/>
+<img src="./exercicio/estrutura-exercicio02.PNG"/>
+
+Com base no código contido deste [link](./exercicio/exercicio2/) faça com que o módulo **com.module.login** possa ser acessado pelo módulo **com.module.app** de forma que o 
+módulo **com.module.login** disponibilize o pacote **com.validator.login** para acesso externo em outros módulos.<br/>
+
 
 ### Realizando o build dos módulos via cmd
 

@@ -5,7 +5,7 @@ import com.validator.login.LoginValidator;
 public class Application {
 
     public static void main(String[] args){
-        LoginValidor validator = new LoginValidator();
+        LoginValidator validator = new LoginValidator();
         String usuario = "adm";
         String senha = "123";
         Boolean usuarioValidado = validator.login(usuario, senha);
