@@ -61,6 +61,9 @@ Uma declaração de módulo possui em seu corpo uma série de diretivas que nos 
 No material de preparação foi abordada cada uma dessas diretivas, nos próximos tópicos abordaremos as diretivas **requires** e **exports** que são as duas mais usadas.
 
 #### Exercício 1
+Considere a seguinte estrutura para esse exercício:<br/>
+<img src="./exercicio/estrutura-exercicio01.PNG"/>
+
 Com base no código contido deste [link](./exercicio/exercicio1/) 
 crie o arquivo **module-info.java** no local correto.<br/>
 O nome do módulo deve ser: **com.module.hello**
@@ -173,7 +176,7 @@ O resultado de execução deste comando será semelhante a este gerando assim no
 
 #### Exercício 3
 Considere a seguinte estrutura para esse exercício:<br/>
-<img src="./exemplos/exemplo03.PNG"/>
+<img src="./exercicio/estrutura-exercicio03.PNG"/>
 
 Com base no código contido neste [link](./exercicio/exercicio3/), compile os módulos **com.module.app** e **com.module.auth** conforme explicado no tópico anterior.
 
