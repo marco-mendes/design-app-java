@@ -178,7 +178,7 @@ O resultado de execução deste comando será semelhante a este gerando assim no
 Considere a seguinte estrutura para esse exercício:<br/>
 <img src="./exercicio/estrutura-exercicio03_nova.PNG"/>
 
-Com base no código contido neste [link](./exercicio/exercicio3/), compile os módulos **com.module.app** e **com.module.auth** conforme explicado no tópico anterior.
+Com base no código contido neste [link](./exercicio/exercicio3/), compile os módulos **com.module.app** e **com.module.login** conforme explicado no tópico anterior.
 
 ### Usando módulos via linha de comando
 Após ter os módulos compilados podemos utilizá-los através do seguinte comando:
