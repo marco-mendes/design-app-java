@@ -1,11 +1,12 @@
-## Introdução aos Módulos do Java 9
+## Introdução à Módularidade do Java 9 - Projeto JigSaw
 
 ### Material de preparação
-[Introdução geral](https://blog.andresteingress.com/2017/09/29/java-9-modules.html)<br/>
+[Módulos na prática](https://blog.caelum.com.br/java-9-na-pratica-jigsaw/)<br/>
 [Guia geral para a Modularidade no Java 9](https://www.baeldung.com/java-9-modularity)
 
 ### Introdução
-Os módulos podem ser vistos como um novo componentes do Java, responsável por proporcionar um forte nível de encapsulamento em nossos componentes Java.<br/>
+A modularidade do Java 9 também é conhecida como prejeto JigSaw, neste projeto o Java foi reestruturado em módulos.<br/>
+Os módulos podem ser vistos como um novo componentes do Java, responsáveis por proporcionar um forte nível de encapsulamento em nossos componentes Java.<br/>
 Atualmente possuímos modificadores de acesso que restringem o acesso a certas classes que criamos, porém mesmo com esses modificadores ainda é possível burlar essas 
 restrições e realizar acesso a componentes que inicialmente não deveriamos poder acessar.<br/>
 
