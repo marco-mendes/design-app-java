@@ -171,6 +171,12 @@ compilados estão armazenados, e os módulos a serem compilados são **com.modul
 O resultado de execução deste comando será semelhante a este gerando assim nossos módulos compilados:<br/>
 <img src="./exemplos/exemplo04.PNG"><br/>
 
+#### Exercício 3
+Considere a seguinte estrutura para esse exercício:<br/>
+<img src="./exercicio/exemplo03.PNG"/>
+
+Com base no código contido neste [link](./exercicio/exercicio3/), compile os módulos **com.module.app** e **com.module.auth** conforme explicado no tópico anterior.
+
 ### Usando módulos via linha de comando
 Após ter os módulos compilados podemos utilizá-los através do seguinte comando:
 ```java
@@ -193,8 +199,8 @@ java --module-path out -m com.module.app/com.app.Application
 Neste exemplo especificamos a pasta **out** como sendo a pasta que contém os módulos compilados, no parâmetro **-m** especificamos que o módulo que possui a classe **Main** 
 é o módulo **com.module.app**, espeficamos também o nome totalmente qualificado da classe **Main** composto pelo nome de seu pacote e o nome da classe **Main**.
 
-#### Exercício 3
+#### Exercício 4
 Considere a seguinte estrutura para esse exercício:<br/>
-<img src="./exercicio/estrutura-exercicio03.PNG"/>
+<img src="./exercicio/estrutura-exercicio04.PNG"/>
 
-Com base no código compilado contido deste [link](./exercicio/exercicio3/) execute o módulo compilado via linha de comando conforme explicado no tópico anterior.
+Com base no código compilado contido neste [link](./exercicio/exercicio4/) execute o módulo compilado via linha de comando conforme explicado no tópico anterior.
