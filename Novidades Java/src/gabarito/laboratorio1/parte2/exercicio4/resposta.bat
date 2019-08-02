@@ -1,0 +1,1 @@
+java --module-path out -m com.module.app/com.app.Application

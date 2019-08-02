@@ -1,0 +1,1 @@
+javac -d out --module-source-path src --module com.module.app,com.module.login
