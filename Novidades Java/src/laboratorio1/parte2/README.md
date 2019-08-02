@@ -19,10 +19,10 @@ possibilidades recomendamos fortemente ler o livro [Modular Programming in Java 
 Com a introdução dos módulos a partir do Java 9 foi necessário realizar uma mudança na estrutura de projetos para estar de acordo com as convenções de uso de módulos.
 
 Antes do Java 9, a estrutura de nossos projetos Java era bem semelhante a isso:<br/>
-<img src="./exemplos/estrutura-antes-java9.PNG"/><br/>
+<img src="./exemplos/estrutura-antes-java9.png"/><br/>
 
 Com o Java 9 a estrutura de nossos projetos Java ficará bem semelhante a isso:<br/>
-<img src="./exemplos/estrutura-depois-java9.PNG"/><br/>
+<img src="./exemplos/estrutura-depois-java9.png"/><br/>
 A grande mudança é que dentro de nosso diretório source iremos possuir um ou mais diretórios referentes aos nossos módulos, e dentro desses diretórios teremos toda a estrutura de 
 pacotes do Java no qual já estamos todos bem familiarizados.
 
