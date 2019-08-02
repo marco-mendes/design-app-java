@@ -152,7 +152,7 @@ Com base no código contido deste [link](./exercicio/exercicio2/) faça com que 
 módulo **com.module.login** disponibilize o pacote **com.validator.login** para acesso externo em outros módulos.<br/>
 
 
-### Realizando o build dos módulos via cmd ou shell
+### Realizando o build dos módulos via linha de comando
 Para realizar o build de módulos podemos utilizar o seguinte comando:
 ```java
 javac -d [0] --module-source-path [1] --module [2],[3],...
@@ -177,4 +177,30 @@ compilados estão armazenados, e os módulos a serem compilados são **com.modul
 O resultado de execução deste comando será semelhante a este gerando assim nossos módulos compilados:<br/>
 <img src="./exemplos/exemplo04.PNG"><br/>
 
-### Usando módulos via cmd
+### Usando módulos via linha de comando
+Após ter os módulos compilados podemos utilizá-los da através do seguinte comando:
+```java
+java --module-path PASTA_MODULOS_COMPILADOS -m NOME-MODULO/caminho.pacote.NomeClasseMetodoMain
+```
+Explicação dos parâmetros:
+ * --module-path: Indica em qual pasta a JVM deve buscar os módulos compilados para uso.
+ * -m: Indica o nome do módulo, e o nome totalmente qualificado da classe que possui o método main para execução.
+ 
+Conside o código de exemplo do tópico [Comunicação entre módulos](#comunicação-entre-módulos), o mesmo possui a seguinte estrutura após ser compilado:<br/>
+<img src="./exemplos/exemplo04.PNG"><br/>
+
+E seu código compilado está disponível neste [link](./exemplos/exemplo03_compilado/).
+
+Para executarmos esse código compilado iremos precisar identificar qual dos módulos possui uma classe **Main**, neste código de exemplo o módulo **com.module.app** possui a classe 
+**Application** que possui um método **Main** declarado, com a classe **Main** identificada podemos executar o comando da seguinte forma:<br/>
+```java
+java --module-path out -m com.module.app/com.app.Application
+```
+Neste exemplo especificamos a pasta **out** como sendo a pasta que contém os módulos compilados, no parâmetro **-m** especificamos que o módulo que possui a classe **Main** 
+é o módulo **com.module.app**, espeficamos também o nome totalmente qualificado da classe **Main** composto pelo nome de seu pacote e o nome da classe **Main**.
+
+#### Exercício 3
+Considere a seguinte estrutura para esse exercício:<br/>
+<img src="./exercicio/estrutura-exercicio03.PNG"/>
+
+Com base no código compilado contido deste [link](./exercicio/exercicio3/) execute o módulo compilado via linha de comando conforme explicado no tópico anterior.
