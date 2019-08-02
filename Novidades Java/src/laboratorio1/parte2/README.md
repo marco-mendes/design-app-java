@@ -36,9 +36,9 @@ Um exemplo dessa estrutura com o Java 9 seria a seguinte:<br/>
 <img src="./exemplos/exemplo01.PNG"/><br/>
 Analisando a estrutura de pastas:
  * Pasta Exemplo1 referente ao nome do projeto
- * Pasta src referente ao nosso diretório source
- * Pasta com.modulo.exemplo referente ao nosso módulo
- * As demais pastas dentro do diretório com.modulo.exemplo serão nossos pacotes
+ * Pasta **src** referente ao nosso diretório source
+ * Pasta **com.modulo.exemplo** referente ao nosso módulo
+ * As demais pastas dentro do diretório **com.modulo.exemplo** serão nossos pacotes
 
 ### Nomeando um módulo
 As regras de nomenclatura do módulo são semelhantes a como nomeamos pacotes (pontos são permitidos, traços não são).<br/>
@@ -75,14 +75,14 @@ O nome do módulo deve ser: **com.module.hello**
 ### Diretiva requires
 A diretiva **requires** nos permite declarar que um módulo depende de outro para seu funcionamento, as dependências importadas com requires funcionam em tempo de execução 
 e em tempo de compilação.<br/>
-No exemplo abaixo estamos declarando que o módulo module.a depende do module.b para funcionar:
+No exemplo abaixo estamos declarando que o módulo **module.a** depende do **module.b** para funcionar:
 ```java
 module module.a {
     requires module.b;
 }
 ```
 
-Existe uma pequena variação da diretiva **requires**, essa é a diretiva **requires static**.<br/>
+Existe uma pequena variação da diretiva **requires** que é a diretiva **requires static**.<br/>
 O funcionamento da diretiva **requires static** é bem semelhante a diretiva **requires**, a diferença entre ele é que na diretiva **requires** temos dependências em tempo de 
 execução e compilação, já a diretiva **requires static** nos fornece dependências apenas em tempo de compilação.<br/>
 Exemplo:
@@ -92,7 +92,7 @@ module module.a {
     requires static module.c;
 }
 ```
-No exemplo acima definimos que o module.b é uma dependência de execução e compilação, definimos também que o module.c é uma dependência apenas de tempo de compilação.
+No exemplo acima definimos que o **module.b** é uma dependência de execução e compilação, definimos também que o **module.c** é uma dependência apenas de tempo de compilação.
 
 ### Diretiva exports
 Em resumo a diretiva **exports** diz ao nosso módulo quais pacotes do mesmo estão acessíveis para outros módulos externamente.<br/>
@@ -104,14 +104,14 @@ module module.b {
 ```
 
 ### Comunicação entre módulos
-Pense que um módulo é um jardim murado e por padrão qualquer tipo de Java em um módulo é acessível apenas para os tipos dentro do mesmo módulo.<br/>
+Pense que um módulo é um jardim murado e por padrão qualquer tipo do Java em um módulo é acessível apenas para os tipos dentro do mesmo módulo.<br/>
 Como os tipos de um módulo não são acessíveis por padrão para os módulos externos precisamos realizar um processo de exportação de dependências e importação das mesmas 
 para que um ou mais módulos se comuniquem entre si.<br/>
 Considere a seguinte estrutura para nosso projeto de exemplo:<br/>
 <img src="./exemplos/exemplo03.PNG">
 
 Precisamos que o módulo **com.module.app** acesse o pacote **com.service.validator** do módulo **com.module.auth**, para fazer isso duas condições precisam ser satisfeitas:
- * O módulo **com.module.app** precisa declarar sua dependência no módulo **com.module.auth**, processo realizado utilizando a diretiva **requires**
+ * O módulo **com.module.app** precisa declarar que é dependente no módulo **com.module.auth**, processo realizado utilizando a diretiva **requires**
  * O módulo **com.module.auth** precisa declarar que o pacote **com.service.validator** pode ser acessado externamente por outros módulos, processo realizado utilizando a diretiva **exports**
 
 Para realizar a comunicação entre eles podemos configurar seus módulos da seguinte forma:
@@ -128,8 +128,7 @@ module com.module.auth {
 }
 ```
 
-Para usar um pacote de outro módulo em uma classe basta realizar o import normalmente ao pacote ou classe alvo.<br/>
-Exemplo:
+Para usar um pacote de outro módulo em uma classe basta realizar o import normalmente como no exemplo abaixo:<br/>
 ```java
 import com.service.validator.ValidatorService;
 
@@ -146,13 +145,36 @@ Você pode ver o código completo desse exemplo neste [link](./exemplos/exemplo0
 
 
 #### Exercício 2
-Considere a seguitne estrutura para esse exercício:<br/>
+Considere a seguinte estrutura para esse exercício:<br/>
 <img src="./exercicio/estrutura-exercicio02.PNG"/>
 
 Com base no código contido deste [link](./exercicio/exercicio2/) faça com que o módulo **com.module.login** possa ser acessado pelo módulo **com.module.app** de forma que o 
 módulo **com.module.login** disponibilize o pacote **com.validator.login** para acesso externo em outros módulos.<br/>
 
 
-### Realizando o build dos módulos via cmd
+### Realizando o build dos módulos via cmd ou shell
+Para realizar o build de módulos podemos utilizar o seguinte comando:
+```java
+javac -d [0] --module-source-path [1] --module [2],[3],...
+```
+Explicação dos parâmetros:
+ * -d: Indica a pasta de destino no qual os módulos compilados serão armazenados
+ * --module-source-path: Indica a pasta source onde os módulos a serem compilados estão armazenados
+ * --module: Indica o nome dos módulos a serem compilados, este parâmetro aceita um ou mais argumentos contanto que sejam separados por vírgula. 
+
+Conside o código de exemplo do tópico [Comunicação entre módulos](#comunicação-entre-módulos), o mesmo possui a seguinte estrutura:<br/>
+<img src="./exemplos/exemplo03.PNG"><br/>
+
+E seu código está disponível neste [link](./exemplos/exemplo03/).
+
+Para realizarmos a compilação desses módulos poderíamos exercutar o comando dessa forma:
+```java
+javac -d out --module-source-path src --module com.module.app,com.module.auth
+```
+Neste exemplo de compilação a pasta **out** seria a pasta destino onde os módulos compilados seriam armazenados, a pasta **src** seria nossa pasta source onde os módulos a serem 
+compilados estão armazenados, e os módulos a serem compilados são **com.module.app** e **com.module.auth**.
+
+O resultado de execução deste comando será semelhante a este gerando assim nossos módulos compilados:<br/>
+<img src="./exemplos/exemplo04.PNG"><br/>
 
 ### Usando módulos via cmd
