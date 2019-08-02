@@ -173,7 +173,7 @@ O resultado de execução deste comando será semelhante a este gerando assim no
 
 #### Exercício 3
 Considere a seguinte estrutura para esse exercício:<br/>
-<img src="./exercicio/exemplo03.PNG"/>
+<img src="./exemplos/exemplo03.PNG"/>
 
 Com base no código contido neste [link](./exercicio/exercicio3/), compile os módulos **com.module.app** e **com.module.auth** conforme explicado no tópico anterior.
 
