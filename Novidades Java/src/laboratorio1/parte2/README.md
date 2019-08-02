@@ -155,12 +155,12 @@ módulo **com.module.login** disponibilize o pacote **com.validator.login** para
 ### Realizando o build dos módulos via linha de comando
 Para realizar o build de módulos podemos utilizar o seguinte comando:
 ```java
-javac -d [0] --module-source-path [1] --module [2],[3],...
+javac -d PASTA_DESTINO_MODULOS_COMPILADOS --module-source-path PASTA_SOURCE_DOS_MODULOS --module PRIMEIRO_MODULO,SEGUNDO_MODULO,...
 ```
 Explicação dos parâmetros:
- * -d: Indica a pasta de destino no qual os módulos compilados serão armazenados
- * --module-source-path: Indica a pasta source onde os módulos a serem compilados estão armazenados
- * --module: Indica o nome dos módulos a serem compilados, este parâmetro aceita um ou mais argumentos contanto que sejam separados por vírgula. 
+ * **-d**: Indica a pasta de destino no qual os módulos compilados serão armazenados
+ * **--module-source-path**: Indica a pasta source onde os módulos a serem compilados estão armazenados
+ * **--module**: Indica o nome dos módulos a serem compilados, este parâmetro aceita um ou mais argumentos contanto que sejam separados por vírgula. 
 
 Conside o código de exemplo do tópico [Comunicação entre módulos](#comunicação-entre-módulos), o mesmo possui a seguinte estrutura:<br/>
 <img src="./exemplos/exemplo03.PNG"><br/>
@@ -178,13 +178,13 @@ O resultado de execução deste comando será semelhante a este gerando assim no
 <img src="./exemplos/exemplo04.PNG"><br/>
 
 ### Usando módulos via linha de comando
-Após ter os módulos compilados podemos utilizá-los da através do seguinte comando:
+Após ter os módulos compilados podemos utilizá-los através do seguinte comando:
 ```java
-java --module-path PASTA_MODULOS_COMPILADOS -m NOME-MODULO/caminho.pacote.NomeClasseMetodoMain
+java --module-path PASTA_MODULOS_COMPILADOS -m nome.modulo/caminho.pacote.NomeClasseMetodoMain
 ```
 Explicação dos parâmetros:
- * --module-path: Indica em qual pasta a JVM deve buscar os módulos compilados para uso.
- * -m: Indica o nome do módulo, e o nome totalmente qualificado da classe que possui o método main para execução.
+ * **--module-path**: Indica em qual pasta a JVM deve buscar os módulos compilados para uso.
+ * **-m**: Indica o nome do módulo, e o nome totalmente qualificado da classe que possui o método main para execução.
  
 Conside o código de exemplo do tópico [Comunicação entre módulos](#comunicação-entre-módulos), o mesmo possui a seguinte estrutura após ser compilado:<br/>
 <img src="./exemplos/exemplo04.PNG"><br/>
