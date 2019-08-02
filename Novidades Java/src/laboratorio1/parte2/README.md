@@ -2,20 +2,14 @@
 
 ### Material de preparação
 [Introdução geral](https://blog.andresteingress.com/2017/09/29/java-9-modules.html)<br/>
-[Single Module e Multi Module](https://www.logicbig.com/tutorials/core-java-tutorial/modules/modes.html)<br/>
 [Guia geral para a Modularidade no Java 9](https://www.baeldung.com/java-9-modularity)
 
 ### Introdução
 Os módulos podem ser vistos como um novo componentes do Java, responsável por proporcionar um forte nível de encapsulamento em nossos componentes Java.<br/>
 Atualmente possuímos modificadores de acesso que restringem o acesso a certas classes que criamos, porém mesmo com esses modificadores ainda é possível burlar essas 
 restrições e realizar acesso a componentes que inicialmente não deveriamos poder acessar.<br/>
-Os módulos foram criados com 2 objetivos principais:
- - **Encapsulamento forte**: Como cada módulo declara quais pacotes são públicos e isola aqueles que são internos, o compilador e o tempo de execução Java podem agora 
-impor regras para garantir que nenhuma das classes internas esteja sendo usada fora do módulo.
- - **Configuração confiável**: Como cada módulo declara o que precisa, o tempo de execução pode verificar se cada módulo tem o que precisa antes que o aplicativo esteja 
-ativo e em execução evitando assim alguns erros como dependências que não foram definidas corretamente no classpath da aplicação.
 
-Como vimos no material de preparação, o Java 9 foi reestruturado em módulos de forma a manter a compatibilidade com o código anterior ao Java 9.<br/>
+Além de introduzir o conceito de módulos, o próprio Java 9 foi reestruturado em módulos de forma a manter a compatibilidade com o código anterior ao Java 9.<br/>
 
 Os módulos no Java 9 são um assunto bem extenso, por isso abordaremos aqui apenas um exemplo de uso básico de comunicação entre módulos, caso queria se aprofundar em todas as 
 possibilidades recomendamos fortemente ler o livro [Modular Programming in Java 9](https://www.oreilly.com/library/view/modular-programming-in/9781787126909/) escrito por Koushik Kothagal. 
@@ -25,10 +19,10 @@ possibilidades recomendamos fortemente ler o livro [Modular Programming in Java 
 Com a introdução dos módulos a partir do Java 9 foi necessário realizar uma mudança na estrutura de projetos para estar de acordo com as convenções de uso de módulos.
 
 Antes do Java 9, a estrutura de nossos projetos Java era bem semelhante a isso:<br/>
-<img src="https://learning.oreilly.com/library/view/modular-programming-in/9781787126909/assets/fc41fa8d-df8e-49b8-b2af-4fe33dbf08ee.png"/><br/>
+<img src="./exemplos/estrutura-antes-java9.PNG"/><br/>
 
 Com o Java 9 a estrutura de nossos projetos Java ficará bem semelhante a isso:<br/>
-<img src="https://learning.oreilly.com/library/view/modular-programming-in/9781787126909/assets/86c153ba-bb45-4137-9f4c-24e84465f3f0.png"/><br/>
+<img src="./exemplos/estrutura-depois-java9.PNG"/><br/>
 A grande mudança é que dentro de nosso diretório source iremos possuir um ou mais diretórios referentes aos nossos módulos, e dentro desses diretórios teremos toda a estrutura de 
 pacotes do Java no qual já estamos todos bem familiarizados.
 
@@ -185,7 +179,7 @@ java --module-path PASTA_MODULOS_COMPILADOS -m nome.modulo/caminho.pacote.NomeCl
 Explicação dos parâmetros:
  * **--module-path**: Indica em qual pasta a JVM deve buscar os módulos compilados para uso.
  * **-m**: Indica o nome do módulo, e o nome totalmente qualificado da classe que possui o método main para execução.
- 
+
 Conside o código de exemplo do tópico [Comunicação entre módulos](#comunicação-entre-módulos), o mesmo possui a seguinte estrutura após ser compilado:<br/>
 <img src="./exemplos/exemplo04.PNG"><br/>
 
