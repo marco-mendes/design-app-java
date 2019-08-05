@@ -166,9 +166,9 @@ Uma observação importante: se não possuirmos uma lógica para o método main 
 Suponhamos que possuímos uma classe chamada **Tweet**, a mesma irá simular os Tweets de usuários do Twitter, com base nela crie uma implementação simples de Reactive Streams
 utilizando o que foi explicado até agora.
 
-No Subscriber da classe Tweet realize as seguintes operações:
- * Nome método **onSubscribe** imprima a seguinte mensagem: "Seguindo usuário: NOME_USUARIO"
- * No método **onNext** imprima a seguinte mensagem: O usuário NOME_USUARIO acabou de Tweetar "TEXTO_DO_TWEET".
+No Subscriber da classe Tweet realize as seguintes operações adicionais:
+ * Nome método **onSubscribe** imprima a seguinte mensagem: "Seguindo novo usuário"
+ * No método **onNext** imprima a seguinte mensagem: "O usuário NOME_USUARIO acabou de Tweetar: TEXTO_DO_TWEET".
  * No método **onComplete** imprima a seguinte mensagem: "Nada novo no momento!"
  * Considere **NOME_USUARIO** como sendo o atributo **usuario** da Classe **Tweet**.
  * Considere **TEXTO_DO_TWEET** como sendo o atributo **textoTweet** da Classe **Tweet**.
@@ -198,7 +198,7 @@ public class Tweet {
         return textoTweet;
     }
 
-    public List<Tweet> obtemListaFicticiaTweets() {
+    public static List<Tweet> obtemListaFicticiaTweets() {
         return Arrays.asList(
                 new Tweet("Chica da Silva", "Boa tarde a todos."),
                 new Tweet("José Carlos", "Ótima reportagem, abordaram bem o problema."),

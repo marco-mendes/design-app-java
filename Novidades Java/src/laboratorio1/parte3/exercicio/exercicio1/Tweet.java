@@ -21,7 +21,7 @@ public class Tweet {
         return textoTweet;
     }
 
-    public List<Tweet> obtemListaFicticiaTweets() {
+    public static List<Tweet> obtemListaFicticiaTweets() {
         return Arrays.asList(
                 new Tweet("Chica da Silva", "Boa tarde a todos."),
                 new Tweet("José Carlos", "Ótima reportagem, abordaram bem o problema."),
