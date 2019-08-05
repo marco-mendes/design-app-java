@@ -170,6 +170,8 @@ No Subscriber da classe Tweet realize as seguintes operações:
  * Nome método **onSubscribe** imprima a seguinte mensagem: "Seguindo usuário: NOME_USUARIO"
  * No método **onNext** imprima a seguinte mensagem: O usuário NOME_USUARIO acabou de Tweetar "TEXTO_DO_TWEET".
  * No método **onComplete** imprima a seguinte mensagem: "Nada novo no momento!"
+ * Considere **NOME_USUARIO** como sendo o atributo **usuario** da Classe **Tweet**.
+ * Considere **TEXTO_DO_TWEET** como sendo o atributo **textoTweet** da Classe **Tweet**.
  * Utilize o método **obtemListaFicticiaTweets()** para obter as lista de Tweets que o **Publisher** deve enviar ao seu **Subscriber** através do método **submit()** 
  do **Publisher**;
 
