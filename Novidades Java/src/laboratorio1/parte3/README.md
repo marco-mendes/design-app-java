@@ -10,11 +10,8 @@ Reactive Streams é um padrão para processamento de fluxo assíncrono com retor
 **java.util.concurrent.Flow**, no qual suas classes e interfaces principais são explicadas no material de preparação.<br/>
 
 No Java um Reactive Stream é composto por um **Publisher** e um **Subscriber**.<br/>
-
 O **Publisher** é responsável por receber dados e notificar a todos os seus inscritos sobre a existência desses novos dados.<br/>
-
 O **Subscriber** é cadastrado em um **Publisher** e aguarda a notificação de novos dados para que o mesmo possa realizar um processamento sobre eles.<br/>
-
 As vezes é necessário também um **Processor** que é um componente responsável por transformar os dados recebidos do **Publisher** para que o **Subscriber** consiga entendê-los.<br/>
 
 
@@ -22,7 +19,7 @@ As vezes é necessário também um **Processor** que é um componente responsáv
 ### Implementação básica de uso
 Suponhamos que possuímos uma classe chamada **Postagem** que será usada para criar um fluxo de mensagens que serão enviadas do Publisher para o Subscriber, com Reactive Streams poderíamos implementar esse comportamento da seguinte forma:
 
-#### Estrutura classe Postagem
+#### Estrutura da classe Postagem
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -157,10 +154,64 @@ public class ReactiveStreamsApp {
 }
 ```
 
-No exemplo acima criamos um **Publisher** utilizando a classe **SubmissionPublisher** da **API Flow** e cadastramos nossa implementação concreta de Subscriber na mesma.<br/>
-Após isso utilizamos o método submit do Publisher para notificar à nossa classe PostagemSubscriber sobre a existência de novos dados.<br/>
-Adicionamos também uma lógica para o método main aguardar o fim de nosso processamento e após isso finalizamos nosso **Publisher** com o método **close**.<br/>
+No exemplo acima criamos um **Publisher** utilizando a classe **SubmissionPublisher** da **API Flow** e cadastramos nossa implementação concreta de Subscriber na mesma.
+
+Após isso utilizamos o método **submit** do **Publisher** para notificar à nossa classe **PostagemSubscriber** sobre a existência de novos dados.<br/>
+Adicionamos também uma lógica para o método main aguardar o fim de nosso processamento e após isso finalizamos nosso **Publisher** com o método **close**.
+
 Uma observação importante: se não possuirmos uma lógica para o método main aguardar o processamento dos itens obteremos resultados indesejados pois o processamento dos dados 
-é feito de forma assíncrona e também não bloqueia o funcionamento da Thread main enquanto os dados estão sendo processados.
+é feito de forma assíncrona e o mesmo não bloqueia o funcionamento da Thread main enquanto os dados estão sendo processados.
+
+#### Exercício 1
+Suponhamos que possuímos uma classe chamada **Tweet**, a mesma irá simular os Tweets de usuários do Twitter, com base nela crie uma implementação simples de Reactive Streams
+utilizando o que foi explicado até agora.
+
+No Subscriber da classe Tweet realize as seguintes operações:
+ * Nome método **onSubscribe** imprima a seguinte mensagem: "Seguindo usuário: NOME_USUARIO"
+ * No método **onNext** imprima a seguinte mensagem: O usuário NOME_USUARIO acabou de Tweetar "TEXTO_DO_TWEET".
+ * No método **onComplete** imprima a seguinte mensagem: "Nada novo no momento!"
+ * Utilize o método **obtemListaFicticiaTweets()** para obter as lista de Tweets que o **Publisher** deve enviar ao seu **Subscriber** através do método **submit()** 
+ do **Publisher**;
+
+Código base para este exercício:
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class Tweet {
+
+    private String usuario;
+    private String textoTweet;
+
+    public Tweet(String usuario, String textoTweet) {
+        this.usuario = usuario;
+        this.textoTweet = textoTweet;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public String getTextoTweet() {
+        return textoTweet;
+    }
+
+    public List<Tweet> obtemListaFicticiaTweets() {
+        return Arrays.asList(
+                new Tweet("Chica da Silva", "Boa tarde a todos."),
+                new Tweet("José Carlos", "Ótima reportagem, abordaram bem o problema."),
+                new Tweet("Carlos Silva", "Ótimo dia a todos.")
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Tweet{" +
+                "usuario='" + usuario + '\'' +
+                ", textoTweet='" + textoTweet + '\'' +
+                '}';
+    }
+}
+``` 
 
 ### Implementação de uso com Processor
