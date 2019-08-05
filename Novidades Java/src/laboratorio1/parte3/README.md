@@ -1,17 +1,166 @@
-## Introdução à Reactive Streams
+## Introdução à Fluxos Reativos(Reactive Streams)
 
 ### Material de preparação
-[O que são Reactive Streams](https://www.reactive-streams.org/)
+[O que são Reactive Streams](https://www.reactive-streams.org/) <br/>
 [Usando Reactive Streams](https://www.journaldev.com/20723/java-9-reactive-streams)
 
 ### Introdução
-Em resumo Reactive Streams nos permitem implementar o processamento de fluxo assíncrono com retorno não-blocante<br/>
-O Java 9 introduziu suporte a este recurso através da API **java.util.concurrent.Flow**.
 
-Os principais componentes dessa API são:
- * Publisher
- * Subscriber
- * Subscription
- * Processor
- * SubmissionPublisher 
+Reactive Streams é um padrão para processamento de fluxo assíncrono com retorno não-bloqueante, este recurso foi introduzido no Java 9 através da API 
+**java.util.concurrent.Flow**, no qual suas classes e interfaces principais são explicadas no material de preparação.<br/>
 
+No Java um Reactive Stream é composto por um **Publisher** e um **Subscriber**.<br/>
+
+O **Publisher** é responsável por receber dados e notificar a todos os seus inscritos sobre a existência desses novos dados.<br/>
+
+O **Subscriber** é cadastrado em um **Publisher** e aguarda a notificação de novos dados para que o mesmo possa realizar um processamento sobre eles.<br/>
+
+As vezes é necessário também um **Processor** que é um componente responsável por transformar os dados recebidos do **Publisher** para que o **Subscriber** consiga entendê-los.<br/>
+
+
+
+### Implementação básica de uso
+Suponhamos que possuímos uma classe chamada **Postagem** que será usada para criar um fluxo de mensagens que serão enviadas do Publisher para o Subscriber, com Reactive Streams poderíamos implementar esse comportamento da seguinte forma:
+
+#### Estrutura classe Postagem
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Postagem {
+
+    private String titulo;
+    private String conteúdo;
+    private List<String> palavrasChave = new ArrayList<>();
+
+    public Postagem(String titulo, String conteúdo, List<String> palavrasChave) {
+        this.titulo = titulo;
+        this.conteúdo = conteúdo;
+        this.palavrasChave = palavrasChave;
+    }
+
+    public Postagem(String titulo, String conteúdo) {
+        this.titulo = titulo;
+        this.conteúdo = conteúdo;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getConteúdo() {
+        return conteúdo;
+    }
+
+    public List<String> getPalavrasChave() {
+        return palavrasChave;
+    }
+
+    public void adicionarPalavraChave(String novaPalavraChave) {
+        palavrasChave.add(novaPalavraChave);
+    }
+
+}
+```
+
+
+
+#### Criando uma implementação concreta de um Subscriber
+
+```java
+import java.util.concurrent.Flow.Subscriber;
+import java.util.concurrent.Flow.Subscription;
+
+public class PostagemSubscriber implements Subscriber<Postagem> {
+
+    private Subscription subscription;
+
+    private int counter = 0;
+
+    @Override
+    public void onSubscribe(Subscription subscription) {
+        System.out.println("Inscrito!");
+        this.subscription = subscription;
+        this.subscription.request(1);
+        System.out.println("onSubscribe requisitou 1 item");
+    }
+
+    @Override
+    public void onNext(Postagem postagem) {
+        System.out.println("Nova postagem recebida!");
+        System.out.println(String.format("Título: %s, Palavras Chave: %s", postagem.getTitulo(), postagem.getPalavrasChave()));
+        counter++;
+        this.subscription.request(1);
+    }
+
+    @Override
+    public void onError(Throwable e) {
+        e.printStackTrace();
+    }
+
+    @Override
+    public void onComplete() {
+        System.out.println("Finalizando inscrição!");
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+}
+```
+
+Um **Subscriber** deve implementar a interface **Subscriber** e sobrescrever seus métodos **onSubscribe**, **onNext**, **onError** e **onComplete**.<br/>
+O funcionamento de todos foi abordado no material de preparação.<br/>
+Adicionamos também a variável **counter** para nos auxiliar na lógica que irá verificar se os dados recebidos já foram processados.
+
+
+#### Criando um Publisher
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.SubmissionPublisher;
+
+public class ReactiveStreamsApp {
+
+    public static List<Postagem> obtemPostagens() {
+
+        Postagem post1 = new Postagem("Postagem Meio Ambiente", "Alguma coisa sobre meio ambiente");
+        post1.adicionarPalavraChave("Meio Ambiente");
+
+        Postagem post2 = new Postagem("Postagem Tecnologia", "Alguma coisa sobre tecnologia");
+        post2.adicionarPalavraChave("Tecnologia");
+
+        List<Postagem> postagens = new ArrayList<>();
+        postagens.add(post1);
+        postagens.add(post2);
+
+        return postagens;
+    }
+    
+    public static void main(String[] args) throws InterruptedException {
+        SubmissionPublisher<Postagem> publisher = new SubmissionPublisher<>();
+        PostagemSubscriber postagemSubscriber = new PostagemSubscriber();
+        publisher.subscribe(postagemSubscriber);
+        List<Postagem> postagens = obtemPostagens();
+        postagens.stream().forEach(p -> publisher.submit(p));
+
+        while (postagens.size() != postagemSubscriber.getCounter()) {
+            Thread.sleep(10);
+        }
+
+        publisher.close();
+
+    }
+    
+}
+```
+
+No exemplo acima criamos um **Publisher** utilizando a classe **SubmissionPublisher** da **API Flow** e cadastramos nossa implementação concreta de Subscriber na mesma.<br/>
+Após isso utilizamos o método submit do Publisher para notificar à nossa classe PostagemSubscriber sobre a existência de novos dados.<br/>
+Adicionamos também uma lógica para o método main aguardar o fim de nosso processamento e após isso finalizamos nosso **Publisher** com o método **close**.<br/>
+Uma observação importante: se não possuirmos uma lógica para o método main aguardar o processamento dos itens obteremos resultados indesejados pois o processamento dos dados 
+é feito de forma assíncrona e também não bloqueia o funcionamento da Thread main enquanto os dados estão sendo processados.
+
+### Implementação de uso com Processor
