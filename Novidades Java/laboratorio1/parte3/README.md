@@ -217,3 +217,256 @@ public class Tweet {
 ``` 
 
 ### Implementação de uso com Processor
+Um processor é utilizado para transformar um objeto de um tipo para outro tipo de forma que o subscriber consiga entender e trabalhar em cima do 
+objeto recebido por ele.<br/>
+Para implementar um processor possuímos alguns componentes em comum com uma implementação simples, são eles:
+ * Uma classe de um objeto base
+ * Uma classe Subscriber
+ * E a implementação de um publisher para enviar os dados ao subscriber
+ 
+Em um processor além dos componentes citados acima possuímos também:
+ * Uma nova classe que herda as caracteristicas da classe Base, a mesma será o resultado final da conversão.
+ * Uma classe com a implementação de um Processor que será responsável pela conversão dos objetos de um tipo para outro.
+ 
+
+#### Estrutura da classe base Postagem
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Postagem {
+
+    private String titulo;
+    private String conteúdo;
+    private List<String> palavrasChave = new ArrayList<>();
+
+    public Postagem(String titulo, String conteúdo, List<String> palavrasChave) {
+        this.titulo = titulo;
+        this.conteúdo = conteúdo;
+        this.palavrasChave = palavrasChave;
+    }
+
+    public Postagem(String titulo, String conteúdo) {
+        this.titulo = titulo;
+        this.conteúdo = conteúdo;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getConteúdo() {
+        return conteúdo;
+    }
+
+    public List<String> getPalavrasChave() {
+        return palavrasChave;
+    }
+
+    public void adicionarPalavraChave(String novaPalavraChave) {
+        palavrasChave.add(novaPalavraChave);
+    }
+
+}
+```
+
+#### Estrutura da classe alvo PostagemAdministrador no qual o objeto Postagem será convertido
+```java
+import java.util.List;
+
+public class PostagemAdministrador extends Postagem {
+
+    private String nomeAdministrador;
+
+    public String getNomeAdministrador() {
+        return nomeAdministrador;
+    }
+
+    public void setNomeAdministrador(String nomeAdministrador) {
+        this.nomeAdministrador = nomeAdministrador;
+    }
+
+    public PostagemAdministrador(String titulo, String conteúdo, List<String> palavrasChave, String nomeAdministrador) {
+        super(titulo, conteúdo, palavrasChave);
+        this.nomeAdministrador = nomeAdministrador;
+    }
+
+    public PostagemAdministrador(String titulo, String conteúdo, String nomeAdministrador) {
+        super(titulo, conteúdo);
+        this.nomeAdministrador = nomeAdministrador;
+    }
+
+    @Override
+    public String toString() {
+        return "PostagemAdministrador{" +
+                "nomeAdministrador='" + nomeAdministrador + '\'' +
+                '}';
+    }
+}
+```
+
+#### Implementação concreta do Subscriber
+A implementação concreta do subscriber deve ser feita com base na classe alvo da conversão, em nosso caso a mesma será criada com base na classe PostagemAdministrador.
+
+```java
+import java.util.concurrent.Flow.Subscription;
+import java.util.concurrent.Flow.Subscriber;
+
+public class PostagemAdministradorSubscriber implements Subscriber<PostagemAdministrador> {
+
+    private Subscription subscription;
+
+    private int counter = 0;
+
+    @Override
+    public void onSubscribe(Subscription subscription) {
+        System.out.println("Inscrito em PostagemAdministrador!");
+        this.subscription = subscription;
+        this.subscription.request(1);
+        System.out.println("onSubscribe requisitou 1 item de PostagemAdministrador");
+    }
+
+    @Override
+    public void onNext(PostagemAdministrador postagem) {
+        System.out.println("Nova Postagem de Administrador recebida!");
+        System.out.println(
+                String.format("Administrador: %s Título: %s, Palavras Chave: %s", postagem.getNomeAdministrador(), postagem.getTitulo(), postagem.getPalavrasChave())
+        );
+        counter++;
+        this.subscription.request(1);
+    }
+
+    @Override
+    public void onError(Throwable e) {
+        e.printStackTrace();
+    }
+
+    @Override
+    public void onComplete() {
+        System.out.println("Finalizando inscrição em Postagem Administrador!");
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+}
+```
+
+#### Estruturando a implementação concreta do Processor
+Esta classe será responsável por converter um Subscriber do tipo Postagem para um subscriber do tipo PostagemAdministrador.
+
+```java
+import java.util.concurrent.Flow.Processor;
+import java.util.concurrent.Flow.Subscription;
+import java.util.concurrent.SubmissionPublisher;
+import java.util.function.Function;
+
+public class MyProcessor extends SubmissionPublisher<PostagemAdministrador> implements Processor<Postagem, PostagemAdministrador> {
+
+    private Subscription subscription;
+    private Function<Postagem, PostagemAdministrador> conversorPostagemParaPostagemAdministrador;
+
+    public MyProcessor(Function<Postagem, PostagemAdministrador> conversor) {
+        super();
+        this.conversorPostagemParaPostagemAdministrador = conversor;
+    }
+
+    @Override
+    public void onSubscribe(Subscription subscription) {
+        this.subscription = subscription;
+        this.subscription.request(1);
+    }
+
+    @Override
+    public void onNext(Postagem postagem) {
+        submit((PostagemAdministrador) conversorPostagemParaPostagemAdministrador.apply(postagem));
+        subscription.request(1);
+    }
+
+    @Override
+    public void onError(Throwable e) {
+        e.printStackTrace();
+    }
+
+    @Override
+    public void onComplete() {
+        System.out.println("Feito");
+    }
+}
+```
+Nessa classe possuímos a Function **conversorPostagemParaPostagemAdministrador**, que será usada para realizar a tarefa de converter um objeto do tipo **Postagem** para 
+**PostagemAdminstrador** de acordo com a expressão Lambda recebida no construtor da classe.<br/>
+Dentro do método **onNext** realizamos a conversão do objeto e em seguida usamos o método **submit** do **SubmissionPublisher** para enviar o objeto ao **Subscriber**.
+
+#### Criando o Publisher
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.SubmissionPublisher;
+
+public class ReactiveStreamProcessorApp {
+
+    public static List<Postagem> obtemPostagens() {
+
+        Postagem post1 = new Postagem("Postagem Meio Ambiente", "Alguma coisa sobre meio ambiente");
+        post1.adicionarPalavraChave("Meio Ambiente");
+
+        Postagem post2 = new Postagem("Postagem Tecnologia", "Alguma coisa sobre tecnologia");
+        post2.adicionarPalavraChave("Tecnologia");
+
+        List<Postagem> postagens = new ArrayList<>();
+        postagens.add(post1);
+        postagens.add(post2);
+
+        return postagens;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        // Criando o publisher
+        SubmissionPublisher<Postagem> publisher = new SubmissionPublisher<>();
+
+        // Criando o processador que irá realizar a conversão dos objetos e atribuindo ao seu construtor a expressão Lambda responsável pela conversão dos objetos
+        MyProcessor transformProcessor = new MyProcessor(p -> {
+            return new PostagemAdministrador(p.getTitulo(), p.getConteúdo(), p.getPalavrasChave(), "ADMINISTRADOR GERAL");
+        });
+
+        // Criando o Subscriber do objeto PostagemAdministrador
+        PostagemAdministradorSubscriber subscriber = new PostagemAdministradorSubscriber();
+
+        // Publisher para processor
+        publisher.subscribe(transformProcessor);
+
+        // Processor para subscriber
+        transformProcessor.subscribe(subscriber);
+
+        // Publicando itens
+        List<Postagem> postagens = obtemPostagens();
+        postagens.stream().forEach(p -> publisher.submit(p));
+
+        // Lógica para aguardar o processamento ser concluído.
+        while(postagens.size() != subscriber.getCounter()) {
+            Thread.sleep(10);
+        }
+
+        // Finalizando os objetos Publisher e Processor.
+        publisher.close();
+        transformProcessor.close();
+
+    }
+
+}
+```
+Leia os comentários do Publisher para compreender o funcionamento corretamente.
+
+### Parando de receber mensagens em um Subscriber
+Caso seja necessário existe a possibilidade de parar de receber mensagens em um subscriber, basta utilizar o método **cancel** do objeto **Subscription** dentro da 
+implementação concreta de um Subscriber.<br/>
+Um exemplo seria parar de receber mensagens em caso de erro como no trecho de código abaixo:
+```java
+    @Override
+    public void onError(Throwable e) {
+        this.subscription.cancel();
+        e.printStackTrace();
+    }
+```
