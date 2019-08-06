@@ -1,4 +1,4 @@
-package gabarito.laboratorio1.parte3.exercicio1;
+package com.exercicio1;
 
 import java.util.Arrays;
 import java.util.List;
