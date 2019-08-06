@@ -225,7 +225,7 @@ Para implementar um **Processor** possuímos alguns componentes em comum com uma
  * E a implementação de um **Publisher** para enviar os dados ao subscriber
  
 Em um **Processor** além dos componentes citados acima possuímos também:
- * Uma nova classe que herda as caracteristicas da classe Base, a mesma será o resultado final da conversão.
+ * Uma nova classe que será o resultado final da conversão.
  * Uma classe com a implementação de um Processor que será responsável pela conversão dos objetos de um tipo para outro.
  
 
@@ -271,45 +271,51 @@ public class Postagem {
 }
 ```
 
-#### Estrutura da classe alvo PostagemAdministrador no qual o objeto Postagem será convertido
+#### Estrutura da classe alvo PostagemTwitter no qual o objeto Postagem será convertido
 ```java
+import java.util.ArrayList;
 import java.util.List;
 
-public class PostagemAdministrador extends Postagem {
+public class PostagemTwitter {
 
-    private String nomeAdministrador;
+    private String conteúdo;
+    private List<String> hashTags = new ArrayList<>();
 
-    public String getNomeAdministrador() {
-        return nomeAdministrador;
+    public PostagemTwitter(String conteúdo) {
+        this.conteúdo = conteúdo;
     }
 
-    public PostagemAdministrador(String titulo, String conteúdo, List<String> palavrasChave, String nomeAdministrador) {
-        super(titulo, conteúdo, palavrasChave);
-        this.nomeAdministrador = nomeAdministrador;
+    public PostagemTwitter(String conteúdo, List<String> hashTags) {
+        this.conteúdo = conteúdo;
+        this.hashTags = hashTags;
     }
 
-    public PostagemAdministrador(String titulo, String conteúdo, String nomeAdministrador) {
-        super(titulo, conteúdo);
-        this.nomeAdministrador = nomeAdministrador;
+    public String getConteúdo() {
+        return conteúdo;
     }
 
-    @Override
-    public String toString() {
-        return "PostagemAdministrador{" +
-                "nomeAdministrador='" + nomeAdministrador + '\'' +
-                '}';
+    public List<String> getHashTags() {
+        return hashTags;
     }
+
+    public void adicionarHashTag(String hashTag) {
+        this.hashTags.add(hashTag);
+    }
+
 }
 ```
+Nessa classe a propriedade conteudo terá o mesmo valor da propriedade conteúdo da classe Postagem.<br/>
+O atributo hashTags terá o mesmo valor da propriedade palavrasChave da classe Postagem.<br/>
+Com base nisso saberemos como mapear os valores nos campos corretos durante a conversão dos objetos.
 
 #### Implementação concreta do Subscriber
-A implementação concreta do subscriber deve ser feita com base na classe alvo da conversão, em nosso caso a mesma será criada com base na classe PostagemAdministrador.
+A implementação concreta do subscriber deve ser feita com base na classe alvo da conversão, em nosso caso a mesma será criada com base na classe PostagemTwitter.
 
 ```java
 import java.util.concurrent.Flow.Subscription;
 import java.util.concurrent.Flow.Subscriber;
 
-public class PostagemAdministradorSubscriber implements Subscriber<PostagemAdministrador> {
+public class PostagemTwitterSubscriber implements Subscriber<PostagemTwitter> {
 
     private Subscription subscription;
 
@@ -317,17 +323,17 @@ public class PostagemAdministradorSubscriber implements Subscriber<PostagemAdmin
 
     @Override
     public void onSubscribe(Subscription subscription) {
-        System.out.println("Inscrito em PostagemAdministrador!");
+        System.out.println("Inscrito em PostagemTwitter!");
         this.subscription = subscription;
         this.subscription.request(1);
-        System.out.println("onSubscribe requisitou 1 item de PostagemAdministrador");
+        System.out.println("onSubscribe requisitou 1 item de PostagemTwitter");
     }
 
     @Override
-    public void onNext(PostagemAdministrador postagem) {
-        System.out.println("Nova Postagem de Administrador recebida!");
+    public void onNext(PostagemTwitter postagem) {
+        System.out.println("Nova Postagem do Twitter recebida!");
         System.out.println(
-                String.format("Administrador: %s Título: %s, Palavras Chave: %s", postagem.getNomeAdministrador(), postagem.getTitulo(), postagem.getPalavrasChave())
+                String.format("Conteúdo: %s, HashTags: %s", postagem.getConteúdo(), postagem.getHashTags())
         );
         counter++;
         this.subscription.request(1);
@@ -340,14 +346,14 @@ public class PostagemAdministradorSubscriber implements Subscriber<PostagemAdmin
 
     @Override
     public void onComplete() {
-        System.out.println("Finalizando inscrição em Postagem Administrador!");
+        System.out.println("Finalizando inscrição em Postagem Twitter!");
     }
 
     public int getCounter() {
         return counter;
     }
 
-}
+
 ```
 
 #### Estruturando a implementação concreta do Processor
@@ -357,14 +363,14 @@ import java.util.concurrent.Flow.Subscription;
 import java.util.concurrent.SubmissionPublisher;
 import java.util.function.Function;
 
-public class MyProcessor extends SubmissionPublisher<PostagemAdministrador> implements Processor<Postagem, PostagemAdministrador> {
+public class MyProcessor extends SubmissionPublisher<PostagemTwitter> implements Processor<Postagem, PostagemTwitter> {
 
     private Subscription subscription;
-    private Function<Postagem, PostagemAdministrador> conversorPostagemParaPostagemAdministrador;
+    private Function<Postagem, PostagemTwitter> conversorPostagemParaPostagemTwitter;
 
-    public MyProcessor(Function<Postagem, PostagemAdministrador> conversor) {
+    public MyProcessor(Function<Postagem, PostagemTwitter> conversor) {
         super();
-        this.conversorPostagemParaPostagemAdministrador = conversor;
+        this.conversorPostagemParaPostagemTwitter = conversor;
     }
 
     @Override
@@ -375,7 +381,7 @@ public class MyProcessor extends SubmissionPublisher<PostagemAdministrador> impl
 
     @Override
     public void onNext(Postagem postagem) {
-        submit((PostagemAdministrador) conversorPostagemParaPostagemAdministrador.apply(postagem));
+        submit((PostagemTwitter) conversorPostagemParaPostagemTwitter.apply(postagem));
         subscription.request(1);
     }
 
@@ -392,8 +398,8 @@ public class MyProcessor extends SubmissionPublisher<PostagemAdministrador> impl
 ```
 Nessa classe implementamos a interface **Processor**, a mesma extende a classe Subscriber sendo necessário sobrescrever os métodos 
 **onSubscribe**, **onNext**, **onError** e **onComplete**.<br/>
-A Function **conversorPostagemParaPostagemAdministrador** será usada para realizar a tarefa de converter um objeto do tipo **Postagem** para 
-**PostagemAdminstrador** de acordo com a expressão Lambda recebida no construtor da classe.<br/>
+A Function **conversorPostagemParaPostagemTwitter** será usada para realizar a tarefa de converter um objeto do tipo **Postagem** para 
+**PostagemTwitter** de acordo com a expressão Lambda recebida no construtor da classe.<br/>
 Dentro do método **onNext** realizamos a conversão do objeto e em seguida usamos o método **submit** do **SubmissionPublisher** para enviar o objeto ao **Subscriber**.
 
 
@@ -426,11 +432,11 @@ public class ReactiveStreamProcessorApp {
 
         // Criando o processador que irá realizar a conversão dos objetos e atribuindo ao seu construtor a expressão Lambda responsável pela conversão dos objetos
         MyProcessor transformProcessor = new MyProcessor(p -> {
-            return new PostagemAdministrador(p.getTitulo(), p.getConteúdo(), p.getPalavrasChave(), "ADMINISTRADOR GERAL");
+            return new PostagemTwitter(p.getConteúdo(), p.getPalavrasChave());
         });
 
-        // Criando o Subscriber do objeto PostagemAdministrador
-        PostagemAdministradorSubscriber subscriber = new PostagemAdministradorSubscriber();
+        // Criando o Subscriber do objeto PostagemTwitter
+        PostagemTwitterSubscriber subscriber = new PostagemTwitterSubscriber();
 
         // Publisher para processor
         publisher.subscribe(transformProcessor);

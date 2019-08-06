@@ -5,14 +5,14 @@ import java.util.concurrent.Flow.Subscription;
 import java.util.concurrent.SubmissionPublisher;
 import java.util.function.Function;
 
-public class MyProcessor extends SubmissionPublisher<PostagemAdministrador> implements Processor<Postagem, PostagemAdministrador> {
+public class MyProcessor extends SubmissionPublisher<PostagemTwitter> implements Processor<Postagem, PostagemTwitter> {
 
     private Subscription subscription;
-    private Function<Postagem, PostagemAdministrador> conversorPostagemParaPostagemAdministrador;
+    private Function<Postagem, PostagemTwitter> conversorPostagemParaPostagemTwitter;
 
-    public MyProcessor(Function<Postagem, PostagemAdministrador> conversor) {
+    public MyProcessor(Function<Postagem, PostagemTwitter> conversor) {
         super();
-        this.conversorPostagemParaPostagemAdministrador = conversor;
+        this.conversorPostagemParaPostagemTwitter = conversor;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class MyProcessor extends SubmissionPublisher<PostagemAdministrador> impl
 
     @Override
     public void onNext(Postagem postagem) {
-        submit((PostagemAdministrador) conversorPostagemParaPostagemAdministrador.apply(postagem));
+        submit((PostagemTwitter) conversorPostagemParaPostagemTwitter.apply(postagem));
         subscription.request(1);
     }
 

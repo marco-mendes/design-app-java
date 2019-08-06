@@ -3,7 +3,7 @@ package com.exemplo2;
 import java.util.concurrent.Flow.Subscription;
 import java.util.concurrent.Flow.Subscriber;
 
-public class PostagemAdministradorSubscriber implements Subscriber<PostagemAdministrador> {
+public class PostagemTwitterSubscriber implements Subscriber<PostagemTwitter> {
 
     private Subscription subscription;
 
@@ -11,17 +11,17 @@ public class PostagemAdministradorSubscriber implements Subscriber<PostagemAdmin
 
     @Override
     public void onSubscribe(Subscription subscription) {
-        System.out.println("Inscrito em PostagemAdministrador!");
+        System.out.println("Inscrito em PostagemTwitter!");
         this.subscription = subscription;
         this.subscription.request(1);
-        System.out.println("onSubscribe requisitou 1 item de PostagemAdministrador");
+        System.out.println("onSubscribe requisitou 1 item de PostagemTwitter");
     }
 
     @Override
-    public void onNext(PostagemAdministrador postagem) {
-        System.out.println("Nova Postagem de Administrador recebida!");
+    public void onNext(PostagemTwitter postagem) {
+        System.out.println("Nova Postagem do Twitter recebida!");
         System.out.println(
-                String.format("Administrador: %s Título: %s, Palavras Chave: %s", postagem.getNomeAdministrador(), postagem.getTitulo(), postagem.getPalavrasChave())
+                String.format("Conteúdo: %s, HashTags: %s", postagem.getConteúdo(), postagem.getHashTags())
         );
         counter++;
         this.subscription.request(1);
@@ -34,7 +34,7 @@ public class PostagemAdministradorSubscriber implements Subscriber<PostagemAdmin
 
     @Override
     public void onComplete() {
-        System.out.println("Finalizando inscrição em Postagem Administrador!");
+        System.out.println("Finalizando inscrição em Postagem Twitter!");
     }
 
     public int getCounter() {
