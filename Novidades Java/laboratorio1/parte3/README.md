@@ -351,8 +351,6 @@ public class PostagemAdministradorSubscriber implements Subscriber<PostagemAdmin
 ```
 
 #### Estruturando a implementação concreta do Processor
-Esta classe será responsável por converter um Subscriber do tipo Postagem para um subscriber do tipo PostagemAdministrador.
-
 ```java
 import java.util.concurrent.Flow.Processor;
 import java.util.concurrent.Flow.Subscription;
