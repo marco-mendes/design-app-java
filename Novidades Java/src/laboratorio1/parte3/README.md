@@ -167,9 +167,9 @@ Suponhamos que possuímos uma classe chamada **Tweet**, a mesma irá simular os 
 utilizando o que foi explicado até agora.
 
 No Subscriber da classe Tweet realize as seguintes operações adicionais:
- * Nome método **onSubscribe** imprima a seguinte mensagem: "Seguindo novo usuário"
+ * Nome método **onSubscribe** imprima a seguinte mensagem: "Verificando o que há de novo!"
  * No método **onNext** imprima a seguinte mensagem: "O usuário NOME_USUARIO acabou de Tweetar: TEXTO_DO_TWEET".
- * No método **onComplete** imprima a seguinte mensagem: "Nada novo no momento!"
+ * No método **onComplete** imprima a seguinte mensagem: "Isso é tudo por hoje!"
  * Considere **NOME_USUARIO** como sendo o atributo **usuario** da Classe **Tweet**.
  * Considere **TEXTO_DO_TWEET** como sendo o atributo **textoTweet** da Classe **Tweet**.
  * Utilize o método **obtemListaFicticiaTweets()** para obter as lista de Tweets que o **Publisher** deve enviar ao seu **Subscriber** através do método **submit()** 
