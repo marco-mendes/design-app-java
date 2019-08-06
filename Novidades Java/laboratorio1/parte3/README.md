@@ -219,17 +219,18 @@ public class Tweet {
 ### Implementação de uso com Processor
 Um processor é utilizado para transformar um objeto de um tipo para outro tipo de forma que o subscriber consiga entender e trabalhar em cima do 
 objeto recebido por ele.<br/>
-Para implementar um processor possuímos alguns componentes em comum com uma implementação simples, são eles:
+Para implementar um **Processor** possuímos alguns componentes em comum com uma implementação simples, são eles:
  * Uma classe de um objeto base
- * Uma classe Subscriber
- * E a implementação de um publisher para enviar os dados ao subscriber
+ * Uma classe **Subscriber**
+ * E a implementação de um **Publisher** para enviar os dados ao subscriber
  
-Em um processor além dos componentes citados acima possuímos também:
+Em um **Processor** além dos componentes citados acima possuímos também:
  * Uma nova classe que herda as caracteristicas da classe Base, a mesma será o resultado final da conversão.
  * Uma classe com a implementação de um Processor que será responsável pela conversão dos objetos de um tipo para outro.
  
 
 #### Estrutura da classe base Postagem
+Utilizaremos a classe Postagem do primeiro exemplo para este exemplo, relembrando a estrutura da mesma:
 ```java
 import java.util.ArrayList;
 import java.util.List;
