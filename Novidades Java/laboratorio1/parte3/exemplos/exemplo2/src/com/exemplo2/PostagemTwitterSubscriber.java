@@ -21,7 +21,7 @@ public class PostagemTwitterSubscriber implements Subscriber<PostagemTwitter> {
     public void onNext(PostagemTwitter postagem) {
         System.out.println("Nova Postagem do Twitter recebida!");
         System.out.println(
-                String.format("Conteúdo: %s, HashTags: %s", postagem.getConteúdo(), postagem.getHashTags())
+                String.format("Conteúdo: %s, HashTags: %s", postagem.getConteudo(), postagem.getHashTags())
         );
         counter++;
         this.subscription.request(1);

@@ -5,20 +5,20 @@ import java.util.List;
 
 public class PostagemTwitter {
 
-    private String conteúdo;
+    private String conteudo;
     private List<String> hashTags = new ArrayList<>();
 
-    public PostagemTwitter(String conteúdo) {
-        this.conteúdo = conteúdo;
+    public PostagemTwitter(String conteudo) {
+        this.conteudo = conteudo;
     }
 
-    public PostagemTwitter(String conteúdo, List<String> hashTags) {
-        this.conteúdo = conteúdo;
+    public PostagemTwitter(String conteudo, List<String> hashTags) {
+        this.conteudo = conteudo;
         this.hashTags = hashTags;
     }
 
-    public String getConteúdo() {
-        return conteúdo;
+    public String getConteudo() {
+        return conteudo;
     }
 
     public List<String> getHashTags() {

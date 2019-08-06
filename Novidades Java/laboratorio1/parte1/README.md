@@ -68,7 +68,7 @@ Exemplo<br/>
 Ao executar este comando veremos uma nova janela como esta:<br/>
 <img src="./exemplos/exemplo09.PNG"/>
 
-Para realizar uma edição nessa janela basta apenas editar o conteúdo da declaração e logo em seguida clicar nos botões **Accept** e **Exit** para salvar as modificações.<br/>
+Para realizar uma edição nessa janela basta apenas editar o conteudo da declaração e logo em seguida clicar nos botões **Accept** e **Exit** para salvar as modificações.<br/>
 Neste exemplo declaramos o método **imprimePessoa** para imprimir o nome da pessoa:<br/>
 <img src="./exemplos/exemplo10.PNG"/>
 

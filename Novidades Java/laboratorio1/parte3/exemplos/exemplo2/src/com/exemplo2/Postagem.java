@@ -6,26 +6,26 @@ import java.util.List;
 public class Postagem {
 
     private String titulo;
-    private String conteúdo;
+    private String conteudo;
     private List<String> palavrasChave = new ArrayList<>();
 
-    public Postagem(String titulo, String conteúdo, List<String> palavrasChave) {
+    public Postagem(String titulo, String conteudo, List<String> palavrasChave) {
         this.titulo = titulo;
-        this.conteúdo = conteúdo;
+        this.conteudo = conteudo;
         this.palavrasChave = palavrasChave;
     }
 
-    public Postagem(String titulo, String conteúdo) {
+    public Postagem(String titulo, String conteudo) {
         this.titulo = titulo;
-        this.conteúdo = conteúdo;
+        this.conteudo = conteudo;
     }
 
     public String getTitulo() {
         return titulo;
     }
 
-    public String getConteúdo() {
-        return conteúdo;
+    public String getConteudo() {
+        return conteudo;
     }
 
     public List<String> getPalavrasChave() {

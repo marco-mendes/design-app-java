@@ -27,26 +27,26 @@ import java.util.List;
 public class Postagem {
 
     private String titulo;
-    private String conteúdo;
+    private String conteudo;
     private List<String> palavrasChave = new ArrayList<>();
 
-    public Postagem(String titulo, String conteúdo, List<String> palavrasChave) {
+    public Postagem(String titulo, String conteudo, List<String> palavrasChave) {
         this.titulo = titulo;
-        this.conteúdo = conteúdo;
+        this.conteudo = conteudo;
         this.palavrasChave = palavrasChave;
     }
 
-    public Postagem(String titulo, String conteúdo) {
+    public Postagem(String titulo, String conteudo) {
         this.titulo = titulo;
-        this.conteúdo = conteúdo;
+        this.conteudo = conteudo;
     }
 
     public String getTitulo() {
         return titulo;
     }
 
-    public String getConteúdo() {
-        return conteúdo;
+    public String getConteudo() {
+        return conteudo;
     }
 
     public List<String> getPalavrasChave() {
@@ -238,26 +238,26 @@ import java.util.List;
 public class Postagem {
 
     private String titulo;
-    private String conteúdo;
+    private String conteudo;
     private List<String> palavrasChave = new ArrayList<>();
 
-    public Postagem(String titulo, String conteúdo, List<String> palavrasChave) {
+    public Postagem(String titulo, String conteudo, List<String> palavrasChave) {
         this.titulo = titulo;
-        this.conteúdo = conteúdo;
+        this.conteudo = conteudo;
         this.palavrasChave = palavrasChave;
     }
 
-    public Postagem(String titulo, String conteúdo) {
+    public Postagem(String titulo, String conteudo) {
         this.titulo = titulo;
-        this.conteúdo = conteúdo;
+        this.conteudo = conteudo;
     }
 
     public String getTitulo() {
         return titulo;
     }
 
-    public String getConteúdo() {
-        return conteúdo;
+    public String getConteudo() {
+        return conteudo;
     }
 
     public List<String> getPalavrasChave() {
@@ -278,20 +278,20 @@ import java.util.List;
 
 public class PostagemTwitter {
 
-    private String conteúdo;
+    private String conteudo;
     private List<String> hashTags = new ArrayList<>();
 
-    public PostagemTwitter(String conteúdo) {
-        this.conteúdo = conteúdo;
+    public PostagemTwitter(String conteudo) {
+        this.conteudo = conteudo;
     }
 
-    public PostagemTwitter(String conteúdo, List<String> hashTags) {
-        this.conteúdo = conteúdo;
+    public PostagemTwitter(String conteudo, List<String> hashTags) {
+        this.conteudo = conteudo;
         this.hashTags = hashTags;
     }
 
-    public String getConteúdo() {
-        return conteúdo;
+    public String getConteudo() {
+        return conteudo;
     }
 
     public List<String> getHashTags() {
@@ -304,7 +304,7 @@ public class PostagemTwitter {
 
 }
 ```
-Nessa classe a propriedade conteudo terá o mesmo valor da propriedade conteúdo da classe Postagem.<br/>
+Nessa classe a propriedade conteudo terá o mesmo valor da propriedade conteudo da classe Postagem.<br/>
 O atributo hashTags terá o mesmo valor da propriedade palavrasChave da classe Postagem.<br/>
 Com base nisso saberemos como mapear os valores nos campos corretos durante a conversão dos objetos.
 
@@ -333,7 +333,7 @@ public class PostagemTwitterSubscriber implements Subscriber<PostagemTwitter> {
     public void onNext(PostagemTwitter postagem) {
         System.out.println("Nova Postagem do Twitter recebida!");
         System.out.println(
-                String.format("Conteúdo: %s, HashTags: %s", postagem.getConteúdo(), postagem.getHashTags())
+                String.format("Conteúdo: %s, HashTags: %s", postagem.getConteudo(), postagem.getHashTags())
         );
         counter++;
         this.subscription.request(1);
@@ -432,7 +432,7 @@ public class ReactiveStreamProcessorApp {
 
         // Criando o processador que irá realizar a conversão dos objetos e atribuindo ao seu construtor a expressão Lambda responsável pela conversão dos objetos
         MyProcessor transformProcessor = new MyProcessor(p -> {
-            return new PostagemTwitter(p.getConteúdo(), p.getPalavrasChave());
+            return new PostagemTwitter(p.getConteudo(), p.getPalavrasChave());
         });
 
         // Criando o Subscriber do objeto PostagemTwitter

@@ -27,7 +27,7 @@ public class ReactiveStreamProcessorApp {
 
         // Criando o processador que irá realizar a conversão dos objetos e atribuindo ao seu construtor a expressão Lambda responsável pela conversão dos objetos
         MyProcessor transformProcessor = new MyProcessor(p -> {
-            return new PostagemTwitter(p.getConteúdo(), p.getPalavrasChave());
+            return new PostagemTwitter(p.getConteudo(), p.getPalavrasChave());
         });
 
         // Criando o Subscriber do objeto PostagemTwitter
