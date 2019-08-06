@@ -3,6 +3,7 @@
 ### Material de preparação
 [O que são Reactive Streams](https://www.reactive-streams.org/) <br/>
 [Usando Reactive Streams](https://www.journaldev.com/20723/java-9-reactive-streams)
+[Mais exemplos de uso](https://www.concretepage.com/java/java-9/java-reactive-streams)
 
 ### Introdução
 
@@ -462,6 +463,17 @@ public class ReactiveStreamProcessorApp {
 }
 ```
 Leia os comentários do Publisher para compreender o funcionamento corretamente.
+
+#### Exercício 2
+Com base no código contido neste [link](./exercicio/exercicio2/) crie uma implementação de ReactiveStream utilizando Processor, 
+neste exercício os objetos da classe Artigo devem ser convertidos para objetos do tipo ArtigoCientifico pelo Processor.<br/>
+No Subscriber da classe ArtigoCientifico realize as seguintes operações adicionais:
+ * Nome método **onSubscribe** imprima a seguinte mensagem: "MENSAGEM_A_DEFINIR"
+ * No método **onNext** imprima a seguinte mensagem: "MENSAGEM_A_DEFINIR"
+ * No método **onComplete** imprima a seguinte mensagem: "MENSAGEM_A_DEFINIR"
+ * Utilize o método **NOME_METODO()** da classe **Artigo** para obter as lista de Artigos que o **Publisher** deve enviar ao seu **Subscriber** através do método **submit()** 
+ do **Publisher**;
+
 
 ### Parando de receber mensagens em um Subscriber
 Caso seja necessário existe a possibilidade de parar de receber mensagens em um subscriber, basta utilizar o método **cancel** do objeto **Subscription** dentro da 
