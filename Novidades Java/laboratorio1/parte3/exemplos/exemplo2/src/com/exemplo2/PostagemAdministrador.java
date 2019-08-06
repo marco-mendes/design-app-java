@@ -10,10 +10,6 @@ public class PostagemAdministrador extends Postagem {
         return nomeAdministrador;
     }
 
-    public void setNomeAdministrador(String nomeAdministrador) {
-        this.nomeAdministrador = nomeAdministrador;
-    }
-
     public PostagemAdministrador(String titulo, String conteúdo, List<String> palavrasChave, String nomeAdministrador) {
         super(titulo, conteúdo, palavrasChave);
         this.nomeAdministrador = nomeAdministrador;

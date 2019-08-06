@@ -283,10 +283,6 @@ public class PostagemAdministrador extends Postagem {
         return nomeAdministrador;
     }
 
-    public void setNomeAdministrador(String nomeAdministrador) {
-        this.nomeAdministrador = nomeAdministrador;
-    }
-
     public PostagemAdministrador(String titulo, String conteúdo, List<String> palavrasChave, String nomeAdministrador) {
         super(titulo, conteúdo, palavrasChave);
         this.nomeAdministrador = nomeAdministrador;
@@ -396,9 +392,12 @@ public class MyProcessor extends SubmissionPublisher<PostagemAdministrador> impl
     }
 }
 ```
-Nessa classe possuímos a Function **conversorPostagemParaPostagemAdministrador**, que será usada para realizar a tarefa de converter um objeto do tipo **Postagem** para 
+Nessa classe implementamos a interface **Processor**, a mesma extende a classe Subscriber sendo necessário sobrescrever os métodos 
+**onSubscribe**, **onNext**, **onError** e **onComplete**.<br/>
+A Function **conversorPostagemParaPostagemAdministrador** será usada para realizar a tarefa de converter um objeto do tipo **Postagem** para 
 **PostagemAdminstrador** de acordo com a expressão Lambda recebida no construtor da classe.<br/>
 Dentro do método **onNext** realizamos a conversão do objeto e em seguida usamos o método **submit** do **SubmissionPublisher** para enviar o objeto ao **Subscriber**.
+
 
 #### Criando o Publisher
 ```java
