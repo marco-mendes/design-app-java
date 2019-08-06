@@ -1,4 +1,4 @@
-package laboratorio1.parte3.exemplos.exemplo1;
+package com.exemplo1;
 
 import java.util.ArrayList;
 import java.util.List;
