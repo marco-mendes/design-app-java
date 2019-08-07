@@ -6,7 +6,7 @@ Para melhor compreensão do conteudo dividiremos este laboratório em 5 partes, 
  * [Jshell](./parte1/)
  * [Módulos](./parte2/)
  * [Introdução à Fluxos Reativos(Reactive Streams)](./parte3/)
-<!--
- - [Pequenas modificações na linguagem]()
+ * [Pequenas modificações na linguagem](./parte4/)
+<!-- 
  - [Novos métodos classe Optional]()
  -->
