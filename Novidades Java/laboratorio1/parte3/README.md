@@ -465,14 +465,13 @@ public class ReactiveStreamProcessorApp {
 Leia os comentários do Publisher para compreender o funcionamento corretamente.
 
 #### Exercício 2
-Com base no código contido neste [link](./exercicio/exercicio2/) crie uma implementação de ReactiveStream utilizando Processor, 
-neste exercício os objetos da classe Artigo devem ser convertidos para objetos do tipo ArtigoCientifico pelo Processor.<br/>
-No Subscriber da classe ArtigoCientifico realize as seguintes operações adicionais:
- * Nome método **onSubscribe** imprima a seguinte mensagem: "MENSAGEM_A_DEFINIR"
- * No método **onNext** imprima a seguinte mensagem: "MENSAGEM_A_DEFINIR"
- * No método **onComplete** imprima a seguinte mensagem: "MENSAGEM_A_DEFINIR"
- * Utilize o método **NOME_METODO()** da classe **Artigo** para obter as lista de Artigos que o **Publisher** deve enviar ao seu **Subscriber** através do método **submit()** 
- do **Publisher**;
+O código base para este exercício está contido neste [link](./exercicio/exercicio2/) e sua estrutura é a seguinte:<br/>
+<img src="./exercicio/EstruturaProjetoExercicio2.PNG"/>
+
+Neste exercício os objetos da classe **Artigo** devem ser convertidos para objetos do tipo **ArtigoCientifico** utilizando um Processor.<br/>
+As propriedades id, titulo e conteudo da classe Artigo correspondem aos parâmetros id, titulo e conteudo da classe ArtigoCientifico respectivamente.<br/>
+Utilize o método **obtemArtigos()** da classe **Artigo** para obter as lista de Artigos que o **Publisher** deve enviar ao seu **Subscriber** através do método **submit()** 
+do **Publisher**;
 
 
 ### Parando de receber mensagens em um Subscriber
