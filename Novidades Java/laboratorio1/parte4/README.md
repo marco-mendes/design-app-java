@@ -88,7 +88,7 @@ Conforme mostrado no exemplo acima, para criar um List e um Set imutável basta 
 Já para a criação de um Map imutável precisamos especificar 2 elementos por vez, sendo eles chave e valor respectivamente.
 
 #### Exercício 2
-Para exercitar o que foi mostrado acima crie 3 coleções imutáveis utilizando List, Set e Map para uma coleção de 5 números inteiros.
+Para exercitar o que foi mostrado acima crie 3 coleções imutáveis utilizando o método of das interfaces List, Set e Map para uma coleção de 5 números inteiros.
 
 ### Melhoria na instrução Try With Resource
 A instrução Try With resources é uma variação da instrução Try no qual podemos atribuir a ela qualquer objeto que implemente as interfaces **java.lang.AutoCloseable** ou 
