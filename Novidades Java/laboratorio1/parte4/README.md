@@ -84,15 +84,15 @@ public class Exemplo_2 {
 }
 ```
 
-Conforme mostrado no exemplo acima para criar um List e um Set imutável basta utilizar o método estático **of** de cada um deles e especificar os elementos da coleção.<br/>
+Conforme mostrado no exemplo acima, para criar um List e um Set imutável basta utilizar o método estático **of** de cada um deles e especificar os elementos da coleção.<br/>
 Já para a criação de um Map imutável precisamos especificar 2 elementos por vez, sendo eles chave e valor respectivamente.
 
 #### Exercício 2
-Para exercitar o que foi mostrado acima crie 3 coleções imutáveis utilizando List, Set e Map para uma lista de 5 números inteiros.
+Para exercitar o que foi mostrado acima crie 3 coleções imutáveis utilizando List, Set e Map para uma coleção de 5 números inteiros.
 
 ### Melhoria na instrução Try With Resource
-A instrução Try With resources é uma variação da instrução Try no qual podemos atribuir a ela qualquer objeto que implemente as interfaces java.lang.AutoCloseable ou 
-java.io.Closeable para que quando o bloco de código Try finalizar sua execução os objetos declarados dentro do Try possam executar o método close.<br/>
+A instrução Try With resources é uma variação da instrução Try no qual podemos atribuir a ela qualquer objeto que implemente as interfaces **java.lang.AutoCloseable** ou 
+**java.io.Closeable** para que quando o bloco de código Try finalizar sua execução os objetos declarados dentro do Try possam executar o método close.<br/>
 Esse não é um recurso novo do Java, ele apenas foi melhorado no Java 9.
 
 Antes do Java 9 era necessário declarar o recurso que seria usado dentro do bloco do **try**, já no Java 9 isso não é mais necessário.<br/>
