@@ -3,10 +3,10 @@
 ### Introdução
 Abordaremos neste laboratório os principais recursos introduzidos no Java 9.<br/>
 Para melhor compreensão do conteudo dividiremos este laboratório em 5 partes, sendo elas:
- - [Jshell](./parte1/)
- - [Módulos](./parte2/)
+ * [Jshell](./parte1/)
+ * [Módulos](./parte2/)
+ * [Introdução à Fluxos Reativos(Reactive Streams)](./parte3/)
 <!--
- - [Reative Streams]()
  - [Pequenas modificações na linguagem]()
  - [Novos métodos classe Optional]()
  -->
