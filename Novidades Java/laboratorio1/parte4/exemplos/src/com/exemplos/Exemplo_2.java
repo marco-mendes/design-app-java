@@ -1,4 +1,4 @@
-package com.exemplo2;
+package com.exemplos;
 
 import java.util.List;
 import java.util.Map;

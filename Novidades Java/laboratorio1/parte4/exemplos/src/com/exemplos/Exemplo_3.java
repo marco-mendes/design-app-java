@@ -1,4 +1,4 @@
-package com.exemplo3;
+package com.exemplos;
 
 import java.io.StringReader;
 

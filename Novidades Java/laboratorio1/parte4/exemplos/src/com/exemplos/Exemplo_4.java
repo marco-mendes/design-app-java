@@ -1,4 +1,4 @@
-package com.exemplo4;
+package com.exemplos;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

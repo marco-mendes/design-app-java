@@ -7,6 +7,4 @@ Para melhor compreensão do conteudo dividiremos este laboratório em 5 partes, 
  * [Módulos](./parte2/)
  * [Introdução à Fluxos Reativos(Reactive Streams)](./parte3/)
  * [Pequenas modificações na linguagem](./parte4/)
-<!-- 
- - [Novos métodos classe Optional]()
- -->
+ * [Novos métodos classe Optional](./parte5/)
