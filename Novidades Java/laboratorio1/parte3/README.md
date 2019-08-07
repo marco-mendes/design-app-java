@@ -469,10 +469,9 @@ O código base para este exercício está contido neste [link](./exercicio/exerc
 <img src="./exercicio/EstruturaProjetoExercicio2.PNG"/>
 
 Neste exercício os objetos da classe **Artigo** devem ser convertidos para objetos do tipo **ArtigoCientifico** utilizando um Processor de forma que nosso 
-**ArtigoCientificoSubscriber** consiga interpretar os objetos do tipo **Artigo** enviados a ele através do **Publisher**.<br/>
-As propriedades id, titulo e conteudo da classe Artigo correspondem aos parâmetros id, titulo e conteudo da classe ArtigoCientifico respectivamente.<br/>
-Utilize o método **obtemArtigos()** da classe **Artigo** para obter as lista de Artigos que o **Publisher** deve enviar ao seu **Subscriber** através do método **submit()** 
-do **Publisher**;
+**ArtigoCientificoSubscriber** consiga interpretar os objetos do tipo **Artigo** enviados a ele através de um **Publisher**.<br/>
+As propriedades **id**, **titulo** e **conteudo** da classe **Artigo** correspondem aos parâmetros **id**, **titulo** e **conteudo** da classe **ArtigoCientifico** respectivamente.<br/>
+Utilize o método **obtemArtigos()** da classe **Artigo** para obter as lista de Artigos que o **Publisher** deve enviar ao seu **Subscriber** através do método **submit()**.
 
 
 ### Parando de receber mensagens em um Subscriber
