@@ -1,8 +1,8 @@
 ## Introdução à Fluxos Reativos(Reactive Streams)
 
 ### Material de preparação
-[O que são Reactive Streams](https://www.reactive-streams.org/) <br/>
-[Usando Reactive Streams](https://www.journaldev.com/20723/java-9-reactive-streams)
+[O que são Reactive Streams](https://www.reactive-streams.org/)<br/>
+[Usando Reactive Streams](https://www.journaldev.com/20723/java-9-reactive-streams)<br/>
 [Mais exemplos de uso](https://www.concretepage.com/java/java-9/java-reactive-streams)
 
 ### Introdução
