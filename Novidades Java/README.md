@@ -7,8 +7,8 @@ Abordaremos aqui informações sobre as novas releases e novas funcionalidades d
 
 [Laboratório 1 - Introdução ao Java 9](./laboratorio1/)<br/>
 [Laboratório 2 - Introdução ao Java 10](./laboratorio2/)<br/>
-<!--
 [Laboratório 3 - Introdução ao Java 11](./laboratorio3/)<br/>
+<!--
 [Laboratório 4 - Introdução a nova API HttpClient](./laboratorio4/)<br/>
 -->
 ## Observação importante
