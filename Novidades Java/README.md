@@ -2,7 +2,7 @@
 
 ### [Laboratório 1](./gabarito/laboratorio1)
 ### [Laboratório 2](./gabarito/laboratorio2)
+### [Laboratório 3](./gabarito/laboratorio3)
 <!--
-### [Laboratório 3]()
 ### [Laboratório 4]()
 -->
