@@ -8,8 +8,8 @@ public class Exemplo_2 {
         Optional<String> optionalNulo = Optional.ofNullable(null);
         Optional<String> optionalPreenchido = Optional.ofNullable("Algum valor");
 
-        System.out.println(String.format("Optional está vazio?: %s", optionalNulo.isEmpty()));
-        System.out.println(String.format("Optional está vazio?: %s", optionalPreenchido.isEmpty()));
+        System.out.println(String.format("Optional está vazio? %s", optionalNulo.isEmpty()));
+        System.out.println(String.format("Optional está vazio? %s", optionalPreenchido.isEmpty()));
     }
 
 }

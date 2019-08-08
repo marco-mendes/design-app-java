@@ -77,6 +77,26 @@ Stream<String> streamStringMultilinha = stringMultilinha.lines();
 streamStringMultilinha.forEach(l -> System.out.println(l));
 ```
 
+#### Exercício 1
+Utilize o código abaixo para realizar o que será proposto nesse exercício.
+```java
+public class Exercicio_1 {
+
+    public static void main(String[] args) {
+        String valor = "      VALOR PARA TESTES      ";
+        String produtos = "Celular \nNotebook \nTelevisão \nPlay Station 4 \nXbox One \nMicroondas";
+        String helloJava = "Hello Java 11\n";
+    }
+    
+}
+```
+Com base no que foi apresentado no tópico anterior realize as seguintes operações utilizando os novos métodos da API String:
+ * Remova os espaços em branco à esquerda da variável **valor** e imprima o resultado no console.
+ * Remova os espaços em branco à direita da variável **valor** e imprima o resultado no console.
+ * Remova os espaços em branco à esquerda e a direita da variável **valor** e imprima o resultado no console.
+ * Transforme a variável **produtos** em uma Stream com as linhas estraídas da variável e em seguida imprima os valores da mesma no console.
+ * Utilizando a variável **helloJava**, repita o valor da mesma 5 vezes utilizando o método mais adequado a isso, em seguida imprima o resultado no console.
+
 
 
 ### Classe Optional novo método isEmpty()
@@ -93,10 +113,10 @@ public class Exemplo_2 {
         Optional<String> optionalPreenchido = Optional.ofNullable("Algum valor");
 
         // Retorna true
-        System.out.println(String.format("Optional está vazio?: %s", optionalNulo.isEmpty()));
+        System.out.println(String.format("Optional está vazio? %s", optionalNulo.isEmpty()));
         
         // Retorna false
-        System.out.println(String.format("Optional está vazio?: %s", optionalPreenchido.isEmpty()));
+        System.out.println(String.format("Optional está vazio? %s", optionalPreenchido.isEmpty()));
     }
 
 }
@@ -109,6 +129,7 @@ Exemplo de uso:
 ```java
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class Exemplo_3 {
 
@@ -117,10 +138,64 @@ public class Exemplo_3 {
         String[] arrayNomes = listaNomes.toArray(String[]::new);
         System.out.println(Arrays.toString(arrayNomes));
 
-        List<Integer> listaInteiros = List.of(1,2,3,4,5);
-        Integer[] arrayInteiros = listaInteiros.toArray(Integer[]::new);
+        Set<Integer> setDeInteiros = Set.of(1,2,3,4,5);
+        Integer[] arrayInteiros = setDeInteiros.toArray(Integer[]::new);
         System.out.println(Arrays.toString(arrayInteiros));
     }
 
 }
 ``` 
+
+
+#### Exercício 2
+Com base no código abaixo, transforme a lista de produtos em um array de produtos e imprima o resultado do mesmo no console.
+```java
+import java.util.List;
+
+public class Exercicio_2 {
+
+    public static List<Produto> obtemListaProdutos() {
+        return List.of(
+                new Produto("Samsung Galaxy J5 Prime", 899.99),
+                new Produto("IPhone X", 4999.99),
+                new Produto("Geladeira", 1249.99),
+                new Produto("Xiaomi Mi 9", 2499.99),
+                new Produto("Microondas", 349.99)
+        );
+    }
+
+    public static void main(String[] args) {
+        List<Produto> listaProdutos = obtemListaProdutos();
+    }
+
+}
+
+class Produto {
+
+    String nome;
+    Double preco;
+
+    public Produto(String nome, Double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "nome='" + nome + '\'' +
+                ", preco=" + preco +
+                '}';
+    }
+
+}
+```
+

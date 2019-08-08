@@ -2,6 +2,7 @@ package com.exemplo;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class Exemplo_3 {
 
@@ -10,8 +11,8 @@ public class Exemplo_3 {
         String[] arrayNomes = listaNomes.toArray(String[]::new);
         System.out.println(Arrays.toString(arrayNomes));
 
-        List<Integer> listaInteiros = List.of(1,2,3,4,5);
-        Integer[] arrayInteiros = listaInteiros.toArray(Integer[]::new);
+        Set<Integer> setDeInteiros = Set.of(1,2,3,4,5);
+        Integer[] arrayInteiros = setDeInteiros.toArray(Integer[]::new);
         System.out.println(Arrays.toString(arrayInteiros));
     }
 
