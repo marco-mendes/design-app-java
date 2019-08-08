@@ -37,8 +37,8 @@ System.out.println(valor2);
 ```
 
 O método **strip()** retorna uma string com todos os espaços em branco à esquerda e à direita removidos.<br/>
-O Java 11 também incluiu os métodos stripLeading(), que remove os espaços em branco iniciais da String, e o método stripTrailing(), 
-que remove os espaço em branco finais da String.<br/>
+O Java 11 também incluiu os métodos **stripLeading()**, que remove os espaços em branco à esquerda, e o método **stripTrailing()**, 
+que remove os espaço em branco à direita.<br/>
 As diferenças entre os métodos **strip()** e **trim()** foram abordadas no material de preparação!<br/>
 Exemplo de uso:<br/>
 ```java
@@ -102,7 +102,7 @@ Com base no que foi apresentado no tópico anterior realize as seguintes operaç
 
 
 ### Classe Optional novo método isEmpty()
-A classe Optional recebeu o método isEmpty() no Java 11, esse método basicamente verifica se o Optional está vazio, se não ouver valor presente 
+A classe **Optional** recebeu o método **isEmpty()** no Java 11, esse método basicamente verifica se o Optional está vazio, se não existir valor presente 
 no Optional ele retorna true, caso exista algum valor no Optional ele retorna false.<br/>
 Exemplo de uso:<br/>
 ```java
@@ -124,8 +124,8 @@ public class Exemplo_2 {
 }
 ```
 
-### Interface Collection adição do método toArray
-No Java 11 a interface Collection foi incrementada com o método default **toArray()**, o mesmo transforma uma coleção em um array do tipo 
+### Interface Collection novo método toArray
+No Java 11 a interface **Collection** foi incrementada com o método default **toArray()**, o mesmo transforma uma coleção em um array do tipo 
 especificado como parâmetro para este método.<br/>
 Exemplo de uso:
 ```java
@@ -138,10 +138,13 @@ public class Exemplo_3 {
     public static void main(String[] args) {
         List<String> listaNomes = List.of("Silvana", "Helena", "Mike", "John");
         String[] arrayNomes = listaNomes.toArray(String[]::new);
+        
         System.out.println(Arrays.toString(arrayNomes));
+
 
         Set<Integer> setDeInteiros = Set.of(1,2,3,4,5);
         Integer[] arrayInteiros = setDeInteiros.toArray(Integer[]::new);
+        
         System.out.println(Arrays.toString(arrayInteiros));
     }
 
@@ -174,8 +177,8 @@ public class Exercicio_2 {
 
 class Produto {
 
-    String nome;
-    Double preco;
+    private String nome;
+    private Double preco;
 
     public Produto(String nome, Double preco) {
         this.nome = nome;
@@ -202,9 +205,9 @@ class Produto {
 ```
 
 ### Declaração de parâmetros utilizando var em expressões Lambda
-No Java 10 foi adicionado o tipo var, no qual podemos declarar variáveis locais sem declarar seu tipo explicitamente, sendo que o compilador fica 
+No Java 10 foi adicionado o tipo var, no qual podemos declarar variáveis locais sem declarar seu tipo explicitamente, dessa forma o compilador fica 
 responsável por inferir o tipo correto a variável após sua declaração.<br/>
-No Java 11 foi adicionado suporte para permitir que o tipo var seja usado ao declarar os parâmetros formais de expressões lambda de forma implícita.
+No Java 11 foi adicionado suporte para permitir que o tipo var seja usado ao declarar os parâmetros formais de expressões lambda de forma implícita.<br/>
 Exemplo de uso:<br/>
 ```java
 public class Exemplo_4 {

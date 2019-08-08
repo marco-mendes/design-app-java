@@ -22,8 +22,8 @@ public class Exercicio_2 {
 
 class Produto {
 
-    String nome;
-    Double preco;
+    private String nome;
+    private Double preco;
 
     public Produto(String nome, Double preco) {
         this.nome = nome;
