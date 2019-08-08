@@ -11,7 +11,7 @@ Abordaremos neste laboratório os principais recursos introduzidos no Java 11.<b
 Os recursos mais relevantes inseridos foram:
  * Novos métodos String API
  * Classe Optional novo método isEmpty()
- * Interface Collection adição método toArray()
+ * Interface Collection novo método toArray()
  * Declaração de parâmetros utilizando var em expressões Lambda
  
 
@@ -26,13 +26,14 @@ O método **repeat()** repete o conteúdo de uma String, seu retorno é a concat
 onde n é passado como um parâmetro.<br/>
 Exemplo:
 ```java
-String exemplo_1 = "La ".repeat(2) + "Land";
+String valor1 = "La ".repeat(2) + "Land";
 //Imprime: La La Land
-System.out.println(exemplo_1);
+System.out.println(valor1);
 
-String exemplo_2 = "Hello ".repeat(2) + "World!";
+String valor2 = "Hello ".repeat(2) + "World!";
 // Imprime: Hello Hello World!
-System.out.println(exemplo_2);
+System.out.println(valor2);
+
 ```
 
 O método **strip()** retorna uma string com todos os espaços em branco à esquerda e à direita removidos.<br/>
