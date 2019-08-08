@@ -2,7 +2,7 @@ package com.exemplo;
 
 import java.util.stream.Stream;
 
-public class Exemplos_Novos_Metodos_String_API {
+public class Exemplo_1_Novos_Metodos_String_API {
 
     public static void metodoRepeat() {
         String valor1 = "La ".repeat(2) + "Land";
