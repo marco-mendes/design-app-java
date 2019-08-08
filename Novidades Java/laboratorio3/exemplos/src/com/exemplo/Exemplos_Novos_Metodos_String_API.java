@@ -20,19 +20,19 @@ public class Exemplos_Novos_Metodos_String_API {
     }
 
     public static void metodoIsBlank() {
-        String valorNulo = "";
+        String valorVazio = "";
         String valorEmBranco = "          ";
         String valorPreenchido = "Algum valor";
 
-        System.out.println(valorNulo.isBlank());
+        System.out.println(valorVazio.isBlank());
         System.out.println(valorEmBranco.isBlank());
         System.out.println(valorPreenchido.isBlank());
     }
 
     public static void metodoLines() {
-        String valorMultilinha = "Linha 1 \nLinha 2 \nLinha 3 \nLinha 4";
-        Stream<String> streamValorMultilinha = valorMultilinha.lines();
-        streamValorMultilinha.forEach(l -> System.out.println(l));
+        String stringMultilinha = "Linha 1 \nLinha 2 \nLinha 3 \nLinha 4";
+        Stream<String> streamStringMultilinha = stringMultilinha.lines();
+        streamStringMultilinha.forEach(l -> System.out.println(l));
     }
 
     public static void main(String[] args) {

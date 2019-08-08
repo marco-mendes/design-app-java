@@ -2,7 +2,6 @@
 
 ### Material de preparação
 [Novos métodos String API](https://www.baeldung.com/java-11-string-api)<br/>
-[Melhoria HttpClient do Java 9]( https://dev.to/andreevich/a-small-introduction-to-java-11-s-httpclient-nhj)<br/>
 [Classe Optional novo método isEmpty](https://dzone.com/articles/optionalisempty-available-in-jdk-11-ea-builds)<br/>
 [Interface Collections método toArray](https://dzone.com/articles/jdk-11-new-default-collection-method-toarrayintfun)
 
