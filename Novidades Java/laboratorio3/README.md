@@ -4,6 +4,7 @@
 [Novos métodos String API](https://www.baeldung.com/java-11-string-api)<br/>
 [Classe Optional novo método isEmpty](https://dzone.com/articles/optionalisempty-available-in-jdk-11-ea-builds)<br/>
 [Interface Collection método toArray](https://dzone.com/articles/jdk-11-new-default-collection-method-toarrayintfun)
+[Inferência de tipos com var em expressões Lambda](https://www.logicbig.com/tutorials/core-java-tutorial/java-11-changes/lambda-var-syntax.html)
 
 ### Introdução
 Abordaremos neste laboratório os principais recursos introduzidos no Java 11.<br/>
@@ -94,7 +95,7 @@ Com base no que foi apresentado no tópico anterior realize as seguintes operaç
  * Remova os espaços em branco à esquerda da variável **valor** e imprima o resultado no console.
  * Remova os espaços em branco à direita da variável **valor** e imprima o resultado no console.
  * Remova os espaços em branco à esquerda e a direita da variável **valor** e imprima o resultado no console.
- * Transforme a variável **produtos** em uma Stream com as linhas estraídas da variável e em seguida imprima os valores da mesma no console.
+ * Transforme a variável **produtos** em uma Stream com as linhas extraídas da variável e em seguida imprima os valores da mesma no console.
  * Utilizando a variável **helloJava**, repita o valor da mesma 5 vezes utilizando o método mais adequado a isso, em seguida imprima o resultado no console.
 
 
@@ -199,3 +200,24 @@ class Produto {
 }
 ```
 
+### Inferência de tipos com var em expressões Lambda
+No Java 10 foi adicionado o tipo var, no qual podemos declarar variáveis locais sem declarar seu tipo explicitamente, sendo que o compilador fica 
+responsável por inferir o tipo correto a variável após sua declaração.<br/>
+No Java 11 foi adicionado suporte para permitir que o tipo var seja usado ao declarar os parâmetros formais de expressões lambda de forma implícita.
+Exemplo de uso:<br/>
+```java
+public class Exemplo_4 {
+
+    public static void main(String[] args) {
+        Calculate calculoSimples = (var v1, var v2) -> v1 * v2;
+        double resultado = calculoSimples.calculate(5, 2);
+        System.out.println(resultado);
+    }
+
+}
+
+@FunctionalInterface
+interface Calculate {
+    double calculate(double value1, double value2);
+}
+```

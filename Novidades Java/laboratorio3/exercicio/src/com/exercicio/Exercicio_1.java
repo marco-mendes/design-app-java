@@ -4,7 +4,7 @@ package com.exercicio;
  * Remova os espaços em branco à esquerda da variável **valor** e imprima o resultado no console.
  * Remova os espaços em branco à direita da variável **valor** e imprima o resultado no console.
  * Remova os espaços em branco à esquerda e a direita da variável **valor** e imprima o resultado no console.
- * Transforme a variável **produtos** em uma Stream com as linhas estraídas da variável e em seguida imprima os valores da mesma no console.
+ * Transforme a variável **produtos** em uma Stream com as linhas extraídas da variável e em seguida imprima os valores da mesma no console.
  * Utilizando a variável **helloJava**, repita o valor da mesma 5 vezes utilizando o método mais adequado a isso, em seguida imprima o resultado no console.
 * */
 
