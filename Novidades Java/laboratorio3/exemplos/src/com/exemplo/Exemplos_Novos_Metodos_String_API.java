@@ -32,6 +32,7 @@ public class Exemplos_Novos_Metodos_String_API {
     public static void metodoLines() {
         String stringMultilinha = "Linha 1 \nLinha 2 \nLinha 3 \nLinha 4";
         Stream<String> streamStringMultilinha = stringMultilinha.lines();
+
         streamStringMultilinha.forEach(l -> System.out.println(l));
     }
 

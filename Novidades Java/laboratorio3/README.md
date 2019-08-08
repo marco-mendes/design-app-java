@@ -49,11 +49,11 @@ System.out.println(testeStrip.stripTrailing() + " World!");
 O método **isBlank()** retorna true se a string estiver vazia ou se a mesma contiver apenas espaço em branco, caso contrário retorna false.<br/>
 Exemplo de uso:<br/>
 ```java
-String valorNulo = "";
+String valorVazio = "";
 String valorEmBranco = "          ";
 String valorPreenchido = "Algum valor";
 
-System.out.println(valorNulo.isBlank());
+System.out.println(valorVazio.isBlank());
 System.out.println(valorEmBranco.isBlank());
 System.out.println(valorPreenchido.isBlank());
 ```
@@ -61,9 +61,10 @@ System.out.println(valorPreenchido.isBlank());
 O método **lines()** retorna uma Stream com as linhas estraídas da String, usando como separador um terminador de linha, como por exemplo: “**\n**”, “**\r**”, ou “**\r\n**”.<br/>
 Exemplo de uso:<br/>
 ```java
-String valorMultilinha = "Linha 1 \nLinha 2 \nLinha 3 \nLinha 4";
-Stream<String> streamValorMultilinha = valorMultilinha.lines();
-streamValorMultilinha.forEach(l -> System.out.println(l));
+String stringMultilinha = "Linha 1 \nLinha 2 \nLinha 3 \nLinha 4";
+Stream<String> streamStringMultilinha = stringMultilinha.lines();
+
+streamStringMultilinha.forEach(l -> System.out.println(l));
 ```
 
 ### Classe Optional novo método isEmpty()
