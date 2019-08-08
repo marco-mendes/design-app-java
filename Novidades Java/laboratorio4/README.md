@@ -5,11 +5,12 @@
 
 ### Introdução
 Um dos recursos que veio sendo construído e aprimodado desde o Java 9 é o HttpClient, o mesmo visa substituir a classe **HttpUrlConnection** 
-que está presente desde as primeiras versões do Java.<br/>
+que está presente desde as primeiras versões do Java.
+
 A Api **HttpUrlConnection** possui uma série de problemas que motivaram a criação de uma [proposta de melhoria](http://openjdk.java.net/jeps/110#Motivation) 
-para essa Api, essa proposta vem sendo implementada desde o Java 9 e vem sendo melhorada até o Java 11.<br/>
-Os principais problemas da Api **HttpUrlConnection** é que ela é muito antiga e dificil de usar, a Api **HttpClient** busca facilitar a utilização 
-de requisições Http no Java de forma prática e moderna.
+para a mesma, essa proposta vem sendo implementada desde o Java 9 e vem sendo melhorada até o Java 11.<br/>
+Um dos principais problemas da Api **HttpUrlConnection** é que ela é muito antiga e dificil de usar, a Api **HttpClient** busca facilitar o uso 
+de requisições Http de forma nativa, prática e moderna.
 
 Ciclo de vida da API HttpClient até o momento:
  * Foi introduzida inicialmente no Java 9 no módulo **jdk.incubator.httpclient**.
@@ -18,7 +19,7 @@ Ciclo de vida da API HttpClient até o momento:
  realizadas algumas melhorias na API desde a ultima versão da mesma e foram incluídos recursos como total suporte a requisições assincronas
  não blocantes, suporte ao HTTP/2 e suporte nativo a WebSockets.
 
-Abordaremos nesse laboratório uma pequena introdução de uso a essa API, se quiser se aprofundar melhor recomendamos a leitura deste 
+Abordaremos nesse laboratório uma pequena introdução de uso a essa API, caso queira se aprofundar melhor recomendamos a leitura deste 
 [artigo](https://golb.hplar.ch/2019/01/java-11-http-client.html).
 
 Para nossos exercícios utilizaremos a API da [Reqres](https://reqres.in/) que é uma API gratuita para testar solicitações Http.
@@ -33,8 +34,7 @@ A Api HttpClient possui 3 componentes principais, são eles:
  
 
 ### Criando um HttpClient
-A criação de um HttpClient pode ser feita de duas formas, sendo elas criar um HttpClient com as configurações default do mesmo ou criar 
-um HttpClient com configurações personalizadas.<br/>
+A criação de um HttpClient pode ser feita de duas formas: criar um HttpClient com as configurações default do mesmo ou criar um HttpClient com configurações personalizadas.<br/>
 Exemplo de uso:
 ```java
 import java.net.http.HttpClient;
@@ -55,10 +55,22 @@ public class Exemplo_1 {
 ```
 
 Como vimos no exemplo acima para criar um HttpClient basta invocar o método estático **newHttpClient()** da classe **HttpClient**.<br/>
-Para criar um HttpClient personalizado invocamos o método estático **newBuilder()** da classe **HttpClient**, ao utilizar o método **newBuilder()** precisamos especificar 
-as configurações do mesmo, no exemplo acima especificamos as configurações **connectTimeout** e **version** com seus respectivos métodos de configuração, em seguida 
-utilizamos o método **build()** para finalizar a criação do HttpClient personalizado.<br/>
-Esses dois parâmetros são auto descritivos, além desses existem diversos outros parâmetros que podem ser incluídos na criação de um HttpClient personalizado, a lista completa 
+
+Para criar um HttpClient personalizado invocamos o método estático **newBuilder()** da classe **HttpClient**, ao utilizar o método **newBuilder()** nos é retornado um objeto 
+HttpClient.Builder onde precisamos especificar as configurações do mesmo.<br/>
+No exemplo acima especificamos as configurações **connectTimeout** e **version** com seus respectivos métodos de configuração, em seguida utilizamos o método 
+**build()** para finalizar a criação do HttpClient personalizado.<br/>
+Esses dois parâmetros são auto descritivos, além deles existem diversos outros parâmetros que podem ser incluídos na criação de um HttpClient personalizado, a lista completa 
 desses parâmetros pode ser encotrada nesse [link](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html).
 
 
+### Criando uma HttpRequest
+A criação de um HttpRequest é feita através do método estático **newBuilder()** da classe **HttpRequest**, este método nos retorna um objeto 
+do tipo HttpRequest.Builder, no qual devemos especificar as configurações de criação do mesmo.<br/>
+Os seguintes métodos do objeto HttpRequest.Builder devem ser invocados durante a criação do mesmo de acordo com o tipo de requisição que será criada:
+ * GET: Especifica que o objeto HttpRequest que está sendo criado é referente a uma requisição do tipo Get.
+ * POST: Especifica que o objeto HttpRequest que está sendo criado é referente a uma requisição do tipo Post.
+ * PUT: Especifica que o objeto HttpRequest que está sendo criado é referente a uma requisição do tipo Put.
+ * DELETE: Especifica que o objeto HttpRequest que está sendo criado é referente a uma requisição do tipo Delete.
+
+Outros métodos do objeto HttpRequest.Builder:
