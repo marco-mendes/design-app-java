@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class Exemplos_2 {
+public class Exemplo_2 {
 
     public static void main(String[] args) {
         List<String> listaImutavel = List.of("Valor 1", "Valor 2");

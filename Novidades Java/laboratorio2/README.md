@@ -9,7 +9,7 @@ Abordaremos neste laboratório os principais recursos introduzidos no Java 10.<b
 Os recursos mais relevantes inseridos foram:
  * Inferencia de tipos em variáveis com o novo tipo **var**
  * Melhorias Coleções imutáveis
- * Optionals método orElseThrow()
+ * Optionals novo método orElseThrow()
  
 ### Introdução ao tipo var
 No Java 10 foi inserido um novo tipo, o tipo **var**.
@@ -107,7 +107,7 @@ public class Exercicio_2 {
 ```
 
 ### Optionals método orElseThrow()
-As classes Optional , OptionalDouble , OptionalInt e OptionalLong receberam um novo método chamado orElseThrow(), o mesmo não aceita nenhum argumento.
+As classes Optional , OptionalDouble , OptionalInt e OptionalLong receberam um novo método chamado orElseThrow(), o mesmo não aceita nenhum argumento.<br/>
 Caso o Optional possua algum valor este método irá retornar o valor presente no Optional, caso contrário lança uma exception do tipo NoSuchElementException<br/>
 Exemplo de uso:
 ```java
