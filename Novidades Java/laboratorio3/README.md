@@ -3,24 +3,24 @@
 ### Material de preparação
 [Novos métodos String API](https://www.baeldung.com/java-11-string-api)<br/>
 [Classe Optional novo método isEmpty](https://dzone.com/articles/optionalisempty-available-in-jdk-11-ea-builds)<br/>
-[Interface Collection método toArray](https://dzone.com/articles/jdk-11-new-default-collection-method-toarrayintfun)
-[Inferência de tipos com var em expressões Lambda](https://www.logicbig.com/tutorials/core-java-tutorial/java-11-changes/lambda-var-syntax.html)
+[Interface Collection método toArray](https://dzone.com/articles/jdk-11-new-default-collection-method-toarrayintfun)<br/>
+[Declaração de parâmetros utilizando var em expressões Lambda](https://www.dariawan.com/tutorials/java/java-11-local-variable-syntax-lambda-parameters-jep-323/)
 
 ### Introdução
 Abordaremos neste laboratório os principais recursos introduzidos no Java 11.<br/>
 Os recursos mais relevantes inseridos foram:
  * Novos métodos String API
  * Classe Optional novo método isEmpty()
- * Interface Collection adição método toArray
- * Uso tipo VAR em Lambdas
+ * Interface Collection adição método toArray()
+ * Declaração de parâmetros utilizando var em expressões Lambda
  
 
 ### Novos métodos String API
 No Java 11 foram adicionados diversos métodos úteis para a API String, são eles:
- * repeat()
- * strip()
- * isBlank()
- * lines()
+ * **repeat()**
+ * **strip()**
+ * **isBlank()**
+ * **lines()**
  
 O método **repeat()** repete o conteúdo de uma String, seu retorno é a concatenação da string repetida n vezes, 
 onde n é passado como um parâmetro.<br/>
@@ -200,7 +200,7 @@ class Produto {
 }
 ```
 
-### Inferência de tipos com var em expressões Lambda
+### Declaração de parâmetros utilizando var em expressões Lambda
 No Java 10 foi adicionado o tipo var, no qual podemos declarar variáveis locais sem declarar seu tipo explicitamente, sendo que o compilador fica 
 responsável por inferir o tipo correto a variável após sua declaração.<br/>
 No Java 11 foi adicionado suporte para permitir que o tipo var seja usado ao declarar os parâmetros formais de expressões lambda de forma implícita.
