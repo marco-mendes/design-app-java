@@ -20,7 +20,7 @@ deste [artigo](https://golb.hplar.ch/2019/01/java-11-http-client.html).
 
 Iremos consumir a API [JsonPlaceholder](https://jsonplaceholder.typicode.com/guide.html) para testar nossos exemplos e em nossos 
 exercícios iremos consumir a API [Reqres](https://reqres.in/).<br/>
-**Observação importante**: Essas duas APIs servem apenas para simulação consumo através de nossas requisições Http, os dados 
+**Observação importante**: Essas duas APIs servem apenas para simulação de consumo através de nossas requisições Http, os dados 
 não são verdadeiramente atualizados ou removidos com nossas requisições.
 
 ### Os principais componentes da Api HttpClient
