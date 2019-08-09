@@ -6,7 +6,7 @@
 
 ### Introdução
 Um dos recursos que vem sendo construído e aprimodado desde o Java 9 é o HttpClient, o mesmo visa substituir a classe **HttpUrlConnection** 
-facilitando o uso de requisições Http de forma prática e moderna.
+facilitando o uso de requisições Http de forma fácil, prática e moderna.
 
 Ciclo de vida da API HttpClient até o momento:
  * Foi introduzida inicialmente no Java 9 no módulo **jdk.incubator.httpclient**.
@@ -15,8 +15,8 @@ Ciclo de vida da API HttpClient até o momento:
  realizadas algumas melhorias na API desde a ultima versão da mesma e foram incluídos recursos como total suporte a requisições assincronas
  não blocantes, suporte ao HTTP/2 e suporte nativo a WebSockets.
 
-Abordaremos nesse laboratório uma pequena introdução de uso a essa API com requisições do tipo GET e POST, caso queira se aprofundar melhor 
-recomendamos a leitura deste [artigo](https://golb.hplar.ch/2019/01/java-11-http-client.html).
+Abordaremos nesse laboratório uma pequena introdução de uso a essa API, caso queira se aprofundar melhor recomendamos a leitura 
+deste [artigo](https://golb.hplar.ch/2019/01/java-11-http-client.html).
 
 Iremos consumir a API [JsonPlaceholder](https://jsonplaceholder.typicode.com/guide.html) para testar nossos exemplos e em nossos 
 exercícios iremos consumir a API [Reqres](https://reqres.in/).<br/>
@@ -59,7 +59,7 @@ public class Exemplo_1 {
 }
 ```
 No exemplo acima durante a criação do HttpClient personalizado especificamos as configurações **connectTimeout** e **version** com seus respectivos 
-métodos de configuração, esses são apenas algumas das configurações disponíveis para criação de um HttpClient personalizado, a lista completa 
+métodos de configuração, essas são apenas algumas das configurações disponíveis para criação de um HttpClient personalizado, a lista completa 
 de configurações pode ser encotrada neste [link](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html).
 
 ### Enviando uma requisição GET de forma Síncrona e Assíncrona
@@ -109,7 +109,7 @@ public class Exemplo_2 {
 }
 ```
 Para enviar uma requisição de forma síncrona utilizamos o método **send()** do HttpClient, o mesmo recebe como parâmetro um objeto HttpRequest e um objeto HttpResponse no qual 
-especificamos o tipo de retorno da requisição no formato de uma String String.
+especificamos o tipo de retorno da requisição no formato de uma String.
 
 Para executar a mesma operação de forma assíncrona basta utilizar o método **sendAssync()** de nosso HttpClient, a única diferença é que este método nos retorna um objeto do tipo 
 **CompletableFuture**.<br/>
@@ -189,7 +189,7 @@ Com base no que foi explicado até o momento crie uma requisição do tipo POST 
 ### Enviando requisições PUT e DELETE
 O envio de requisições PUT e DELETE não é muito diferente das requisições GET e POST.<br/>
 Mostraremos aqui apenas um exemplo dessas duas requisições de forma síncrona, a requisição de forma assíncrona pode ser feita da mesma 
-forma como fizemos com as requisições GET e POST.
+forma que fizemos com as requisições GET e POST.
 
 Exemplo de uso requisições PUT e DELETE:
 ```java
@@ -207,7 +207,7 @@ public class Exemplo_4 {
         HttpClient client = HttpClient.newHttpClient();
         // String no formato Json que irá conter o corpo da requisição PUT
         String body = "{ 'id': 1, 'title': 'Teste', 'body': 'testePutSíncrono'  }";
-        //Criando um HttpRequest do tipo Put, especificando sua URI de consulta e atribuindo ao método Put o corpo da requisição
+        //Criando um HttpRequest do tipo Put, especificando sua URI e atribuindo ao método Put o corpo da requisição
         HttpRequest request = HttpRequest.newBuilder()
                 .PUT(HttpRequest.BodyPublishers.ofString(body))
                 .uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
@@ -223,16 +223,16 @@ public class Exemplo_4 {
     public static void requisicaoDelete() throws IOException, InterruptedException {
         // Criando o HttpClient
         HttpClient client = HttpClient.newHttpClient();
-        //Criando um HttpRequest do tipo Delete e especificando a URI de consulta
+        //Criando um HttpRequest do tipo Delete e especificando sua URI
         HttpRequest request = HttpRequest.newBuilder().DELETE().uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
         // Enviando a requisição e recebendo o Objeto de resposta da mesma.
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        // Extraindo o retorno da requisição
+        // Extraindo status de resposta da requisição Delete
         int statusCode = response.statusCode();
-        // Imprimindo o resultado da mesma
+        // Imprimindo resultado no console
         System.out.println(statusCode);
     }
-    
+
     public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
         requisicaoPut();
         requisicaoDelete();

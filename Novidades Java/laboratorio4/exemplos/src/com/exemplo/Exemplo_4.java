@@ -14,7 +14,7 @@ public class Exemplo_4 {
         HttpClient client = HttpClient.newHttpClient();
         // String no formato Json que irá conter o corpo da requisição PUT
         String body = "{ 'id': 1, 'title': 'Teste', 'body': 'testePutSíncrono'  }";
-        //Criando um HttpRequest do tipo Put, especificando sua URI de consulta e atribuindo ao método Put o corpo da requisição
+        //Criando um HttpRequest do tipo Put, especificando sua URI e atribuindo ao método Put o corpo da requisição
         HttpRequest request = HttpRequest.newBuilder()
                 .PUT(HttpRequest.BodyPublishers.ofString(body))
                 .uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
@@ -30,13 +30,13 @@ public class Exemplo_4 {
     public static void requisicaoDelete() throws IOException, InterruptedException {
         // Criando o HttpClient
         HttpClient client = HttpClient.newHttpClient();
-        //Criando um HttpRequest do tipo Delete e especificando a URI de consulta
+        //Criando um HttpRequest do tipo Delete e especificando sua URI
         HttpRequest request = HttpRequest.newBuilder().DELETE().uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
         // Enviando a requisição e recebendo o Objeto de resposta da mesma.
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        // Extraindo o retorno da requisição
+        // Extraindo status de resposta da requisição Delete
         int statusCode = response.statusCode();
-        // Imprimindo o resultado da mesma
+        // Imprimindo resultado no console
         System.out.println(statusCode);
     }
 
