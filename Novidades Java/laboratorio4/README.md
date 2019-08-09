@@ -3,6 +3,7 @@
 ### Material de preparação
 [Introdução a API HttpClient](https://dev.to/andreevich/a-small-introduction-to-java-11-s-httpclient-nhj)
 
+
 ### Introdução
 Um dos recursos que vem sendo construído e aprimodado desde o Java 9 é o HttpClient, o mesmo visa substituir a classe **HttpUrlConnection** 
 facilitando o uso de requisições Http de forma prática e moderna.
@@ -17,8 +18,10 @@ Ciclo de vida da API HttpClient até o momento:
 Abordaremos nesse laboratório uma pequena introdução de uso a essa API com requisições do tipo GET e POST, caso queira se aprofundar melhor 
 recomendamos a leitura deste [artigo](https://golb.hplar.ch/2019/01/java-11-http-client.html).
 
-Para nossos exercícios utilizaremos a API da [Reqres](https://reqres.in/) que é uma API gratuita para testar solicitações Http.
-
+Iremos consumir a API [JsonPlaceholder](https://jsonplaceholder.typicode.com/guide.html) para testar nossos exemplos e em nossos 
+exercícios iremos consumir a API [Reqres](https://reqres.in/).<br/>
+**Observação importante**: Essas duas APIs servem apenas para simularmos nossas requisições Http em uma API fictícia, os dados da mesma 
+não são verdadeiramente atualizados com nossas requisições.
 
 ### Os principais componentes da Api HttpClient
 A Api HttpClient possui 3 componentes principais, são eles:
@@ -60,31 +63,41 @@ métodos de configuração, esses são apenas algumas das configurações dispon
 de configurações pode ser encotrada neste [link](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html).
 
 ### Enviando uma requisição GET de forma Síncrona e Assíncrona
-Exemplo de requisição GET completa de forma Síncrona e Assíncrona:
+Exemplo de requisição GET completa de forma Síncrona e Assíncrona com explicação:
 ```java
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class Exemplo_2 {
 
     public static void requisicaoGetSincrona() throws IOException, InterruptedException {
-        var client = HttpClient.newHttpClient();
-        var request = HttpRequest.newBuilder().GET().uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
-        var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        // Criando o HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+        //Criando um HttpRequest do tipo Get e especificando a URI de consulta
+        HttpRequest request = HttpRequest.newBuilder().GET().uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
+        // Enviando a requisição e recebendo o Objeto de resposta da mesma.
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        // Extraindo o retorno da requisição
         String body = response.body();
+        // Imprimindo o resultado da mesma
         System.out.println(body);
     }
 
     public static void requisicaoGetAssincrona() throws ExecutionException, InterruptedException {
-        var client = HttpClient.newHttpClient();
-        var request = HttpRequest.newBuilder().GET().uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
-        var future = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
-
-        String body = future.thenApply(HttpResponse::body).get();
+        // Criando o HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+        //Criando um HttpRequest do tipo Get e especificando a URI de consulta
+        HttpRequest request = HttpRequest.newBuilder().GET().uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
+        // Enviando a requisição de forma assíncrona e armazenando o objeto de resposta em um CompletableFuture
+        CompletableFuture<HttpResponse<String>> future = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+        // Extraindo o retorno da requisição
+        String body = future.get().body();
+        // Imprimindo o resultado da mesma
         System.out.println(body);
     }
 
@@ -95,53 +108,64 @@ public class Exemplo_2 {
 
 }
 ```
-No exemplo acima definimos um HttpClient com as configurações padrão, em seguida criamos um objeto HttpRequest onde especificamos o método que será usado na requisição, podendo 
-ser **GET()**, **POST()**, **PUT()** e **DELETE**, especificamos também no objeto HttpRequest a uri da requisição.<br/>
 Para enviar uma requisição de forma síncrona utilizamos o método **send()** do HttpClient, o mesmo recebe como parâmetro um objeto HttpRequest e um objeto HttpResponse no qual 
-especificamos o tipo de retorno para String.
+especificamos o tipo de retorno da requisição no formato de uma String String.
 
 Para executar a mesma operação de forma assíncrona basta utilizar o método **sendAssync()** de nosso HttpClient, a única diferença é que este método nos retorna um objeto do tipo 
-**ComputableFuture**.<br/>
+**CompletableFuture**.<br/>
+**Observação**: Leia os comentários do código para melhor compreensão do mesmo.
 
 #### Exercício 1
-Com base no que foi explicado até o momento crie uma requisição GET() de forma síncrona e assíncrona utilizando a API da 
+Com base no que foi explicado até o momento crie uma requisição do tipo GET de forma síncrona e assíncrona consumindo a API da 
 [Reqres](https://reqres.in/).
 
 
 ### Enviando uma requisição POST de forma Síncrona e Assíncrona
-Exemplo de requisição POST completa de forma Síncrona e Assíncrona:
+Exemplo de requisição POST completa de forma Síncrona e Assíncrona com explicação:
 ```java
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class Exemplo_3 {
 
     public static void requisicaoPostSincrona() throws IOException, InterruptedException {
-        var client = HttpClient.newHttpClient();
-        String body = "{}";
-
-        var request = HttpRequest.newBuilder()
+        // Criando o HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+        // String no formato Json que irá conter o corpo da requisição POST
+        String body = "{ 'id': 1, 'title': 'Teste', 'body': 'testePostSíncrono'  }";
+        //Criando um HttpRequest do tipo Post, especificando sua URI e atribuindo ao método Post o corpo da requisição
+        HttpRequest request = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(body))
                 .uri(URI.create("https://jsonplaceholder.typicode.com/posts")).build();
 
-        var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        // Enviando a requisição e recebendo o Objeto de resposta da mesma.
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        // Extraindo status de resposta da requisição Post
         int statusCode = response.statusCode();
+        // Imprimindo resultado no console
         System.out.println(String.format("Status code: %s", statusCode));
     }
 
     public static void requisicaoPostAssincrona() throws ExecutionException, InterruptedException {
-        var client = HttpClient.newHttpClient();
-        String body = "{}";
-        var request = HttpRequest.newBuilder()
+        // Criando o HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+        // String no formato Json que irá conter o corpo da requisição POST
+        String body = "{ 'id': 1, 'title': 'Teste', 'body': 'testePostAssíncrono' }";
+        //Criando um HttpRequest do tipo Post, especificando sua URI e atribuindo ao método Post o corpo da requisição
+        HttpRequest request = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(body))
                 .uri(URI.create("https://jsonplaceholder.typicode.com/posts")).build();
 
-        var future = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+        // Enviando a requisição de forma assíncrona e armazenando o objeto de resposta em um CompletableFuture
+        CompletableFuture<HttpResponse<String>> future = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+        // Extraindo status de resposta da requisição Post
         int statusCode = future.get().statusCode();
+        // Imprimindo resultado no console
         System.out.println(String.format("Status code: %s", statusCode));
     }
 
@@ -150,12 +174,73 @@ public class Exemplo_3 {
         requisicaoPostAssincrona();
     }
 
+}
+```
+
+Como podemos ver neste exemplo, uma requisição do tipo POST recebe um argumento do tipo **HttpRequest.BodyPublishers** no qual devemos 
+especificar o corpo de nossa requisição POST, neste exemplo utilizamos como parâmetro para ele uma String no formato JSON.<br/>
+**Observação**: Leia os comentários do código para melhor compreensão do mesmo.
+
+#### Exercício 2
+Com base no que foi explicado até o momento crie uma requisição do tipo POST de forma síncrona e assíncrona consumindo a API da 
+[Reqres](https://reqres.in/).
+
+
+### Enviando requisições PUT e DELETE
+O envio de requisições PUT e DELETE não é muito diferente das requisições GET e POST.<br/>
+Mostraremos aqui apenas um exemplo dessas duas requisições de forma síncrona, a requisição de forma assíncrona pode ser feita da mesma 
+forma como fizemos com as requisições GET e POST.
+
+Exemplo de uso requisições PUT e DELETE:
+```java
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.concurrent.ExecutionException;
+
+public class Exemplo_4 {
+
+    public static void requisicaoPut() throws IOException, InterruptedException {
+        // Criando o HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+        // String no formato Json que irá conter o corpo da requisição PUT
+        String body = "{ 'id': 1, 'title': 'Teste', 'body': 'testePutSíncrono'  }";
+        //Criando um HttpRequest do tipo Put, especificando sua URI de consulta e atribuindo ao método Put o corpo da requisição
+        HttpRequest request = HttpRequest.newBuilder()
+                .PUT(HttpRequest.BodyPublishers.ofString(body))
+                .uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
+
+        // Enviando a requisição e recebendo o Objeto de resposta da mesma.
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        // Extraindo status de resposta da requisição Put
+        int statusCode = response.statusCode();
+        // Imprimindo resultado no console
+        System.out.println(String.format("Status code: %s", statusCode));
+    }
+
+    public static void requisicaoDelete() throws IOException, InterruptedException {
+        // Criando o HttpClient
+        HttpClient client = HttpClient.newHttpClient();
+        //Criando um HttpRequest do tipo Delete e especificando a URI de consulta
+        HttpRequest request = HttpRequest.newBuilder().DELETE().uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
+        // Enviando a requisição e recebendo o Objeto de resposta da mesma.
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        // Extraindo o retorno da requisição
+        int statusCode = response.statusCode();
+        // Imprimindo o resultado da mesma
+        System.out.println(statusCode);
+    }
+    
+    public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
+        requisicaoPut();
+        requisicaoDelete();
+    }
 
 }
 ```
-Como podemos ver neste exemplo uma requisição do tipo POST recebe um argumento do tipo HttpRequest.BodyPublishers no qual devemos 
-especificar o corpo de nossa requisição POST, neste exemplo utilizamos como parâmetro para ele uma String no formato JSON vazia.
 
-#### Exercício 2
-Com base no que foi explicado até o momento crie uma requisição POST() de forma síncrona e assíncrona utilizando a API da 
+#### Exercício 3
+Com base no que foi explicado até o momento crie uma requisição do tipo PUT e uma requisição do tipo DELETE consumindo a API da 
 [Reqres](https://reqres.in/).
