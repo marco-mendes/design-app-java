@@ -240,6 +240,7 @@ public class Exemplo_4 {
 
 }
 ```
+**Observação**: Leia os comentários do código para melhor compreensão do mesmo.
 
 #### Exercício 3
 Com base no que foi explicado até o momento crie uma requisição do tipo PUT e uma requisição do tipo DELETE consumindo a API da 
