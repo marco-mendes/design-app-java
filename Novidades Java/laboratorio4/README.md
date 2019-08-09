@@ -20,8 +20,8 @@ deste [artigo](https://golb.hplar.ch/2019/01/java-11-http-client.html).
 
 Iremos consumir a API [JsonPlaceholder](https://jsonplaceholder.typicode.com/guide.html) para testar nossos exemplos e em nossos 
 exercícios iremos consumir a API [Reqres](https://reqres.in/).<br/>
-**Observação importante**: Essas duas APIs servem apenas para simularmos nossas requisições Http em uma API fictícia, os dados da mesma 
-não são verdadeiramente atualizados com nossas requisições.
+**Observação importante**: Essas duas APIs servem apenas para simulação consumo através de nossas requisições Http, os dados 
+não são verdadeiramente atualizados ou removidos com nossas requisições.
 
 ### Os principais componentes da Api HttpClient
 A Api HttpClient possui 3 componentes principais, são eles:
@@ -32,7 +32,7 @@ A Api HttpClient possui 3 componentes principais, são eles:
  
 
 ### Criando um HttpClient
-Podemos criar um HttpClient de suas formas, com as configurações default ou com configurações personalizadas.<br/>
+Podemos criar um HttpClient de duas formas, com as configurações default ou com configurações personalizadas.<br/>
 Exemplo:
 ```java
 import java.net.http.HttpClient;
