@@ -96,7 +96,7 @@ public class Exemplo_2 {
 }
 ```
 No exemplo acima definimos um HttpClient com as configurações padrão, em seguida criamos um objeto HttpRequest onde especificamos o método que será usado na requisição, podendo 
-ser **GET()**, **POST()** **PUT()** e **DELETE**, especificamos também no objeto HttpRequest a uri da requisição.<br/>
+ser **GET()**, **POST()**, **PUT()** e **DELETE**, especificamos também no objeto HttpRequest a uri da requisição.<br/>
 Para enviar uma requisição de forma síncrona utilizamos o método **send()** do HttpClient, o mesmo recebe como parâmetro um objeto HttpRequest e um objeto HttpResponse no qual 
 especificamos o tipo de retorno para String.
 
@@ -153,9 +153,9 @@ public class Exemplo_3 {
 
 }
 ```
-Como podemos ver neste exemplo uma requisição do tipo POST recebe um argumento do tipo HttpRequest.BodyPublishers, em nosso exemplo 
-passamos como parâmetro uma String no formato JSON vazia.
+Como podemos ver neste exemplo uma requisição do tipo POST recebe um argumento do tipo HttpRequest.BodyPublishers no qual devemos 
+especificar o corpo de nossa requisição POST, neste exemplo utilizamos como parâmetro para ele uma String no formato JSON vazia.
 
 #### Exercício 2
 Com base no que foi explicado até o momento crie uma requisição POST() de forma síncrona e assíncrona utilizando a API da 
-[Reqres](https://reqres.in/). 
+[Reqres](https://reqres.in/).
