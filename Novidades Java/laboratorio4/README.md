@@ -6,7 +6,7 @@
 
 ### Introdução
 Um dos recursos que vem sendo construído e aprimodado desde o Java 9 é o HttpClient, o mesmo visa substituir a classe **HttpUrlConnection** 
-facilitando o uso de requisições Http de forma fácil, prática e moderna.
+tornando o uso de requisições Http de forma fácil, prática e moderna.
 
 Ciclo de vida da API HttpClient até o momento:
  * Foi introduzida inicialmente no Java 9 no módulo **jdk.incubator.httpclient**.
