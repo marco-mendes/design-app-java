@@ -28,22 +28,29 @@ A Api HttpClient possui 3 componentes principais, são eles:
  * **HttpResponse**: Este componente é resultado do processamento de um HttpRequest, o mesmo contém o retorno da solicitação Http.
  
 
-### Criando um HttpClient padrão e personalizado
-A criação de um HttpClient pode ser feita de duas formas: criar um HttpClient com as configurações default do mesmo ou criar um HttpClient com configurações personalizadas.<br/>
-Exemplo de uso:
+### Criando um HttpClient
+Podemos criar um HttpClient de suas formas, com as configurações default ou com configurações personalizadas.<br/>
+Exemplo:
 ```java
 import java.net.http.HttpClient;
 import java.time.Duration;
 
 public class Exemplo_1 {
 
-    public static void main(String[] args) {
+    public static void criandoHttpClientDefault() {
         HttpClient client = HttpClient.newHttpClient();
+    }
 
+    public static void criandoHttpClientPersonalizado() {
         HttpClient customClient = HttpClient.newBuilder()
                 .connectTimeout(Duration.ofSeconds(60))
                 .version(HttpClient.Version.HTTP_2)
                 .build();
+    }
+    
+    public static void main(String[] args) {
+        criandoHttpClientDefault();
+        criandoHttpClientPersonalizado();
     }
 
 }
@@ -146,7 +153,7 @@ public class Exemplo_3 {
 
 }
 ```
-Como podemos ver neste exemplo uma requisição do tipo POST recebe um argumento do tipo HttpRequest.BodyPublihsers, em nosso exemplo 
+Como podemos ver neste exemplo uma requisição do tipo POST recebe um argumento do tipo HttpRequest.BodyPublishers, em nosso exemplo 
 passamos como parâmetro uma String no formato JSON vazia.
 
 #### Exercício 2
