@@ -39,7 +39,7 @@ Neste exemplo recebemos um número e retornamos o dobro deste número.<br/>
 #### Exercicio 1
 Com base no exemplo acima utilize a interface funcional Function para receber um valor do tipo String e retornar uma String no seguinte formato: "Hello parametro".<br/>
 Após criar a Function realize um teste e imprima no console o valor retornado por ela.<br/>
-Exemplo de retorno utilizando o parâmetro "Jhon": "Hello Jhon".
+Exemplo de retorno utilizando o parâmetro "John": "Hello Jonn".
 
 #### Functional Composition
 A Functional Composition é uma técnica para criar funções compostas dentro de uma única função que utiliza as funções combinadas internamente.<br/>
