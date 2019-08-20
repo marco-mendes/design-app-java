@@ -98,12 +98,12 @@ public class Exercicio_2 {
 
     public static void main(String[] args) {
 
-        Function<List<Integer>, Integer> calcularMedia = (lista) -> {
+        Function<List<Integer>, Float> calcularMedia = (lista) -> {
             int soma = 0;
             for(int valor : lista){
                 soma += valor;
             }
-            int media = soma / lista.size();
+            float media = soma / lista.size();
             System.out.println(String.format("Media: %d", media));
             return media;
         };
