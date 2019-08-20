@@ -174,7 +174,7 @@ public class Exercicio_2 {
 }
 
 interface TestarAlgo {
-    boolean test(List lista);
+    boolean test(Integer numero);
 }
 ```
 
