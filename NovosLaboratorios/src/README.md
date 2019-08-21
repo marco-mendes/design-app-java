@@ -1,6 +1,6 @@
 # Índice dos Laboratorios
 
-####[Laboratório 1 - Princípios do SOLID em Java](./laboratorio1/)<br/>
+#### [Laboratório 1 - Princípios do SOLID em Java](./laboratorio1/)<br/>
 
 <!--
 ####[Laboratório 2 - NOME LABORATORIO](./laboratorio2/)<br/>
