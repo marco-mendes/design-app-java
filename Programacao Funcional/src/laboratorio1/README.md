@@ -1,5 +1,6 @@
 ## Introdução aos conceitos básicos da Programação Funcional
 
+
 ### Materiais de preparação
 [Introdução da Programaçao Funcional](https://medium.com/labs-olx-brasil/programa%C3%A7%C3%A3o-funcional-vis%C3%A3o-geral-59ebdb4be244)<br/>
 [Introdução à Lambdas](https://medium.com/@kasunpdh/java-lambda-expressions-3195f677ed38)<br/>
@@ -173,7 +174,7 @@ public class Exercicio_2 {
 }
 
 interface TestarAlgo {
-    boolean test(List lista);
+    boolean test(Integer numero);
 }
 ```
 

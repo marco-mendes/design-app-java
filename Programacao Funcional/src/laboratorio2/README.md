@@ -119,7 +119,7 @@ public class Exemplo_2 {
     }
 
     public static void main(String[] args) {
-        List<String> nomes = Arrays.asList("Marry", "Jhon", "Natasha");
+        List<String> nomes = Arrays.asList("Bruce", "Hulk", "Natasha");
         nomes.forEach(Exemplo_2::imprimeValorMaiusculo);
     }
     
