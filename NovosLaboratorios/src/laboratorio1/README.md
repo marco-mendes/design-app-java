@@ -60,7 +60,9 @@ public class Funcionario {
     // Getters e Setters
 
 }
+```
 
+```java
 public class PromocoesDeFuncionarios {
 
     public boolean seraPromovidoEsseAno(Funcionario funcionario) {
@@ -161,6 +163,77 @@ public class CalculadoraCientifica extends CalculadoraSimples {
 
 ### (L) - Liskov Substitution (Princípio da substituição de Liskov)
 O terceiro princípio do SOLID é conhecido como Liskov Substitution, para melhor compreensão do mesmo considere a seguinte situação:<br/>
-Possuímos a classe A, que é um subtipo da classe B, segundo o princípio da Liskov Substitution, devemos ser capazes de substituir B por A sem ocorrer problemas no 
+Possuímos a classe A, que é um subtipo de B, segundo o princípio da Liskov Substitution, devemos ser capazes de substituir B por A sem ocorrer problemas no 
 funcionamento de nosso programa.<br/>
 Exemplo: 
+```java
+public interface Animal {
+
+    public void facaBarulho();
+
+}
+```
+
+```java
+public class Cachorro implements Animal {
+
+    @Override
+    public void facaBarulho() {
+        System.out.println("AU AU");
+    }
+}
+```
+
+```java
+public class Main {
+
+    public static void fazerBarunho(Animal animal) {
+        animal.facaBarulho();
+    }
+
+    public static void main(String[] args) {
+        Cachorro cachorro = new Cachorro();
+        fazerBarunho(cachorro);
+    }
+
+}
+```
+
+No exemplo acima possuímos a classe Cachorro que é um subtipo da classe Animal, conforme vimos no exemplo conseguimos substituir um objeto do tipo Animal 
+por um objeto do tipo Cachorro no método fazerBarulho().<br/>
+Este seria um exemplo bem simples desse princípio.
+
+#### Exercício 2
+Utilizando o princípio Liskov Substitution, crie um subtipo de Veiculo chamado Carro, no método ligarVeiculo da classe Carro imprima 
+"Ligando Carro", apos isso invoque o método dirigir da classe Motorista utilizando uma instÂncia do tipo Carro.<br/>
+Código base para esse exercício:
+```java
+public interface Veiculo {
+
+    void ligarVeiculo();
+
+    default void acelerar() {
+        System.out.println("Acelerando!");
+    }
+
+}
+```
+
+```java
+public class Motorista {
+
+    public static void dirigir(Veiculo veiculo) {
+        veiculo.ligarVeiculo();
+        veiculo.acelerar();
+    }
+
+    public static void main(String[] args) {
+        // Invocar método dirigir com uma instância do tipo Carro
+
+    }
+
+}
+```
+
+#### (I) - Interface Segregation (Princípio da Segregação de Interfaces)
+O quarto princípio do SOLID é conhecido como Interface Segregation,
