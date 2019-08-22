@@ -365,7 +365,7 @@ public class ConsoleXboxOne {
 }
 ```
 
-Aplicando o princípio Dependency Inversion podemos tornar a injeção de dependências da classe ConsoleXboxOne uma responsabilidade da classe que for utilizá-la.<br/>
+Aplicando o princípio Dependency Inversion podemos tornar a injeção de dependências da classe **ConsoleXboxOne** uma responsabilidade da classe que for utilizá-la.<br/>
 Exemplo do princípio Dependency Inversion aplicado ao código do exemplo acima:
 ```java
 public class ConsoleXboxOne {
