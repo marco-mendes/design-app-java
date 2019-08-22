@@ -10,8 +10,8 @@ public class EnviarEmailEmpresarial extends EnviarEmail {
     }
 
     public void enviarEmailEmpresarial(String mensagem) {
-        System.out.println(String.format("Enviando E-mail empresarial para %s", this.email.destinatario));
-        System.out.println(String.format("Remetente: %s", this.email.remetente));
+        System.out.println(String.format("Enviando E-mail empresarial para %s", this.email.getDestinatario()));
+        System.out.println(String.format("Remetente: %s", this.email.getRemetente()));
         System.out.println(String.format("Mensagem: %s", mensagem));
         System.out.println(String.format("Assinatura: %s", this.assinatura));
     }

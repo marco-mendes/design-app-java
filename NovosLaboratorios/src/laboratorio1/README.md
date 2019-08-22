@@ -45,7 +45,6 @@ public class Funcionario {
 
     public boolean seraPromovidoEsseAno() {
         // Alguma lógica de implementação
-        return true;
     }
 
 }
@@ -144,16 +143,22 @@ Considere que a classe **EnviarEmail** do código abaixo já foi testada e está
 // Classe de modelo para Email
 public class Email {
 
-    String destinatario;
-    String remetente;
+    private String destinatario;
+    private String remetente;
 
     public Email(String destinatario, String remetente) {
         this.destinatario = destinatario;
         this.remetente = remetente;
     }
 
-    // Getters e Setters
+    public String getDestinatario() {
+        return destinatario;
+    }
 
+    public String getRemetente() {
+        return remetente;
+    }
+    
 }
 ``` 
  
@@ -167,9 +172,10 @@ public class EnviarEmail {
     }
 
     public void enviarEmail(String mensagem) {
-        System.out.println(String.format("Enviando email para %s", this.email.destinatario));
-        System.out.println(String.format("Remetente: %s", this.email.remetente));
+        System.out.println(String.format("Enviando E-mail empresarial para %s", this.email.getDestinatario()));
+        System.out.println(String.format("Remetente: %s", this.email.getRemetente()));
         System.out.println(String.format("Mensagem: %s", mensagem));
+        System.out.println(String.format("Assinatura: %s", this.assinatura));
     }
     
 }
