@@ -1,3 +1,3 @@
 ## Gabarito
 
-### [Laboratório 1](./src/laboratorio1/)
+### [Laboratório 1](./src/gabarito/laboratorio1/)
