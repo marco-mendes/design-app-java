@@ -87,6 +87,11 @@ public class Cachorro {
 
     // Getters e Setters
 
+    public void tosarCachorro() {
+        System.out.println(String.format("Tosando: %s | Raça: %s", this.nome, this.raca));
+    }
+
+    // Métodos que estão diretamente relacionados as propriedades de Cachorro
     public void comer() {
         System.out.println(String.format("%s está comendo!", this.nome));
     }
@@ -97,10 +102,6 @@ public class Cachorro {
 
     public void brincar() {
         System.out.println(String.format("%s está brincando!", this.nome));
-    }
-
-    public void tosarCachorro() {
-        System.out.println(String.format("Tosando: %s | Raça: %s", this.nome, this.raca));
     }
 
 }
