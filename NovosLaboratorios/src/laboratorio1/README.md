@@ -306,7 +306,7 @@ public class Motorista {
 }
 ```
 
-#### (I) - Interface Segregation (Princípio da Segregação de Interfaces)
+### (I) - Interface Segregation (Princípio da Segregação de Interfaces)
 O quarto princípio do SOLID é conhecido como Interface Segregation, o objetivo do mesmo é basicamente dividir interfaces maiores em interfaces menores, fazendo isso 
 podemos garantir que as classes de implementação só precisem implementar os métodos que realmente irão precisar.<br/>
 Considere a seguinte interface:
@@ -371,7 +371,7 @@ public interface Impressora {
 }
 ```
 
-#### (D) - Dependency Inversion (Princípio da Inversão de Dependências)
+### (D) - Dependency Inversion (Princípio da Inversão de Dependências)
 O quinto e ultimo princípio do SOLID é conhecido como Dependency Inversion, o objetivo do mesmo é retirar a dependência de objetos concretos de uma classe, 
 substituindo eles por abstrações dos mesmos, onde quem for utilizar a classe fica responsável pela injeção de dependências da mesma.<br/>
 No exemplo abaixo possuímos a classe **ConsoleXboxOne** que depende de um objeto concreto da classe **ControleXboxOne**, essa dependência é instanciada diretamente na classe 
