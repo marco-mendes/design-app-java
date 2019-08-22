@@ -10,12 +10,6 @@ public class Email {
         this.remetente = remetente;
     }
 
-    public void enviarEmail(String mensagem) {
-        System.out.println(String.format("Enviando email para %s", this.destinatario));
-        System.out.println(String.format("Remetente: %s", this.remetente));
-        System.out.println(String.format("Mensagem: %s", mensagem));
-    }
-
     // Getters e Setters
 
 }

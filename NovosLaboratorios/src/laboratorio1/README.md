@@ -1,7 +1,7 @@
 ## Princípios do SOLID em Java
 
 ### Material de preparação
-[Princípios do SOLID](https://www.baeldung.com/solid-principles)
+[Princípios do SOLID](https://www.baeldung.com/solid-principles)<br/>
 [Princípios do SOLID com mais exemplos](https://howtodoinjava.com/best-practices/5-class-design-principles-solid-in-java/)
 
 ### Introdução
@@ -39,9 +39,9 @@ public class Funcionario {
 
 }
 ```
-No exemplo acima a classe Funcionario possui duas responsabilidades, sendo elas: servir de modelo para um Funcionário e verificar se o mesmo será promovido no ano atual.<br/>
+No exemplo acima a classe **Funcionario** possui duas responsabilidades, sendo elas: servir de modelo para um Funcionário e verificar se o mesmo será promovido no ano atual.<br/>
 A forma como essa classe está estruturada viola nosso primeiro princípio do SOLID, no qual cada classe deve possuir apenas uma responsabilidade.<br/>
-Para corrigir isso podemos separar as responsabilidades atribuídas a classe Funcionário, onde será criada uma classe que será responsável por verificar se um funcionário será 
+Para corrigir isso podemos separar as responsabilidades atribuídas a classe **Funcionario**, onde será criada uma classe que será responsável por verificar se um funcionário será 
 promovido como no exemplo abaixo:
 ```java
 public class Funcionario {
@@ -111,8 +111,9 @@ public class Cachorro {
 O segundo princípio do SOLID é conhecido como Open/Closed, o objetivo do mesmo é garantir que a classe esteja aberta para ser extendida porém fechada para modificações.<br/>
 
 Exemplo:<br/>
-Considere que a classe abaixo já foi testada e está funcionando corretamente.
+Considere que a classe **EnviarEmail** do código abaixo já foi testada e está funcionando corretamente.
 ```java
+// Classe de modelo para Email
 public class Email {
 
     String destinatario;
@@ -122,38 +123,50 @@ public class Email {
         this.destinatario = destinatario;
         this.remetente = remetente;
     }
-    
-    public void enviarEmail(String mensagem) {
-        System.out.println(String.format("Enviando email para %s", this.destinatario));
-        System.out.println(String.format("Remetente: %s", this.remetente));
-        System.out.println(String.format("Mensagem: %s", mensagem));
-    }
 
     // Getters e Setters
 
 }
 ``` 
  
-Em um belo dia surgiu a necessidade de implementar novas funcionalidades a essa classe, porém essa necessidade pode resultar em bugs em nossa classe Email.<br/>
-Para evitar isso podemos usar o princípio Open/Closed no qual a classe Email será extendida e as novas funcionalidades serão implementadas na nova classe criada 
+```java
+public class EnviarEmail {
+
+    Email email;
+
+    public EnviarEmail(Email email) {
+        this.email = email;
+    }
+
+    public void enviarEmail(String mensagem) {
+        System.out.println(String.format("Enviando email para %s", this.email.destinatario));
+        System.out.println(String.format("Remetente: %s", this.email.remetente));
+        System.out.println(String.format("Mensagem: %s", mensagem));
+    }
+    
+}
+```
+ 
+Em um belo dia surgiu a necessidade de implementar novas funcionalidades para essa classe, porém essa necessidade pode resultar em bugs em nossa classe **EnviarEmail**.<br/>
+Para evitar isso podemos usar o princípio Open/Closed no qual a classe **EnviarEmail** será extendida e as novas funcionalidades serão implementadas na nova classe criada 
 como no exemplo abaixo:
 ```java
-public class EmailEmpresarial extends Email {
+public class EnviarEmailEmpresarial extends EnviarEmail {
 
     String assinatura;
 
-    public EmailEmpresarial(String destinatario, String remetente, String assinatura) {
-        super(destinatario, remetente);
+    public EnviarEmailEmpresarial(Email email, String assinatura) {
+        super(email);
         this.assinatura = assinatura;
     }
 
     public void enviarEmailEmpresarial(String mensagem) {
-        System.out.println(String.format("Enviando E-mail empresarial para %s", this.destinatario));
-        System.out.println(String.format("Remetente: %s", this.remetente));
+        System.out.println(String.format("Enviando E-mail empresarial para %s", this.email.destinatario));
+        System.out.println(String.format("Remetente: %s", this.email.remetente));
         System.out.println(String.format("Mensagem: %s", mensagem));
         System.out.println(String.format("Assinatura: %s", this.assinatura));
     }
-    
+
 }
 ```
 
@@ -212,25 +225,25 @@ public class Cachorro implements Animal {
 ```java
 public class Main {
 
-    public static void fazerBarunho(Animal animal) {
+    public static void fazerBarulho(Animal animal) {
         animal.facaBarulho();
     }
 
     public static void main(String[] args) {
         Cachorro cachorro = new Cachorro();
-        fazerBarunho(cachorro);
+        fazerBarulho(cachorro);
     }
 
 }
 ```
 
-No exemplo acima possuímos a classe Cachorro que é um subtipo da classe Animal, conforme vimos no exemplo conseguimos substituir um objeto do tipo Animal 
-por um objeto do tipo Cachorro no método fazerBarulho().<br/>
+No exemplo acima possuímos a classe **Cachorro** que é um subtipo da classe **Animal**, conforme vimos no exemplo acima conseguimos substituir um objeto do tipo **Animal** 
+por um objeto do tipo **Cachorro** no método **fazerBarulho()**.<br/>
 Este seria um exemplo bem simples desse princípio.
 
 #### Exercício 3
-Utilizando o princípio Liskov Substitution, crie um subtipo de Veiculo chamado Carro, no método ligarVeiculo da classe Carro imprima 
-"Ligando Carro", apos isso invoque o método dirigir da classe Motorista utilizando uma instÂncia do tipo Carro.<br/>
+Utilizando o princípio Liskov Substitution, crie um subtipo de **Veiculo** chamado **Carro**, no método **ligarVeiculo()** da classe **Carro** imprima no console 
+"Ligando Carro", apos isso invoque o método **dirigir** da classe **Motorista** utilizando uma instância do tipo **Carro**.<br/>
 Código base para esse exercício:
 ```java
 public interface Veiculo {
@@ -280,7 +293,7 @@ Um exemplo desse princípio aplicado a essa interface seria:
 ```java
 public interface RelatorioWord {
 
-    public void gerarRelatorio();
+    public void gerarRelatorioWord();
 
 }
 ```
@@ -288,7 +301,7 @@ public interface RelatorioWord {
 ```java
 public interface RelatorioExcel {
 
-    public void gerarRelatorio();
+    public void gerarRelatorioExcel();
 
 }
 ```
@@ -296,17 +309,17 @@ public interface RelatorioExcel {
 ```java
 public interface RelatorioPDF {
 
-    public void gerarRelatorio();
+    public void gerarRelatorioPDF();
 
 }
 ```
 
-Exemplo de implementação apenas da interface RelatorioPDF:
+Exemplo de implementação apenas da interface **RelatorioPDF**:
 ```java
 public class ImplementacaoRelatorioPDF implements RelatorioPDF {
 
     @Override
-    public void gerarRelatorio() {
+    public void gerarRelatorioPDF() {
         System.out.println("Gerando relatório em PDF!");
     }
 
