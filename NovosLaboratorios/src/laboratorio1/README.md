@@ -340,3 +340,82 @@ public interface Impressora {
 ```
 
 #### (D) - Dependency Inversion (Princípio da Inversão de Dependências)
+O quinto e ultimo princípio do SOLID é conhecido como Dependency Inversion, o objetivo do mesmo é retirar a dependência de objetos concretos de uma classe, 
+substituindo eles por abstrações dos mesmos, onde quem for utilizar a classe fica responsável pela injeção de dependências da mesma.<br/>
+No exemplo abaixo possuímos a classe **ConsoleXboxOne** que depende de um objeto concreto da classe **ControleXboxOne**, essa dependência é instanciada diretamente na classe 
+**ConsoleXboxOne**.
+```java
+public class ControleXboxOne {
+
+    public void executarAcao() {
+        // Alguma implementação
+    }
+
+}
+```
+
+```java
+public class ConsoleXboxOne {
+
+    private final ControleXboxOne controleXboxOne;
+
+    public ConsoleXboxOne() {
+        this.controleXboxOne = new ControleXboxOne();
+    }
+}
+```
+
+Aplicando o princípio Dependency Inversion podemos tornar a injeção de dependências da classe ConsoleXboxOne uma responsabilidade da classe que for utilizá-la.<br/>
+Exemplo do princípio Dependency Inversion aplicado ao código do exemplo acima:
+```java
+public class ConsoleXboxOne {
+
+    private final ControleXboxOne controleXboxOne;
+
+    public ConsoleXboxOne(ControleXboxOne controleXboxOne) {
+        this.controleXboxOne = controleXboxOne;
+    }
+    
+}
+```
+
+#### Exercício 5
+Com base no código abaixo aplique o princípio Dependency Inversion utilizando o que foi abordado até o momento.
+```java
+public class BackEndDeveloper {
+
+    public void writeAPI() {
+        System.out.println("Desenvolvedor BackEnd desenvolvendo API");
+    }
+
+}
+```
+
+```java
+public class FrontEndDeveloper {
+
+    public void writeClientConsumer() {
+        System.out.println("Desenvolvedor FrontEnd implementando Client que irá consumir a API do BackEnd");
+    }
+
+}
+```
+
+```java
+public class ProjetoApiClient {
+
+    private final BackEndDeveloper backEndDeveloper;
+    private final FrontEndDeveloper frontEndDeveloper;
+
+    public ProjetoApiClient() {
+        this.backEndDeveloper = new BackEndDeveloper();
+        this.frontEndDeveloper = new FrontEndDeveloper();
+    }
+
+    public void implementar() {
+        this.backEndDeveloper.writeAPI();
+        this.frontEndDeveloper.writeClientConsumer();
+    }
+
+}
+```

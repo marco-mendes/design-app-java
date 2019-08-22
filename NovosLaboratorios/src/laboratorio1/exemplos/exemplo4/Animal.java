@@ -1,4 +1,4 @@
-package laboratorio1.exemplos.Exemplo4;
+package laboratorio1.exemplos.exemplo4;
 
 public interface Animal {
 
