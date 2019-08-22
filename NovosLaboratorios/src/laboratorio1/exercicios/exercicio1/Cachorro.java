@@ -10,7 +10,13 @@ public class Cachorro {
         this.raca = raca;
     }
 
-    // Getters e Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public String getRaca() {
+        return raca;
+    }
 
     public void tosarCachorro() {
         System.out.println(String.format("Tosando: %s | Raça: %s", this.nome, this.raca));

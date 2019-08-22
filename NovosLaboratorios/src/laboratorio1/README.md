@@ -31,14 +31,26 @@ public class Funcionario {
         this.endereco = endereco;
     }
 
-    // Getters e Setters
+    public String getRegistro() {
+        return registro;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
 
     public boolean seraPromovidoEsseAno() {
         // Alguma lógica de implementação
+        return true;
     }
 
 }
 ```
+
 No exemplo acima a classe **Funcionario** possui duas responsabilidades, sendo elas: servir de modelo para um Funcionário e verificar se o mesmo será promovido no ano atual.<br/>
 A forma como essa classe está estruturada viola nosso primeiro princípio do SOLID, no qual cada classe deve possuir apenas uma responsabilidade.<br/>
 Para corrigir isso podemos separar as responsabilidades atribuídas a classe **Funcionario**, onde será criada uma classe que será responsável por verificar se um funcionário será 
@@ -56,8 +68,17 @@ public class Funcionario {
         this.endereco = endereco;
     }
 
-    // Getters e Setters
+    public String getRegistro() {
+        return registro;
+    }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
 }
 ```
 
@@ -85,7 +106,13 @@ public class Cachorro {
         this.raca = raca;
     }
 
-    // Getters e Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public String getRaca() {
+        return raca;
+    }
 
     public void tosarCachorro() {
         System.out.println(String.format("Tosando: %s | Raça: %s", this.nome, this.raca));

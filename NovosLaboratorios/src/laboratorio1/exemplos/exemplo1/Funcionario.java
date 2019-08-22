@@ -12,7 +12,17 @@ public class Funcionario {
         this.endereco = endereco;
     }
 
-    // Getters e Setters
+    public String getRegistro() {
+        return registro;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
 
     public boolean seraPromovidoEsseAno() {
         // Alguma lógica de implementação
