@@ -17,7 +17,7 @@ Abordaremos cada um desses princípios neste laboratório.
 
 ### (S) - Single Responsability (Princípio da responsabilidade única)
 O primeiro princípio do SOLID é conhecido como Single Responsability, o objetivo do mesmo é fazer com que cada classe tenha apenas uma responsabilidade.<br/>
-Neste exemplo de classe que possui mais de uma responsabilidade:
+Exemplo de classe que possui mais de uma responsabilidade:
 ```java
 public class Funcionario {
 
@@ -35,7 +35,6 @@ public class Funcionario {
 
     public boolean seraPromovidoEsseAno() {
         // Alguma lógica de implementação
-        return true;
     }
 
 }
@@ -67,7 +66,6 @@ public class PromocoesDeFuncionarios {
 
     public boolean seraPromovidoEsseAno(Funcionario funcionario) {
         // Alguma lógica de implementação
-        return true;
     }
 
 }
@@ -75,7 +73,7 @@ public class PromocoesDeFuncionarios {
 
 #### Exercício 1
 Com base no que foi abordado até o momento, refatore a seguinte classe para que a mesma esteja de acordo com o primeiro princípio do SOLID.<br/>
-Dica: O método tosarCachorro() não deveria ser responsabilidade dessa classe.
+Dica: O método **tosarCachorro()** não deveria ser responsabilidade dessa classe.
 ```java
 public class Cachorro {
 
@@ -115,6 +113,54 @@ O segundo princípio do SOLID é conhecido como Open/Closed, o objetivo do mesmo
 Exemplo:<br/>
 Considere que a classe abaixo já foi testada e está funcionando corretamente.
 ```java
+public class Email {
+
+    String destinatario;
+    String remetente;
+
+    public Email(String destinatario, String remetente) {
+        this.destinatario = destinatario;
+        this.remetente = remetente;
+    }
+    
+    public void enviarEmail(String mensagem) {
+        System.out.println(String.format("Enviando email para %s", this.destinatario));
+        System.out.println(String.format("Remetente: %s", this.remetente));
+        System.out.println(String.format("Mensagem: %s", mensagem));
+    }
+
+    // Getters e Setters
+
+}
+``` 
+ 
+Em um belo dia surgiu a necessidade de implementar novas funcionalidades a essa classe, porém essa necessidade pode resultar em bugs em nossa classe Email.<br/>
+Para evitar isso podemos usar o princípio Open/Closed no qual a classe Email será extendida e as novas funcionalidades serão implementadas na nova classe criada 
+como no exemplo abaixo:
+```java
+public class EmailEmpresarial extends Email {
+
+    String assinatura;
+
+    public EmailEmpresarial(String destinatario, String remetente, String assinatura) {
+        super(destinatario, remetente);
+        this.assinatura = assinatura;
+    }
+
+    public void enviarEmailEmpresarial(String mensagem) {
+        System.out.println(String.format("Enviando E-mail empresarial para %s", this.destinatario));
+        System.out.println(String.format("Remetente: %s", this.remetente));
+        System.out.println(String.format("Mensagem: %s", mensagem));
+        System.out.println(String.format("Assinatura: %s", this.assinatura));
+    }
+    
+}
+```
+
+#### Exercício 2
+Com base no código abaixo implemente uma nova funcionalidade chamada raizQuadrada, a mesma deverá calcular a raiz quadrada do número informado e retornar seu resultado.<br/>
+Utilize o princípio Open/Close para isso.
+```java
 public class CalculadoraSimples {
 
     public CalculadoraSimples() {
@@ -135,27 +181,6 @@ public class CalculadoraSimples {
 
     public double divisao(int valor1, int valor2) {
         return valor1 / valor2;
-    }
-
-}
-``` 
- 
-Em um belo dia surgiu a necessidade de implementar novas funcionalidades a essa classe, porém essa necessidade pode resultar em bugs em nossa classe CalculadoraSimples.<br/>
-Para evitar isso podemos usar o princípio Open/Closed no qual a classe CalculadoraSimples será extendida e as novas funcionalidades serão implementadas na nova classe criada 
-como no exemplo abaixo:
-```java
-public class CalculadoraCientifica extends CalculadoraSimples {
-
-    public CalculadoraCientifica() {
-
-    }
-
-    public double raizQuadrada(double valor) {
-        return Math.sqrt(valor);
-    }
-
-    public double potencia(double valor, double potencia) {
-        return Math.pow(valor, potencia);
     }
 
 }
@@ -203,7 +228,7 @@ No exemplo acima possuímos a classe Cachorro que é um subtipo da classe Animal
 por um objeto do tipo Cachorro no método fazerBarulho().<br/>
 Este seria um exemplo bem simples desse princípio.
 
-#### Exercício 2
+#### Exercício 3
 Utilizando o princípio Liskov Substitution, crie um subtipo de Veiculo chamado Carro, no método ligarVeiculo da classe Carro imprima 
 "Ligando Carro", apos isso invoque o método dirigir da classe Motorista utilizando uma instÂncia do tipo Carro.<br/>
 Código base para esse exercício:
@@ -236,4 +261,68 @@ public class Motorista {
 ```
 
 #### (I) - Interface Segregation (Princípio da Segregação de Interfaces)
-O quarto princípio do SOLID é conhecido como Interface Segregation,
+O quarto princípio do SOLID é conhecido como Interface Segregation, o objetivo do mesmo é basicamente dividir interfaces maiores em interfaces menores, fazendo isso 
+podemos garantir que as classes de implementação só precisem implementar os métodos que realmente irão precisar.<br/>
+Considere a seguinte interface:
+```java
+public interface GerarRelatorio {
+
+    public void relatorioWord();
+    public void relatorioExcel();
+    public void relatorioPDF();
+
+}
+```
+
+Caso fossemos implementar a mesma seríamos obrigado a implementar todos os seus 3 métodos, utilizando o princípio Interface Segregation podemos refatorar essa interface 
+em interfaces menores, e dessa forma implementar apenas os métodos que realmente iremos precisar.<br/>
+Um exemplo desse princípio aplicado a essa interface seria:
+```java
+public interface RelatorioWord {
+
+    public void gerarRelatorio();
+
+}
+```
+
+```java
+public interface RelatorioExcel {
+
+    public void gerarRelatorio();
+
+}
+```
+
+```java
+public interface RelatorioPDF {
+
+    public void gerarRelatorio();
+
+}
+```
+
+Exemplo de implementação apenas da interface RelatorioPDF:
+```java
+public class ImplementacaoRelatorioPDF implements RelatorioPDF {
+
+    @Override
+    public void gerarRelatorio() {
+        System.out.println("Gerando relatório em PDF!");
+    }
+
+}
+```
+
+#### Exercício 4
+Com base no que foi mostrado até agora aplique o princípio Interface Segretation no código abaixo:
+```java
+public interface Impressora {
+
+    public void imprimir();
+    public void escanear();
+    public void imprimirViaBluetooth();
+
+}
+```
+
+#### (D) - Dependency Inversion (Princípio da Inversão de Dependências)

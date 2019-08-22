@@ -1,4 +1,4 @@
-package laboratorio1.exemplos.exemplo3;
+package laboratorio1.exercicios.exercicio2;
 
 public class CalculadoraSimples {
 

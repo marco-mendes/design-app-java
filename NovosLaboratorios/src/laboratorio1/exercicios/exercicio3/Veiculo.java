@@ -1,4 +1,4 @@
-package laboratorio1.exercicios.exercicio2;
+package laboratorio1.exercicios.exercicio3;
 
 public interface Veiculo {
 

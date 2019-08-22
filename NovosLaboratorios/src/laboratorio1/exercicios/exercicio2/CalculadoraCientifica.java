@@ -1,4 +1,4 @@
-package laboratorio1.exemplos.exemplo3;
+package laboratorio1.exercicios.exercicio2;
 
 public class CalculadoraCientifica extends CalculadoraSimples {
 
@@ -10,8 +10,5 @@ public class CalculadoraCientifica extends CalculadoraSimples {
         return Math.sqrt(valor);
     }
 
-    public double potencia(double valor, double potencia) {
-        return Math.pow(valor, potencia);
-    }
 
 }
