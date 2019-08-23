@@ -674,10 +674,5 @@ public class ProjetoApiClient {
         this.frontEndDeveloper.writeClientConsumer();
     }
 
-    public static void main(String[] args) {
-        ProjetoApiClient projeto = new ProjetoApiClient();
-        projeto.implementar();
-    }
-
 }
 ```
