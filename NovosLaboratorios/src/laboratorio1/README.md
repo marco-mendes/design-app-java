@@ -19,120 +19,266 @@ Abordaremos cada um desses princípios neste laboratório.
 O primeiro princípio do SOLID é conhecido como Single Responsability, o objetivo do mesmo é fazer com que cada classe tenha apenas uma responsabilidade.<br/>
 Exemplo de classe que possui mais de uma responsabilidade:
 ```java
-public class Funcionario {
+import java.util.List;
 
-    private String registro;
-    private String nome;
-    private String endereco;
+public class ContaCorrente {
+    private String nomeCorrentista;
+    private Integer numeroConta;
+    private float saldoConta = 0;
 
-    public Funcionario(String registro, String nome, String endereco) {
-        this.registro = registro;
-        this.nome = nome;
-        this.endereco = endereco;
+    public ContaCorrente(String nomeCorrentista, Integer numeroConta) {
+        this.nomeCorrentista = nomeCorrentista;
+        this.numeroConta = numeroConta;
     }
 
-    public String getRegistro() {
-        return registro;
+    public ContaCorrente(String titular, Integer nconta, float saldo){
+        this.nomeCorrentista = titular;
+        this.numeroConta = nconta;
+        this.saldoConta = saldo;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeCorrentista() {
+        return nomeCorrentista;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public Integer getNumeroConta() {
+        return numeroConta;
     }
 
-    public boolean seraPromovidoEsseAno() {
-        // Alguma lógica de implementação
+    public float getSaldoConta() {
+        return saldoConta;
+    }
+
+    public void depositar(float valorDeposito){
+        saldoConta = saldoConta + valorDeposito;
+    }
+
+    public void sacar(float valorSaque){
+        if (valorSaque <= saldoConta) {
+            saldoConta = saldoConta - valorSaque;
+        } else {
+            System.out.println("Saldo insuficiente!");
+        }
+    }
+
+    public void mostrarStatus(){
+        System.out.println(nomeCorrentista);
+        System.out.println(numeroConta);
+        System.out.println("R$ " + saldoConta);
+    }
+
+    public void realizarEmprestimo(float valor) {
+        if(contaJaFoiNegativada(this)) {
+            System.out.println("Emprestimo negado!");
+        } else {
+            System.out.println("Emprestimo aprovado!");
+        }
+    }
+
+    private boolean contaJaFoiNegativada(ContaCorrente conta) {
+        List<ContaCorrente> contasJaNegativadas = ContasJaNegativadas.obtemContasJaNegativadas();
+        boolean contaJaFoiNegativada = contasJaNegativadas.stream()
+                .filter(c -> c.getNumeroConta()
+                        .equals(conta.getNumeroConta()))
+                .findFirst()
+                .isPresent();
+        return contaJaFoiNegativada;
     }
 
 }
 ```
 
-No exemplo acima a classe **Funcionario** possui duas responsabilidades, sendo elas: servir de modelo para um Funcionário e verificar se o mesmo será promovido no ano atual.<br/>
+Classe responsável por retornar a lista de contas que já foram negativadas.
+```java
+import java.util.Arrays;
+import java.util.List;
+
+public class ContasJaNegativadas {
+
+    private static List<ContaCorrente> contasJaNegativadas;
+
+    public static List<ContaCorrente> obtemContasJaNegativadas() {
+        contasJaNegativadas = Arrays.asList(
+                new ContaCorrente("Marcos", 12345),
+                new ContaCorrente("Silvio", 23456),
+                new ContaCorrente("Raquel", 75690),
+                new ContaCorrente("Joana", 01134),
+                new ContaCorrente("Fábio", 57123)
+        );
+        return contasJaNegativadas;
+    }
+
+}
+```
+
+No exemplo acima a classe **ContaCorrente** possui responsabilidades que a mesma não deveria possuir, sendo elas: realizar empréstimo e verificar se a conta já foi negativada.<br/>
 A forma como essa classe está estruturada viola nosso primeiro princípio do SOLID, no qual cada classe deve possuir apenas uma responsabilidade.<br/>
-Para corrigir isso podemos separar as responsabilidades atribuídas a classe **Funcionario**, onde será criada uma classe que será responsável por verificar se um funcionário será 
-promovido como no exemplo abaixo:
+Para corrigir isso podemos separar as responsabilidades atribuídas a classe **ContaCorrente**, onde será criada uma classe que será responsável por autorizar empréstimos para 
+uma Conta Corrente como no exemplo abaixo:
 ```java
-public class Funcionario {
+public class ContaCorrente{
+    private String nomeCorrentista;
+    private Integer numeroConta;
+    private float saldoConta = 0;
 
-    private String registro;
-    private String nome;
-    private String endereco;
-
-    public Funcionario(String registro, String nome, String endereco) {
-        this.registro = registro;
-        this.nome = nome;
-        this.endereco = endereco;
+    public ContaCorrente(String nomeCorrentista, Integer numeroConta) {
+        this.nomeCorrentista = nomeCorrentista;
+        this.numeroConta = numeroConta;
     }
 
-    public String getRegistro() {
-        return registro;
+    public ContaCorrente(String titular, Integer nconta, float saldo){
+        this.nomeCorrentista = titular;
+        this.numeroConta = nconta;
+        this.saldoConta = saldo;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeCorrentista() {
+        return nomeCorrentista;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public Integer getNumeroConta() {
+        return numeroConta;
     }
+
+    public float getSaldoConta() {
+        return saldoConta;
+    }
+
+    public void depositar(float valorDeposito){
+        saldoConta = saldoConta + valorDeposito;
+    }
+
+    public void sacar(float valorSaque){
+        if (valorSaque <= saldoConta) {
+            saldoConta = saldoConta - valorSaque;
+        } else {
+            System.out.println("Saldo insuficiente!");
+        }
+    }
+
+    public void mostrarStatus(){
+        System.out.println(nomeCorrentista);
+        System.out.println(numeroConta);
+        System.out.println("R$ " + saldoConta);
+    }
+
 }
 ```
 
 ```java
-public class PromocoesDeFuncionarios {
+import java.util.List;
 
-    public boolean seraPromovidoEsseAno(Funcionario funcionario) {
-        // Alguma lógica de implementação
+// Classe separada com a responsabilidade derealizar empréstimos.
+public class Emprestimo {
+
+    public void realizarEmprestimo(ContaCorrente conta, float valor) {
+        if(contaJaFoiNegativada(conta)) {
+            System.out.println("Emprestimo negado!");
+        } else {
+            System.out.println("Emprestimo aprovado!");
+        }
+    }
+
+    private boolean contaJaFoiNegativada(ContaCorrente conta) {
+        List<ContaCorrente> contasJaNegativadas = ContasJaNegativadas.obtemContasJaNegativadas();
+        boolean contaJaFoiNegativada = contasJaNegativadas.stream()
+                .filter(c -> c.getNumeroConta()
+                        .equals(conta.getNumeroConta()))
+                .findFirst()
+                .isPresent();
+        return contaJaFoiNegativada;
     }
 
 }
 ```
 
 #### Exercício 1
-Com base no que foi abordado até o momento, refatore a seguinte classe para que a mesma esteja de acordo com o primeiro princípio do SOLID.<br/>
-Dica: O método **tosarCachorro()** não deveria ser responsabilidade dessa classe.
+Com base no que foi abordado até o momento, refatore a classe Usuario para que a mesma esteja de acordo com o primeiro princípio do SOLID.<br/>
 ```java
-public class Cachorro {
+import java.util.List;
+
+public class Usuario {
 
     private String nome;
-    private String raca;
+    private String email;
+    private String senha;
 
-    public Cachorro(String nome, String raca) {
+    public Usuario(String nome, String email, String senha) {
         this.nome = nome;
-        this.raca = raca;
+        this.email = email;
+        this.senha = senha;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getRaca() {
-        return raca;
+    public String getEmail() {
+        return email;
     }
 
-    public void tosarCachorro() {
-        System.out.println(String.format("Tosando: %s | Raça: %s", this.nome, this.raca));
+    public String getSenha() {
+        return senha;
     }
 
-    // Métodos que estão diretamente relacionados as propriedades de Cachorro
-    public void comer() {
-        System.out.println(String.format("%s está comendo!", this.nome));
+    public static boolean autenticarUsuario(Usuario usuario) {
+        if(usuarioExistente(usuario)) {
+            List<Usuario> usuarios = UserDatabase.obterTodosUsuarios();
+            boolean usuarioAutenticado =  usuarios.stream()
+                    .filter(user -> user.getEmail().equals(usuario.getEmail()) &&
+                            user.getSenha().equals(usuario.getSenha()))
+                    .findFirst()
+                    .isPresent();
+
+            if(usuarioAutenticado) {
+                System.out.println("Usuário autenticado com sucesso!");
+            } else {
+                System.out.println("e-mail ou senha incorretos!");
+            }
+
+            return usuarioAutenticado;
+        } else {
+            System.out.println("Usuário não cadastrado!");
+            return false;
+        }
+
     }
 
-    public void latir() {
-        System.out.println(String.format("%s está latindo!", this.nome));
-    }
-
-    public void brincar() {
-        System.out.println(String.format("%s está brincando!", this.nome));
+    private static boolean usuarioExistente(Usuario usuario) {
+        List<Usuario> usuarios = UserDatabase.obterTodosUsuarios();
+        boolean usuarioExistente = usuarios.stream()
+                .filter(user -> user.getEmail().equals(usuario.getEmail()))
+                .findFirst()
+                .isPresent();
+        return usuarioExistente;
     }
 
 }
 ```
 
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+// Classe responsável por retornar a lista de usuários
+public class UserDatabase {
+
+    private static List<Usuario> usuarios;
+
+    public UserDatabase() {
+        usuarios = new ArrayList<Usuario>();
+        usuarios.add(new Usuario("Cleber", "cleber@gmail.com", "12345"));
+        usuarios.add(new Usuario("Joana", "joana@yahoo.com", "54325"));
+        usuarios.add(new Usuario("Wilson Oliveira", "w.oliveira@gmail.com", "85094"));
+        usuarios.add(new Usuario("Tales Franco", "tales.franco@gmail.com", "12847"));
+    }
+
+    public static List<Usuario> obterTodosUsuarios() {
+        return usuarios;
+    }
+
+}
+```
 
 ### (O) - Open/Closed (Princípio do Aberto/Fechado)
 O segundo princípio do SOLID é conhecido como Open/Closed, o objetivo do mesmo é garantir que a classe esteja aberta para ser extendida porém fechada para modificações.<br/>
