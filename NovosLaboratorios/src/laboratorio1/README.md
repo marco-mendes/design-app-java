@@ -168,7 +168,7 @@ public class ContaCorrente{
 ```java
 import java.util.List;
 
-// Classe separada com a responsabilidade derealizar empréstimos.
+// Classe separada com a responsabilidade de realizar empréstimos.
 public class Emprestimo {
 
     public void realizarEmprestimo(ContaCorrente conta, double valor) {
@@ -521,40 +521,123 @@ public interface Impressora {
 ### (D) - Dependency Inversion (Princípio da Inversão de Dependências)
 O quinto e ultimo princípio do SOLID é conhecido como Dependency Inversion, o objetivo do mesmo é retirar a dependência de objetos concretos de uma classe, 
 substituindo eles por abstrações dos mesmos, onde quem for utilizar a classe fica responsável pela injeção de dependências da mesma.<br/>
-No exemplo abaixo possuímos a classe **ConsoleXboxOne** que depende de um objeto concreto da classe **ControleXboxOne**, essa dependência é instanciada diretamente na classe 
-**ConsoleXboxOne**.
+No exemplo abaixo possuímos a classe **AuthenticationService** que depende de um objeto concreto da classe **UserDatabase**, essa dependência é instanciada diretamente na classe 
+**AuthenticationService**.
 ```java
-public class ControleXboxOne {
+public class User {
 
-    public void executarAcao() {
-        // Alguma implementação
+    private String nome;
+    private String email;
+    private String senha;
+
+    public User(String nome, String email, String senha) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSenha() {
+        return senha;
     }
 
 }
 ```
 
 ```java
-public class ConsoleXboxOne {
+import java.util.ArrayList;
+import java.util.List;
 
-    private final ControleXboxOne controleXboxOne;
+public class UserDatabase {
 
-    public ConsoleXboxOne() {
-        this.controleXboxOne = new ControleXboxOne();
+    private List<User> usuarios;
+
+    public UserDatabase() {
+        this.usuarios = new ArrayList<User>();
+        this.usuarios.add(new User("Leandro Ribeiro", "l_ribeiro@gmail.com.br", "12345"));
+        this.usuarios.add(new User("Michelle Bastos", "michelle.bastos@gmail.com.br", "90453"));
+        this.usuarios.add(new User("Carlos Alberto", "carlos.a@yahoo.com.br", "89167"));
     }
-}
-```
 
-Aplicando o princípio Dependency Inversion podemos tornar a injeção de dependências da classe **ConsoleXboxOne** uma responsabilidade da classe que for utilizá-la.<br/>
-Exemplo do princípio Dependency Inversion aplicado ao código do exemplo acima:
-```java
-public class ConsoleXboxOne {
-
-    private final ControleXboxOne controleXboxOne;
-
-    public ConsoleXboxOne(ControleXboxOne controleXboxOne) {
-        this.controleXboxOne = controleXboxOne;
+    public List<User> obterUsuarios() {
+        return usuarios;
     }
     
+    public void cadastrar(User usuario) {
+        this.usuarios.add(usuario);
+    }
+
+    public void remover(User usuario) {
+        this.usuarios.remove(usuario);
+    }
+
+}
+```
+
+```java
+import java.util.List;
+
+public class AuthenticationService {
+
+    private UserDatabase userDatabase = new UserDatabase();
+
+    public boolean authenticateUser(User usuario) {
+        List<User> usuarios = this.userDatabase.obterUsuarios();
+        boolean usuarioAutenticado =  usuarios.stream()
+                .filter(user -> user.getEmail().equals(usuario.getEmail()) &&
+                        user.getSenha().equals(usuario.getSenha()))
+                .findFirst()
+                .isPresent();
+
+        if(usuarioAutenticado) {
+            System.out.println("Usuário autenticado com sucesso!");
+        } else {
+            System.out.println("Falha ao autenticar usuário!");
+        }
+
+        return usuarioAutenticado;
+    }
+
+}
+```
+
+Aplicando o princípio Dependency Inversion podemos tornar a injeção de dependências da classe **AuthenticationService** uma responsabilidade da classe que for utilizá-la.<br/>
+Exemplo do princípio Dependency Inversion aplicado ao código do exemplo acima:
+```java
+import java.util.List;
+
+public class AuthenticationService {
+
+    private UserDatabase userDatabase;
+
+    public AuthenticationService(UserDatabase userDatabase) {
+        this.userDatabase = userDatabase;
+    }
+
+    public boolean authenticateUser(User usuario) {
+        List<User> usuarios = this.userDatabase.obterUsuarios();
+        boolean usuarioAutenticado =  usuarios.stream()
+                .filter(user -> user.getEmail().equals(usuario.getEmail()) &&
+                        user.getSenha().equals(usuario.getSenha()))
+                .findFirst()
+                .isPresent();
+
+        if(usuarioAutenticado) {
+            System.out.println("Usuário autenticado com sucesso!");
+        } else {
+            System.out.println("Falha ao autenticar usuário!");
+        }
+
+        return usuarioAutenticado;
+    }
+
 }
 ```
 
@@ -583,17 +666,17 @@ public class FrontEndDeveloper {
 ```java
 public class ProjetoApiClient {
 
-    private final BackEndDeveloper backEndDeveloper;
-    private final FrontEndDeveloper frontEndDeveloper;
-
-    public ProjetoApiClient() {
-        this.backEndDeveloper = new BackEndDeveloper();
-        this.frontEndDeveloper = new FrontEndDeveloper();
-    }
-
+    private final BackEndDeveloper backEndDeveloper = new BackEndDeveloper();
+    private final FrontEndDeveloper frontEndDeveloper = new FrontEndDeveloper();
+    
     public void implementar() {
         this.backEndDeveloper.writeAPI();
         this.frontEndDeveloper.writeClientConsumer();
+    }
+
+    public static void main(String[] args) {
+        ProjetoApiClient projeto = new ProjetoApiClient();
+        projeto.implementar();
     }
 
 }

@@ -2,13 +2,8 @@ package laboratorio1.exercicios.exercicio5;
 
 public class ProjetoApiClient {
 
-    private final BackEndDeveloper backEndDeveloper;
-    private final FrontEndDeveloper frontEndDeveloper;
-
-    public ProjetoApiClient() {
-        this.backEndDeveloper = new BackEndDeveloper();
-        this.frontEndDeveloper = new FrontEndDeveloper();
-    }
+    private final BackEndDeveloper backEndDeveloper = new BackEndDeveloper();
+    private final FrontEndDeveloper frontEndDeveloper = new FrontEndDeveloper();
 
     public void implementar() {
         this.backEndDeveloper.writeAPI();
