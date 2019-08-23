@@ -3,14 +3,14 @@ package laboratorio1.exemplos.exemplo2;
 public class ContaCorrente{
     private String nomeCorrentista;
     private Integer numeroConta;
-    private float saldoConta = 0;
+    private double saldoConta = 0;
 
     public ContaCorrente(String nomeCorrentista, Integer numeroConta) {
         this.nomeCorrentista = nomeCorrentista;
         this.numeroConta = numeroConta;
     }
 
-    public ContaCorrente(String titular, Integer nconta, float saldo){
+    public ContaCorrente(String titular, Integer nconta, double saldo){
         this.nomeCorrentista = titular;
         this.numeroConta = nconta;
         this.saldoConta = saldo;
@@ -24,15 +24,15 @@ public class ContaCorrente{
         return numeroConta;
     }
 
-    public float getSaldoConta() {
+    public double getSaldoConta() {
         return saldoConta;
     }
 
-    public void depositar(float valorDeposito){
+    public void depositar(double valorDeposito){
         saldoConta = saldoConta + valorDeposito;
     }
 
-    public void sacar(float valorSaque){
+    public void sacar(double valorSaque){
         if (valorSaque <= saldoConta) {
             saldoConta = saldoConta - valorSaque;
         } else {

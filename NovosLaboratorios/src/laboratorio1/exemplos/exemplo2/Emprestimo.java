@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Emprestimo {
 
-    public void realizarEmprestimo(ContaCorrente conta, float valor) {
+    public void realizarEmprestimo(ContaCorrente conta, double valor) {
         if(contaJaFoiNegativada(conta)) {
             System.out.println("Emprestimo negado!");
         } else {

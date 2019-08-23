@@ -24,14 +24,14 @@ import java.util.List;
 public class ContaCorrente {
     private String nomeCorrentista;
     private Integer numeroConta;
-    private float saldoConta = 0;
+    private double saldoConta = 0;
 
     public ContaCorrente(String nomeCorrentista, Integer numeroConta) {
         this.nomeCorrentista = nomeCorrentista;
         this.numeroConta = numeroConta;
     }
 
-    public ContaCorrente(String titular, Integer nconta, float saldo){
+    public ContaCorrente(String titular, Integer nconta, double saldo){
         this.nomeCorrentista = titular;
         this.numeroConta = nconta;
         this.saldoConta = saldo;
@@ -45,15 +45,15 @@ public class ContaCorrente {
         return numeroConta;
     }
 
-    public float getSaldoConta() {
+    public double getSaldoConta() {
         return saldoConta;
     }
 
-    public void depositar(float valorDeposito){
+    public void depositar(double valorDeposito){
         saldoConta = saldoConta + valorDeposito;
     }
 
-    public void sacar(float valorSaque){
+    public void sacar(double valorSaque){
         if (valorSaque <= saldoConta) {
             saldoConta = saldoConta - valorSaque;
         } else {
@@ -67,7 +67,7 @@ public class ContaCorrente {
         System.out.println("R$ " + saldoConta);
     }
 
-    public void realizarEmprestimo(float valor) {
+    public void realizarEmprestimo(double valor) {
         if(contaJaFoiNegativada(this)) {
             System.out.println("Emprestimo negado!");
         } else {
@@ -88,11 +88,11 @@ public class ContaCorrente {
 }
 ```
 
-Classe responsável por retornar a lista de contas que já foram negativadas.
 ```java
 import java.util.Arrays;
 import java.util.List;
 
+// Classe responsável por retornar a lista de contas que já foram negativadas.
 public class ContasJaNegativadas {
 
     private static List<ContaCorrente> contasJaNegativadas;
@@ -119,14 +119,14 @@ uma Conta Corrente como no exemplo abaixo:
 public class ContaCorrente{
     private String nomeCorrentista;
     private Integer numeroConta;
-    private float saldoConta = 0;
+    private double saldoConta = 0;
 
     public ContaCorrente(String nomeCorrentista, Integer numeroConta) {
         this.nomeCorrentista = nomeCorrentista;
         this.numeroConta = numeroConta;
     }
 
-    public ContaCorrente(String titular, Integer nconta, float saldo){
+    public ContaCorrente(String titular, Integer nconta, double saldo){
         this.nomeCorrentista = titular;
         this.numeroConta = nconta;
         this.saldoConta = saldo;
@@ -140,15 +140,15 @@ public class ContaCorrente{
         return numeroConta;
     }
 
-    public float getSaldoConta() {
+    public double getSaldoConta() {
         return saldoConta;
     }
 
-    public void depositar(float valorDeposito){
+    public void depositar(double valorDeposito){
         saldoConta = saldoConta + valorDeposito;
     }
 
-    public void sacar(float valorSaque){
+    public void sacar(double valorSaque){
         if (valorSaque <= saldoConta) {
             saldoConta = saldoConta - valorSaque;
         } else {
@@ -171,7 +171,7 @@ import java.util.List;
 // Classe separada com a responsabilidade derealizar empréstimos.
 public class Emprestimo {
 
-    public void realizarEmprestimo(ContaCorrente conta, float valor) {
+    public void realizarEmprestimo(ContaCorrente conta, double valor) {
         if(contaJaFoiNegativada(conta)) {
             System.out.println("Emprestimo negado!");
         } else {
@@ -384,40 +384,41 @@ Possuímos a classe A, que é um subtipo de B, segundo o princípio da Liskov Su
 funcionamento de nosso programa.<br/>
 Exemplo: 
 ```java
-public interface Animal {
+public interface Relatorio {
 
-    public void facaBarulho();
+    public void gerarRelatorio();
 
 }
 ```
 
 ```java
-public class Cachorro implements Animal {
+public class RelatorioExcel implements Relatorio {
 
     @Override
-    public void facaBarulho() {
-        System.out.println("AU AU");
+    public void gerarRelatorio() {
+        System.out.println("Gerando relatório no formato Excel!");
     }
+
 }
 ```
 
 ```java
 public class Main {
 
-    public static void fazerBarulho(Animal animal) {
-        animal.facaBarulho();
+    public static void gerarRelatorio(Relatorio relatorio) {
+        relatorio.gerarRelatorio();
     }
-
+    
     public static void main(String[] args) {
-        Cachorro cachorro = new Cachorro();
-        fazerBarulho(cachorro);
+        RelatorioExcel relatorioExcel = new RelatorioExcel();
+        gerarRelatorio(relatorioExcel);
     }
-
+    
 }
 ```
 
-No exemplo acima possuímos a classe **Cachorro** que é um subtipo da classe **Animal**, conforme vimos no exemplo acima conseguimos substituir um objeto do tipo **Animal** 
-por um objeto do tipo **Cachorro** no método **fazerBarulho()**.<br/>
+No exemplo acima possuímos a classe **RelatorioExcel** que é um subtipo da classe **Relatorio**, conforme vimos no exemplo acima conseguimos substituir um objeto do tipo **Relatorio** 
+por um objeto do tipo **RelatorioExcel** no método **gerarRelatorio()**.<br/>
 Este seria um exemplo bem simples desse princípio.
 
 #### Exercício 3
