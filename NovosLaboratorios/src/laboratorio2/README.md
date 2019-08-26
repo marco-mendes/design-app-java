@@ -133,7 +133,7 @@ compreensão e manutenção do código.
 
 
 #### Exercício 1
-Com base no que foi abordado até o momento refatore o código abaixo com as boas práticas abordadas no tópico anterior.<br/>
+Refatore o código abaixo aplicando a boa prática abordada neste tópico.<br/>
 O código completo desse exercício pode ser encontrado neste [link](./exercicios/exercicio1/).
 
 ```java
@@ -177,6 +177,104 @@ public class Exercicio1 {
         contasAptasParaEmprestimo.forEach(conta -> System.out.println(conta));
 
     }
+
+}
+```
+
+
+### Evitar o uso excessivo de encadeamento de métodos em Streams
+A idéia principal dessa boa prática é evitar o uso excessivo de encadeamento de métodos em streams, dividindo a lógica em partes e introduzindo variáveis explicativas 
+para elas com o objetivo de tornar o código mais claro o possível para leitura e futuras manutenções.<br/>
+Observe o exemplo abaixo, possuímos o método **encadeamentoExcessivoDeMetodosStream()** demonstrando um exemplo de encadeamento excessivo de métodos em um stream, para 
+melhorar esse cenário criamos o método **encadeamentoExcessivoRefatoradoEmVariaveisExplicativas()** que divide a lógica em partes introduzindo variáveis auto explicativas.
+```java
+enum TipoProduto {
+    ELETRONICO, ELETRODOMESTICO
+}
+```
+
+```java
+import java.util.Arrays;
+import java.util.List;
+
+class Produto {
+
+    private int id;
+    private String nome;
+    private Double preco;
+    private TipoProduto tipoProduto;
+
+    public Produto(int id, String nome, Double preco, TipoProduto tipoProduto) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.tipoProduto = tipoProduto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public TipoProduto getTipoProduto() {
+        return tipoProduto;
+    }
+
+    public static List<Produto> obterProdutos() {
+        List<Produto> produtos = Arrays.asList(
+                new Produto(1, "IPhone X", 3999.00, TipoProduto.ELETRONICO),
+                new Produto(2, "Geladeira", 899.00, TipoProduto.ELETRODOMESTICO),
+                new Produto(3, "MacBook Pro", 3899.00, TipoProduto.ELETRONICO),
+                new Produto(4, "Xiaomi Mi 8", 999.00, TipoProduto.ELETRONICO)
+        );
+        return produtos;
+    }
+
+}
+```
+
+```java
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Exemplo2 {
+
+    public static void encadeamentoExcessivoDeMetodosStream() {
+        List<String> eletronicosComPrecoAcimaDe899 = Produto.obterProdutos()
+                .stream()
+                .filter(p -> p.getTipoProduto().equals(TipoProduto.ELETRONICO))
+                .filter(p -> p.getPreco() > 899.00)
+                .map(p -> String.format("ID: %s - Nome: %s", p.getId(), p.getNome()))
+                .collect(Collectors.toList());
+
+        eletronicosComPrecoAcimaDe899.forEach(p -> System.out.println(p));
+
+    }
+
+    public static void encadeamentoExcessivoRefatoradoEmVariaveisExplicativas() {
+        Stream<Produto> streamEletronicosAcima899 = Produto.obterProdutos()
+                .stream()
+                .filter(p -> p.getTipoProduto().equals(TipoProduto.ELETRONICO))
+                .filter(p -> p.getPreco() > 899.00);
+
+        Stream<String> streamResultadoFormatado = streamEletronicosAcima899.map(p -> String.format("ID: %s - Nome: %s", p.getId(), p.getNome()));
+        List<String> listaResultadoFormatado = streamResultadoFormatado.collect(Collectors.toList());
+    }
+
+
+    public static void main(String[] args) {
+        encadeamentoExcessivoDeMetodosStream();
+        encadeamentoExcessivoRefatoradoEmVariaveisExplicativas();
+    }
+
 
 }
 ```
