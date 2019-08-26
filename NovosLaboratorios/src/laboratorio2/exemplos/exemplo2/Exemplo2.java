@@ -26,6 +26,7 @@ public class Exemplo2 {
 
         Stream<String> streamResultadoFormatado = streamEletronicosAcima899.map(p -> String.format("ID: %s - Nome: %s", p.getId(), p.getNome()));
         List<String> listaResultadoFormatado = streamResultadoFormatado.collect(Collectors.toList());
+        listaResultadoFormatado.forEach(p -> System.out.println(p));
     }
 
 

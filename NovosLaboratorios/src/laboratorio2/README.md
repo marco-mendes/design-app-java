@@ -186,7 +186,7 @@ public class Exercicio1 {
 A idéia principal dessa boa prática é evitar o uso excessivo de encadeamento de métodos em streams, dividindo a lógica em partes e introduzindo variáveis explicativas 
 para elas com o objetivo de tornar o código mais claro o possível para leitura e futuras manutenções.<br/>
 Observe o exemplo abaixo, possuímos o método **encadeamentoExcessivoDeMetodosStream()** demonstrando um exemplo de encadeamento excessivo de métodos em um stream, para 
-melhorar esse cenário criamos o método **encadeamentoExcessivoRefatoradoEmVariaveisExplicativas()** que divide a lógica em partes introduzindo variáveis auto explicativas.
+melhorar esse cenário criamos o método **encadeamentoExcessivoRefatoradoEmVariaveisExplicativas()** que divide a lógica em partes utilizando variáveis auto explicativas.
 ```java
 enum TipoProduto {
     ELETRONICO, ELETRODOMESTICO
@@ -267,6 +267,7 @@ public class Exemplo2 {
 
         Stream<String> streamResultadoFormatado = streamEletronicosAcima899.map(p -> String.format("ID: %s - Nome: %s", p.getId(), p.getNome()));
         List<String> listaResultadoFormatado = streamResultadoFormatado.collect(Collectors.toList());
+        listaResultadoFormatado.forEach(p -> System.out.println(p));
     }
 
 
@@ -275,6 +276,40 @@ public class Exemplo2 {
         encadeamentoExcessivoRefatoradoEmVariaveisExplicativas();
     }
 
+
+}
+```
+
+#### Exercício 2
+Refatore o código abaixo aplicando a boa prática abordada neste tópico.<br/>
+O código completo desse exercício pode ser encontrado neste [link](./exercicios/exercicio2/).
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Exercicio2 {
+
+    public static void main(String[] args) {
+        List<Funcionario> funcionarios = Arrays.asList(
+                new Funcionario("José", "123", Sexo.MASCULINO, 25, 1250.00),
+                new Funcionario("Carol", "450", Sexo.FEMININO, 27, 1300.00),
+                new Funcionario("Joana", "344", Sexo.FEMININO, 31, 2500.00),
+                new Funcionario("Jorge", "678", Sexo.MASCULINO, 23, 1500.00),
+                new Funcionario("Aline", "168", Sexo.FEMININO, 24, 1300.00),
+                new Funcionario("Gabriel", "234", Sexo.MASCULINO, 28, 1600.00),
+                new Funcionario("Raquel", "376", Sexo.FEMININO, 26, 1900.00),
+                new Funcionario("Marcos", "345", Sexo.MASCULINO, 32, 2500.00)
+        );
+        
+        List<Funcionario> funcionariosFiltrados = funcionarios.stream()
+                .filter(f -> f.getSexo().equals(Sexo.FEMININO))
+                .filter(f -> f.getIdade() >= 24 && f.getIdade() <= 40)
+                .filter(f -> f.getSalario() >= 1500.00)
+                .sorted((f1, f2) -> f1.getNome().compareTo(f2.getNome()))
+                .collect(Collectors.toList());
+        
+    }
 
 }
 ```
