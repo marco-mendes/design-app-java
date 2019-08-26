@@ -19,7 +19,9 @@ public class Exemplo1 {
 
     public static void exemploComMetodoNomeado() {
         List<User> users = User.getUsers();
-        List<User> usersWithAllPermissions = users.stream().filter(Exemplo1::getUserWithAllPermissions).collect(Collectors.toList());
+        List<User> usersWithAllPermissions = users.stream()
+                .filter(Exemplo1::getUserWithAllPermissions)
+                .collect(Collectors.toList());
         usersWithAllPermissions.forEach(u -> System.out.println(u));
     }
 

@@ -37,16 +37,11 @@ public class User {
                 PermissionType.READ
         );
 
-        User user1 = new User("Marcos", writer);
-        User user2 = new User("Carlos", reader);
-        User user3 = new User("Mateus", reader);
-        User user4 = new User("Alan", writer);
-
         List<User> users = Arrays.asList(
-            user1,
-            user2,
-            user3,
-            user4
+                new User("Marcos", writer),
+                new User("Carlos", reader),
+                new User("Mateus", reader),
+                new User("Alan", writer)
         );
 
         return users;

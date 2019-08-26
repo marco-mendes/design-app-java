@@ -41,19 +41,4 @@ public class Exercicio1 {
 
     }
 
-    public static boolean verificarSeAContaJaFoiNegativada(ContaCorrente conta) {
-        List<ContaCorrente> contasJaNegativadas = ContasJaNegativadas.obtemContasJaNegativadas();
-        boolean contaJaFoiNegativada = contasJaNegativadas.stream()
-                .filter(c -> c.getNumeroConta()
-                        .equals(conta.getNumeroConta()))
-                .findFirst()
-                .isPresent();
-
-        if(contaJaFoiNegativada) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
 }

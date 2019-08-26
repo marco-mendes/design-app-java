@@ -62,17 +62,12 @@ public class User {
         List<PermissionType> reader = Arrays.asList(
                 PermissionType.READ
         );
-
-        User user1 = new User("Marcos", writer);
-        User user2 = new User("Carlos", reader);
-        User user3 = new User("Mateus", reader);
-        User user4 = new User("Alan", writer);
-
+        
         List<User> users = Arrays.asList(
-            user1,
-            user2,
-            user3,
-            user4
+                new User("Marcos", writer), 
+                new User("Carlos", reader),
+                new User("Mateus", reader),
+                new User("Alan", writer)
         );
 
         return users;
@@ -108,7 +103,9 @@ public class Exemplo1 {
 
     public static void exemploComMetodoNomeado() {
         List<User> users = User.getUsers();
-        List<User> usersWithAllPermissions = users.stream().filter(Exemplo1::getUserWithAllPermissions).collect(Collectors.toList());
+        List<User> usersWithAllPermissions = users.stream()
+                .filter(Exemplo1::getUserWithAllPermissions)
+                .collect(Collectors.toList());
         usersWithAllPermissions.forEach(u -> System.out.println(u));
     }
 
@@ -136,4 +133,50 @@ compreensão e manutenção do código.
 
 
 #### Exercício 1
-Com base no que foi abordado até o momento refatore o código 
+Com base no que foi abordado até o momento refatore o código abaixo com as boas práticas abordadas no tópico anterior.<br/>
+O código completo desse exercício pode ser encontrado neste [link](./exercicios/exercicio1/).
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Exercicio1 {
+
+    public static List<ContaCorrente> obterContasCorrente() {
+        List<ContaCorrente> contasCorrente = Arrays.asList(
+                new ContaCorrente("Silvio", 23456, 250.00),
+                new ContaCorrente("Carlos", 55990, 750.00),
+                new ContaCorrente("Raquel", 75690, 300.00),
+                new ContaCorrente("Marcia", 11790, 800.00),
+                new ContaCorrente("Joana", 01134, 100.00),
+                new ContaCorrente("Michelle", 80902, 1000.00)
+        );
+        return contasCorrente;
+    }
+
+
+    public static void main(String[] args) {
+        List<ContaCorrente> contasAptasParaEmprestimo = obterContasCorrente().stream().filter(conta -> {
+
+            List<ContaCorrente> contasJaNegativadas = ContasJaNegativadas.obtemContasJaNegativadas();
+            boolean contaJaFoiNegativada = contasJaNegativadas.stream()
+                    .filter(c -> c.getNumeroConta()
+                            .equals(conta.getNumeroConta()))
+                    .findFirst()
+                    .isPresent();
+
+            if(contaJaFoiNegativada) {
+                return false;
+            } else {
+                return true;
+            }
+
+        }).collect(Collectors.toList());
+
+        contasAptasParaEmprestimo.forEach(conta -> System.out.println(conta));
+
+    }
+
+}
+```
