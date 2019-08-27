@@ -1,4 +1,4 @@
-package laboratorio7.parte3.exercicio;
+package laboratorio2.parte2.exercicio;
 
 public enum GeneroLivro {
 
