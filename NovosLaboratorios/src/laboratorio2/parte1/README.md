@@ -1,13 +1,13 @@
 ## Design Pattern Builder
 
 ### Material de preparação
-[Pattern Bulder](https://dzone.com/articles/design-patterns-the-builder-pattern)
+[Pattern Bulder](https://dzone.com/articles/design-patterns-the-builder-pattern)<br/>
 [Pattern Builder com Java 8](https://medium.com/beingprofessional/think-functional-advanced-builder-pattern-using-lambda-284714b85ed5)
 
 
 ### Visão geral do Pattern Builder
-O Pattern Builder é usado para facilitar a criação um objeto muito complexo onde seus contrutores exigem muitos parâmetros.<br/>
-Suponhamos que precisamos criar uma classe Pessoa com diversas informações uma pessoa, provavelmente faríamos algo semelhante a isso: 
+O Pattern Builder é usado para facilitar a criação um objeto muito complexo onde seus construtores exigem muitos parâmetros.<br/>
+Suponhamos que precisamos criar uma classe Pessoa com diversas informações de uma pessoa, provavelmente faríamos algo semelhante a isso: 
 ```java
 public class Pessoa {
 
@@ -33,15 +33,15 @@ public class Pessoa {
     
 }
 ```
-Bom, parece bem simples certo? Porém instânciar esse objeto não é tão simples quanto parece conforme podemos ver abaixo:
+Bom, parece bem simples certo? Porém instânciar esse objeto não é tão simples quanto parece conforme podemos ver no exemplo abaixo:
 ```java
 Pessoa pessoa = new Pessoa("Carol", "Silva", 32, "Raquel Silva", "Rogerio Silva", 1.65, 68);
 ```
-Nosso contrutor não é nada descritivo com isso estaríamos abertos a erros durante a criação do objeto Pessoa.<br/>
-Inicialmente nosso contrutor pode até ser considerado simples porém suponhamos que a classe deve atender ao seguinte requisito:
+Nosso contrutor não é nada descritivo, com isso estaríamos abertos a erros durante a criação do objeto Pessoa.<br/>
+Inicialmente nosso construtor pode até ser considerado simples porém suponhamos que a classe deve atender ao seguinte requisito:
  * Ouve a necessidade de incluir mais 10 parâmetros nessa classe, todos opcionais.
  
-Ao implementar o requisito fictício apresentado acima a estrutura da Classe Pessoa não ficaria tão simples, teríamos que criar vários contrutores para essa classe para 
+Ao implementar o requisito fictício apresentado acima a estrutura da Classe Pessoa não ficaria tão simples, teríamos que criar vários construtores para essa classe para 
 atender ao requisito de parâmetros opcionais e com isso teríamos que criar construtores cada vez mais complexos além de serem de difícil manutenção e compreensão.<br/>
 Isso se parece um problema agora certo? Podemos resolver isso utilizando o Pattern Builder.
 
