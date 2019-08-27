@@ -149,9 +149,9 @@ Pessoa pessoa = new Pessoa.Builder()
         .build();
 ```
 
-Conforme vimos no exemplo acima criamos a classe pessoa com todos os seus atributos, alteramos o modificador de acesso ao construtor da classe Pessoa para privado, dessa forma 
-só é possível instâncias a classe Pessoa através de nosso Buider.<br/>
-Substituímos nosso construtor complexo por um construtor vazio pois não iremos utilizar aquele construtor complexo neste exemplo.
+Conforme vimos no exemplo acima criamos a classe pessoa com todos os seus atributos, alteramos o modificador de acesso do construtor da classe Pessoa para private, dessa forma 
+só é possível instânciar a classe Pessoa através de nosso Buider.<br/>
+Substituímos nosso construtor complexo da classe Pessoa por um construtor vazio pois não iremos utilizar aquele construtor complexo neste exemplo.
 
 Possuímos também a classe estática interna Builder, esta classe possui todos os atributos da classe Pessoa, a classe Builder também possui alguns métodos para setar cada uma 
 das propriedades presentes na classe Pessoa.<br/>
@@ -167,6 +167,7 @@ dentro do método **build()**.
 Pós: 
  * O código é mais sustentável se o número de campos necessários para criar o objeto for maior que 4 ou 5.
  * A criação do objeto é menos sujeito a erros, pois o usuário saberá exatamente quais parâmetros ele está setando durante a criação do objeto.
+ 
 Contras:
  * O Pattern Builder é detalhado e requer duplicação de código, pois precisamos copiar todos os campos da classe Original para instânciar o objeto base da mesma.
  * Caso sejam adicionadas N novas propriedades devemos criar N novos métodos para setar essas novas propriedades. 
