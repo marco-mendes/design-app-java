@@ -5,16 +5,15 @@
 
 
 ### Visão geral do Pattern Prototype
-O Pattern Prototype é usado em cenários em que a aplicação precisa criar várias instâncias de uma classe(chamada de Protótipo ou Prototype), que tem quase o mesmo estado ou 
-difere muito pouco.<br/>
-A idéia principal desse é padrão é ser usada quando a criação de uma instância é muito custosa para a aplicação, quando isso ocorre podemos utilizar este padrão para 
+O Pattern Prototype é usado em cenários em que a aplicação precisa criar várias instâncias de uma classe(chamada de Protótipo ou Prototype), que possuem quase o mesmo estado ou 
+diferem muito pouco.<br/>
+A idéia principal desse é padrão é ser usado quando a criação de uma instância é muito custosa para a aplicação, quando isso ocorre podemos utilizar este padrão para 
 clonar uma instância existente da classe e assim criar um novo objeto da mesma várias vezes de forma não tão custosa para a aplicação.<br/>
 Os participantes desse Pattern são:
- * PrototypeCapable: Este é um participante opcional que pode ser uma Interface ou classe abstrata, ele será usado como base para criação dos prototypes.
- * Protótipo : Este é o protótipo do objeto real.
- * PrototypeRegistry : é usado como serviço de registro para ter todos os protótipos acessíveis usando parâmetros de string simples.
- * Cliente : O cliente será responsável pelo uso do serviço de registro para acessar as instâncias do protótipo. 
- a capacidade de clonar protótipos sem conhecer seus tipos reais.
+ * **PrototypeCapable**: Este é um participante opcional que pode ser uma Interface ou uma classe abstrata, ele será usado como base para criação dos prototypes.
+ * **Protótipo ou Prototype** : Este é o protótipo do objeto real.
+ * **PrototypeRegistry** : é usado como serviço de registro para ter todos os protótipos acessíveis usando parâmetros de string simples.
+ * **Client** : O cliente será responsável pelo uso do **PrototypeRegistry** para acessar as instâncias do protótipo. 
  
 ### Implementando o Pattern Prototype
 Suponhamos que iremos aplicar o Pattern Prototype para a criação de itens de um carrinho de compras, podemos realizar a implementação da seguinte forma:
