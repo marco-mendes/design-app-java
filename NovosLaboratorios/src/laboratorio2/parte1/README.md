@@ -163,10 +163,10 @@ Conforme observamos o Pattern Builder é bem simples de ser implementado, caso s
 propriedades em nosso Buider, em seguida criar um método para setar o valor da nova propriedade no Builder e setar o valor do mesmo na instância criada do objeto Pessoa 
 dentro do método **build()**.
 
-#### Pós e contras desta forma de implementação
-Pós: 
+#### Prós e contras desta forma de implementação
+Prós: 
  * O código é mais sustentável se o número de campos necessários para criar o objeto for maior que 4 ou 5.
- * A criação do objeto é menos sujeito a erros, pois o usuário saberá exatamente quais parâmetros ele está setando durante a criação do objeto.
+ * A criação do objeto é menos sujeita a erros, pois o usuário saberá exatamente quais parâmetros ele está setando durante a criação do objeto.
  
 Contras:
  * O Pattern Builder é detalhado e requer duplicação de código, pois precisamos copiar todos os campos da classe Original para instânciar o objeto base da mesma.
@@ -247,8 +247,8 @@ No exemplo acima substituímos todos os métodos responsáveis por setar o valor
 este método recebe um Consumer no qual podemos utilizar uma expressão Labmda para setar todos os valores do novo objeto.<br/>
 Isso é possível pois todas as propriedades de nossa classe Builder estão com o modificador de acesso **public**.
 
-#### Pós e contras desta forma de implementação
-Pós:
+#### Prós e contras desta forma de implementação
+Prós:
  * Não precisamos criar N métodos para setar as propriedadades da classe base pois com um único método somos capazes de encapsular 
 as instruções de atribuição em uma cadeia de expressões lambda.
 Contras:
