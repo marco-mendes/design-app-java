@@ -251,8 +251,9 @@ Isso é possível pois todas as propriedades de nossa classe Builder estão com 
 Prós:
  * Não precisamos criar N métodos para setar as propriedadades da classe base pois com um único método somos capazes de encapsular 
 as instruções de atribuição em uma cadeia de expressões lambda.
+
 Contras:
- * Como a set dos valores é feito na expressão lambda, as propriedades da classe Builder devem ser públicas para podermos acessá-las.
+ * Como a set dos valores é feito na expressão lambda, as propriedades da classe Builder devem possuir o modificador de acesso public para podermos acessá-las.
  
 ### Exercício
 Seu objetivo nesse exercício é a melhoria de um código existente que aplica o Pattern Builder, você deverá aplicar os recursos da programação funcional abordados nesse 
