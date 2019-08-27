@@ -1,4 +1,4 @@
-## Design Pattern Factory utilizando programação funcional
+## Design Pattern Factory
 
 ### Material de preparação
 [Pattern Factory com e sem programação funcional](https://www.sourcecodeexamples.net/2018/05/refactoring-factory-design-pattern-with.html)
