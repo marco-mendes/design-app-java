@@ -43,14 +43,15 @@ Inicialmente nosso construtor pode até ser considerado simples porém suponhamo
  
 Ao implementar o requisito fictício apresentado acima a estrutura da Classe Pessoa não ficaria tão simples, teríamos que criar vários construtores para essa classe para 
 atender ao requisito de parâmetros opcionais e com isso teríamos que criar construtores cada vez mais complexos além de serem de difícil manutenção e compreensão.<br/>
+
 Isso se parece um problema agora certo? Podemos resolver isso utilizando o Pattern Builder.
 
 Normalmente o padrão Builder é estruturado em duas classes: a classe base e a classe Builder, que é uma classe interna responsável pela criação da classe base.<br/>
-Abordaremos neste laboratório um exemplo de implementação deste padrão com e sem a programação funcional com os pós e contras de cada implementação.
+Abordaremos neste laboratório um exemplo de implementação deste padrão com e sem a programação funcional.
 
 
 ### Implementação não funcional 
-Como foi abordado na introdução a este padrão possuímos duas classes que devem ser implementadas para utilizar este padrão, são elas a classe base e a classe interna Builder.<br/>
+Como foi abordado no tópico anterior, este padrão possui duas classes que devem ser implementadas para utilizá-lo, são elas a classe base e a classe interna Builder.<br/>
 Podemos implementá-los da seguinte forma:
 ```java
 public class Pessoa {
