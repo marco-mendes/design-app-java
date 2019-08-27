@@ -10,9 +10,9 @@ difere muito pouco.<br/>
 A idéia principal desse é padrão é ser usada quando a criação de uma instância é muito custosa para a aplicação, quando isso ocorre podemos utilizar este padrão para 
 clonar uma instância existente da classe e assim criar um novo objeto da mesma várias vezes de forma não tão custosa para a aplicação.<br/>
 Os participantes desse Pattern são:
- * PrototypeCapable: Este é um participante opcional que pode ser uma Interface ou classe abstrata, ele será usado como base para criação dos prototypes, com ele teremos 
+ * PrototypeCapable: Este é um participante opcional que pode ser uma Interface ou classe abstrata, ele será usado como base para criação dos prototypes.
  * Protótipo : Este é o protótipo do objeto real.
- * Registro de protótipo : é usado como serviço de registro para ter todos os protótipos acessíveis usando parâmetros de string simples.
+ * PrototypeRegistry : é usado como serviço de registro para ter todos os protótipos acessíveis usando parâmetros de string simples.
  * Cliente : O cliente será responsável pelo uso do serviço de registro para acessar as instâncias do protótipo. 
  a capacidade de clonar protótipos sem conhecer seus tipos reais.
  
@@ -28,7 +28,7 @@ public interface PrototypeCapable extends Cloneable {
 ``` 
 
 #### Criando os Protótipos
-Os protótipos serão criados com base em nossa interface **PrototypeCapable**, alguns exemplos de implementaçao destes objetos seria:
+Os protótipos serão criados com base em nossa interface **PrototypeCapable**, alguns exemplos de implementaçao destes objetos seriam:
 ```java
 public class Livro implements PrototypeCapable {
 
@@ -116,7 +116,7 @@ public class PrototypeFactory {
 ```
 
 Neste exemplo mapeamos todos os tipos de Protótipos utilizando um Map com uma String específica e a instância de cada protótipo, no método **getInstance()** 
-realizamos a clonagem do objeto utilizando o método **clone()**.
+realizamos a clonagem do objeto utilizando o método **clone()** e retornamos seu resultado.
 
 #### Criando nosso client
 Podemos criar o client da seguinte forma para poder acessar as instâncias de nosso protótipos:
@@ -143,3 +143,5 @@ public class PrototypePatternMain {
 }
 ```
 
+### Exercício
+Com base no que foi apresentado neste laboratório aplique o Pattern Prototype no código contido neste [link](./exercicio/).
