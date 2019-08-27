@@ -162,4 +162,4 @@ public class ObserverMain {
 No exemplo acima substituímos as classes **ConcreteObserver** por expressões Lambda durante a invocação do método **registerObserver**.
 ### Exercício
 Seu objetivo nesse exercício é a melhoria de um código existente que aplica o Pattern Observer, você deverá aplicar os recursos da programação funcional abordados nesse laboratório para melhoria do código existente.<br/>
-Você encontrará o código deste exercício neste [link](./parte2/exercicio)
+Você encontrará o código deste exercício neste [link](./exercicio)
