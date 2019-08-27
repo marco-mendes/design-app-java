@@ -1,4 +1,4 @@
-package laboratorio7.parte3.exemplos.antesjava8;
+package laboratorio2.parte2.exemplos.exemplo2;
 
 public class Mercedes implements Car {
     @Override
