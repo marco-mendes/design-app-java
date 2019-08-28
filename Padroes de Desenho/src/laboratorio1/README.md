@@ -371,7 +371,7 @@ public class AreaCalculator
         double area = 0;
         foreach (var shape in shapes)
         {
-            area += shape.Area();
+            area += shape.getArea();
         }
 
         return area;
