@@ -338,7 +338,7 @@ Vamos fazer algo melhor...
 ```java
 public interface Shape
 {
-    public double Area();
+    public double getArea();
 }
 
 public class Rectangle extends Shape
