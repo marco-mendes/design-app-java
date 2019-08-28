@@ -4,14 +4,26 @@ public class PrototypePatternMain {
 
     public static void main(String[] args) {
         try {
-            String livro = PrototypeFactory.getInstance(PrototypeFactory.ModelType.LIVRO).toString();
-            System.out.println(livro);
+            Livro livro = (Livro) PrototypeFactory.getInstance(PrototypeFactory.ModelType.LIVRO);
+            System.out.println(livro.toString());
 
-            String jornal = PrototypeFactory.getInstance(PrototypeFactory.ModelType.JORNAL).toString();
-            System.out.println(jornal);
+            // Clonando Protótipo Livro
+            Livro cloneLivro = livro.clone();
+            System.out.println(cloneLivro.toString());
 
-            String revista = PrototypeFactory.getInstance(PrototypeFactory.ModelType.REVISTA).toString();
-            System.out.println(revista);
+            Jornal jornal = (Jornal) PrototypeFactory.getInstance(PrototypeFactory.ModelType.JORNAL);
+            System.out.println(jornal.toString());
+
+            // Clonando Protótipo Jornal
+            Jornal cloneJornal = jornal.clone();
+            System.out.println(jornal.toString());
+
+            Revista revista = (Revista) PrototypeFactory.getInstance(PrototypeFactory.ModelType.REVISTA);
+            System.out.println(revista.toString());
+
+            // Clonando Protótipo Revista
+            Revista cloneRevista = revista.clone();
+            System.out.println(cloneRevista.toString());
 
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
