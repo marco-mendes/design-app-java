@@ -419,14 +419,14 @@ public class Quadrado extends Retangulo
 {
     public void inserirAltura(double altura)
     {
-        base.altura = altura;
-        base.largura = altura;
+        this.altura = altura;
+        this.largura = altura;
     }
 
     public void inserirLargura(double largura)
     {
-        base.largura = largura;
-        base.altura = largura;
+        this.largura = largura;
+        this.altura = largura;
     }
 }
 ```
