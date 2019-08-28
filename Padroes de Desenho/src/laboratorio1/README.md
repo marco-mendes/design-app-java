@@ -402,7 +402,7 @@ Vamos examinar um contra exemplo.
 public class Retangulo
 {
     public double altura;
-    public double Largura;
+    public double largura;
 
     public  void inserirAltura(double altura)
     {
@@ -411,7 +411,7 @@ public class Retangulo
 
     public  void inserirLargura(double largura)
     {
-        this.Largura = largura;
+        this.largura = largura;
     }
 }
 
@@ -419,14 +419,14 @@ public class Quadrado extends Retangulo
 {
     public void inserirAltura(double altura)
     {
-        base.Altura = altura;
-        base.Largura = altura;
+        base.altura = altura;
+        base.largura = altura;
     }
 
     public void inserirLargura(double largura)
     {
-        base.Largura = largura;
-        base.Altura = largura;
+        base.largura = largura;
+        base.altura = largura;
     }
 }
 ```
@@ -445,11 +445,12 @@ void verifica(Retangulo r) {
 
 ```
 
-O artigo original com esse princípio é publicado aqui: https://drive.google.com/file/d/0BwhCYaYDn8EgNzAzZjA5ZmItNjU3NS00MzQ5LTkwYjMtMDJhNDU5ZTM0MTlh/view
+O artigo original com esse princípio e esse contra-exemplo é publicado aqui: https://drive.google.com/file/d/0BwhCYaYDn8EgNzAzZjA5ZmItNjU3NS00MzQ5LTkwYjMtMDJhNDU5ZTM0MTlh/view
 
 #### Exercício 3
 
-Crie uma hierarquia que contenha as abstrações Quadrado e Retangulo mas que atenda ao principio LSP.
+Crie uma hierarquia que contenha as abstrações Quadrado e Retangulo, mas que atenda ao principio LSP.
+Dica: Use uma interface Shape.
 
 ### (I) - Interface Segregation (Princípio da Segregação de Interfaces)
 O quarto princípio do SOLID é conhecido como Interface Segregation, o objetivo do mesmo é basicamente dividir interfaces maiores em interfaces menores, fazendo isso  podemos garantir que as classes de implementação só precisem implementar os métodos que realmente irão precisar.<br/>
