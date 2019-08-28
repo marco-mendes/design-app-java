@@ -245,7 +245,7 @@ public class Usuario {
 
     }
 
-    private static boolean usuarioExistente(Usuario usuario) {
+    private static boolean usuarioExistenteNoBancoDeDados(Usuario usuario) {
         List<Usuario> usuarios = UserDatabase.obterTodosUsuarios();
         boolean usuarioExistente = usuarios.stream()
                 .filter(user -> user.getEmail().equals(usuario.getEmail()))
@@ -366,7 +366,7 @@ public class Circle : Shape
 ```java
 public class AreaCalculator
 {
-    public double Area(Shape[] shapes)
+    public double area(Shape[] shapes)
     {
         double area = 0;
         foreach (var shape in shapes)
@@ -378,114 +378,82 @@ public class AreaCalculator
     }
 }
 ```
+Esse método é aberto/fechado pois tem uma implementação fechada (não exige modificação) mas consegue calcular a área de qualquer forma geométrica (até as que não foram criadas ainda).
+
 
 #### Exercício 2
-Com base no código abaixo implemente uma nova funcionalidade chamada raizQuadrada, a mesma deverá calcular a raiz quadrada do número informado e retornar seu resultado.<br/>
-Utilize o princípio Open/Closed para isso.
-```java
-public class CalculadoraSimples {
+Considere o contexto de cálculo dos descontos a serem aplicados em uma nota fiscal. Vamos assumir que os seguintes impostos são aplicados hoje:
+* ISS (2%)
+* COFINS (3%)
+* ICMS_MinasGerais (18%)
 
-    public CalculadoraSimples() {
+Gostariamos de pode criar um método calculador de impostos mas que não fique preso a apenas esses impostos pois novos impostos podem surgir e as aliquotas podem varias entre estados.
 
-    }
+A sua missão é implementar um método que calcule os descontos a serem aplicadas em uma nota fiscal que não esteja preso a impostos específicos (aberta), mas que consiga ser fechada em sua implementação (aberta).
 
-    public int soma(int valor1, int valor2) {
-        return valor1 + valor2;
-    }
-
-    public int subtracao(int valor1, int valor2) {
-        return valor1 - valor2;
-    }
-
-    public int multiplicacao(int valor1, int valor2) {
-        return valor1 * valor2;
-    }
-
-    public double divisao(int valor1, int valor2) {
-        return valor1 / valor2;
-    }
-
-}
-```
 
 ### (L) - Liskov Substitution (Princípio da substituição de Liskov)
 O terceiro princípio do SOLID é conhecido como Liskov Substitution, para melhor compreensão do mesmo considere a seguinte situação:<br/>
-Possuímos a classe A, que é um subtipo de B, segundo o princípio da Liskov Substitution, devemos ser capazes de substituir B por A sem ocorrer problemas no 
-funcionamento de nosso programa.<br/>
-Exemplo: 
+Possuímos a classe A, que é um subtipo de B, segundo o princípio da Liskov Substitution, devemos ser capazes de substituir B por A sem ocorrer problemas no funcionamento de nosso programa.<br/>
+
+Vamos examinar um contra exemplo.
+
 ```java
-public interface Relatorio {
+public class Retangulo
+{
+    public double altura;
+    public double Largura;
 
-    public void gerarRelatorio();
+    public  void inserirAltura(double altura)
+    {
+        this.Altura = altura;
+    }
 
+    public  void inserirLargura(double largura)
+    {
+        this.Largura = largura;
+    }
+}
+
+public class Quadrado extends Retangulo
+{
+    public void inserirAltura(double altura)
+    {
+        base.Altura = altura;
+        base.Largura = altura;
+    }
+
+    public void inserirLargura(double largura)
+    {
+        base.Largura = largura;
+        base.Altura = largura;
+    }
 }
 ```
 
-```java
-public class RelatorioExcel implements Relatorio {
+No código acima, estamos dizendo que um quadro (tipo A) é um retangulo (tipo B), mas nao podemos substituir B por A sem ocorrer problemas no funcionamento de nosso programa. 
 
-    @Override
-    public void gerarRelatorio() {
-        System.out.println("Gerando relatório no formato Excel!");
-    }
-
-}
-```
+Vamos trabalhar um exemplo de verificacao de teste.
 
 ```java
-public class Main {
 
-    public static void gerarRelatorio(Relatorio relatorio) {
-        relatorio.gerarRelatorio();
-    }
-    
-    public static void main(String[] args) {
-        RelatorioExcel relatorioExcel = new RelatorioExcel();
-        gerarRelatorio(relatorioExcel);
-    }
-    
+void verifica(Retangulo r) {
+    r.inserirLargura(5);
+    r.inserirAltura(4);
+    assert(r.altura * r.largura == 20);  // Falha se passamos um objeto quadrado como parametro!!!
 }
+
 ```
 
-No exemplo acima possuímos a classe **RelatorioExcel** que é um subtipo da classe **Relatorio**, conforme vimos no exemplo acima conseguimos substituir um objeto do tipo **Relatorio** 
-por um objeto do tipo **RelatorioExcel** no método **gerarRelatorio()**.<br/>
-Este seria um exemplo bem simples desse princípio.
+O artigo original com esse princípio é publicado aqui: https://drive.google.com/file/d/0BwhCYaYDn8EgNzAzZjA5ZmItNjU3NS00MzQ5LTkwYjMtMDJhNDU5ZTM0MTlh/view
 
 #### Exercício 3
-Utilizando o princípio Liskov Substitution, crie um subtipo de **Veiculo** chamado **Carro**, no método **ligarVeiculo()** da classe **Carro** imprima no console 
-"Ligando Carro", apos isso invoque o método **dirigir** da classe **Motorista** utilizando uma instância do tipo **Carro**.<br/>
-Código base para esse exercício:
-```java
-public interface Veiculo {
 
-    void ligarVeiculo();
-
-    default void acelerar() {
-        System.out.println("Acelerando!");
-    }
-
-}
-```
-
-```java
-public class Motorista {
-
-    public static void dirigir(Veiculo veiculo) {
-        veiculo.ligarVeiculo();
-        veiculo.acelerar();
-    }
-
-    public static void main(String[] args) {
-        // Invocar método dirigir com uma instância do tipo Carro
-
-    }
-
-}
-```
+Crie uma hierarquia que contenha as abstrações Quadrado e Retangulo mas que atenda ao principio LSP.
 
 ### (I) - Interface Segregation (Princípio da Segregação de Interfaces)
-O quarto princípio do SOLID é conhecido como Interface Segregation, o objetivo do mesmo é basicamente dividir interfaces maiores em interfaces menores, fazendo isso 
-podemos garantir que as classes de implementação só precisem implementar os métodos que realmente irão precisar.<br/>
+O quarto princípio do SOLID é conhecido como Interface Segregation, o objetivo do mesmo é basicamente dividir interfaces maiores em interfaces menores, fazendo isso  podemos garantir que as classes de implementação só precisem implementar os métodos que realmente irão precisar.<br/>
+
 Considere a seguinte interface:
 ```java
 public interface GerarRelatorio {
