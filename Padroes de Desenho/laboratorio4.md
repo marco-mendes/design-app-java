@@ -2,6 +2,12 @@
 Vamos examinar o conceito do padrão Strategy, que é uma forma de introduzir variabilidade no comportamento 
 sem criar acoplamento excessivo com a classe cliente que demanda um determinado comportamento.
 
+O padrão estratégia tem a seguinte utilidade:
+
+"Defina uma família de algoritmos, encapsule cada um deles e torne-os intercambiáveis. A estratégia permite que o algoritmo varie independentemente dos clientes que o usam."
+
+Vamos ver um exemplo simples para o cálculo de taxas (juros).
+
 ```java
 public interface TaxStrategy {
  
