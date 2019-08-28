@@ -16,8 +16,9 @@ Os princípios do SOLID são:
 Abordaremos cada um desses princípios neste laboratório.
 
 ### (S) - Single Responsability (Princípio da responsabilidade única)
-O primeiro princípio do SOLID é conhecido como Single Responsability, o objetivo do mesmo é fazer com que cada classe tenha apenas uma responsabilidade.<br/>
-Exemplo de classe que possui mais de uma responsabilidade:
+O primeiro princípio do SOLID é conhecido como Single Responsability, o objetivo do mesmo é fazer com que cada classe tenha apenas uma responsabilidade. Observe que uma responsabilidade não significa que uma classe tenha um método, mas uma responsabilidade. Por exemplo, uma classe conta corrente deveria ter a responsabilidade de gerir o saldo de uma conta.<br/>
+
+Vamos examinar um exemplo de classe que possui mais de uma responsabilidade:
 ```java
 import java.util.List;
 
@@ -68,14 +69,14 @@ public class ContaCorrente {
     }
 
     public void realizarEmprestimo(double valor) {
-        if(contaJaFoiNegativada(this)) {
+        if(temCreditoAprovado(this)) {
             System.out.println("Emprestimo negado!");
         } else {
             System.out.println("Emprestimo aprovado!");
         }
     }
 
-    private boolean contaJaFoiNegativada(ContaCorrente conta) {
+    private boolean temCreditoAprovado(ContaCorrente conta) {
         List<ContaCorrente> contasJaNegativadas = ContasJaNegativadas.obtemContasJaNegativadas();
         boolean contaJaFoiNegativada = contasJaNegativadas.stream()
                 .filter(c -> c.getNumeroConta()
@@ -172,14 +173,14 @@ import java.util.List;
 public class Emprestimo {
 
     public void realizarEmprestimo(ContaCorrente conta, double valor) {
-        if(contaJaFoiNegativada(conta)) {
+        if(temCreditoAprovado(conta)) {
             System.out.println("Emprestimo negado!");
         } else {
             System.out.println("Emprestimo aprovado!");
         }
     }
 
-    private boolean contaJaFoiNegativada(ContaCorrente conta) {
+    private boolean temCreditoAprovado(ContaCorrente conta) {
         List<ContaCorrente> contasJaNegativadas = ContasJaNegativadas.obtemContasJaNegativadas();
         boolean contaJaFoiNegativada = contasJaNegativadas.stream()
                 .filter(c -> c.getNumeroConta()
@@ -283,75 +284,104 @@ public class UserDatabase {
 ### (O) - Open/Closed (Princípio do Aberto/Fechado)
 O segundo princípio do SOLID é conhecido como Open/Closed, o objetivo do mesmo é garantir que a classe esteja aberta para ser extendida porém fechada para modificações.<br/>
 
-Exemplo:<br/>
-Considere que a classe **EnviarEmail** do código abaixo já foi testada e está funcionando corretamente.
+Vamos olhar um contra-exemplo e os seus efeitos colaterais.
+
 ```java
-// Classe de modelo para Email
-public class Email {
-
-    private String destinatario;
-    private String remetente;
-
-    public Email(String destinatario, String remetente) {
-        this.destinatario = destinatario;
-        this.remetente = remetente;
-    }
-
-    public String getDestinatario() {
-        return destinatario;
-    }
-
-    public String getRemetente() {
-        return remetente;
-    }
-    
+public class Rectangle
+{
+    public double Width { get; set; }
+    public double Height { get; set; }
 }
-``` 
- 
+
+public class AreaCalculator
+{
+    public double area(Rectangle[] shapes)
+    {
+        double area = 0;
+        foreach (var shape in shapes)
+        {
+            area += shape.Width*shape.Height;
+        }
+
+        return area;
+    }
+}
+
+/// Se quisermos estender o método area para lidar com circulos o codigo poderia ser criado da forma abaixo.
+
+public double area(object[] shapes)
+{
+    double area = 0;
+    foreach (var shape in shapes)
+    {
+        if (shape is Rectangle)
+        {
+            Rectangle rectangle = (Rectangle) shape;
+            area += rectangle.Width*rectangle.Height;
+        }
+        else
+        {
+            Circle circle = (Circle)shape;
+            area += circle.Radius * circle.Radius * Math.PI;
+        }
+    }
+
+    return area;
+}
+
+```
+
+Esse exemplo acima funciona, mas nao segue o princípio Open/Closed. Qualquer modificação na classe requer mudança na implementação do método de cálculo de área.
+
+Vamos fazer algo melhor...
+
 ```java
-public class EnviarEmail {
+public interface Shape
+{
+    public double Area();
+}
 
-    Email email;
-
-    public EnviarEmail(Email email) {
-        this.email = email;
+public class Rectangle : Shape
+{
+    public double width;
+    public double height;
+    public double area()
+    {
+        return width*height;
     }
+}
 
-    public void enviarEmail(String mensagem) {
-        System.out.println(String.format("Enviando email para %s", this.email.getDestinatario()));
-        System.out.println(String.format("Remetente: %s", this.email.getRemetente()));
-        System.out.println(String.format("Mensagem: %s", mensagem));
+public class Circle : Shape
+{
+    public double Radius;
+    public double area()
+    {
+        return radius*radius*Math.PI;
     }
-    
 }
 ```
  
-Em um belo dia surgiu a necessidade de implementar novas funcionalidades para essa classe, porém essa necessidade pode resultar em bugs em nossa classe **EnviarEmail**.<br/>
-Para evitar isso podemos usar o princípio Open/Closed no qual a classe **EnviarEmail** será extendida e as novas funcionalidades serão implementadas na nova classe criada 
-como no exemplo abaixo:
+ Com essa implementação acima podemos ter um método genérico de calculo de area aberto/fechado.
+
 ```java
-public class EnviarEmailEmpresarial extends EnviarEmail {
+public class AreaCalculator
+{
+    public double Area(Shape[] shapes)
+    {
+        double area = 0;
+        foreach (var shape in shapes)
+        {
+            area += shape.Area();
+        }
 
-    String assinatura;
-
-    public EnviarEmailEmpresarial(Email email, String assinatura) {
-        super(email);
-        this.assinatura = assinatura;
+        return area;
     }
-
-    public void enviarEmailEmpresarial(String mensagem) {
-        System.out.println(String.format("Enviando E-mail empresarial para %s", this.email.getDestinatario()));
-        System.out.println(String.format("Remetente: %s", this.email.getRemetente()));
-        System.out.println(String.format("Mensagem: %s", mensagem));
-        System.out.println(String.format("Assinatura: %s", this.assinatura));
-    }
-
 }
 ```
 
 #### Exercício 2
 Com base no código abaixo implemente uma nova funcionalidade chamada raizQuadrada, a mesma deverá calcular a raiz quadrada do número informado e retornar seu resultado.<br/>
-Utilize o princípio Open/Close para isso.
+Utilize o princípio Open/Closed para isso.
 ```java
 public class CalculadoraSimples {
 
