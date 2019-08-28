@@ -245,7 +245,7 @@ public class Usuario {
 
     }
 
-    private static boolean usuarioExistenteNoBancoDeDados(Usuario usuario) {
+    private static boolean usuarioExistente(Usuario usuario) {
         List<Usuario> usuarios = UserDatabase.obterTodosUsuarios();
         boolean usuarioExistente = usuarios.stream()
                 .filter(user -> user.getEmail().equals(usuario.getEmail()))
