@@ -1,4 +1,8 @@
 
+## Padrões de Desenho Comportamentais 
+
+### Padrão Strategy
+
 Vamos examinar o conceito do padrão Strategy, que é uma forma de introduzir variabilidade no comportamento 
 sem criar acoplamento excessivo com a classe cliente que demanda um determinado comportamento.
 
@@ -79,7 +83,7 @@ public class TaxStrategyCoordinator {
 
 ````
 
-Exercício 4 - Refatore esse código para usar programação funcional com o uso de expressões Lambda.
+#### Exercício  - Refatore esse código para usar programação funcional com o uso de expressões Lambda.
 
 Dica: Veja o seguinte tutorial para ver como isso pode ser realizado - 
 https://dzone.com/articles/strategy-pattern-using-lambda
