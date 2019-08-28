@@ -341,20 +341,20 @@ public interface Shape
     public double Area();
 }
 
-public class Rectangle : Shape
+public class Rectangle extends Shape
 {
     public double width;
     public double height;
-    public double area()
+    public double getArea()
     {
         return width*height;
     }
 }
 
-public class Circle : Shape
+public class Circle extends Shape
 {
-    public double Radius;
-    public double area()
+    public double radius;
+    public double getArea()
     {
         return radius*radius*Math.PI;
     }
@@ -366,7 +366,7 @@ public class Circle : Shape
 ```java
 public class AreaCalculator
 {
-    public double area(Shape[] shapes)
+    public double getArea(Shape[] shapes)
     {
         double area = 0;
         foreach (var shape in shapes)
