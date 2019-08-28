@@ -341,7 +341,7 @@ public interface Shape
     public double getArea();
 }
 
-public class Rectangle extends Shape
+public class Rectangle implements Shape
 {
     public double width;
     public double height;
@@ -351,7 +351,7 @@ public class Rectangle extends Shape
     }
 }
 
-public class Circle extends Shape
+public class Circle implements Shape
 {
     public double radius;
     public double getArea()
