@@ -21,10 +21,7 @@ O grande problema é que sempre que um novo imposto for criado será necessário
 utilizando o Pattern Visitor para que possamos aplicar novos comportamentos a classe **Nota Fiscal** sem alterar a implementação original da mesma.<br/>
 Veremos nos próximos tópicos a implementação deste Pattern.
 
-### Implementação não funcional
-Abordaremos primeiro a forma não funcional de implementação e após isso abordaremos a forma funcional de implementação
-
-#### Estruturando nosso participante Element:
+### Estruturando nosso participante Element:
 Como vimos o **Element** é basicamente uma interface que aplica o um método **accept()** recebendo como argumento um **visitor**.<br/> 
 No exemplo abaixo criamos a interface **VisitableElement** para definir nosso participante **Element**, o mesmo recebe em seu método **accept()** nosso visitor 
 **NotaFiscalVisitor** que será criado posteriormente.
@@ -36,7 +33,7 @@ public interface VisitableElement {
 }
 ```
 
-#### Estruturando nosso participante Concrete Element
+### Estruturando nosso participante Concrete Element
 Nosso participante **Concrete Element** será uma classe concreta que implementa nossa interface **VisitableElement** conforme o exemplo abaixo:
 ```java
 import java.util.HashMap;
@@ -77,7 +74,7 @@ public class NotaFiscal implements VisitableElement {
 }
 ```
 
-#### Estruturando nosso participante Visitor
+### Estruturando nosso participante Visitor
 Definiremos aqui a interface responsavel por representar nosso **Visitor**, a mesma recebe em seu método **visit()** um **Concrete Element** como parâmetro.
 ```java
 public interface NotaFiscalVisitor {
@@ -90,7 +87,7 @@ public interface NotaFiscalVisitor {
 Uma observação importante é que nosso **Visitor** pode possuir um ou mais métodos **visit()**, cada um deles referente a um **Concrete Element** associado a uma 
 implementação, em nosso exemplo teremos apenas o **Concrete Element** **NotaFiscal**.
 
-#### Estruturando nosso participante Concrete Visitor
+### Estruturando nosso participante Concrete Visitor
 O **Concrete Visitor** será responsável por armazenar nossa lógica de aplicação de impostos em nossa **Nota Fiscal**, abaixo alguns exemplos 
 de implementação do mesmo:
 ```java
@@ -149,5 +146,3 @@ public class PatternVisitorMain {
 ```
 
 Caso seja necessário adicionar novas operações de aplicação de impostos basta criar um novo **Concrete Visitor** e aplicá-lo a classe **NotaFiscal** através do método **accept()**.
-
-### Implementação Funcional
