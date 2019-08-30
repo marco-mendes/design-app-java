@@ -1,7 +1,7 @@
 ## Design Pattern Visitor
 
 ### Material de preparação
-[Patter Visitor](https://www.geeksforgeeks.org/visitor-design-pattern/)<br/>
+[Pattern Visitor](https://www.geeksforgeeks.org/visitor-design-pattern/)<br/>
 [Mais exemplos Pattern Visitor](https://www.tutorialspoint.com/design_pattern/visitor_pattern.htm)
 
 ### Visão geral do Pattern Visitor
