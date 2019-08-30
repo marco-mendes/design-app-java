@@ -2,7 +2,7 @@
 
 ### Material de preparação
 [Patter Visitor](https://www.geeksforgeeks.org/visitor-design-pattern/)<br/>
-[Mais exemplos Patter Visitor](https://www.tutorialspoint.com/design_pattern/visitor_pattern.htm)
+[Mais exemplos Pattern Visitor](https://www.tutorialspoint.com/design_pattern/visitor_pattern.htm)
 
 ### Visão geral do Pattern Visitor
 O Pattern Visitor permite que se crie uma nova operação sem que se mude a classe dos elementos sobre as quais ela opera.<br/>
