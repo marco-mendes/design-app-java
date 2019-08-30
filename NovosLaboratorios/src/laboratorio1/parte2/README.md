@@ -103,7 +103,8 @@ public final class WordDocumentMemento {
 ```
 
 Observe que a classe **WordDocumentMemento** foi criada utilizando todos os atributos da classe **WordDocument**, observe também que ela e todos os seus atributos foram 
-criados com o modificador de acesso **final**, o objetivo disso é tornar o objeto imutável após sua criação.
+criados com o modificador de acesso **final**, o objetivo disso é tornar o objeto imutável após sua criação.<br/>
+_**Observação importante**: O componente Memento deve armazenar apenas o estado interno do objeto e métodos referentes a obtençao deles(Getters)._
 
 #### Implementando o componente Originator
 Nosso componente Originator será basicamente nossa classe **WordDocument** com algumas modificações conforme o exemplo abaixo:
@@ -241,3 +242,13 @@ public class PatternMementoMain {
 
 }
 ```
+
+### Exercício
+Aplique o Pattern Memento utilizando como base o código contido neste [link](./exercicio/).<br/>
+A classe **PatternMementoMain** possui comentários em seu método **main()** indicando onde cada uma das seguintes operações deve ser realizada:
+ * Criar 4 Savepoints com o estado atual do objeto **lancamentoDePontos**
+ * Restaurar o objeto **lancamentoDePontos** para cada um dos 4 estados Salvos no componente **Caretaker** do Pattern Memento, após cada restauração imprima no console o 
+ resultado dessas operações no objeto **lancamentoDePontos**.
+ * Limpar os estados salvos no componente **Caretaker**.
+ 
+Implemente cada uma das operações especificadas acima e execute a classe **PatternMementoMain** para observar o resultado.
