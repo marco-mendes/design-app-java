@@ -153,7 +153,7 @@ Considere a estrutura de classes contida neste [link](./exercicio/) no qual poss
 desconto sobre o mesmo.<br/>
 Sua missão é aplicar o pattern visitor neste código para que a classe **CarrinhoDeCompras** possa receber novas operações de aplicação de desconto sobre o mesmo.<br/>
 Após aplicar o pattern Visitor crie um Concrete Visitor chamado **AplicarCupomDeDescontoVisitor** que receba como parâmetro o nome do cupom e o percentual de desconto a ser 
-aplicado no carrinho, neste método você deverá aplicar um desconto ao carrinho de acordo com a porcentagem informada no construtor deste visitor.<br/>
+aplicado no carrinho, neste método você deverá aplicar um desconto valor total do carrinho de acordo com a porcentagem informada no construtor deste visitor.<br/>
 Com os passos anteriores completos aplique o visitor **AplicarCupomDeDescontoVisitor** ao objeto carrinho de compras existente com um cupom chamado "Aniversario da Loja" com o 
 percentual de 10% de desconto.<br/>
 Para finalizar imprima o valor a ser pago do carrinho de compras e imprima os descontos aplicados ao mesmo no console.
