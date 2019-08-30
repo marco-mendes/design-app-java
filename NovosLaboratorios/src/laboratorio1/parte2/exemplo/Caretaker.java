@@ -16,8 +16,8 @@ public class Caretaker {
     }
 
     public void clearSavePoints() {
-        System.out.println("Limpando todos os estados salvos!");
         this.mementoList.clear();
+        System.out.println("Os estados salvos foram limpos com sucesso!");
     }
 
 }

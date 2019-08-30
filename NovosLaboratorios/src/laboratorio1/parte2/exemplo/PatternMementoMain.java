@@ -34,6 +34,9 @@ public class PatternMementoMain {
         document.restoreMemento(caretaker.getMemento("Savepoint 3"));
         System.out.println(String.format("Estado restaurado para: %s", document));
 
+        System.out.println("Limpando nosso Caretaker!");
+        caretaker.clearSavePoints();
+
     }
 
 }

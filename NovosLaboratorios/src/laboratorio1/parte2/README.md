@@ -12,7 +12,7 @@ Este Pattern é composto pelos seguintes componentes:
  estado depois de criado.
  * **Originator**: Este componente cria um memento contendo seu estado interno corrente e pode também restaurar seu estado interno através de um Memento recebido 
  como parâmetro.
- * **CareTaker**: Este componente é responsável por armazenar um ou mais Mementos com os estados salvos de um Originator.
+ * **Caretaker**: Este componente é responsável por armazenar um ou mais Mementos com os estados salvos de um Originator.
  
 ### Problema a ser resolvido
 Considere a seguinte classe:
@@ -65,7 +65,7 @@ public class WordDocument {
 }
 ```
 Esta classe armazena as informações de um documento do Word e gostaríamos de salvar seu estado interno de forma que seu encapsulamento não seja comprometido e nos permita 
-restaurar o objeto para um estado anterior do mesmo.<br/>
+restaurar o objeto para um estado anterior do mesmo posteriormente.<br/>
 Veremos no próximo tópico a resolução deste problema utilizando o Pattern Memento.
 
 ### Implementação com o Pattern Memento
@@ -189,8 +189,8 @@ public class Caretaker {
     }
 
     public void clearSavePoints() {
-        System.out.println("Limpando todos os estados salvos!");
         this.mementoList.clear();
+        System.out.println("Os estados salvos foram limpos com sucesso!");
     }
 
 }
@@ -233,6 +233,9 @@ public class PatternMementoMain {
         System.out.println("Restaurando para o terceiro estado!");
         document.restoreMemento(caretaker.getMemento("Savepoint 3"));
         System.out.println(String.format("Estado restaurado para: %s", document));
+
+        System.out.println("Limpando nosso Caretaker!");
+        caretaker.clearSavePoints();
 
     }
 
