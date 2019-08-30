@@ -3,7 +3,7 @@ package laboratorio1.parte2.exemplo;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CareTaker {
+public class Caretaker {
 
     private Map<String, WordDocumentMemento> mementoList = new HashMap();
 

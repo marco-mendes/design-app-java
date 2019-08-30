@@ -25,6 +25,4 @@ public final class WordDocumentMemento {
         return conteudo;
     }
 
-
-
 }

@@ -8,14 +8,14 @@ Este Pattern tem por objetivo capturar e externalizar um estado interno de um ob
 o encapsulamento do objeto.<br/>
 
 Este Pattern é composto pelos seguintes componentes:
- * Memento: Este componente armazena o estado interno de um objeto Originator, a princípio este componente deve ser objeto imutável para que ninguém possa mudar seu estado 
- depois de criado.
- * Originator: Este componente cria um memento contendo seu estado interno corrente, o mesmo utiliza um outro memento para restaurar seu estado interno capturado pelo memento 
- recebido como parâmetro.
- * CareTaker: Este componente é responsável por armazenar um ou mais mementos com os estados salvos de um Originator.
+ * **Memento**: Este componente armazena o estado interno de um objeto Originator, a princípio este componente deve ser um objeto imutável para que ninguém possa mudar seu 
+ estado depois de criado.
+ * **Originator**: Este componente cria um memento contendo seu estado interno corrente e pode também restaurar seu estado interno através de um Memento recebido 
+ como parâmetro.
+ * **CareTaker**: Este componente é responsável por armazenar um ou mais Mementos com os estados salvos de um Originator.
  
 ### Problema a ser resolvido
-Considere a classe WordDocument abaixo:
+Considere a seguinte classe:
 ```java
 public class WordDocument {
 
@@ -99,16 +99,14 @@ public final class WordDocumentMemento {
         return conteudo;
     }
 
-
-
 }
 ```
 
-Observe que a classe **WordDocumentMemento** foi criada utilizando todos os atributos da classe **WordDocument**, observe também que ela e seus atributos foram criados com 
-o modificador de acesso **final**, o objetivo disso é tornar o objeto imutável após sua criação.
+Observe que a classe **WordDocumentMemento** foi criada utilizando todos os atributos da classe **WordDocument**, observe também que ela e todos os seus atributos foram 
+criados com o modificador de acesso **final**, o objetivo disso é tornar o objeto imutável após sua criação.
 
 #### Implementando o componente Originator
-Nosso componente Originator será basicamente nossa clase **WordDocument** com algumas modificações conforme o exemplo abaixo:
+Nosso componente Originator será basicamente nossa classe **WordDocument** com algumas modificações conforme o exemplo abaixo:
 ```java
 public class WordDocument {
 
@@ -171,14 +169,14 @@ public class WordDocument {
 Observe que o que difere a classe **WordDocument** atual de sua versão anterior é o fato da mesma possuir dois novos métodos, sendo eles: **createMemento()** e **restoreMemento()**.<br/>
 Estes métodos tem por objetivo registrar e restaurar o estado interno da classe **WordDocument** respectivamente.
 
-#### Criando o componente CareTaker
-Conforme foi abordado no início deste laboratório, o componente CareTaker é responsável por armazenar nossos Mementos, podemos implementá-lo de forma que o mesmo possa armazenar 
-vários estados de um mesmo Memento conforme o exemplo abaixo:
+#### Criando o componente Caretaker
+Conforme foi abordado no início deste laboratório, o componente Caretaker é responsável por armazenar nossos Mementos, podemos implementá-lo de forma que o mesmo possa armazenar 
+vários estados de um mesmo Originator conforme o exemplo abaixo:
 ```java
 import java.util.HashMap;
 import java.util.Map;
 
-public class CareTaker {
+public class Caretaker {
 
     private Map<String, WordDocumentMemento> mementoList = new HashMap();
 
@@ -197,7 +195,7 @@ public class CareTaker {
 
 }
 ```
-É importante observar que o CareTaker nunca opera ou examina sobre os conteúdos de um Memento.
+É importante observar que o Caretaker nunca acessa ou executa operações sobre o conteúdo de um Memento.
 
 #### Testando nossa implementação
 Podemos utilizar nosso Memento da seguinte forma:
@@ -205,35 +203,35 @@ Podemos utilizar nosso Memento da seguinte forma:
 public class PatternMementoMain {
 
     public static void main(String[] args) {
-        CareTaker careTaker = new CareTaker();
+        Caretaker caretaker = new Caretaker();
         WordDocument document = new WordDocument("Marcio", "Meu novo documento", "");
         System.out.println(String.format("Estrutura inicial WordDocument: %s", document.toString()));
 
         document.setTitulo("Savepoint 1");
         document.setConteudo("Dentro do Savepoint 1");
-        careTaker.saveMemento("Savepoint 1", document.createMemento());
+        caretaker.saveMemento("Savepoint 1", document.createMemento());
         System.out.println(String.format("Salvando primeiro estado: %s", document.toString()));
 
         document.setTitulo("Savepoint 2");
         document.setConteudo("Dentro do Savepoint 2");
-        careTaker.saveMemento("Savepoint 2", document.createMemento());
+        caretaker.saveMemento("Savepoint 2", document.createMemento());
         System.out.println(String.format("Salvando segundo estado: %s", document.toString()));
 
         document.setTitulo("Savepoint 3");
         document.setConteudo("Dentro do Savepoint 3");
-        careTaker.saveMemento("Savepoint 3", document.createMemento());
+        caretaker.saveMemento("Savepoint 3", document.createMemento());
         System.out.println(String.format("Salvando terceiro estado: %s", document.toString()));
 
         System.out.println("Restaurando para o primeiro estado!");
-        document.restoreMemento(careTaker.getMemento("Savepoint 1"));
+        document.restoreMemento(caretaker.getMemento("Savepoint 1"));
         System.out.println(String.format("Estado restaurado para: %s", document));
 
         System.out.println("Restaurando para o segundo estado!");
-        document.restoreMemento(careTaker.getMemento("Savepoint 2"));
+        document.restoreMemento(caretaker.getMemento("Savepoint 2"));
         System.out.println(String.format("Estado restaurado para: %s", document));
 
         System.out.println("Restaurando para o terceiro estado!");
-        document.restoreMemento(careTaker.getMemento("Savepoint 3"));
+        document.restoreMemento(caretaker.getMemento("Savepoint 3"));
         System.out.println(String.format("Estado restaurado para: %s", document));
 
     }
