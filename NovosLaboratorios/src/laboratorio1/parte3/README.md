@@ -180,3 +180,13 @@ public class TestInterpreterPattern {
 }
 ```
 
+
+### Exercício
+Utilizando o Patter Interpreter crie uma sentença personalizada chamada **TextInterpreter**, essa sentença deve receber como parâmetro: um texto, uma lista de adjetivos, 
+uma lista de artigos e uma lista de substantivos que serão informados logo abaixo.<br/>
+Com base nos artigos, adjetivos e substantivos recebidos pelo TextInterpreter verifique quais foram encontrados no texto recebido.
+
+Utilize os seguintes Artigos, Adjetivos e Substantivos para esse exercício:
+ * Artigos: "o", "a", "os", "as", "do", "da", "dos", "das"<br/>
+ * Adjetivos: "brasileiro", "brasileira", "bonito", "bonita", "alegre"<br/>
+ * Substantivos: "livro", "caneta", "homem", "mulher", "biblioteca"
