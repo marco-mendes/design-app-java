@@ -1,4 +1,4 @@
-## Introdução ao recurso try-with-resource
+## Tratamento de exceções com o recurso try-with-resource
 
 ### Material de preparação
 [Introdução ao recurso try-with-resource](https://www.baeldung.com/java-try-with-resources)<br/>
