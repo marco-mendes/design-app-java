@@ -1,4 +1,4 @@
-package com.exercicio1;
+package laboratorio2.exercicio.exercicio1;
 
 import java.util.Arrays;
 import java.util.List;

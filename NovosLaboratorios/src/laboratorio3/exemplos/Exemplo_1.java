@@ -1,4 +1,4 @@
-package com.exemplo;
+package laboratorio3.exemplos;
 
 import java.net.http.HttpClient;
 import java.time.Duration;

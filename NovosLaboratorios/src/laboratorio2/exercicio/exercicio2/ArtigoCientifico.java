@@ -1,4 +1,4 @@
-package com.exercicio2;
+package laboratorio2.exercicio.exercicio2;
 
 public class ArtigoCientifico {
 

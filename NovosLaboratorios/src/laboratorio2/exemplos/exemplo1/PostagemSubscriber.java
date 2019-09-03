@@ -1,4 +1,4 @@
-package com.exemplo1;
+package laboratorio2.exemplos.exemplo1;
 
 import java.util.concurrent.Flow.Subscriber;
 import java.util.concurrent.Flow.Subscription;

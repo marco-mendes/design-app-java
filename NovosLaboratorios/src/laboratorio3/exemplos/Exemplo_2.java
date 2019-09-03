@@ -1,4 +1,4 @@
-package com.exemplo;
+package laboratorio3.exemplos;
 
 import java.io.IOException;
 import java.net.URI;
