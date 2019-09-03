@@ -5,13 +5,13 @@
 
 ### Introdução
 O try-with-resource teve seu suporte adicionado a partir do Java 7, seu principal objetivo é substituir o bloco de código try-catch-finally.<br/>
-Na maioria das vezes utilizávamos o recurso try-catch-finally quando era necessário finalizar algum recurso inicializado dentro do bloco try, na maioria das vezes esses recursos 
+Na maioria das vezes o recurso try-catch-finally era utilizado quando era necessário finalizar algum recurso inicializado dentro do bloco try, na maioria das vezes esses recursos 
 eram finalizados com o método **close()** e era necessário adicionar esse fechamento de recurso no bloco finally.
 
-O requisito para utilizar este recurso é que a(s) classe(s) o usarão implemente(m) a interface **AutoCloseable**, se a classe implementar essa interface o próprio Java fica 
+O requisito para utilizar este recurso é que a(s) classe(s) que o usarão implemente(m) a interface **AutoCloseable**, se a classe implementar essa interface o próprio Java fica 
 responsável por finalizar o recurso declarado.
 
-Abaixo possuímos um exemplo de implementação anterior ao try-with-resources no qual era necessário invocar o método close no bloco finally:
+Abaixo possuímos um exemplo de implementação anterior ao try-with-resources no qual era necessário invocar o método **close()** no bloco finally:
 ```java
 Scanner scanner = null;
 try {
@@ -28,7 +28,7 @@ try {
 }
 ```
 
-Utilizando o try-with-resources podemos remover o bloco de código finally pois o Java ficará reponsável por executá-lo após o fim da operação.<br/>
+Utilizando o try-with-resources podemos remover o bloco de código finally pois o Java ficará reponsável por executar o método **close()** após o fim da operação.<br/>
 Com o try-with-resoucers a implementação acima ficaria semelhante a isso:
 ```java
 try (Scanner scanner = new Scanner(new File("test.txt"))) {
@@ -40,7 +40,7 @@ try (Scanner scanner = new Scanner(new File("test.txt"))) {
 }
 ```
 
-Confome vimos no exemplo acima abrimo um parêntese na declaração try e declaramos nossa instância que contêm uma implementação da interface **AutoCloseable**, observe que não 
+Confome vimos no exemplo acima abrimos um parêntese na declaração try e declaramos nossa instância que contêm uma implementação da interface **AutoCloseable**, observe que não 
 foi necessário declarar o bloco finally pois o Java encerra o objeto Scanner automáticamente.
 
 Uma observação importante é que até o Java 8 era necessário declarar o recurso que seria usado no try-with-resource dentro dos parênteres da declaração try, o seguinte bloco de 
@@ -69,13 +69,13 @@ public class Exercicio1 {
     public static void main(String args[]){
         
         FileOutputStream fileOutputStream = null;
-        try{
+        try {
             fileOutputStream = new FileOutputStream("./src/laboratorio4/test.txt");
             String msg = "Hello try-with-resouce";
             byte byteArray[] = msg.getBytes(); //converting string into byte array
             fileOutputStream.write(byteArray);
             System.out.println("Message written to file successfuly!");
-        }catch(Exception exception){
+        } catch(Exception exception) {
             System.out.println(exception);
         }
     }
@@ -118,7 +118,7 @@ public class Exemplo3 {
 
 #### Exercício 2
 Crie um recurso personalizado chamado **RecursoExercicio2** que em seu método close imprima a seguinte mensagem: "Meu primeiro recurso personalizado do try-with-resouce", 
-este recurso deve possuir também um método chamado executaAlgo(), este método deve imprimir a mensagem: "Executando alguma ação que pode retornar uma exception!", este método 
+este recurso deve possuir também um método chamado **executaAlgo()**, este método deve imprimir a mensagem: "Executando alguma ação que pode retornar uma exception!", este método 
 deve lançar um Exception na assinatura do método com a declaração throws.<br/>
 Após criar a classe **RecursoExercicio2** crie uma classe chamada **Exercicio2** no qual você deve testar o recurso criado.
 
