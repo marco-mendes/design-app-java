@@ -2,7 +2,6 @@
 
 ### Material de preparação
 [Introdução ao recurso try-with-resource](https://www.baeldung.com/java-try-with-resources)<br/>
-[Melhoria na instrução Try With Resources no Java 9](https://www.tutorialspoint.com/java9/java9_try_with_resources_improvement)
 
 ### Introdução
 O try-with-resource teve seu suporte adicionado a partir do Java 7, seu principal objetivo é substituir o bloco de código try-catch-finally.<br/>
