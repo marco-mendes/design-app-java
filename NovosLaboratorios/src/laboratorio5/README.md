@@ -1,4 +1,4 @@
-## Introduçao a coleções avançadas
+## Introdução a coleções avançadas
 
 ### Material de preparação
 [LinkedList](https://www.baeldung.com/java-linkedlist)<br/>
@@ -7,19 +7,19 @@
 [ArrayDeque](https://www.baeldung.com/java-array-deque)
 
 ### Introdução
-Neste laboratórios daremos uma introdução sobre algumas coleçõs mais avançadas do Java.<br/>
+Neste laboratórios daremos uma introdução sobre algumas coleções mais avançadas do Java.<br/>
 Abordaremos as seguintes coleções:
  * LinkedList
- * LikedHashMap
+ * LinkedHashMap
  * Stack
  * ArrayDeque
  
  
 ### LinkedList
-LinkedList é uma implementação de lista duplamente vinculada dasinterfaces List e Deque.<br/>
+LinkedList é uma implementação de lista duplamente vinculada das interfaces List e Deque.<br/>
 Ela implementa todas as operações de lista opcionais e permite todos os elementos incluindo valores nulos.
 
-Um LinkedList consome mais memória que um ArrayList porém algumas operações do LinkedList como adicionar e remover itens é mais rápida que em um ArrayList.
+Um LinkedList consome mais memória que um ArrayList porém algumas operações do LinkedList como adicionar e remover itens é mais rápida que a de um ArrayList.
 
 #### Criando um LinkedList
 Um LinkedList pode ser criado da seguinte forma:
@@ -28,8 +28,8 @@ LinkedList<Object> linkedList = new LinkedList<>();
 ```
 
 #### Adicionando elementos ao LinkedList
-O LinkedList implementa as interfaces List e Deque, com isso ele possui os métodos padrão de adição da interface List que são add() e addAll(), além de possuir também alguns 
-métodos da interface Deque que são addFirst() e addLast() , que adicionam um elemento no início ou no final da lista, respectivamente.<br/>
+O LinkedList implementa as interfaces List e Deque, com isso ele possui os métodos padrão de adição de elementos da interface List que são add() e addAll(), além de possuir também alguns 
+métodos addFirst() e addLast() da interface Deque que adicionam um elemento no início ou no final da lista, respectivamente.<br/>
 Exemplo de uso:
 ```java
 import java.util.Arrays;
