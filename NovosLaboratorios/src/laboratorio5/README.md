@@ -28,7 +28,7 @@ LinkedList<Object> linkedList = new LinkedList<>();
 ```
 
 #### Adicionando elementos ao LinkedList
-O LinkedList implementa as interfaces List e Deque, com isso ele possui os métodos padrão de adição de elementos da interface List que são add() e addAll(), além de possuir também alguns 
+O LinkedList implementa as interfaces List e Deque, com isso ele possui os métodos padrão de adição de elementos da interface List que são add() e addAll(), além de possuir também os 
 métodos addFirst() e addLast() da interface Deque que adicionam um elemento no início ou no final da lista, respectivamente.<br/>
 Exemplo de uso:
 ```java
@@ -54,7 +54,7 @@ public class Exemplo1 {
 ```
 
 #### Removendo elementos
-A remoção de elementos de um LinkedList pode ser feita utilizando o método padrão remove(), além de por utilizar os métodos removeFirst() e removeLast() que removem o primeiro e 
+A remoção de elementos de um LinkedList pode ser feita utilizando o método padrão remove(), além de podermos utilizar os métodos removeFirst() e removeLast() que removem o primeiro e 
 ultimo elementos da lista respectivamente.<br/>
 Exemplo de uso:
 ```java
