@@ -210,7 +210,7 @@ public class Exemplo6 {
 Podemos remover elementos de um Stack com 3 métodos além do **pop()** que obtem e remove o ultimo elemento do Stack, são eles:
  * **removeElement()**: Remove um elemento especificado do Stack
  * **removeElementAt()**: Remove um elemento especificado do Stack pelo seu indice
- * **removeIf**: Nos permite fazer uma filtragem com uma expressão lambda para remover todos os elementos filtrados por ela. 
+ * **removeIf**: Nos permite criar uma filtragem com uma expressão lambda para remover todos os elementos filtrados por ela. 
  
 Exemplo de uso:
 ```java
@@ -263,12 +263,12 @@ public class Exercicio3 {
 Um ArrayDeque é um tipo especial de matriz cultivável que permite adicionar ou remover um elemento no inicio ou no fim do objeto.<br/>
 
 Seus principais métodos são:
- * offerFirst() ou addFirst(): Adiciona um elemento no começo da coleção. 
- * pollFirst() ou removeFirst(): Remove o primeiro elemento da coleção.
- * peekFirst() ou getFirst(): Obtem o primeiro elemento da coleção.
- * offerLast() ou addLast(): Adiciona um elemento no fim da coleção.
- * pollLast() ou removeLast(): Remove o ultimo elemento da coleção.
- * peekLast() ou getLast(): Obtem o ultimo elemento da coleção.
+ * **offerFirst()** ou **addFirst()**: Adiciona um elemento no começo da coleção. 
+ * **pollFirst()** ou **removeFirst()**: Remove o primeiro elemento da coleção.
+ * **peekFirst()** ou **getFirst()**: Obtem o primeiro elemento da coleção.
+ * **offerLast()** ou **addLast()**: Adiciona um elemento no fim da coleção.
+ * **pollLast()** ou **removeLast()**: Remove o ultimo elemento da coleção.
+ * **peekLast()** ou **getLast()**: Obtem o ultimo elemento da coleção.
  
 Uma implementação ArrayDeque pode ser usada como uma Stack ou pilha(último a entrar, primeiro a sair) ou uma Queue ou fila(primeiro a entrar, primeiro a sair).<br/>
 Na lista dos principais método acima os métodos a esqueda são referentes a implementação de uso Stack, já os métodos a direita são referentes a implementação de uso Queue.
