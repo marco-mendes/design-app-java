@@ -4,3 +4,4 @@
 ### [Laboratório 2](./src/gabarito/laboratorio2)<br/>
 ### [Laboratório 3](./src/gabarito/laboratorio3)<br/>
 ### [Laboratório 4](./src/gabarito/laboratorio4)<br/>
+### [Laboratório 5](./src/gabarito/laboratorio5)<br/>
