@@ -1,4 +1,4 @@
-## Introdução a coleções avançadas
+## Collections em Java
 
 ### Material de preparação
 [LinkedList](https://www.baeldung.com/java-linkedlist)<br/>
@@ -270,8 +270,8 @@ Seus principais métodos são:
  * **pollLast()** ou **removeLast()**: Remove o ultimo elemento da coleção.
  * **peekLast()** ou **getLast()**: Obtem o ultimo elemento da coleção.
  
-Uma implementação ArrayDeque pode ser usada como uma Stack ou pilha(último a entrar, primeiro a sair) ou uma Queue ou fila(primeiro a entrar, primeiro a sair).<br/>
-Na lista dos principais método acima os métodos a esqueda são referentes a implementação de uso Stack, já os métodos a direita são referentes a implementação de uso Queue.
+Uma implementação ArrayDeque pode ser usada como uma Stack(último a entrar, primeiro a sair) ou uma Queue(primeiro a entrar, primeiro a sair).<br/>
+Na lista dos principais método acima os métodos à esqueda são referentes a implementação de uso Stack, já os métodos à direita são referentes a implementação de uso Queue.
  
 Exemplo de uso:
 ```java
