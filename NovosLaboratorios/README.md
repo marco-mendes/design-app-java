@@ -4,4 +4,5 @@
 #### [Laboratório 2 - Introdução à Fluxos Reativos(Reactive Streams)](./src/laboratorio2/)<br/>
 #### [Laboratório 3 - Introdução a nova API HttpClient](./src/laboratorio3/)<br/>
 #### [Laboratório 4 - Tratamento de exceções com o recurso try-with-resource](./src/laboratorio4/)<br/>
+#### [Laboratório 5 - Introduçao a coleções avançadas](./src/laboratorio5/)<br/>
 
