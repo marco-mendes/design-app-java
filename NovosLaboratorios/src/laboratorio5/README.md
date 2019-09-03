@@ -98,7 +98,7 @@ public class Exemplo3 {
 ```
 
 #### Exercício 1
-Com base no código abaixo crie um LinkedList utilizando lista disponível criada no código abaixo, remova o primeiro e o ultimo elemento da LinkedList, após isso adicione um 
+Com base no código abaixo crie um LinkedList utilizando a lista disponível no código abaixo, remova o primeiro e o ultimo elemento da LinkedList, após isso adicione um 
 novo elemento no início da lista com o valor "Novo primeiro elemento" e no fim da lista adicione o valor "Novo ultimo valor".
 ```java
 import java.util.ArrayList;
@@ -118,7 +118,7 @@ public class Exercicio1 {
 ### LinkedHashMap
 A classe LinkedHashMap é muito semelhante ao HashMap na maioria dos aspectos. No entanto, o LinkedHashMap é baseado na tabela de hash e na lista vinculada para aprimorar 
 a funcionalidade do HashMap.<br/>
-Outra diferença entre LinkedHashMap e HashMap é que ao a ordem de iteração de um LinkedHashMap por padrão é a ordem de inserção dos elementos, já o HashMap não possui 
+Outra diferença entre LinkedHashMap e HashMap é que a ordem de iteração de um LinkedHashMap por padrão é a ordem de inserção dos elementos, já o HashMap não possui 
 nenhuma garantia que a ordem permanecerá constante ao decorrer do tempo.
 
 A criação de um LinkedHashMap é feita da mesma forma da criação de um HashMap.<br/>
@@ -149,13 +149,13 @@ O Stack é uma estrutura de dados genérica que representa uma coleção de obje
 de uma Pilha.<br/>
 
 #### Criando um Stack
-Um Stack pdoe ser criado da seguinte forma:
+Um Stack pode ser criado da seguinte forma:
 ```java
 Stack<Integer> intStack = new Stack();
 ```
 Isso criará um Stack com a capacidade padrão de 10 posições.<br/>
 Se o número de elementos adicionados exceder o tamanho total do Stack , essa capacidade será duplicada automaticamente porém é importante observar que seu tamanho nunca 
-diminui após a remoção algum elemento elemento.
+diminui após a remoção de algum elemento.
 
 #### Adicionando valores a um Stack
 Podemos adicionar valores a um Stack com os métodos **push()** e **addAll()**, o método **push()** adiciona um elemento ao Stack já o método **addAll()** adiciona uma lista 
