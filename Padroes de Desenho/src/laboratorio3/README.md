@@ -1,4 +1,4 @@
-## Padrões GOf Estruturais
+## Padrões GoF Estruturais
 
 ### Introdução
 Neste laboratório abordaremos os padrões de projeto Estruturais.<br/>

@@ -1,4 +1,4 @@
-## Padrões GOf Criacionais
+## Padrões GoF Criacionais
 
 ### Introdução
 Neste laboratório abordaremos os padrões de projeto Criacionais.<br/>

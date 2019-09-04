@@ -1,4 +1,4 @@
-## Design Pattern Interprete
+## Design Pattern Interpreter
 
 ### Material de preparação
 [Pattern Interpreter](https://www.javacodegeeks.com/2015/09/interpreter-design-pattern.html)

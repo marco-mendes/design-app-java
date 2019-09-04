@@ -1,4 +1,4 @@
-## Padrões GOf Comportamentais
+## Padrões GoF Comportamentais
 
 ### Introdução
 Neste laboratório abordaremos os padrões de projeto Comportamentais.<br/>
