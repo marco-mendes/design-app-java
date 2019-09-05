@@ -1,9 +1,9 @@
 # Índice dos Laboratórios
 
-#### [Laboratório 1 - Introdução aos conceitos básicos da Programação Funcional](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio1/)
-#### [Laboratório 2 - Suporte Funcional do JDK8](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio2/)
-#### [Laboratório 3 - Principais Interfaces Funcionais do Java 8](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio3/)
-#### [Laboratório 4 - Funções Puras e Funções de Ordem Superior em Java](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio4/)
-#### [Laboratório 5 - Uso de Currying e Closures com Java 8](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio5/)
-#### [Laboratório 6 - Stream API](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio6/)
-#### [Laboratório 7 - Padrões de projeto utilizando programação funcional](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src/laboratorio7/)
+#### [Laboratório 1 - Introdução aos conceitos básicos da Programação Funcional](./src/main/java/dia01/laboratorio1/)
+#### [Laboratório 2 - Suporte Funcional do JDK8](./src/main/java/dia01/laboratorio2/)
+#### [Laboratório 3 - Principais Interfaces Funcionais do Java 8](./src/main/java/dia01/laboratorio3/)
+#### [Laboratório 4 - Funções Puras e Funções de Ordem Superior em Java](./src/main/java/dia01/laboratorio4/)
+#### [Laboratório 5 - Uso de Currying e Closures com Java 8](./src/main/java/dia01/laboratorio5/)
+#### [Laboratório 6 - Stream API](./src/main/java/dia01/laboratorio6/)
+#### [Laboratório 7 - Padrões de projeto utilizando programação funcional](./src/main/java/dia01/laboratorio7/)
