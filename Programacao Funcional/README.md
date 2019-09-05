@@ -20,4 +20,4 @@
 
 
 ### Laboratórios Programação Funcional
-[Índice dos Laboratórios](https://github.com/corelioBH/design-app-java/tree/master/Programacao%20Funcional/src)
+[Índice dos Laboratórios](./src)
