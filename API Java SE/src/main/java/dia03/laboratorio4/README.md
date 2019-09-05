@@ -15,7 +15,7 @@ Abaixo possuímos um exemplo de implementação anterior ao try-with-resources n
 ```java
 Scanner scanner = null;
 try {
-    scanner = new Scanner(new File("test.txt"));
+    scanner = new Scanner(new File("./src/main/resources/test.txt"));
     while (scanner.hasNext()) {
         System.out.println(scanner.nextLine());
     }
@@ -31,7 +31,7 @@ try {
 Utilizando o try-with-resources podemos remover o bloco de código finally pois o Java ficará reponsável por executar o método **close()** após o fim da operação.<br/>
 Com o try-with-resoucers a implementação acima ficaria semelhante a isso:
 ```java
-try (Scanner scanner = new Scanner(new File("test.txt"))) {
+try (Scanner scanner = new Scanner(new File("./src/main/resources/test.txt"))) {
     while (scanner.hasNext()) {
         System.out.println(scanner.nextLine());
     }
