@@ -1,8 +1,8 @@
 ## Introdução a nova API HttpClient
 
 ### Material de preparação
-[Introdução a API HttpClient](https://dev.to/andreevich/a-small-introduction-to-java-11-s-httpclient-nhj)
-
+[Introdução a API HttpClient](https://dev.to/andreevich/a-small-introduction-to-java-11-s-httpclient-nhj)<br/>
+[Mais sobre a API HttpClient](https://golb.hplar.ch/2019/01/java-11-http-client.html)
 
 ### Introdução
 Um dos recursos que vem sendo construído e aprimorado desde o Java 9 é o HttpClient, o mesmo visa substituir a classe **HttpUrlConnection** 
@@ -72,6 +72,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 public class Exemplo_2 {
 
@@ -95,14 +96,25 @@ public class Exemplo_2 {
         HttpRequest request = HttpRequest.newBuilder().GET().uri(URI.create("https://jsonplaceholder.typicode.com/posts/1")).build();
         // Enviando a requisição de forma assíncrona e armazenando o objeto de resposta em um CompletableFuture
         CompletableFuture<HttpResponse<String>> future = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
-        // Extraindo o retorno da requisição
-        String body = future.get().body();
-        // Imprimindo o resultado da mesma
-        System.out.println(body);
+        // Utilizando o método thenAccept do CompletableFuture para imprimir o resultado da requisição assim que ela for retornada.
+        future.thenAccept(response -> {
+            System.out.println("Resposta do processamento: ");
+            System.out.println(String.format("Código de resposta: %s", response.statusCode()));
+            System.out.println(String.format("Retorno da requisição: %s", response.body()));
+        });
+
+        // Lógica para que o método não termine sua execução enquanto a resposta assíncrona não for retornada.
+        // O motivo disso é a possibilidade do método main ser encerrado antes de obter o retorno de processamento da requisição assíncrona.
+        while(!future.isDone()) {
+            System.out.println("Aguardando resposta da requisição!");
+            TimeUnit.MILLISECONDS.sleep(500);
+        }
+
     }
 
     public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
         requisicaoGetSincrona();
+        System.out.println("-----------------");
         requisicaoGetAssincrona();
     }
 
@@ -113,7 +125,10 @@ especificamos o tipo de retorno da requisição no formato de uma String.
 
 Para executar a mesma operação de forma assíncrona basta utilizar o método **sendAssync()** de nosso HttpClient, a única diferença é que este método nos retorna um objeto do tipo 
 **CompletableFuture**.<br/>
-**Observação**: Leia os comentários do código para melhor compreensão do mesmo.
+**Observações importantes**: 
+ * Leia os comentários do código para melhor compreensão do mesmo.
+ * No método **requisicaoGetAssincrona()** adicionamos um bloco while para que o método não fosse encerrado sem antes obter a resposta da requisição realizada. Essa lógica 
+ normalmente não é necessária e foi criada apenas para que o método método main não fosse encerrado antes do processamento da requisição assíncrona ser finalizada.
 
 #### Exercício 1
 Com base no que foi explicado até o momento crie uma requisição do tipo GET de forma síncrona e assíncrona consumindo a API da 
@@ -130,6 +145,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 public class Exemplo_3 {
 
@@ -163,14 +179,24 @@ public class Exemplo_3 {
 
         // Enviando a requisição de forma assíncrona e armazenando o objeto de resposta em um CompletableFuture
         CompletableFuture<HttpResponse<String>> future = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
-        // Extraindo status de resposta da requisição Post
-        int statusCode = future.get().statusCode();
-        // Imprimindo resultado no console
-        System.out.println(String.format("Status code: %s", statusCode));
+        // Utilizando o método thenAccept do CompletableFuture para imprimir o resultado da requisição assim que ela for retornada.
+        future.thenAccept(response -> {
+            System.out.println("Resposta do processamento: ");
+            System.out.println(String.format("Código de resposta: %s", response.statusCode()));
+            System.out.println(String.format("Retorno da requisição: %s", response.body()));
+        });
+
+        // Lógica para que o método não termine sua execução enquanto a resposta assíncrona não for retornada.
+        // O motivo disso é a possibilidade do método main ser encerrado antes de obter o retorno de processamento da requisição assíncrona.
+        while(!future.isDone()) {
+            System.out.println("Aguardando resposta da requisição!");
+            TimeUnit.MILLISECONDS.sleep(500);
+        }
     }
 
     public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
         requisicaoPostSincrona();
+        System.out.println("-----------------");
         requisicaoPostAssincrona();
     }
 
@@ -179,7 +205,10 @@ public class Exemplo_3 {
 
 Como podemos ver neste exemplo, uma requisição do tipo POST recebe um argumento do tipo **HttpRequest.BodyPublishers** no qual devemos 
 especificar o corpo de nossa requisição POST, neste exemplo utilizamos como parâmetro para ele uma String no formato JSON.<br/>
-**Observação**: Leia os comentários do código para melhor compreensão do mesmo.
+**Observações importantes**: 
+ * Leia os comentários do código para melhor compreensão do mesmo.
+ * No método **requisicaoPostAssincrona()** adicionamos um bloco while para que o método não fosse encerrado sem antes obter a resposta da requisição realizada. Essa lógica 
+ normalmente não é necessária e foi criada apenas para que o método método main não fosse encerrado antes do processamento da requisição assíncrona ser finalizada.
 
 #### Exercício 2
 Com base no que foi explicado até o momento crie uma requisição do tipo POST de forma síncrona e assíncrona consumindo a API da 
