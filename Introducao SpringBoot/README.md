@@ -113,9 +113,10 @@ public class HelloController {
 ```
 
 Observe que na classe HelloController possuímos 3 annotations distintas, sendo elas:
- * @RestController: Significa que a classe está pronta para uso pelo Spring MVC para lidar com solicitações da Web 
- * @RequestMapping: Mapeia uma url para que determinado método execute uma ação após receber um requisição Http.
- * @RequestParam: Representa uma forma de obter parâmetros passados em nossa url
+ * **@RestController**: Significa que a classe está pronta para uso pelo Spring MVC para lidar com solicitações da Web 
+ * **@RequestMapping**: Mapeia uma url para que determinado método execute uma ação após receber um requisição Http.
+ * **@RequestParam**: Representa uma forma de obter parâmetros passados em nossa url, neste exemplo especificamos que um parâmetro chamado "nome" de nossa url será atribuído 
+ ao parâmetro nome de nosso método.
  
 Agora criaremos nossa classe Application que irá possuir o método main:
 ```java
@@ -133,9 +134,9 @@ public class Application {
 }
 ```
 
-Nossa annotation @SpringBootApplication indica a nossa aplicação SpringBoot que a classe Application será a classe que possui o 
+Nossa annotation **@SpringBootApplication** indica a nossa aplicação SpringBoot que a classe Application será a classe que possui o 
 método **main()**.<br/>
-O método **main()** usa o método SpringApplication.run() do Spring Boot para iniciar nossa aplicação.
+O método **main()** usa o método **SpringApplication.run()** do Spring Boot para iniciar nossa aplicação.
 
 
 ### Rodando nossa aplicação
@@ -271,11 +272,11 @@ public class HelloControllerTest {
 
 O **MockMvc** vem do Spring Test e permite que, por meio de um conjunto de classes convenientes do construtor, envie solicitações HTTP para o DispatcherServlet e 
 faça afirmações sobre o resultado.<br/>
-Observe o uso do @AutoConfigureMockMvc junto com o @SpringBootTest para injetar uma instância do MockMvc.<br/>
-Além delas possuímos a annotation @Autowired que é utilizada para injetar automáticamente todas as dependências da classe MockMvc para podermos utilizá-la.  
-Depois de usar o @SpringBootTest, estamos solicitando a criação de todo o contexto do aplicativo.
+Observe o uso do **@AutoConfigureMockMvc** junto com o **@SpringBootTest** para injetar uma instância do **MockMvc**.<br/>
+Além delas possuímos a annotation **@Autowired** que é utilizada para injetar automáticamente todas as dependências da classe **MockMvc** para podermos utilizá-la.  
+Depois de usar o **@SpringBootTest**, estamos solicitando a criação de todo o contexto do aplicativo.
 
-Neste exemplo possuímos os métodos **getHello()** e **getHelloPeople()**, dentro deles utilizamos uma instância de MockMvn para podermos testar os 2 Endpoints que criamos.
+Neste exemplo possuímos os métodos **getHello()** e **getHelloPeople()**, dentro deles utilizamos uma instância de **MockMvc** para podermos testar os 2 Endpoints que criamos.
 
 
 O código completo do que foi feito neste laboratório pode ser encontrado neste [link](./exemplo/)
