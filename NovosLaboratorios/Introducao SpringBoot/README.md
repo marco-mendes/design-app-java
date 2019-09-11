@@ -289,5 +289,5 @@ estruturar nosso projeto, e após isso podemos baixar o projeto criado e descomp
 No exemplo abaixo podemos ver uma série de possibilidade que podemos ter utilizando esta ferramenta:<br/>
 <img src="./exemplo/exemplo2.PNG"/>
 
-Fique a vontade para testar essa ferramenta.
+Fique a vontade para explorar essa ferramenta.
  
