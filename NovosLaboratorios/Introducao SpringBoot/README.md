@@ -280,3 +280,14 @@ O código completo do que foi feito neste laboratório pode ser encontrado neste
 Com base no que foi feito no exercício 1 crie um teste de unidade para o endpoint "**/obterNomePessoa**" utilizando o valor 2 para o parâmetro "id" e compare o resultado 
 retornado com nome da pessoa com id 2.<br/>
 Dica: A url a ser requisitada no teste de unidade será sementante a isso: "**/obterNomePessoa?id=2**"
+
+
+### Curiosidade
+Existe uma ferramenta criada pelo projeto Spring que nos possibilita criar o esqueleto de uma aplicação SpringBoot de forma bem mais fácil, esta ferramenta se chama 
+[Spring Initializr](https://start.spring.io/), com ela podemos criar online o esqueleto de nosso projeto SpringBoot especificando uma série de informações relevantes para 
+estruturar nosso projeto, e após isso podemos baixar o projeto criado e descompactá-lo para uso.<br/>
+No exemplo abaixo podemos ver uma série de possibilidade que podemos ter utilizando esta ferramenta:<br/>
+<img src="./exemplo/exemplo2.PNG"/>
+
+Fique a vontade para testar essa ferramenta.
+ 
