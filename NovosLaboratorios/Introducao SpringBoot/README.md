@@ -200,7 +200,7 @@ public class Pessoa {
 
 }
 ```
-Após isso acesse a url **http://localhost:8080/obterNomePessoa?id=2** para testar usa aplicação, caso a aplicação esteja executando em oura porta utilize a porta correta ao 
+Após isso acesse a url **http://localhost:8080/obterNomePessoa?id=2** para testar a aplicação, caso a aplicação esteja executando em oura porta utilize a porta correta ao 
 acessar a url.
 
 
