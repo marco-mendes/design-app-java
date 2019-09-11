@@ -1,5 +1,8 @@
 import java.util.Objects;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Pessoa {
 
 
@@ -19,25 +22,14 @@ public class Pessoa {
         return nome;
     }
 
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                '}';
+    public static List<Pessoa> obterPessoas() {
+        return Arrays.asList(
+                new Pessoa(1, "Marcos"),
+                new Pessoa(2, "Joana d'Arc"),
+                new Pessoa(3, "Ester"),
+                new Pessoa(4, "Raquel"),
+                new Pessoa(5, "Arthur")
+        );
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pessoa pessoa = (Pessoa) o;
-        return id == pessoa.id &&
-                Objects.equals(nome, pessoa.nome);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nome);
-    }
 }

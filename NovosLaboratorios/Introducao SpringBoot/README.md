@@ -67,7 +67,7 @@ Em nossa pasta raiz crie um arquivo chamado pom.xml e introduza nele o seguinte 
     </dependencies>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
     </properties>
 
 
@@ -162,15 +162,16 @@ http://localhost:8080/helloPeople?nome=Marcela
 ```
 
 #### Exercício 1
-Com base na seguinte classe crie uma aplicação SpringBoot que possua um Endpoint chamado "**/pessoa**" responsável por retornar um Objeto do tipo Pessoa recebendo como 
-parâmetro um número de id em sua url.<br/>
+Com base na seguinte classe crie uma aplicação SpringBoot que possua um Endpoint chamado "**/obterNomePessoa**" responsável por retornar uma String o nome de 
+uma pessoa com base no valor recebido pelo parâmetro "id" em sua url.<br/>
 As classes de sua aplicação devem estar contidas no pacote **com.exercicio**.
 ```java
-import java.util.Objects;
+import java.util.Arrays;
+import java.util.List;
 
 public class Pessoa {
-    
-    
+
+
     private int id;
     private String nome;
 
@@ -187,29 +188,21 @@ public class Pessoa {
         return nome;
     }
 
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                '}';
+    public static List<Pessoa> obterPessoas() {
+        return Arrays.asList(
+                new Pessoa(1, "Marcos"),
+                new Pessoa(2, "Joana d'Arc"),
+                new Pessoa(3, "Ester"),
+                new Pessoa(4, "Raquel"),
+                new Pessoa(5, "Arthur")
+        );
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pessoa pessoa = (Pessoa) o;
-        return id == pessoa.id &&
-                Objects.equals(nome, pessoa.nome);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nome);
-    }
 }
 ```
+Após isso acesse a url **http://localhost:8080/obterNomePessoa?id=2** para testar usa aplicação, caso a aplicação esteja executando em oura porta utilize a porta correta ao 
+acessar a url.
+
 
 ### Testando nossa aplicação
 Se você desejar adicionar testes de unidade a aplicação você pode adicionar a dependência **spring-boot-starter-test** que já fornece algumas ferramentas para isso.<br/>
@@ -282,6 +275,6 @@ Neste exemplo possuímos os métodos **getHello()** e **getHelloPeople()**, dent
 O código completo do que foi feito neste laboratório pode ser encontrado neste [link](./exemplo/)
 
 #### Exercício 2 
-Com base no que foi feito no exercício 1 crie um teste de unidade para o endpoint "**/pessoa**" utilizando o id 2 e compare o resultado retornado com o objeto do tipo 
-Pessoa esperado.<br/>
-A url a ser requisitada será sementante a isso: "**/pessoa?id=2**"
+Com base no que foi feito no exercício 1 crie um teste de unidade para o endpoint "**/obterNomePessoa**" utilizando o valor 2 para o parâmetro "id" e compare o resultado 
+retornado com nome da pessoa com id 2.<br/>
+Dica: A url a ser requisitada no teste de unidade será sementante a isso: "**/obterNomePessoa?id=2**"
