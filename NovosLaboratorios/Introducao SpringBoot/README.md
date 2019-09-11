@@ -86,7 +86,7 @@ Em nossa pasta raiz crie um arquivo chamado pom.xml e introduza nele o seguinte 
 Com apenas isso já possuímos uma configuração completa do SpringBoot para começarmos a explorá-lo.<br/>
 Neste exemplo estamos utitilizando o SpringBoot versão **2.1.6.RELEASE**, utilizamos também a dependência **spring-boot-starter-web** 
 que adiciona as dependências do Spring MVC.<br/>
-Possuímos também o plugin **spring-boot-maven-plugin**, o mesmo realiza uma série de configurações convenientes para que posamos utilizar o maven em nossa aplicação SpringBoot.
+Possuímos também o plugin **spring-boot-maven-plugin**, o mesmo realiza uma série de configurações convenientes para que possamos utilizar o maven em nossa aplicação SpringBoot.
 
 Agora criaremos nossa classe que servirá de RestController:
 ```java
@@ -162,8 +162,9 @@ http://localhost:8080/helloPeople?nome=Marcela
 ```
 
 #### Exercício 1
-Com base na seguinte classe crie uma aplicação SpringBoot que possua um Endpoint chamado "**/obterNomePessoa**" responsável por retornar uma String o nome de 
-uma pessoa com base no valor recebido pelo parâmetro "id" em sua url.<br/>
+Com base na seguinte classe crie uma aplicação SpringBoot que possua um Endpoint chamado "**/obterNomePessoa**".<br/>
+Este Endpoint deve receber um parâmetro chamado "**id**" quando sua url for requisitada.<br/>
+Utilize o método obterPessoas() para pesquisar o nome da pessoa a ser retornada com base no id da mesma.<br/>
 As classes de sua aplicação devem estar contidas no pacote **com.exercicio**.
 ```java
 import java.util.Arrays;
@@ -200,8 +201,8 @@ public class Pessoa {
 
 }
 ```
-Após isso acesse a url **http://localhost:8080/obterNomePessoa?id=2** para testar a aplicação, caso a aplicação esteja executando em oura porta utilize a porta correta ao 
-acessar a url.
+Após isso rode a aplicação e acesse a url **http://localhost:8080/obterNomePessoa?id=2** para testar seu Endpoint, caso a aplicação esteja executando em oura porta utilize 
+a porta correta ao acessar a url.
 
 
 ### Testando nossa aplicação
