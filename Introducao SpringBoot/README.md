@@ -164,7 +164,51 @@ http://localhost:8080/helloPeople?nome=Marcela
 Com base na seguinte classe crie uma aplicação SpringBoot que possua um Endpoint chamado "**/pessoa**" responsável por retornar um Objeto do tipo Pessoa recebendo como 
 parâmetro um número de id em sua url.<br/>
 As classes de sua aplicação devem estar contidas no pacote **com.exercicio**.
+```java
+import java.util.Objects;
 
+public class Pessoa {
+    
+    
+    private int id;
+    private String nome;
+
+    public Pessoa(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pessoa pessoa = (Pessoa) o;
+        return id == pessoa.id &&
+                Objects.equals(nome, pessoa.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome);
+    }
+}
+```
 
 ### Testando nossa aplicação
 Se você desejar adicionar testes de unidade a aplicação você pode adicionar a dependência **spring-boot-starter-test** que já fornece algumas ferramentas para isso.<br/>
@@ -233,6 +277,8 @@ Depois de usar o @SpringBootTest, estamos solicitando a criação de todo o cont
 
 Neste exemplo possuímos os métodos **getHello()** e **getHelloPeople()**, dentro deles utilizamos uma instância de MockMvn para podermos testar os 2 Endpoints que criamos.
 
+
+O código completo do que foi feito neste laboratório pode ser encontrado neste [link](./exemplo/)
 
 #### Exercício 2 
 Com base no que foi feito no exercício 1 crie um teste de unidade para o endpoint "**/pessoa**" utilizando o id 2 e compare o resultado retornado com o objeto do tipo 
