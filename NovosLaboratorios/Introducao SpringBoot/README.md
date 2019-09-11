@@ -202,7 +202,7 @@ public class Pessoa {
 
 }
 ```
-Após isso rode a aplicação e acesse a url **http://localhost:8080/obterNomePessoa?id=2** para testar seu Endpoint, caso a aplicação esteja executando em oura porta utilize 
+Após isso rode a aplicação e acesse a url **http://localhost:8080/obterNomePessoa?id=2** para testar seu Endpoint, caso a aplicação esteja executando em outra porta utilize 
 a porta correta ao acessar a url.
 
 
@@ -224,7 +224,7 @@ Os testes de unidade devem ser armazenados na seguinte pasta em conjunto com sua
         └── java
 ```
 
-Dentro dessa pasta havíamos criado no inicío deste laboratório o pacote **quickstart**, dentro deste pacote cria a classe **HelloControllerTest** utilizando o código abaixo:
+Dentro dessa pasta havíamos criado no inicío deste laboratório o pacote **quickstart**, dentro deste pacote crie a classe **HelloControllerTest** utilizando o código abaixo:
 ```java
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -267,9 +267,9 @@ public class HelloControllerTest {
 
 O **MockMvc** vem do Spring Test e permite que, por meio de um conjunto de classes convenientes do construtor, envie solicitações HTTP para o DispatcherServlet e 
 faça afirmações sobre o resultado.<br/>
-Observe o uso do **@AutoConfigureMockMvc** junto com o **@SpringBootTest** para injetar uma instância do **MockMvc**.<br/>
+A annotation **@AutoConfigureMockMvc** é utilizada em nossa classe de teste para ativar e configurar a configurar automática nosso MockMvc.<br/>
+A annotation **@SpringBootTest** é utilizada para iniciar de maneira conveniente um contexto de teste para nossa aplicação.<br/>
 Além delas possuímos a annotation **@Autowired** que é utilizada para injetar automáticamente todas as dependências da classe **MockMvc** para podermos utilizá-la.  
-Depois de usar o **@SpringBootTest**, estamos solicitando a criação de todo o contexto do aplicativo.
 
 Neste exemplo possuímos os métodos **getHello()** e **getHelloPeople()**, dentro deles utilizamos uma instância de **MockMvc** para podermos testar os 2 Endpoints que criamos.
 
