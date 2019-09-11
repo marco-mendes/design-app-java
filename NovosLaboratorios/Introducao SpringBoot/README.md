@@ -164,7 +164,8 @@ http://localhost:8080/helloPeople?nome=Marcela
 #### Exercício 1
 Com base na seguinte classe crie uma aplicação SpringBoot que possua um Endpoint chamado "**/obterNomePessoa**".<br/>
 Este Endpoint deve receber um parâmetro chamado "**id**" quando sua url for requisitada.<br/>
-Utilize o método obterPessoas() para pesquisar o nome da pessoa a ser retornada com base no id da mesma.<br/>
+Utilize o método obterPessoas() para obter a lista de pessoas que servirá como fonte de dados, com essa lista você deverá pesquisar a pessoa que possua o mesmo id informado na 
+requisição e deve retornar o nome da mesma.<br/>
 As classes de sua aplicação devem estar contidas no pacote **com.exercicio**.
 ```java
 import java.util.Arrays;
