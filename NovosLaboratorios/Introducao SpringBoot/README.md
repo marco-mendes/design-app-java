@@ -267,9 +267,9 @@ public class HelloControllerTest {
 
 O **MockMvc** vem do Spring Test e permite que, por meio de um conjunto de classes convenientes do construtor, envie solicitações HTTP para o DispatcherServlet e 
 faça afirmações sobre o resultado.<br/>
-A annotation **@AutoConfigureMockMvc** é utilizada em nossa classe de teste para ativar e configurar a configurar automática nosso MockMvc.<br/>
+A annotation **@AutoConfigureMockMvc** é utilizada em nossa classe de teste para ativar e configurar a configuração automática nosso **MockMvc**.<br/>
 A annotation **@SpringBootTest** é utilizada para iniciar de maneira conveniente um contexto de teste para nossa aplicação.<br/>
-Além delas possuímos a annotation **@Autowired** que é utilizada para injetar automáticamente todas as dependências da classe **MockMvc** para podermos utilizá-la.  
+Além delas possuímos a annotation **@Autowired** que é utilizada para injetar automáticamente todas as dependências de uma classe para podermos utilizá-la.  
 
 Neste exemplo possuímos os métodos **getHello()** e **getHelloPeople()**, dentro deles utilizamos uma instância de **MockMvc** para podermos testar os 2 Endpoints que criamos.
 
