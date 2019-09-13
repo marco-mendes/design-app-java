@@ -320,3 +320,4 @@ para compreender como fazer isso.
 #### Exercício
 Com base no código contido neste [link](./exercicio/ExercicioJaxRSJersey/) configure a aplicação para utilizar o Jersey e após isso crie um Resource para o objeto Usuario 
 que realize as operações Crud utilizando como base para as operações crud os métodos contidos na classe UsuarioService.<br/>
+Configure o @Path de sua classe Resource com a URI "/user" ou utilize alguma URI de sua preferência para essa configuração.
