@@ -3,7 +3,7 @@
 ### Material de preparação
 [Breve introdução ao Jax-RS](https://www.baeldung.com/jax-rs-spec-and-implementations)<br/>
 [SpringBoot + Jersey em 1 minuto](https://tassioauad.com/2018/04/05/spring-boot-jersey-em-1-minuto/)<br/>
-[Alguns recursos do Jersey](https://jersey.github.io/documentation/latest/jaxrs-resources.html)<br/>
+[Alguns dos principais recursos do Jersey](https://jersey.github.io/documentation/latest/jaxrs-resources.html)<br/>
 
 
 ### Introdução
@@ -258,16 +258,16 @@ Funcionamento das annotations do Jax-RS:
  * @POST indica que o método anotado manipula solicitações HTTP POST.
  * @PUT indica que o método anotado manipula solicitações HTTP PUT.
  * @DELETE indica que o método anotado manipula solicitações HTTP DELETE.
- * @Produces define um MediaType que o método do anotado pode produzir como resposta a uma solicitação HTTP. Em nosso exemplo estamos utilizando o tipo MediaType.APPLICATION_JSON.
- * @Consumes define um MediaType que o método de anotado pode aceitar ao receber uma solicitação HTTP. Em nosso exemplo estamos utilizando o tipo MediaType.APPLICATION_JSON.
+ * @Produces define um MediaType que o método anotado pode produzir como resposta a uma solicitação HTTP. Em nosso exemplo estamos utilizando o tipo MediaType.APPLICATION_JSON.
+ * @Consumes define um MediaType que o método anotado pode aceitar ao receber uma solicitação HTTP. Em nosso exemplo estamos utilizando o tipo MediaType.APPLICATION_JSON.
 
 O objeto do tipo Response é utilizado para criar e retornar uma resposta HTTP com um código de resposta, podendo ou não retornar uma entidade do tipo Book.<br/>
 Observe também que utilizamos nossa classe BookService para realizar as operações crud em nossa base de dados fictícia.
 
 
 ### Registrando nossa classe Resource em um ResourceConfig do Jersey
-Pare que nossa classe Resource entre em funcionamento precisamos primeiro registrá-la no Jersey, para isso será necessário criar uma classe que extenda ResourceConfig do Jersey 
-e registre nossa classe BookResource.<br/>
+Para que nossa classe Resource entre em funcionamento precisamos primeiro registrá-la no Jersey, para isso será necessário criar uma classe que extenda a classe 
+ResourceConfig do Jersey e registre nossa classe BookResource.<br/>
 Isso pode ser implementado da seguinte forma:
 ```java
 import org.glassfish.jersey.server.ResourceConfig;
@@ -285,12 +285,12 @@ public class JerseyConfig extends ResourceConfig {
 }
 ```
 
-A annotation @Configuration é comum no Spring Boot e transforma a classe JerseyConfig em um bean lido automaticamente pelo Spring Boot.<br/>
+A annotation @Configuration é comum no Spring Boot e transforma a classe JerseyConfig em um Bean lido automaticamente pelo Spring Boot.<br/>
 A annotation @ApplicationPath receberá um endereço base para todos os Resources. Sendo assim, todo Resource que formos acessar será através da URL base 
 http://localhost:port/v1/resource_name/path_param.<br/>
  * **port**: Corresponde a porta em que nossa aplicação está sendo executada
- * **resource_name**: Corresponde ao nome que atribuiímos a annotation @Path que se encontra em cima da declaração de nossa classe BookResource.
- * **path_param**: Corresponde ao nome que atribuímos a annotation @Path que se encontra em cima da declaração de nosso métodos no Resource BookResource.
+ * **resource_name**: Corresponde ao nome que atribuímos a annotation @Path que se encontra em cima da declaração de nossa classe BookResource.
+ * **path_param**: Corresponde ao nome que atribuímos a annotation @Path que se encontra em cima da declaração de nossos métodos no Resource BookResource.
 
 Exemplos: 
  * Se realizarmos uma requisição POST a url http://localhost:8080/v1/books/ iremos acessar o método addBook() de nosso Resource.
@@ -318,6 +318,5 @@ para compreender como fazer isso.
 
 
 #### Exercício
-Com base no código contido neste link("LINK A DEFINIR") configure a aplicação para utilizar o Jersey, após isso crie um Resource para o objeto Pessoa que realize as operações 
-Crud utilizando como base a classe PessoaService.<br/>
- 
+Com base no código contido neste [link](./exercicio/ExercicioJaxRSJersey/) configure a aplicação para utilizar o Jersey e após isso crie um Resource para o objeto Usuario 
+que realize as operações Crud utilizando como base para as operações crud os métodos contidos na classe UsuarioService.<br/>
