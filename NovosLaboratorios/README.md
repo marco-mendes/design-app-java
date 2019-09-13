@@ -1,4 +1,4 @@
-## Indice dos Laboratórios
+## Índice dos Laboratórios
 
-### [Laboratório Introdução ao SpringBoot](./Introducao%20SpringBoot/)<br/>
-### [Laboratório Introdução ao Jax-RS com Jersey e SpringBoot](./JaxRS/)<br/>
+### [Laboratório 1 - Introdução ao SpringBoot e Jax-RS](./laboratorio1)<br/>
+### [Laboratório 2 - Introdução a OpenAPI](./laboratorio2)<br/>
