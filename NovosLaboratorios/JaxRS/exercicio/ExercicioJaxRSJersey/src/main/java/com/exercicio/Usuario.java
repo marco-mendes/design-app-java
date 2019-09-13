@@ -1,4 +1,4 @@
-package com.exemplo;
+package com.exercicio;
 
 public class Usuario {
 

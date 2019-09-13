@@ -1,4 +1,4 @@
-package com.exemplo;
+package com.exercicio;
 
 import org.springframework.stereotype.Component;
 
