@@ -80,4 +80,136 @@ possuímos os métodos:
 Com apenas isso nossa aplicação já possuirá uma documentação padrão criada pelo Swagger, você pode acessá-la pelo seu navegar através da seguinte url: http://localhost:porta/swagger-ui.html, 
 especificando a porta no qual sua aplicação SpringBoot está sendo executada. 
 
-Ao fazer isso você verá algo semelhante a isso:
+Ao fazer isso você verá algo semelhante a isso:<br/>
+<img src="./exemplos/exemplo-nao-personalizado.PNG"/>
+
+O Swagger documentou todos os Endpoints do pacote "com.exemplo", assim como todos os seus métodos e retorno.<br/>
+Também é possível testar os métodos mapeados, observe o exemplo abaixo:<br/>
+<img src="./exemplos/exemplo-nao-personalizado1.PNG"/>
+Através do botão **Try it out** podemos testar a requisição GET para o a URI **/v1/users/**, ao executar o teste poderemos ver um retorno semelhante a este:<br/>
+<img src="./exemplos/exemplo-nao-personalizado2.PNG"/>
+
+
+### Personalizando o que foi criado pelo Swagger
+A documentação criada para nossa API foi feita utilizando o formato de documentação padrão do Swagger, também podemos personalizar algns pontos dessa documentação.<br/>
+Observe este exemplo de configuração personalizada do Swagger:<br/>
+```java
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+
+    @Bean
+    public Docket configuracaoPersonalizada() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.exemplo"))
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
+    }
+
+    private ApiInfo apiInfo() {
+        ApiInfo apiInfo = new ApiInfoBuilder()
+                .title("My REST API")
+                .description("Api de usuários")
+                .version("v1")
+                .termsOfServiceUrl("Terms of service")
+                .contact(new Contact("Nome do Contato", "www.example.com", "myeaddress@company.com"))
+                .license("License of API")
+                .licenseUrl("API license URL")
+                .build();
+
+        return apiInfo;
+    }
+}
+```
+
+Criamos um método chamado **apiInfo** que retorna um objeto do tipo **ApiInfo** e utilizamos este método na configuração de nosso Docket através do método apiInfo() de 
+nosso Objeto Docket.<br/>
+O resultado disso é uma descrição personalizada para nossa API com as configurações que definimos:
+<img src="exemplo-personalizado.PNG"/>
+
+Podemos também adicionar uma descrição personalizada a nossos métodos, podemos realizar isso com a annotation @ApiOperation, a mesma deve ser adicionar em cima dos métodos do 
+Endpoint que desejamos descrever.<br/>
+Um exemplo de uso seria:
+```java
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("v1")
+public class UsuarioEndpoint {
+
+    @Autowired
+    UsuarioService usuarioService;
+
+    @GetMapping(path="users")
+    @ApiOperation(value="Retorna uma lista com todos os usuários.", response = Usuario.class)
+    public ResponseEntity<List<Usuario>> getAllUsers() {
+        List<Usuario> allUsers = usuarioService.getAllUsers();
+        return new ResponseEntity<>(allUsers, HttpStatus.OK);
+    }
+
+    @GetMapping(path="user/{id}")
+    @ApiOperation(value="Retorna um usuário de acordo de acordo com o id informado.", response = Usuario.class)
+    public ResponseEntity<Usuario> getUser(@PathVariable("id") int id) {
+        Usuario user = usuarioService.getUserById(id);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+
+    @PostMapping(path="user")
+    @ApiOperation(value="Cria um novo usuário.")
+    public ResponseEntity<?> addUser(@RequestBody Usuario user) {
+        usuarioService.addUser(user);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PutMapping(path="user/{id}")
+    @ApiOperation(value="Atualiza um usuário existente.")
+    public ResponseEntity<?> updateUser (@PathVariable("id") int id, @RequestBody Usuario user) {
+        usuarioService.updateUser(id, user);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping(path="user/{id}")
+    @ApiOperation(value="Deleta um usuário pelo ID")
+    public ResponseEntity<?> deleteUser(@PathVariable("id") int id) {
+        usuarioService.removeUser(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+}
+```
+
+O resultado desta configuração será semelhante a isso:<br/>
+<img src="exemplo-personalizado1.PNG"/>
+
+Podemos também personalizar a descrição de cada código de resposta dos métodos de nosso Endpoint, no exemplo abaixo estamos personalizando a descrição de alguns códigos de resposta 
+de nosso método **getAllUsers()** com a annotation @ApiResponses que pode conter uma ou mais annotations @ApiResponse com o código de retorno e a descrição personalizada do mesmo.<br/>
+```java
+    @GetMapping(path="users")
+    @ApiOperation(value="Retorna uma lista com todos os usuários.", response = Usuario.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retorna a lista de Usuários"),
+            @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
+    })
+    public ResponseEntity<List<Usuario>> getAllUsers() {
+        List<Usuario> allUsers = usuarioService.getAllUsers();
+        return new ResponseEntity<>(allUsers, HttpStatus.OK);
+    }
+```
+
+O resultado dessa personalização pode ser visto logo abaixo:
+<img src="exemplo-personalizado2.PNG"/>
+
+Como personalizamos apenas os códigos de retorno 200 e 500 os demais códigos de retorno continuam com a descrição padrão.
+
+Existem uma série de annotations e configurações adicionais do que podem ser utilizadas personalizar a documentação criada pelo Swagger, abordamos apenas alguns exemplos 
+dessas configurações.<br/>
+Caso queira verificar todas as possibilidades recomendamos que consulte a [documentação do Springfox](https://springfox.github.io/springfox/docs/current/#configuring-springfox).<br/>

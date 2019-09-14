@@ -1,6 +1,8 @@
 package com.exemplo;
 
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,10 @@ public class UsuarioEndpoint {
 
     @GetMapping(path="users")
     @ApiOperation(value="Retorna uma lista com todos os usuários.", response = Usuario.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retorna a lista de Usuários"),
+            @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
+    })
     public ResponseEntity<List<Usuario>> getAllUsers() {
         List<Usuario> allUsers = usuarioService.getAllUsers();
         return new ResponseEntity<>(allUsers, HttpStatus.OK);

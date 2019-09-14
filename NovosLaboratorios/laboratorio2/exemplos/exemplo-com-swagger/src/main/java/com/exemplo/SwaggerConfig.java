@@ -24,7 +24,7 @@ import java.util.List;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-
+    /*
     @Bean
     public Docket configuracaoBasica() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -33,35 +33,16 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build();
     }
+*/
 
-    /*
     @Bean
     public Docket configuracaoPersonalizada() {
         return new Docket(DocumentationType.SWAGGER_2)
-                //Configurações básicas
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.exemplo"))
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(apiInfo())
-                // Configuracoes avancadas
-                .useDefaultResponseMessages(false)
-                .globalResponseMessage(RequestMethod.GET, responseMessageForGET());
-    }
-
-
-    private List<ResponseMessage> responseMessageForGET() {
-        return new ArrayList<ResponseMessage>() {{
-            add(new ResponseMessageBuilder()
-                    .code(500)
-                    .message("500 message")
-                    .responseModel(new ModelRef("Error"))
-                    .build());
-            add(new ResponseMessageBuilder()
-                    .code(403)
-                    .message("Não autorizado!")
-                    .build());
-        }};
+                .apiInfo(apiInfo());
     }
 
     private ApiInfo apiInfo() {
@@ -70,14 +51,12 @@ public class SwaggerConfig {
                 .description("Api de usuários")
                 .version("v1")
                 .termsOfServiceUrl("Terms of service")
-                .contact(new Contact("Algum nome", "www.example.com", "myeaddress@company.com"))
+                .contact(new Contact("Nome do Contato", "www.example.com", "myeaddress@company.com"))
                 .license("License of API")
                 .licenseUrl("API license URL")
                 .build();
 
         return apiInfo;
     }
-
-    */
 
 }
