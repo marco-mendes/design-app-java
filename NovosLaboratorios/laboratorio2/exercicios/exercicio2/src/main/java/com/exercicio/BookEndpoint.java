@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("v1")
-public class BookResource {
+public class BookEndpoint {
 
     @Autowired
     private BookService bookService;
