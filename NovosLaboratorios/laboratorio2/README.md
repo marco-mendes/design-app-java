@@ -89,6 +89,8 @@ Também é possível testar os métodos mapeados, observe o exemplo abaixo:<br/>
 Através do botão **Try it out** podemos testar a requisição GET para o a URI **/v1/users/**, ao executar o teste poderemos ver um retorno semelhante a este:<br/>
 <img src="./exemplos/exemplo-nao-personalizado2.PNG"/>
 
+#### Exercício 1
+Com base no que foi abordado neste laboratório, utilize o Springfox para gerar uma documentação de API com base no código contido neste link(DEFINIR O LINK).<br/>
 
 ### Personalizando o que foi criado pelo Swagger
 A documentação criada para nossa API foi feita utilizando o formato de documentação padrão do Swagger, também podemos personalizar algns pontos dessa documentação.<br/>
@@ -213,3 +215,8 @@ Como personalizamos apenas os códigos de retorno 200 e 500 os demais códigos d
 Existem uma série de annotations e configurações adicionais do que podem ser utilizadas personalizar a documentação criada pelo Swagger, abordamos apenas alguns exemplos 
 dessas configurações.<br/>
 Caso queira verificar todas as possibilidades recomendamos que consulte a [documentação do Springfox](https://springfox.github.io/springfox/docs/current/#configuring-springfox).<br/>
+
+
+#### Exercício 2
+Com base no que foi abordado neste ultimo tópico, adicione uma descrição personalizada para todos os métodos de nosso Endpoint, o código base para este exercício pode ser encontrado 
+neste link(DEFINIR O LINK).
