@@ -90,7 +90,7 @@ Através do botão **Try it out** podemos testar a requisição GET para o a URI
 <img src="./exemplos/exemplo-nao-personalizado2.PNG"/>
 
 #### Exercício 1
-Com base no que foi abordado neste laboratório, utilize o Springfox para gerar uma documentação de API com base no código contido neste link(DEFINIR O LINK).<br/>
+Com base no que foi abordado neste laboratório, utilize o Springfox para gerar uma documentação de API com base no código contido neste [link](./exercicios/exercicio1).<br/>
 
 ### Personalizando o que foi criado pelo Swagger
 A documentação criada para nossa API foi feita utilizando o formato de documentação padrão do Swagger, também podemos personalizar alguns pontos dessa documentação.<br/>
@@ -219,4 +219,4 @@ Caso queira verificar todas as possibilidades recomendamos que consulte a [docum
 
 #### Exercício 2
 Com base no que foi abordado neste ultimo tópico, adicione uma descrição personalizada para todos os métodos de nosso Endpoint, o código base para este exercício pode ser encontrado 
-neste link(DEFINIR O LINK).
+neste D
