@@ -219,4 +219,4 @@ Caso queira verificar todas as possibilidades recomendamos que consulte a [docum
 
 #### Exercício 2
 Com base no que foi abordado neste ultimo tópico, adicione uma descrição personalizada para todos os métodos de nosso Endpoint, o código base para este exercício pode ser encontrado 
-neste D
+neste [link](./exercicios/exercicio2)
