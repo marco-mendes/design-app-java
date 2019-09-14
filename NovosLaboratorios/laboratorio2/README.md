@@ -83,7 +83,7 @@ especificando a porta no qual sua aplicação SpringBoot está sendo executada.
 Ao fazer isso você verá algo semelhante a isso:<br/>
 <img src="./exemplos/exemplo-nao-personalizado.PNG"/>
 
-O Swagger documentou todos os Endpoints do pacote "com.exemplo", assim como todos os seus métodos e retorno.<br/>
+O Swagger documentou todos os Endpoints do pacote "com.exemplo", assim como todos os seus métodos e retornos.<br/>
 Também é possível testar os métodos mapeados, observe o exemplo abaixo:<br/>
 <img src="./exemplos/exemplo-nao-personalizado1.PNG"/>
 Através do botão **Try it out** podemos testar a requisição GET para o a URI **/v1/users/**, ao executar o teste poderemos ver um retorno semelhante a este:<br/>
@@ -93,7 +93,7 @@ Através do botão **Try it out** podemos testar a requisição GET para o a URI
 Com base no que foi abordado neste laboratório, utilize o Springfox para gerar uma documentação de API com base no código contido neste link(DEFINIR O LINK).<br/>
 
 ### Personalizando o que foi criado pelo Swagger
-A documentação criada para nossa API foi feita utilizando o formato de documentação padrão do Swagger, também podemos personalizar algns pontos dessa documentação.<br/>
+A documentação criada para nossa API foi feita utilizando o formato de documentação padrão do Swagger, também podemos personalizar alguns pontos dessa documentação.<br/>
 Observe este exemplo de configuração personalizada do Swagger:<br/>
 ```java
 @Configuration
@@ -212,7 +212,7 @@ O resultado dessa personalização pode ser visto logo abaixo:
 
 Como personalizamos apenas os códigos de retorno 200 e 500 os demais códigos de retorno continuam com a descrição padrão.
 
-Existem uma série de annotations e configurações adicionais do que podem ser utilizadas personalizar a documentação criada pelo Swagger, abordamos apenas alguns exemplos 
+Existe uma série de annotations e configurações adicionais que podem ser utilizadas para personalizar a documentação criada pelo Swagger, abordamos apenas alguns exemplos 
 dessas configurações.<br/>
 Caso queira verificar todas as possibilidades recomendamos que consulte a [documentação do Springfox](https://springfox.github.io/springfox/docs/current/#configuring-springfox).<br/>
 
