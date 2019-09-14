@@ -129,7 +129,7 @@ public class SwaggerConfig {
 Criamos um método chamado **apiInfo** que retorna um objeto do tipo **ApiInfo** e utilizamos este método na configuração de nosso Docket através do método apiInfo() de 
 nosso Objeto Docket.<br/>
 O resultado disso é uma descrição personalizada para nossa API com as configurações que definimos:
-<img src="exemplo-personalizado.PNG"/>
+<img src="./exemplos/exemplo-personalizado.PNG"/>
 
 Podemos também adicionar uma descrição personalizada a nossos métodos, podemos realizar isso com a annotation @ApiOperation, a mesma deve ser adicionar em cima dos métodos do 
 Endpoint que desejamos descrever.<br/>
@@ -190,7 +190,7 @@ public class UsuarioEndpoint {
 ```
 
 O resultado desta configuração será semelhante a isso:<br/>
-<img src="exemplo-personalizado1.PNG"/>
+<img src="./exemplos/exemplo-personalizado1.PNG"/>
 
 Podemos também personalizar a descrição de cada código de resposta dos métodos de nosso Endpoint, no exemplo abaixo estamos personalizando a descrição de alguns códigos de resposta 
 de nosso método **getAllUsers()** com a annotation @ApiResponses que pode conter uma ou mais annotations @ApiResponse com o código de retorno e a descrição personalizada do mesmo.<br/>
