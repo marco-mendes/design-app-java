@@ -208,7 +208,7 @@ de nosso método **getAllUsers()** com a annotation @ApiResponses que pode conte
 ```
 
 O resultado dessa personalização pode ser visto logo abaixo:
-<img src="exemplo-personalizado2.PNG"/>
+<img src="./exemplos/exemplo-personalizado2.PNG"/>
 
 Como personalizamos apenas os códigos de retorno 200 e 500 os demais códigos de retorno continuam com a descrição padrão.
 
