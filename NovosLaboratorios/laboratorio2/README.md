@@ -227,7 +227,7 @@ Existe uma série de annotations e configurações adicionais que podem ser util
 dessas configurações.<br/>
 Caso queira verificar todas as possibilidades recomendamos que consulte a [documentação do Springfox](https://springfox.github.io/springfox/docs/current/#configuring-springfox).<br/>
 
-Caso queira consultar o código completo de nosso exemplo você pode encontrá-lo neste [link](./exemplos/exemplo-com-swagger/).
+Caso queira consultar o código completo de nossos exemplos você pode encontrá-los neste [link](./exemplos/exemplo-com-swagger/).
 
 #### Exercício 2
 

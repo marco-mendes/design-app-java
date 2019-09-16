@@ -1,16 +1,11 @@
 package com.exemplo;
 
-import io.swagger.annotations.ApiModelProperty;
-
 public class Usuario {
 
-    //@ApiModelProperty(value="ID do usuário")
     private int id;
 
-    //@ApiModelProperty(value="Nome do usuário")
     private String nome;
 
-    //@ApiModelProperty(value="Email do usuário")
     private String email;
 
     public Usuario(int id, String nome, String email) {
