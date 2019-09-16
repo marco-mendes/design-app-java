@@ -263,16 +263,16 @@ Funcionamento das annotations do Jax-RS:
 - **@POST** indica que o método anotado manipula solicitações HTTP POST.
 - **@PUT** indica que o método anotado manipula solicitações HTTP PUT.
 - **@DELETE** indica que o método anotado manipula solicitações HTTP DELETE.
-- **@Produces** define um MediaType que o método anotado pode produzir como resposta a uma solicitação HTTP. Em nosso exemplo estamos utilizando o tipo MediaType.APPLICATION_JSON.
-- **@Consumes** define um MediaType que o método anotado pode aceitar ao receber uma solicitação HTTP. Em nosso exemplo estamos utilizando o tipo MediaType.APPLICATION_JSON.
+- **@Produces** define um **MediaType** que o método anotado pode produzir como resposta a uma solicitação HTTP. Em nosso exemplo estamos utilizando o tipo **MediaType.APPLICATION_JSON**.
+- **@Consumes** define um **MediaType** que o método anotado pode aceitar ao receber uma solicitação HTTP. Em nosso exemplo estamos utilizando o tipo **MediaType.APPLICATION_JSON**.
 
-O objeto do tipo Response é utilizado para criar e retornar uma resposta HTTP com um código de resposta, podendo ou não retornar uma entidade do tipo Book.<br/>
-Observe também que utilizamos nossa classe BookService para realizar as operações crud em nossa base de dados fictícia.
+O objeto do tipo **Response** é utilizado para criar e retornar uma resposta HTTP com um código de resposta, podendo ou não retornar uma entidade do tipo **Book**.<br/>
+Observe também que utilizamos nossa classe **BookService** em nossa classe **BookResource** para realizar as operações crud em nossa base de dados fictícia.
 
 ### Registrando nossa classe Resource em um ResourceConfig do Jersey
 
 Para que nossa classe Resource entre em funcionamento precisamos primeiro registrá-la no Jersey, para isso será necessário criar uma classe que extenda a classe
-ResourceConfig do Jersey e registre nossa classe BookResource.<br/>
+**ResourceConfig** do Jersey e registre nossa classe **BookResource**.<br/>
 Isso pode ser implementado da seguinte forma:
 
 ```java
@@ -291,18 +291,18 @@ public class JerseyConfig extends ResourceConfig {
 }
 ```
 
-A annotation @Configuration é comum no Spring Boot e transforma a classe JerseyConfig em um Bean lido automaticamente pelo Spring Boot.<br/>
-A annotation @ApplicationPath receberá um endereço base para todos os Resources. Sendo assim, todo Resource que formos acessar será através da URL base
+A annotation **@Configuration** é comum no Spring Boot e transforma a classe **JerseyConfig** em um Bean lido automaticamente pelo Spring Boot.<br/>
+A annotation **@ApplicationPath** receberá um endereço base para todos os Resources. Sendo assim, todo Resource que formos acessar será através da URL base
 http://localhost:port/v1/resource_name/path_param.<br/>
 
 - **port**: Corresponde a porta em que nossa aplicação está sendo executada
-- **resource_name**: Corresponde ao nome que atribuímos a annotation @Path que se encontra em cima da declaração de nossa classe BookResource.
-- **path_param**: Corresponde ao nome que atribuímos a annotation @Path que se encontra em cima da declaração de nossos métodos no Resource BookResource.
+- **resource_name**: Corresponde ao nome que atribuímos a annotation **@Path** que se encontra em cima da declaração de nossa classe **BookResource**.
+- **path_param**: Corresponde ao nome que atribuímos a annotation **@Path** que se encontra em cima da declaração de nossos métodos no Resource **BookResource**.
 
 Exemplos:
 
-- Se realizarmos uma requisição POST a url http://localhost:8080/v1/books/ iremos acessar o método addBook() de nosso Resource.
-- Se realizarmos uma requisição GET a url http://localhost:8080/v1/books/1 iremos acessar o método getBook() de nosso Resource.
+- Se realizarmos uma requisição POST através da url http://localhost:8080/v1/books/ iremos acessar o método **addBook()** de nosso Resource.
+- Se realizarmos uma requisição GET através da url http://localhost:8080/v1/books/1 iremos acessar o método **getBook()** de nosso Resource.
 
 ### Criando a classe main e executando a aplicação
 
@@ -322,12 +322,12 @@ public class Application {
 }
 ```
 
-Para executar a aplicação você pode executar a classe Application em seu IDE e realizar as requisições HTTP via curl ou através de seu navegador.<br/>
+Para executar a aplicação você pode executar a classe **Application** em seu IDE e realizar as requisições HTTP via curl ou através de seu navegador.<br/>
 Além disso você pode utilizar o [Postman](https://www.getpostman.com/) para testar sua API, leia este [artigo](https://www.codetreat.com/testing-rest-api-using-postman/)
 para compreender como fazer isso.
 
 #### Exercício
 
-Com base no código contido neste [link](./exercicio/ExercicioJaxRSJersey/) configure a aplicação para utilizar o Jersey e após isso crie um Resource para o objeto Usuario
-que realize as operações Crud utilizando como base para as operações crud os métodos contidos na classe UsuarioService.<br/>
-Configure o @Path de sua classe Resource com a URI "/user" ou utilize alguma URI de sua preferência para essa configuração.
+Com base no código contido neste [link](./exercicio/ExercicioJaxRSJersey/) configure a aplicação para utilizar o Jersey e após isso crie um Resource para o objeto **Usuario**
+que realize as operações Crud utilizando como base para as operações crud os métodos contidos na classe **UsuarioService**.<br/>
+Configure o **@Path** de sua classe Resource com a URI **/user** ou utilize alguma URI de sua preferência para essa configuração.
