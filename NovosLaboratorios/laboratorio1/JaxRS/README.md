@@ -293,7 +293,7 @@ public class JerseyConfig extends ResourceConfig {
 
 A annotation **@Configuration** é comum no Spring Boot e transforma a classe **JerseyConfig** em um Bean lido automaticamente pelo Spring Boot.<br/>
 A annotation **@ApplicationPath** receberá um endereço base para todos os Resources. Sendo assim, todo Resource que formos acessar será através da URL base
-http://localhost:port/v1/resource_name/path_param.<br/>
+**http://localhost:port/v1/resource_name/path_param**.<br/>
 
 - **port**: Corresponde a porta em que nossa aplicação está sendo executada
 - **resource_name**: Corresponde ao nome que atribuímos a annotation **@Path** que se encontra em cima da declaração de nossa classe **BookResource**.
