@@ -257,7 +257,7 @@ A classe **BookResource** serve como um Endpoint e será responsável por lidar 
 Funcionamento das annotations do Jax-RS:
 
 - **@Path** é usado para identificar o caminho do URI (relativo) para o qual uma classe de Resource ou método de classe atenderá solicitações.
-- **@PathParam** é usado para obter o valor de um parâmetro de uma URI para que possamos atribuir esse valor a um parâmetro de método. Um exemplo seria a URI /livros/{id}, nesta
+- **@PathParam** é usado para obter o valor de um parâmetro de uma URI para que possamos atribuir esse valor a um parâmetro de método. Um exemplo seria a URI **/livros/{id}**, nesta
   URI conseguiriamos obter o valor do parâmetro id informado durante a requisição desta URI.
 - **@GET** indica que o método anotado lida com solicitações HTTP GET.
 - **@POST** indica que o método anotado manipula solicitações HTTP POST.
@@ -301,8 +301,8 @@ http://localhost:port/v1/resource_name/path_param.<br/>
 
 Exemplos:
 
-- Se realizarmos uma requisição POST através da url http://localhost:8080/v1/books/ iremos acessar o método **addBook()** de nosso Resource.
-- Se realizarmos uma requisição GET através da url http://localhost:8080/v1/books/1 iremos acessar o método **getBook()** de nosso Resource.
+- Se realizarmos uma requisição POST através da url **http://localhost:8080/v1/books/** iremos acessar o método **addBook()** de nosso Resource.
+- Se realizarmos uma requisição GET através da url **http://localhost:8080/v1/books/1** iremos acessar o método **getBook()** de nosso Resource.
 
 ### Criando a classe main e executando a aplicação
 
