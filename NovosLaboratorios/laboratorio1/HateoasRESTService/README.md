@@ -83,7 +83,7 @@ Além disso, a representação JSON do recurso será enriquecida com uma lista d
 
 O content é a representação textual de Greetin. O elemento **\_links** contém uma lista de links, neste caso, exatamente um com o tipo de relação **rel**(neste caso seria nossa propriedade **self**) e o atributo **href** apontando para o recurso que acabou de ser acessado.
 
-Para modelar a representação de Greeting, você cria uma classe de representação de recurso. Como a propriedade **\_links** é uma propriedade fundamental do modelo de representação, o Spring HATEOAS é fornecido com uma classe base \*_ResourceSupport_() que permite adicionar instâncias do Link e garantir que elas sejam renderizadas conforme mostrado acima.
+Para modelar a representação de Greeting, você cria uma classe de representação de recurso. Como a propriedade **\_links** é uma propriedade fundamental do modelo de representação, o Spring HATEOAS é fornecido com uma classe base **ResourceSupport()** que permite adicionar instâncias do Link e garantir que elas sejam renderizadas conforme mostrado acima.
 
 Então você simplesmente criará um objeto java simples que estende a classe **ResourceSupport**, adiciona a propriedade content e um modificador de acesso para ela, além de um construtor para a classe Greeting conforme o exemplo abaixo:
 
