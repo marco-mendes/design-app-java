@@ -58,8 +58,6 @@ O campo id é um identificador exclusivo para a Greeting e o conteúdo é a repr
 
 Para modelar a representação de Greeting, você cria uma classe de representação de recurso. Forneça um objeto java simples com campos, construtores e acessadores para os dados de identificação e conteúdo:
 
-src/main/java/hello/Greeting.java
-
 ```java
 // Localização para criação desta classe: src/main/java/hello/Greeting.java
 package hello;
@@ -181,7 +179,7 @@ Agora que o serviço está ativo, visite http://localhost:8080/greeting, onde vo
 {"id":1,"content":"Hello, World!"}
 ```
 
-Forneça um parâmetro name na url como por exemplo http://localhost:8080/greeting?name=User. Observe como o valor do atributo content muda de "Hello, World!" para "Olá, usuário!":
+Forneça um parâmetro name na url como por exemplo http://localhost:8080/greeting?name=User. Observe como o valor do atributo content muda de "Hello, World!" para "Hello, User!":
 
 ```java
 {"id":2,"content":"Hello, User!"}
