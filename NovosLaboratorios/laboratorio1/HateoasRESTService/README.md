@@ -188,13 +188,13 @@ public class Application {
 }
 ```
 
-@SpringBootApplication é uma annotation de conveniência que adiciona todo o seguinte:
+**@SpringBootApplication** é uma annotation de conveniência que adiciona todo o seguinte:
 
-- @Configuration: marca a classe como uma fonte de definições de bean para o contexto do aplicativo.
-- @EnableAutoConfiguration: Diz ao Spring Boot para começar a adicionar beans com base nas configurações do classpath, outros beans e várias configurações de propriedades. Por exemplo, se spring-webmvc estiver no classpath, essa annotation sinalizará o aplicativo como um aplicativo da web e ativará os principais comportamentos, como configurar um DispatcherServlet.
-- @ComponentScan: Diz ao Spring que procure outros componentes, configurações e serviços no pacote hello, permitindo que ele encontre os controllers.
+- **@Configuration**: marca a classe como uma fonte de definições de bean para o contexto do aplicativo.
+- **@EnableAutoConfiguration**: Diz ao Spring Boot para começar a adicionar beans com base nas configurações do classpath, outros beans e várias configurações de propriedades. Por exemplo, se spring-webmvc estiver no classpath, essa annotation sinalizará o aplicativo como um aplicativo da web e ativará os principais comportamentos, como configurar um **DispatcherServlet**.
+- **@ComponentScan**: Diz ao Spring que procure outros componentes, configurações e serviços no pacote **hello**, permitindo que ele encontre os controllers.
 
-O método main() usa o método SpringApplication.run() do Spring Boot para iniciar um aplicativo. Você notou que não havia uma única linha de XML? Também não há arquivo web.xml. Esse aplicativo da Web é 100% Java puro e você não precisou configurar nenhum encanamento ou infraestrutura.
+O método **main()** usa o método **SpringApplication.run()** do Spring Boot para iniciar um aplicativo. Você notou que não havia uma única linha de XML? Também não há arquivo web.xml. Esse aplicativo da Web é 100% Java puro e você não precisou configurar nenhum encanamento ou infraestrutura.
 
 ### Executando a aplicação
 
