@@ -49,7 +49,7 @@ Possuímos um código que pode ser utilizado como base para completar este tutor
 
 Comece o processo pensando em interações de serviço.
 
-O serviço manipulará solicitações GET para /greeting, opcionalmente com um parâmetro de nome na string de consulta. A solicitação GET deve retornar uma resposta 200 OK com JSON no corpo que representa um Greeting. Deve ser algo como isto:
+O serviço manipulará solicitações GET para **/greeting**, opcionalmente com um parâmetro de nome na string de consulta. A solicitação GET deve retornar uma resposta 200 OK com JSON no corpo que representa um **Greeting**. Deve ser algo como isto:
 
 ```java
 {
@@ -59,7 +59,7 @@ O serviço manipulará solicitações GET para /greeting, opcionalmente com um p
 
 ```
 
-O campo id é um identificador exclusivo para a Greeting e o conteúdo é a representação textual de Greeting.
+O campo id é um identificador exclusivo para a Greeting e o conteúdo é a representação textual de **Greeting**.
 
 Para modelar a representação de Greeting, você cria uma classe de representação de recurso. Forneça um objeto java simples com campos, construtores e acessadores para os dados de identificação e conteúdo:
 
@@ -87,11 +87,11 @@ public class Greeting {
 }
 ```
 
-Como você verá nas próximas etapas, o Spring usa a biblioteca Jackson JSON para organizar automaticamente instâncias do tipo Greeting no formato JSON.
+Como você verá nas próximas etapas, o Spring usa a biblioteca Jackson JSON para organizar automaticamente instâncias do tipo **Greeting** no formato JSON.
 
 ### Criando nosso Greeting Controller
 
-Na abordagem do Spring para criar web services RESTful, as solicitações HTTP são tratadas por um Controller. Esses componentes são facilmente identificados pela annotation @RestController, e o GreetingController abaixo lida com solicitações GET para o path /greeting retornando uma nova instância da classe Greeting:
+Na abordagem do Spring para criar web services RESTful, as solicitações HTTP são tratadas por um Controller. Esses componentes são facilmente identificados pela annotation **@RestController**, e o GreetingController abaixo lida com solicitações GET para o path **/greeting** retornando uma nova instância da classe Greeting:
 
 ```java
 // Localização para criação desta classe: src/main/java/hello/GreetingController.java
@@ -116,27 +116,27 @@ public class GreetingController {
 }
 ```
 
-Este Controller é conciso e simples, mas há muita coisa acontecendo sob o capô. Vamos dividir passo a passo.
+Este Controller é conciso e simples, mas há muita coisa acontecendo. Vamos dividir passo a passo.
 
-A annotation @RequestMapping assegura que as solicitações HTTP para /greeting sejam mapeadas para o método greeting().
+A annotation **@RequestMapping** assegura que as solicitações HTTP para **/greeting** sejam mapeadas para o método **greeting()**.
 
-O exemplo acima não especifica explicitamente o tipo de requisição HTTP(GET, POST, PUT ...) porque @RequestMapping mapeia todas as operações HTTP por padrão.<br/>
+O exemplo acima não especifica explicitamente o tipo de requisição HTTP(GET, POST, PUT ...) porque **@RequestMapping** mapeia todas as operações HTTP por padrão.<br/>
 Use @RequestMapping (path="/greeting", method=RequestMethod.GET) para restringir esse mapeamento. Nesse caso, você também deve importar **org.springframework.web.bind.annotation.RequestMethod**.
 <br/>Você também pode mapear outros método HTTP através de RequestMethod.NOME_REQUESTMETHOD, onde NOME_REQUESTMETHOD deve ser substituído pelo método a ser usado.
 
-@RequestParam vincula o valor do nome do parâmetro da string de consulta ao parâmetro name do método greeting(). Se o parâmetro name estiver ausente na solicitação, o valor padrão de "World" será usado.
+**@RequestParam** vincula o valor do nome do parâmetro da string de consulta ao parâmetro name do método **greeting()**. Se o parâmetro name estiver ausente na solicitação, o valor padrão de "World" será usado.
 
-A implementação do corpo do método cria e retorna um novo objeto Greeting com atributos de ID e Content com base no próximo valor do contador e formata o nome fornecido usando o modelo de Greeting.
+A implementação do corpo do método cria e retorna um novo objeto Greeting com atributos de ID e Content com base no próximo valor do contador e formata o nome fornecido usando o modelo de **Greeting**.
 
 Uma diferença importante entre um Controller MVC tradicional e o Controller de web service RESTful acima é a maneira como o corpo da resposta HTTP é criado. Em vez de depender de uma tecnologia de exibição para executar a renderização do servidor dos dados de Greeting em HTML, esse controller de web service RESTful simplesmente preenche e retorna um objeto de Greeting. Os dados do objeto serão gravados diretamente na resposta HTTP como JSON.
 
-Esse código usa a nova annotation @RestController do Spring 4, que marca a classe como um Controller em que todo método retorna um objeto de domínio em vez de uma exibição. É uma abreviação de @Controller e @ResponseBody reunidos.
+Esse código usa a nova annotation **@RestController** do Spring 4, que marca a classe como um Controller em que todo método retorna um objeto de domínio em vez de uma exibição. É uma abreviação de **@Controller** e **@ResponseBody** reunidos.
 
-O objeto Greeting deve ser convertido em JSON. Graças ao suporte ao conversor de mensagens HTTP do Spring, você não precisa fazer essa conversão manualmente. Como o Jackson 2 está no classpath, o MappingJackson2HttpMessageConverter do Spring é escolhido automaticamente para converter a instância Greeting em JSON.
+O objeto Greeting deve ser convertido em JSON. Graças ao suporte ao conversor de mensagens HTTP do Spring, você não precisa fazer essa conversão manualmente. Como o Jackson 2 está no classpath, o **MappingJackson2HttpMessageConverter** do Spring é escolhido automaticamente para converter a instância **Greeting** em JSON.
 
 ### Tornando a aplicação executável
 
-Embora seja possível empacotar esse serviço como um arquivo WAR tradicional para implementação em um servidor de aplicativos externo, a abordagem mais simples demonstrada abaixo cria um aplicativo independente. Você empacota tudo em um único arquivo JAR executável, orientado por um bom e velho método Java main(). No caminho, você usa o suporte do Spring para incorporar o contêiner de servlet Tomcat como tempo de execução HTTP, em vez de implantar em uma instância externa.
+Embora seja possível empacotar esse serviço como um arquivo WAR tradicional para implementação em um servidor de aplicativos externo, a abordagem mais simples demonstrada abaixo cria um aplicativo independente. Você empacota tudo em um único arquivo JAR executável, orientado por um bom e velho método Java **main()**. No caminho, você usa o suporte do Spring para incorporar o contêiner de servlet Tomcat como tempo de execução HTTP, em vez de implantar em uma instância externa.
 
 ```java
 // Localização para criação desta classe: src/main/java/hello/Application.java
@@ -190,9 +190,9 @@ Forneça um parâmetro name na url como por exemplo http://localhost:8080/greeti
 {"id":2,"content":"Hello, User!"}
 ```
 
-Essa alteração demonstra que o arranjo @RequestParam no GreetingController está funcionando conforme o esperado. O parâmetro name recebeu um valor padrão de "World", mas sempre pode ser substituído explicitamente pela string de consulta.
+Essa alteração demonstra que o arranjo **@RequestParam** no **GreetingController** está funcionando conforme o esperado. O parâmetro name recebeu um valor padrão de "World", mas sempre pode ser substituído explicitamente pela string de consulta.
 
-Observe também como o atributo id mudou de 1 para 2. Isso prova que você está trabalhando na mesma instância GreetingController com várias solicitações e que seu campo id está sendo incrementado em cada chamada conforme o esperado.
+Observe também como o atributo id mudou de 1 para 2. Isso prova que você está trabalhando na mesma instância **GreetingController** com várias solicitações e que seu campo id está sendo incrementado em cada chamada conforme o esperado.
 
 ### Resumo
 
