@@ -42,7 +42,8 @@ O valor do parâmetro name substitui o valor padrão de "World" e é refletido n
 
 ### Obtendo o código base para este realizar este tutorial
 
-Possuímos um código que pode ser utilizado como base para completar este tutorial, o mesmo pode ser encontrado neste [link](./exemplos/base/) e pode ser importado em seu IDE.
+Possuímos um código que pode ser utilizado como base para completar este tutorial, o mesmo pode ser encontrado neste [link](./exemplos/base/) e pode ser importado em seu IDE.<br/>
+É importante analisar o arquivo **pom.xml** do projeto para verificar as dependências que estão sendo utilizadas nele.
 
 ### Criando a classe de representação de nosso recurso Greeting
 

@@ -20,7 +20,8 @@ Você criará um aplicativo Spring que permite criar e recuperar objetos Person 
 
 ### Obtendo o código base para este realizar este tutorial
 
-Possuímos um código que pode ser utilizado como base para completar este tutorial, o mesmo pode ser encontrado neste [link](./exemplos/base/) e pode ser importado em seu IDE.
+Possuímos um código que pode ser utilizado como base para completar este tutorial, o mesmo pode ser encontrado neste [link](./exemplos/base/) e pode ser importado em seu IDE.<br/>
+É importante analisar o arquivo **pom.xml** do projeto para verificar as dependências que estão sendo utilizadas nele.
 
 ### Criando a classe Person
 
@@ -128,7 +129,7 @@ Agora que o aplicativo está sendo executado, você pode testá-lo. Você pode u
 Primeiro você deseja ver o serviço de nível superior. O exemplo a seguir mostra como fazer isso:
 
 ```java
-$ curl http://localhost:8080
+curl http://localhost:8080
 
 {
   "_links" : {
@@ -147,7 +148,7 @@ O Spring Data REST usa o [formato HAL](http://stateless.co/hal_specification.htm
 O exemplo a seguir mostra como ver os registros de **/people** (nenhum atualmente):
 
 ```java
-$ curl http://localhost:8080/people
+curl http://localhost:8080/people
 
 {
   "_links" : {
@@ -171,7 +172,7 @@ $ curl http://localhost:8080/people
 No momento, não há elementos e, portanto, não há páginas. Hora de criar um novo registro do tipo **Person**! O exemplo a seguir mostra como fazer isso:
 
 ```java
-$ curl -i -X POST -H "Content-Type:application/json" -d '{"firstName": "Frodo", "lastName": "Baggins"}' http://localhost:8080/people
+curl -i -X POST -H "Content-Type:application/json" -d '{"firstName": "Frodo", "lastName": "Baggins"}' http://localhost:8080/people
 
 HTTP/1.1 201 Created
 Server: Apache-Coyote/1.1
@@ -188,7 +189,7 @@ Date: Wed, 26 Feb 2014 20:26:55 GMT
 Você pode consultar todos os registros Person, como mostra o exemplo a seguir:
 
 ```java
-$ curl http://localhost:8080/people
+curl http://localhost:8080/people
 
 {
   "_links" : {
@@ -225,7 +226,7 @@ O objeto **persons** contém uma lista que inclui o **Frodo**. Observe como ele 
 Você pode consultar diretamente o registro individual, da seguinte maneira:
 
 ```java
-$ curl http://localhost:8080/people/1
+curl http://localhost:8080/people/1
 
 {
   "firstName" : "Frodo",
@@ -241,7 +242,7 @@ $ curl http://localhost:8080/people/1
 Você pode encontrar todas as consultas personalizadas, conforme mostrado no exemplo a seguir:
 
 ```java
-$ curl http://localhost:8080/people/search
+curl http://localhost:8080/people/search
 
 {
   "_links" : {
@@ -258,7 +259,7 @@ Você pode ver o URL da consulta, incluindo o parâmetro de consulta HTTP, **nam
 O exemplo a seguir mostra como usar a consulta **findByLastName**:
 
 ```java
-$ curl http://localhost:8080/people/search/findByLastName?name=Baggins
+curl http://localhost:8080/people/search/findByLastName?name=Baggins
 
 {
   "_embedded" : {
@@ -280,8 +281,8 @@ Como você o definiu para retornar List <Person> no código, ele retorna todos o
 Você também pode emitir chamadas **PUT**, **PATCH** e **DELETE** para substituir, atualizar ou excluir registros existentes (respectivamente). O exemplo a seguir usa uma chamada **PUT**:
 
 ```java
-$ curl -X PUT -H "Content-Type:application/json" -d '{"firstName": "Bilbo", "lastName": "Baggins"}' http://localhost:8080/people/1
-$ curl http://localhost:8080/people/1
+curl -X PUT -H "Content-Type:application/json" -d '{"firstName": "Bilbo", "lastName": "Baggins"}' http://localhost:8080/people/1
+curl http://localhost:8080/people/1
 
 {
   "firstName" : "Bilbo",
@@ -297,8 +298,8 @@ $ curl http://localhost:8080/people/1
 O exemplo a seguir usa uma chamada **PATCH**:
 
 ```java
-$ curl -X PATCH -H "Content-Type:application/json" -d '{"firstName": "Bilbo Jr."}' http://localhost:8080/people/1
-$ curl http://localhost:8080/people/1
+curl -X PATCH -H "Content-Type:application/json" -d '{"firstName": "Bilbo Jr."}' http://localhost:8080/people/1
+curl http://localhost:8080/people/1
 
 {
   "firstName" : "Bilbo Jr.",
@@ -317,8 +318,8 @@ $ curl http://localhost:8080/people/1
 Você também pode excluir registros, como o exemplo a seguir mostra:
 
 ```java
-$ curl -X DELETE http://localhost:8080/people/1
-$ curl http://localhost:8080/people
+curl -X DELETE http://localhost:8080/people/1
+curl http://localhost:8080/people
 
 {
   "_links" : {
