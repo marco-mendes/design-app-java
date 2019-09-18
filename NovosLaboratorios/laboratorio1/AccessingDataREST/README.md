@@ -144,7 +144,7 @@ O exemplo anterior fornece uma primeira visão do que esse servidor tem a oferec
 
 O Spring Data REST usa o [formato HAL](http://stateless.co/hal_specification.html) para saída JSON. É flexível e oferece uma maneira conveniente de fornecer links adjacentes aos dados que são veiculados.
 
-O exemplo a seguir mostra como ver os registros de people (nenhum atualmente):
+O exemplo a seguir mostra como ver os registros de **/people** (nenhum atualmente):
 
 ```java
 $ curl http://localhost:8080/people
@@ -168,7 +168,7 @@ $ curl http://localhost:8080/people
 }
 ```
 
-No momento, não há elementos e, portanto, não há páginas. Hora de criar um novo registro do tipo **Person**! A exemplo a seguir mostra como fazer isso:
+No momento, não há elementos e, portanto, não há páginas. Hora de criar um novo registro do tipo **Person**! O exemplo a seguir mostra como fazer isso:
 
 ```java
 $ curl -i -X POST -H "Content-Type:application/json" -d '{"firstName": "Frodo", "lastName": "Baggins"}' http://localhost:8080/people
@@ -181,7 +181,7 @@ Date: Wed, 26 Feb 2014 20:26:55 GMT
 ```
 
 - **-i**: garante que você possa ver a mensagem de resposta, incluindo os cabeçalhos. O URI do objeto Person recém-criado é mostrado.
-- **-X POST**: sinaliza que esta requisição é do tipo POST usado para criar uma nova entrada.
+- **-X POST**: sinaliza que esta requisição é do tipo POST usado para criar um novo registro.
 - **-H "Content-Type:application/json"**: define o tipo de conteúdo para que o aplicativo saiba que os dados de entrada contém um objeto JSON.
 - **-d '{"firstName": "Frodo", "lastName": "Baggins"}'**: os dados que serão enviados.
 
