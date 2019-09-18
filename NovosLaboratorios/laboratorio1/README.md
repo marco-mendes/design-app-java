@@ -7,6 +7,6 @@ Para melhor compreensão este laboratório foi divido em cinco partes:
 
 - #### [Introdução ao SpringBoot](./Introducao%20SpringBoot/)<br/>
 - #### [Construindo um Web Service RESTful](./RESTService/)<br/>
-  <!-- * #### [Construindo Web Service RESTful com Hateoas](./HateoasRESTService/)<br/> -->
-  <!-- * #### [Acessando dados do JPA com REST](./HateoasRESTService/)<br/> -->
+- #### [Construindo Web Service RESTful com Hateoas](./HateoasRESTService/)<br/>
+  <!-- - #### [Acessando dados do JPA com REST](./HateoasRESTService/)<br/> -->
 - #### [Introdução ao Jax-RS com Jersey e SpringBoot](./JaxRS/)<br/>
