@@ -12,7 +12,7 @@ A Hypermedia é um aspecto importante do REST. Ele permite que você crie servi�
 
 ### O que você irá construir
 
-Você criará um serviço REST orientado à Hypermedia com o Spring HATEOAS, uma biblioteca de APIs que pode ser usada para criar facilmente links apontando para os Controllers do Spring MVC, criar representações de recursos e controlar como eles são renderizados em formatos de hipermídia suportados, como HAL.
+Você criará um serviço REST orientado à Hypermedia com o Spring HATEOAS, uma biblioteca de APIs que pode ser usada para criar facilmente links apontando para os Controllers do Spring MVC, criar representações de recursos e controlar como eles são renderizados em formatos de Hypermedia suportados, como HAL.
 
 Você criará um serviço que aceitará solicitações HTTP GET em:
 
@@ -66,9 +66,9 @@ Possuímos um código que pode ser utilizado como base para completar este tutor
 
 Comece o processo pensando em interações de serviço.
 
-O serviço manipulará solicitações GET para /greeting, opcionalmente com um parâmetro de nome na string de consulta. A solicitação GET deve retornar uma resposta 200 OK com JSON no corpo que representa um Greeting.
+O serviço manipulará solicitações GET para /greeting, opcionalmente com um parâmetro name na string de consulta. A solicitação GET deve retornar uma resposta 200 OK com JSON no corpo que representa um Greeting.
 
-Além disso, a representação JSON do recurso será enriquecida com uma lista de elementos Hypermedia em uma propriedade \_links. A forma mais rudimentar disso é um link que aponta para o próprio recurso. Portanto, a representação deve ser algo como isto:
+Além disso, a representação JSON do recurso será enriquecida com uma lista de elementos Hypermedia em uma propriedade **\_links**. A forma mais rudimentar disso é um link que aponta para o próprio recurso. Portanto, a representação deve ser algo como isto:
 
 ```java
 {
@@ -81,11 +81,11 @@ Além disso, a representação JSON do recurso será enriquecida com uma lista d
 }
 ```
 
-O content é a representação textual de Greetin. O elemento \_links contém uma lista de links, neste caso, exatamente um com o tipo de relação rel e o atributo href apontando para o recurso que acabou de ser acessado.
+O content é a representação textual de Greetin. O elemento **\_links** contém uma lista de links, neste caso, exatamente um com o tipo de relação **rel**(neste caso seria nossa propriedade **self**) e o atributo **href** apontando para o recurso que acabou de ser acessado.
 
-Para modelar a representação de Greeting, você cria uma classe de representação de recurso. Como a propriedade \_links é uma propriedade fundamental do modelo de representação, o Spring HATEOAS é fornecido com uma classe base ResourceSupport que permite adicionar instâncias do Link e garantir que elas sejam renderizadas conforme mostrado acima.
+Para modelar a representação de Greeting, você cria uma classe de representação de recurso. Como a propriedade **\_links** é uma propriedade fundamental do modelo de representação, o Spring HATEOAS é fornecido com uma classe base \*_ResourceSupport_() que permite adicionar instâncias do Link e garantir que elas sejam renderizadas conforme mostrado acima.
 
-Então você simplesmente criará um objeto java simples que estende a classe ResourceSupport e adiciona o campo content e um modificador de acesso, além de um construtor para a classe Greeting conforme o exemplo abaixo:
+Então você simplesmente criará um objeto java simples que estende a classe **ResourceSupport**, adiciona a propriedade content e um modificador de acesso para ela, além de um construtor para a classe Greeting conforme o exemplo abaixo:
 
 ```java
 // Localização para criação desta classe: src/main/java/hello/Greeting.java
@@ -111,7 +111,7 @@ public class Greeting extends ResourceSupport {
 }
 ```
 
-- @JsonCreator - sinal sobre como Jackson pode criar uma instância deste POJO
+- @JsonCreator - sinaliza como o Jackson pode criar uma instância deste POJO
 - @JsonProperty - marca claramente em que campo Jackson deve colocar esse argumento dentro do construtor
 
 Como você verá nas próximas etapas, o Spring usa a biblioteca Jackson JSON para organizar automaticamente instâncias do tipo Greeting no formato JSON.
@@ -154,7 +154,7 @@ Esse Controller é conciso e simples, mas há muita coisa acontecendo. Vamos div
 A annotation @RequestMapping assegura que as solicitações HTTP para /greeting sejam mapeadas para o método greeting().
 
 O exemplo acima não especifica explicitamente o tipo de requisição HTTP(GET, POST, PUT ...) porque @RequestMapping mapeia todas as operações HTTP por padrão.<br/>
-Use @RequestMapping (path="/greeting", method=RequestMethod.GET) para restringir esse mapeamento. Nesse caso, você também deve importar org.springframework.web.bind.annotation.RequestMethod.
+Use @RequestMapping (path="/greeting", method=RequestMethod.GET) para restringir esse mapeamento. Nesse caso, você também deve importar **org.springframework.web.bind.annotation.RequestMethod**.
 <br/>Você também pode mapear outros método HTTP através de RequestMethod.NOME_REQUESTMETHOD, onde NOME_REQUESTMETHOD deve ser substituído pelo método a ser usado.
 
 @RequestParam vincula o valor do nome do parâmetro da string de consulta ao parâmetro name do método greeting(). Se o parâmetro name estiver ausente na solicitação, o valor padrão de "World" será usado.
