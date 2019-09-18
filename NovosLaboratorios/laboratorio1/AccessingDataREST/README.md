@@ -22,9 +22,9 @@ Você criará um aplicativo Spring que permite criar e recuperar objetos Person 
 
 Possuímos um código que pode ser utilizado como base para completar este tutorial, o mesmo pode ser encontrado neste [link](./exemplos/base/) e pode ser importado em seu IDE.
 
-### Criando o objeto Person
+### Criando a classe Person
 
-Crie um objeto para representar um objeto Person conforme o exemplo abaixo:
+Crie uma representação da classe Person conforme o exemplo abaixo:
 
 ```java
 // Localização para criação desta classe: src/main/java/com/example/accessingdatarest/Person.java
@@ -63,7 +63,7 @@ public class Person {
 }
 ```
 
-O objeto Person possui as propriedades firstName e lastName, além deles possuímos também a propriedade id configurada para ser gerada automaticamente, portanto você não precisa lidar com ela.
+O objeto Person possui as propriedades **firstName** e **lastName**, além deles possuímos também a propriedade **id** configurada para ser gerada automaticamente, portanto você não precisa lidar com ela.
 
 ### Criando a classe PersonRepository
 
@@ -89,11 +89,11 @@ public interface PersonRepository extends PagingAndSortingRepository<Person, Lon
 
 Este repositório é uma interface que permite executar várias operações envolvendo objetos **Person**. Ele obtém essas operações estendendo a interface **PagingAndSortingRepository** definida no Spring Data Commons.
 
-No tempo de execução, o Spring Data REST cria automaticamente uma implementação dessa interface. Em seguida, ele usa a annotation **@RepositoryRestResource** para direcionar o Spring MVC para criar endpoints RESTful em /people.
+No tempo de execução, o Spring Data REST cria automaticamente uma implementação dessa interface. Em seguida, ele usa a annotation **@RepositoryRestResource** para direcionar o Spring MVC para criar endpoints RESTful em **/people**.
 
-**@RepositoryRestResource** não é necessário para que um repositório seja exportado. É usado apenas para alterar os detalhes da exportação, como usar /people em vez do valor padrão de /peoples.
+**@RepositoryRestResource** não é necessário para que um repositório seja exportado. É usado apenas para alterar os detalhes da exportação, como usar **/people** em vez do valor padrão de **/peoples**.
 
-Aqui você também definiu automáticamente uma consulta personalizada para recuperar uma lista de objetos Person com base no atributo lastName. Você pode ver como utilizá-la posteriormente neste tutorial.
+Aqui você também definiu automáticamente uma consulta personalizada para recuperar uma lista de objetos **Person** com base no atributo **lastName**. Você pode ver como utilizá-la posteriormente neste tutorial.
 
 **@SpringBootApplication** é uma annotation de conveniência que adiciona todo o seguinte:
 
