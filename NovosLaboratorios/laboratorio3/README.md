@@ -1,6 +1,6 @@
 ## Introdução ao Spring Cloud Gateway
 
-### Material referência
+### Material de referência
 
 [O que é um API Gateway?](https://sensedia.com/api/api-gateway-governando-a-arquitetura-de-microservices/)<br/>
 [Criando um API Gateway com SpringCloudGateway](https://spring.io/guides/gs/gateway/)<br/>
@@ -26,7 +26,7 @@ Possuímos um código que pode ser utilizado como base para completar este tutor
 
 ### Criando uma rota simples
 
-O Spring Cloud Gateway usa rotas para processar solicitações de serviços downstream. Neste tutorial, encaminharemos todos os nossos requests para o [HTTPBin](https://httpbin.org/). As rotas podem ser configuradas de várias maneiras, mas para este guia, usaremos a API Java fornecida pelo Gateway.
+O Spring Cloud Gateway usa rotas para processar requisições de serviços downstream. Neste tutorial, encaminharemos todos os nossos requests para o [HTTPBin](https://httpbin.org/). As rotas podem ser configuradas de várias maneiras, mas para este guia, usaremos a API Java fornecida pelo Spring Cloud Gateway.
 
 Para começar, crie um novo Bean do tipo **RouteLocator** em **Application.java**.
 
@@ -84,7 +84,7 @@ Observe que **HTTPBin** mostra que o cabeçalho **Hello** com o valor **World** 
 
 ### Usando Hystrix
 
-Agora vamos fazer algo um pouco mais interessante. Como os serviços por trás do Gateway podem potencialmente se comportar mal, afetando nossos clientes, podemos querer envolver as rotas que criamos com [Circuit Brakers](https://microservices.io/patterns/reliability/circuit-breaker.html). Você pode fazer isso no Spring Cloud Gateway usando o Hystrix. Isso é implementado por meio de um filtro simples que você pode adicionar aos seus requests. Vamos criar outra rota para demonstrar isso.
+Agora vamos fazer algo um pouco mais interessante. Como os serviços por trás do Gateway podem potencialmente se comportar mal, afetando nossos clientes, podemos querer envolver as rotas que criamos com [Circuit Breakers](https://microservices.io/patterns/reliability/circuit-breaker.html). Você pode fazer isso no Spring Cloud Gateway usando o Hystrix. Isso é implementado por meio de um filtro simples que você pode adicionar aos seus requests. Vamos criar outra rota para demonstrar isso.
 
 Neste exemplo, aproveitaremos a API de atraso do HTTPBin que aguarda um certo número de segundos antes de enviar uma resposta. Como essa API pode levar muito tempo para enviar sua resposta, podemos agrupar a rota que usa essa API em um **HystrixCommand**. Adicione uma nova rota ao nosso objeto **RouteLocator** semelhante à seguinte:
 
@@ -123,7 +123,7 @@ HTTP/1.1 504 Gateway Timeout
 content-length: 0
 ```
 
-Como você pode ver, o Hystrix atingiu o tempo limite aguardando a resposta do HTTPBin. Quando o Hystrix atinge o tempo limite, opcionalmente, podemos fornecer um fallback para que os clientes não recebam apenas um **504**, mas algo mais significativo. Em um cenário de produção, você pode retornar alguns dados de um cache, por exemplo, mas em nosso exemplo simples, retornaremos apenas uma resposta, no lugar disso podemos retornar o corpo de nosso **fallback**.
+Como você pode ver, o Hystrix atingiu o tempo limite aguardando a resposta do HTTPBin. Quando o Hystrix atinge o tempo limite, opcionalmente, podemos fornecer um fallback para que os clientes não recebam apenas um código **504**, mas algo mais significativo. Em um cenário de produção, você pode retornar alguns dados de um cache, por exemplo, mas em nosso exemplo simples, retornaremos apenas uma resposta, no lugar disso podemos retornar o corpo de nosso **fallback**.
 
 Para fazer isso, vamos modificar nosso filtro Hystrix para fornecer um URL a ser chamado no caso de um timeout.
 
@@ -148,7 +148,7 @@ public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 
 Agora, quando o percurso da Hystrix ultrapassar o timeout, ele fará uma chamada a **/fallback** em nossa aplicação Gateway. Vamos adicionar o endpoint **/fallback** ao nosso aplicativo.
 
-Em Application.java, adicione a annotation @RestController em nível de classe e adicione o seguinte @RequestMapping à classe.
+Em Application.java, adicione a annotation **@RestController** em nível de classe e adicione o seguinte **@RequestMapping** à classe.
 
 ```java
 // Este método deve ser adicionado em nossa classe Application.java.
@@ -393,7 +393,7 @@ public class ApplicationTest {
 
 Na verdade, nosso teste está aproveitando o WireMock do Spring Cloud Contract para suportar um servidor que pode simular as APIs do HTTPBin. A primeira coisa a observar é o uso do **@AutoConfigureWireMock(port = 0)**. Esta annotation iniciará o WireMock em uma porta aleatória para nós.
 
-Em seguida, observe que estamos aproveitando nossa classe **UriConfiguration** e configurando a propriedade **httpbin** na annotation **@SpringBootTest** para o servidor WireMock em execução localmente. No teste, configuramos "stubs" para as APIs HTTPBin que chamamos via Gateway e mock do comportamento que esperamos. Finalmente, usamos o **WebTestClient** para realmente fazer solicitações ao Gateway e validar as respostas.
+Em seguida, observe que estamos aproveitando nossa classe **UriConfiguration** e configurando a propriedade **httpbin** na annotation **@SpringBootTest** para o servidor WireMock em execução localmente. No teste, configuramos "stubs" para as APIs HTTPBin que chamamos via Gateway e mock do comportamento que esperamos. Finalmente, usamos o **WebTestClient** para realmente fazer requisições ao Gateway e validar as respostas.
 
 ### Resumo
 
