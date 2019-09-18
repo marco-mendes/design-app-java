@@ -119,7 +119,9 @@ Este Controller é conciso e simples, mas há muita coisa acontecendo sob o cap�
 
 A annotation @RequestMapping assegura que as solicitações HTTP para /greeting sejam mapeadas para o método greeting().
 
-O exemplo acima não especifica explicitamente o tipo de requisição HTTP(GET, POST, PUT ...) porque @RequestMapping mapeia todas as operações HTTP por padrão.
+O exemplo acima não especifica explicitamente o tipo de requisição HTTP(GET, POST, PUT ...) porque @RequestMapping mapeia todas as operações HTTP por padrão.<br/>
+Use @RequestMapping (path="/greeting", method=RequestMethod.GET) para restringir esse mapeamento. Nesse caso, você também deve importar org.springframework.web.bind.annotation.RequestMethod.
+<br/>Você também pode mapear outros método HTTP através de RequestMethod.NOME_REQUESTMETHOD, onde NOME_REQUESTMETHOD deve ser substituído pelo método a ser usado.
 
 @RequestParam vincula o valor do nome do parâmetro da string de consulta ao parâmetro name do método greeting(). Se o parâmetro name estiver ausente na solicitação, o valor padrão de "World" será usado.
 
@@ -153,11 +155,9 @@ public class Application {
 
 @SpringBootApplication é uma annotation de conveniência que adiciona todo o seguinte:
 
-@Configuration: marca a classe como uma fonte de definições de bean para o contexto do aplicativo.
-
-@EnableAutoConfiguration: Diz ao Spring Boot para começar a adicionar beans com base nas configurações do classpath, outros beans e várias configurações de propriedades. Por exemplo, se spring-webmvc estiver no classpath, essa annotation sinalizará o aplicativo como um aplicativo da web e ativará os principais comportamentos, como configurar um DispatcherServlet.
-
-@ComponentScan: Diz ao Spring que procure outros componentes, configurações e serviços no pacote hello, permitindo que ele encontre os controllers.
+- @Configuration: marca a classe como uma fonte de definições de bean para o contexto do aplicativo.
+- @EnableAutoConfiguration: Diz ao Spring Boot para começar a adicionar beans com base nas configurações do classpath, outros beans e várias configurações de propriedades. Por exemplo, se spring-webmvc estiver no classpath, essa annotation sinalizará o aplicativo como um aplicativo da web e ativará os principais comportamentos, como configurar um DispatcherServlet.
+- @ComponentScan: Diz ao Spring que procure outros componentes, configurações e serviços no pacote hello, permitindo que ele encontre os controllers.
 
 O método main() usa o método SpringApplication.run() do Spring Boot para iniciar um aplicativo. Você notou que não havia uma única linha de XML? Também não há arquivo web.xml. Esse aplicativo da Web é 100% Java puro e você não precisou configurar nenhum encanamento ou infraestrutura.
 
