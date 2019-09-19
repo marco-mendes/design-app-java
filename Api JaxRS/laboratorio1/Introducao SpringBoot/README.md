@@ -16,19 +16,20 @@ Criaremos neste laboratório um exemplo simples de um controller Rest com Spring
 Conforme foi abordado no material de preparação o SpringBoot pode ser utilizado com [maven](https://maven.apache.org/) ou [gradle](https://gradle.org/).<br/>
 Abordaremos aqui seu uso utilizando a tecnologia maven.
 
-Primeiro iremos criar a estrutura de pastas de nosso projeto, normalmente essa estrutura de pastas é algo semelhante a isso:<br/>
+Primeiro iremos criar a estrutura de pastas de nosso projeto, normalmente essa estrutura de pastas de um projeto SpringBoot é algo semelhante a isso:<br/>
 ```java
 └── src
     └── main
     |    └── java
-    |        └── nomepacote1
-    |        └── nomepacote2
+    |    └── resources
     └── test
         └── java
-            └── nomepacote1
-            └── nomepacote2
 ```
-            
+Explicando a estrutura de diretórios:
+ * **src/main/java/**: Este diretório armazena classes e pacotes de um projeto SpringBoot.
+ * **src/main/resources**: Normalmente esta pasta é utilizada para armazenar os [resources](http://makble.com/what-is-the-srcmainresources-folder-for-in-java-project) 
+ de nossa aplicação.
+ * **src/test/java/**: Este diretório armazena classes e pacotes utilizados para testar nossa aplicação, por exemplo: classes de testes de unidade serão armazenadas neste diretório.
 
 Crie uma pasta chamada SpringBootQuickStart e dentro dela crie a seguinte estrutura de pastas:<br/>
 ```java
