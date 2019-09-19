@@ -29,7 +29,8 @@ Explicando a estrutura de diretórios:
  * **src/main/java/**: Este diretório armazena classes e pacotes de um projeto SpringBoot.
  * **src/main/resources/**: Normalmente esta pasta é utilizada para armazenar os [resources](http://makble.com/what-is-the-srcmainresources-folder-for-in-java-project) 
  de nossa aplicação.
- * **src/test/java/**: Este diretório armazena classes e pacotes utilizados para testar nossa aplicação, por exemplo: classes de testes de unidade serão armazenadas neste diretório.
+ * **src/test/java/**: Este diretório armazena classes e pacotes utilizados para testar nossa aplicação, um bom exemplo de seu uso seria no armazenamento de classes de teste 
+ de unidade em seus respectivos pacotes.
 
 Crie uma pasta chamada SpringBootQuickStart e dentro dela crie a seguinte estrutura de pastas:<br/>
 ```java
