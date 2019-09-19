@@ -167,6 +167,7 @@ http://localhost:8080/helloPeople?nome=Marcela
 ### Resolvendo um problema comum
 Imagine que possuímos a seguinte estrutura de diretórios:<br/>
 <img src="./exemplo/exemplo1.PNG"/>
+
 Note que nosso **Hellocontroller** não está no mesmo pacote de nossa classe **Application** que contém o método **main()** da aplicação.<br/>
 Ao tentar acessar o endpoint **/hello** de nosso HelloController receberemos uma mensagem de erro semelhante a esta:<br/>
 <img src="./exemplo/exemploErro.PNG"/>
