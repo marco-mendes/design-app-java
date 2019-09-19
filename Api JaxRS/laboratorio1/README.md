@@ -5,7 +5,7 @@
 Neste laboratório iremos introduzir o SpringBoot e alguns de seus principais recursos.<br/>
 Para melhor compreensão este laboratório foi divido em cinco partes:
 
-- #### [Introdução ao SpringBoot](./Introducao%20SpringBoot/)<br/>
+- #### [Introdução ao Spring Boot](./Introducao%20SpringBoot/)<br/>
 - #### [Construindo um Web Service RESTful](./RESTService/)<br/>
 - #### [Construindo um Hypermedia-Driven RESTful Web Service](./HateoasRESTService/)<br/>
 - #### [Acessando dados do JPA com REST](./AccessingDataREST/)<br/>
