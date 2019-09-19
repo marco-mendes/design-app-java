@@ -168,8 +168,8 @@ http://localhost:8080/helloPeople?nome=Marcela
 Imagine que possuímos a seguinte estrutura de diretórios:<br/>
 <img src="./exemplo/exemplo1.PNG"/>
 
-Note que nosso **Hellocontroller** não está no mesmo pacote de nossa classe **Application** que contém o método **main()** da aplicação.<br/>
-Ao tentar acessar o endpoint **/hello** de nosso HelloController receberemos uma mensagem de erro semelhante a esta:<br/>
+Note que nosso **HelloController** não está no mesmo pacote de nossa classe **Application** que contém o método **main()** da aplicação.<br/>
+Ao tentar acessar o endpoint **/hello** de nosso **HelloController** receberemos uma mensagem de erro semelhante a esta:<br/>
 <img src="./exemplo/exemploErro.PNG"/>
 
 Para corrigir este problema podemos utilizar a annotation **@ComponentScan**, com ela informamos que o SpringBoot deve escanear determinado pacote para que a aplicação funcione 
@@ -191,8 +191,8 @@ public class Application {
     }
 }
 ```
-No exemplo acima estamos informando a nossa aplicação que o pacote **hello** deve ser escaneado pela nossa aplicação, assim ao acessar o endpoint **/hello** novamente teremos 
-nossa resposta conforme esperado.
+No exemplo acima estamos informando a nossa aplicação que o pacote **hello** deve ser escaneado para nossa aplicação funcione corretamente, assim ao acessar o endpoint 
+**/hello** novamente teremos nossa resposta conforme esperado.
 
 #### Exercício 1
 Com base na seguinte classe crie uma aplicação SpringBoot que possua um Endpoint chamado "**/obterNomePessoa**".<br/>
