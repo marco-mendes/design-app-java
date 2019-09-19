@@ -163,6 +163,36 @@ http://localhost:8080/hello
 http://localhost:8080/helloPeople?nome=Marcela
 ```
 
+
+### Resolvendo um problema comum
+Imagine que possuímos a seguinte estrutura de diretórios:<br/>
+<img src="./exemplo/exemplo1.PNG"/>
+Note que nosso **Hellocontroller** não está no mesmo pacote de nossa classe **Application** que contém o método **main()** da aplicação.<br/>
+Ao tentar acessar o endpoint **/hello** de nosso HelloController receberemos uma mensagem de erro semelhante a esta:<br/>
+<img src="./exemplo/exemploErro.PNG"/>
+
+Para corrigir este problema podemos utilizar a annotation **@ComponentScan**, com ela informamos que o SpringBoot deve escanear determinado pacote para que a aplicação funcione 
+corretamente.<br/>
+Essa annotation deve ser utilizada em nossa classe que possui o método **main()** utilizando a propriedade **basePackages** no qual podemos informar o pacote que nossa aplicação 
+deve escanear.<br/>
+Exemplo de uso:
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@ComponentScan(basePackages = "hello")
+public class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
+No exemplo acima estamos informando a nossa aplicação que o pacote **hello** deve ser escaneado pela nossa aplicação, assim ao acessar o endpoint **/hello** novamente teremos 
+nossa resposta conforme esperado.
+
 #### Exercício 1
 Com base na seguinte classe crie uma aplicação SpringBoot que possua um Endpoint chamado "**/obterNomePessoa**".<br/>
 Este Endpoint deve receber um parâmetro chamado "**id**" quando sua url for requisitada.<br/>
