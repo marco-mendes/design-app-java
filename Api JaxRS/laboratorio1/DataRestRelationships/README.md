@@ -200,6 +200,7 @@ public class Author {
 
 ```
 
+### Relacionamentos entre nossas entidades
 Os relacionamentos entre essas entidades podem ser definidos da seguinte maneira:
  * Classes Address e Library: Possuem um relacionamento de 1 para 1.
  * Classe Library e Book: Possuem um relacionamento de 1, sendo Library(1) e Book(Muitos).
@@ -425,6 +426,6 @@ nos próximos tópicos montaremos um teste automátizado de nossa aplicação.
 Com a aplicação em execução iremos criar os objetos de nossas entidades e realizar o relacionamento entre cada um deles, iremos utilizar a ferramenta Curl mas também é 
 possível realizar esses testes em qualquer outra ferramenta que possibilite a criação de requisições HTTP.<br/>
 
-Caso queria consultar novamente o relacionamento entre nossas entidades volte ao tópico [Modelos de nossas entidades](#modelos-de-nossas-entidades) deste artigo.
+Caso queria consultar novamente o relacionamento entre nossas entidades volte ao tópico [Relacionamentos entre nossas entidades](#relacionamentos-entre-nossas-entidades) deste artigo.
 
 #### Criando um relacionamento de 1 para 1
