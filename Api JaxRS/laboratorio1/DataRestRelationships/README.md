@@ -205,8 +205,8 @@ Os relacionamentos entre essas entidades podem ser definidos da seguinte maneira
  * Classe Library e Book: Possuem um relacionamento de 1, sendo Library(1) e Book(Muitos).
  * Classe Author e Book: Possuem um relacionamento de muitos para muitos.
 
-### Estruturando nossos modelos com JPA
-Iremos agora estruturar os modelos que criamos como Entidades do JPA e iremos também definir os relacionamentos entre essas entidades utilizando as annotations do JPA.<br/>
+### Estruturando nossos models com JPA
+Iremos agora estruturar os models que criamos como Entidades do JPA e iremos também definir os relacionamentos entre essas entidades utilizando as annotations do JPA.<br/>
 
 #### Estruturando o Modelo Library
 Altere o model Library para que o mesmo contenha a seguinte estrutura:
@@ -247,7 +247,7 @@ public class Library {
 }
 ```
 
-#### Estruturando o modelo Address
+#### Estruturando o model Address
 Altere o model Address para que o mesmo contenha a seguinte estrutura:
 ```java
 import java.util.List;
@@ -279,7 +279,7 @@ public class Address {
 }
 ```
 
-#### Estruturando o modelo Book
+#### Estruturando o model Book
 Altere o model Book para que o mesmo contenha a seguinte estrutura:
 ```java
 import java.util.List;
@@ -316,7 +316,7 @@ public class Book {
 }
 ```
 
-#### Estruturando o modelo Author
+#### Estruturando o model Author
 Altere o model Author para que o mesmo contenha a seguinte estrutura:
 ```java
 import java.util.List;
@@ -356,9 +356,9 @@ O código completo desses models com os Getters, Setters e Constructors criados 
 [link](./exemplos/spring-data-rest/src/main/java/com/springdatarest/model/).
 
 ### Criando nossos repositórios
-Agora iremos criar um repositórios comas operações Crud de cada um de nossos modelos.<br/>
-Isso pode ser feito criando uma interface que extende a classe CrudRepository, quando criamos uma interface que extende essa classe o SpringBoot fica responsável por gerar o código 
-Crud automáticamente para que possamos utilizar sem ter que codificar as operações manualmente.<br/>
+Agora iremos criar repositórios com as operações Crud de cada um de nossos models.<br/>
+Isso pode ser feito criando uma interface que extende a interface **CrudRepository**, ao fazermos isso o SpringBoot fica responsável por gerar o código Crud da entidade alvo 
+automáticamente para que possamos utilizar sem ter que codificar as operações manualmente.<br/>
 Todos os nossos repositórios deverão ser criados no pacote **com.springdatarest.repository**.
 
 #### Repositório do model Address
@@ -419,4 +419,12 @@ public class SpringDataRestApplication {
 ```
 
 ### Executando e testando nossa aplicação
-Neste tópico iremos realizar alguns testes manuais para utilização de nossa aplicação, realizaremos requisições HTTP utilizando Curl para testar o que desenvolvemos.
+Neste tópico iremos realizar alguns testes manuais ver como podemos utilizar nossa aplicação, realizaremos requisições HTTP utilizando Curl para testar o que desenvolvemos e 
+nos próximos tópicos montaremos um teste automátizado de nossa aplicação.
+
+Com a aplicação em execução iremos criar os objetos de nossas entidades e realizar o relacionamento entre cada um deles, iremos utilizar a ferramenta Curl mas também é 
+possível realizar esses testes em qualquer outra ferramenta que possibilite a criação de requisições HTTP.<br/>
+
+Caso queria consultar novamente o relacionamento entre nossas entidades volte ao tópico [Modelos de nossas entidades](#modelos-de-nossas-entidades) deste artigo.
+
+#### Criando um relacionamento de 1 para 1
