@@ -203,7 +203,7 @@ public class Author {
 ### Relacionamentos entre nossas entidades
 Os relacionamentos entre essas entidades podem ser definidos da seguinte maneira:
  * Classes Address e Library: Possuem um relacionamento de 1 para 1.
- * Classe Library e Book: Possuem um relacionamento de 1, sendo Library(1) e Book(Muitos).
+ * Classe Library e Book: Possuem um relacionamento de 1 para muitos, sendo Library(1) e Book(Muitos).
  * Classe Author e Book: Possuem um relacionamento de muitos para muitos.
 
 ### Estruturando nossos models com JPA
@@ -429,3 +429,167 @@ possível realizar esses testes em qualquer outra ferramenta que possibilite a c
 Caso queria consultar novamente o relacionamento entre nossas entidades volte ao tópico [Relacionamentos entre nossas entidades](#relacionamentos-entre-nossas-entidades) deste artigo.
 
 #### Criando um relacionamento de 1 para 1
+Conforme vimos neste laboratório as entidades Address e Library possuem um relacionamento de 1 para 1, para criarmos este relacionamento precisaremos primeiro criar instâncias 
+de nossas entidades.<br/>
+Abaixo temos um exemplo de criação da entidade Library:
+```java
+curl -i -X POST -H "Content-Type:application/json" -d "{\"name\":\"My Library\"}" http://localhost:8080/libraries
+```
+Ao executarmos este comando teremos um retorno semelhante a este no qual podemos verificar todos os endepoints que nos dão acesso as funcionalidades de nosso objeto Library.<br/>
+O mesmo ocorrerá em todos os objetos que criamos em nossa aplicação.
+```java
+HTTP/1.1 201
+Location: http://localhost:8080/libraries/1
+Content-Type: application/hal+json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Fri, 20 Sep 2019 20:04:18 GMT
+
+{
+  "name" : "My Library",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/libraries/1"
+    },
+    "library" : {
+      "href" : "http://localhost:8080/libraries/1"
+    },
+    "address" : {
+      "href" : "http://localhost:8080/libraries/1/libraryAddress"
+    },
+    "books" : {
+      "href" : "http://localhost:8080/libraries/1/books"
+    }
+  }
+}
+```
+
+Para criar uma instância de Address você pode executar o seguinte comando:
+```java
+curl -i -X POST -H "Content-Type:application/json" -d "{\"location\":\"Main Street nr 5\"}" http://localhost:8080/addresses
+```
+Ao executarmos este comando teremos um retorno semelhante a este:
+```java
+HTTP/1.1 201
+Location: http://localhost:8080/addresses/1
+Content-Type: application/hal+json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Fri, 20 Sep 2019 20:08:01 GMT
+
+{
+  "location" : "Main Street nr 5",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/addresses/1"
+    },
+    "address" : {
+      "href" : "http://localhost:8080/addresses/1"
+    },
+    "library" : {
+      "href" : "http://localhost:8080/addresses/1/library"
+    }
+  }
+}
+```
+
+Para criar um relacionamento entre Library e Address precisaremos obter a url de acesso ao recurso Address de nossos 2 objetos criados, conforme vimos ao criarmos estes 2 objetos 
+o endereço de acesso a esta funcionalidade é semelhante a este:<br/>
+```java
+Objeto Library: http://localhost:8080/libraries/1/libraryAddress
+Objeto Address: http://localhost:8080/addresses/1
+```
+
+Com base nisso podemos montar nosso comando para criar o relacionamento entre eles, o comando seria semelhante ao exemplo abaixo no qual estamos utilizando o endpoint de Address
+de nosso objeto Library para adicionar a referência ao nosso objeto Address:
+```java
+curl -i -X PUT -d "http://localhost:8080/addresses/1" -H "Content-Type:text/uri-list" http://localhost:8080/libraries/1/libraryAddress
+```
+Ao executar este comando você verá um retorno semelhante a este:
+```java
+HTTP/1.1 204
+Date: Fri, 20 Sep 2019 20:12:52 GMT
+```
+
+Com apenas isso nosso relacionamento de 1 para 1 já está criado.<br/>
+Para consultar o relacionamento que criamos podemos executar o seguinte comando:
+```java
+curl -i -X GET http://localhost:8080/libraries/1/libraryAddress
+```
+
+Caso queira excluir este relacionamento basta executar um DELETE da seguinte forma:
+```java
+curl -i -X DELETE http://localhost:8080/libraries/1/libraryAddress
+```
+
+#### Criando um relacionamento de 1 para muitos
+Conforme vimos neste laboratório as entidades Library e Book possuem um relacionamento de 1 para muitos, para criarmos este relacionamento precisaremos primeiro criar instâncias 
+de nossas entidades.<br/>
+Como já possuímos um objeto Library criado iremos criar agora um objeto Book, isso pode ser feito da seguinte forma:
+```java
+curl -i -X POST -H "Content-Type:application/json" -d "{\"title\":\"Book1\"}" http://localhost:8080/books
+```
+
+Agora iremos criar um relacionamento entre nossos objetos Book e Library, podemos fazer isso da seguinte forma:
+```java
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/libraries/1" http://localhost:8080/books/1/library
+```
+
+Para consultar o relacionamento que criamos podemos executar o seguinte comando: 
+```java	
+curl -i -X GET http://localhost:8080/libraries/1/books
+```
+
+Caso queira excluir este relacionamento basta executar um DELETE da seguinte forma:
+```java
+curl -i -X DELETE http://localhost:8080/books/1/library
+```
+
+#### Criando um relacionamento de muitos para muitos
+Conforme vimos neste laboratório as entidades Book e Author possuem um relacionamento de muitos para muitos, para criarmos este relacionamento precisaremos primeiro criar 
+instâncias de nossas entidades.<br/>
+Iremos criar mais dois objetos Book e em seguida criaremos dois objetos Author, o primeiro objeto Author terá um relacionamento entre o primeiro e segundo objeto Book, 
+já nosso segundo objeto Author se relacionará com o segundo e o terceiro objetos Book.<br/>
+Criando mais dois objetos Book:
+```java
+curl -i -X POST -H "Content-Type:application/json" -d "{\"title\":\"Book 2\"}" http://localhost:8080/books
+curl -i -X POST -H "Content-Type:application/json" -d "{\"title\":\"Book 3\"}" http://localhost:8080/books
+```
+
+Criando nossos 2 objetos de Author:
+```java
+curl -i -X POST -H "Content-Type:application/json" -d "{\"name\":\"Author 1\"}" http://localhost:8080/authors
+curl -i -X POST -H "Content-Type:application/json" -d "{\"name\":\"Author 2\"}" http://localhost:8080/authors
+```
+
+Agora iremos relacionar primeiro e o segundo objeto Book ao primeiro objeto Author:
+```java
+curl -i -X PATCH -H "Content-Type: text/uri-list" -d "http://localhost:8080/books/1" http://localhost:8080/authors/1/books
+curl -i -X PATCH -H "Content-Type: text/uri-list" -d "http://localhost:8080/books/2" http://localhost:8080/authors/1/books
+```
+
+Para consultar o resultado você pode executar o seguinte comando:
+```java
+curl -i -X GET http://localhost:8080/authors/1/books
+```
+
+Em seguida associaremos o segundo e o terceiro objeto Book ao segundo objeto Author:
+```java
+curl -i -X PATCH -H "Content-Type: text/uri-list" -d "http://localhost:8080/books/2" http://localhost:8080/authors/2/books
+curl -i -X PATCH -H "Content-Type: text/uri-list" -d "http://localhost:8080/books/3" http://localhost:8080/authors/2/books
+```
+
+Para consultar o resultado você pode executar o seguinte comando:
+```java
+curl -i -X GET http://localhost:8080/authors/2/books
+```
+
+Caso queira excluir estes relacionamentoo basta executar um DELETE para cada objeto Book da seguinte forma:
+```java
+curl -i -X DELETE http://localhost:8080/authors/1/books/1
+curl -i -X DELETE http://localhost:8080/authors/1/books/2
+
+curl -i -X DELETE http://localhost:8080/authors/2/books/2
+curl -i -X DELETE http://localhost:8080/authors/2/books/3
+```
+
+
+### Criando testes automatizados para nossa aplicação
