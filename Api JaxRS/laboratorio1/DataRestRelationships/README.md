@@ -209,7 +209,7 @@ Os relacionamentos entre essas entidades podem ser definidos da seguinte maneira
 Iremos agora estruturar os modelos que criamos como Entidades do JPA e iremos também definir os relacionamentos entre essas entidades utilizando as annotations do JPA.<br/>
 
 #### Estruturando o Modelo Library
-Altere o model Library para que o mesmo tenha a seguinte estrutura:
+Altere o model Library para que o mesmo contenha a seguinte estrutura:
 ```java
 import java.util.List;
 
@@ -248,7 +248,7 @@ public class Library {
 ```
 
 #### Estruturando o modelo Address
-Altere o model Address para que o mesmo tenha a seguinte estrutura:
+Altere o model Address para que o mesmo contenha a seguinte estrutura:
 ```java
 import java.util.List;
 
@@ -280,7 +280,7 @@ public class Address {
 ```
 
 #### Estruturando o modelo Book
-Altere o model Book para que o mesmo tenha a seguinte estrutura:
+Altere o model Book para que o mesmo contenha a seguinte estrutura:
 ```java
 import java.util.List;
 
@@ -317,7 +317,7 @@ public class Book {
 ```
 
 #### Estruturando o modelo Author
-Altere o model Author para que o mesmo tenha a seguinte estrutura:
+Altere o model Author para que o mesmo contenha a seguinte estrutura:
 ```java
 import java.util.List;
 
