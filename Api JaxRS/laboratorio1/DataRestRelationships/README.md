@@ -1,0 +1,418 @@
+## Trabalhando com relacionamentos no Spring Data REST
+
+### Material de preparação
+[Working with Relationships in Spring Data REST](https://www.baeldung.com/spring-data-rest-relationships)
+
+### Introdução
+Neste laboratório abordaremos como criar e utilizar relacionamentos entre entidades no Spring Data Rest, serão abordados os seguintes 
+tipos de relacionamentos:
+ * 1 para 1
+ * 1 para muitos
+ * Muitos para muitos
+ 
+### Estruturando nosso projeto
+Iremos primeiro estrutura nosso projeto, crie uma pasta chamada **spring-data-rest**, esta pasta será a pasta raiz de nosso projeto.<br/>
+Dentro desta pasta crie a seguinte estrutura de diretórios:<br/>
+```java
+└───src
+    ├───main
+    │   ├───java
+    │   │   └───com
+    │   │       └───springdatarest
+    │   │           ├───model
+    │   │           └───repository
+    │   └───resources
+    └───test
+        └───java
+            └───com
+                └───springdatarest
+```
+
+### Criando nosso pom.xml
+Crie o arquivo pom.xml da seguinte forma:
+```java
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.8.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>spring-data-rest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spring-data-rest</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+ 	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>		
+		
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        
+        <dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<!-- Início Dependências para compatibilidade com o Java 11 -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.2.11</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>2.2.11</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.2.11</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.23.1-GA</version>
+		</dependency>
+		<!-- Fim Dependências para compatibilidade com o Java 11 -->
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+```
+Nosso pom possui as dependências básicas para utilizar o Spring Data Rest, possuímos também algumas outras dependências utilizadas para manter a compatibilidade de nossa 
+aplicação com o Java 11.<br/>
+Além delas possuímos também nossa dependência **h2** que será utilizada para armazenar nossos dados em memória durante a execução da aplicação.
+
+### Modelos de nossas entidades
+Neste laboratório possuímos o cenário de uma biblioteca no qual possuímos as seguintes entidades:
+ * Library
+ * Address
+ * Book
+ * Author
+
+Essas entidades devem ser criadas no pacote **com.springdatarest.model**, possuímos também a estrutura inicial de cada uma delas logo abaixo:
+ 
+```java
+// Classe Library
+public class Library {
+ 
+    private long id;
+ 
+    private String name;
+ 
+    private Address address;
+     
+    private List<Book> books;
+    
+    // Getters, Setters and Constructors
+    
+}
+```
+
+```java
+// Classe Address
+public class Address {
+
+    private long id;
+ 
+    private String location;
+ 
+    private Library library;
+
+    // Getters, Setters and Constructors
+}
+```
+
+```java
+// Classe Book
+public class Book {
+	 
+    private long id;
+     
+    private String title;
+     
+    private Library library;
+    
+    private List<Author> authors;
+    
+    // Getters, Setters and Constructors
+    
+}
+```
+
+```java
+// Classe Author
+public class Author {
+ 
+    private long id;
+ 
+    private String name;
+ 
+    private List<Book> books;
+    
+    // Getters, Setters and Constructors
+    
+}
+
+```
+
+Os relacionamentos entre essas entidades podem ser definidos da seguinte maneira:
+ * Classes Address e Library: Possuem um relacionamento de 1 para 1.
+ * Classe Library e Book: Possuem um relacionamento de 1, sendo Library(1) e Book(Muitos).
+ * Classe Author e Book: Possuem um relacionamento de muitos para muitos.
+
+### Estruturando nossos modelos com JPA
+Iremos agora estruturar nosso modelos como Entidades do JPA e iremos também definir os relacionamentos entre essas entidades utilizando as annotations do JPA.<br/>
+
+#### Estruturando o Modelo Library
+```java
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.springframework.data.rest.core.annotation.RestResource;
+
+@Entity
+public class Library {
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+ 
+    @Column
+    private String name;
+ 
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    @RestResource(path = "libraryAddress", rel="address")
+    private Address address;
+     
+    @OneToMany(mappedBy = "library")
+    private List<Book> books;
+    
+    // Getters, Setters and Constructors
+   
+}
+```
+
+#### Estruturando o modelo Address
+```java
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Address {
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+ 
+    @Column(nullable = false)
+    private String location;
+ 
+    @OneToOne(mappedBy = "address")
+    private Library library;
+
+    // Getters, Setters and Constructors
+    
+}
+```
+
+#### Estruturando o modelo Book
+```java
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Book {
+	 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+     
+    @Column(nullable=false)
+    private String title;
+     
+    @ManyToOne
+    @JoinColumn(name="library_id")
+    private Library library;
+    
+    @ManyToMany(mappedBy = "books")
+    private List<Author> authors;
+    
+    // Getters, Setters and Constructors
+    
+}
+```
+
+#### Estruturando o modelo Author
+```java
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+@Entity
+public class Author {
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+ 
+    @Column(nullable = false)
+    private String name;
+ 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "book_author", 
+      joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"), 
+      inverseJoinColumns = @JoinColumn(name = "author_id", 
+      referencedColumnName = "id"))
+    private List<Book> books;
+    
+    // Getters, Setters and Constructors 
+
+}
+```
+O código completo desses models com os Getters, Setters e Constructors criados pode ser encontrado neste 
+[link](./exemplos/spring-data-rest/src/main/java/com/springdatarest/model/).
+
+### Criando nossos repositórios
+Agora iremos criar um repositórios comas operações Crud de cada um de nossos modelos.<br/>
+Isso pode ser feito criando uma interface que extende a classe CrudRepository, quando criamos uma interface que extende essa classe o SpringBoot fica responsável por gerar o código 
+Crud automáticamente para que possamos utilizar sem ter que codificar as operações manualmente.<br/>
+Todos os nossos repositórios deverão ser criados no pacote **com.springdatarest.repository**.
+
+#### Repositório do model Address
+```java
+import com.springdatarest.model.Address;
+import org.springframework.data.repository.CrudRepository;
+
+public interface AddressRepository extends CrudRepository<Address, Long> {
+
+}
+```
+
+#### Repositório do model Author
+```java
+import com.springdatarest.model.Author;
+import org.springframework.data.repository.CrudRepository;
+
+public interface AuthorRepository extends CrudRepository<Author, Long> {
+	
+}
+```
+
+#### Repositório do model Book
+```java
+import com.springdatarest.model.Book;
+import org.springframework.data.repository.CrudRepository;
+
+public interface BookRepository extends CrudRepository<Book, Long> {
+	
+}
+```
+
+#### Repositório do model Library
+```java
+import com.springdatarest.model.Library;
+import org.springframework.data.repository.CrudRepository;
+
+public interface LibraryRepository extends CrudRepository<Library, Long> {
+	
+}
+```
+
+### Criando a classe de inicialização de nossa aplicação
+Nossa classe de inicialização segue o mesmo padrão de classes com método **main()** no SpringBoot, utilize o pacote **com.springdatarest** para criar essa classe e utilize 
+ o código abaixo como base:
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringDataRestApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringDataRestApplication.class, args);
+	}
+
+}
+```
+
+### Executando e testando nossa aplicação
+Neste tópico iremos realizar alguns testes manuais para utilização de nossa aplicação, realizaremos requisições HTTP utilizando Curl para testar o que desenvolvemos.
