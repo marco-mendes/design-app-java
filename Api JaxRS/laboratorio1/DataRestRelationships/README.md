@@ -603,7 +603,7 @@ Neste tópico criaremos testes automatizados para nossa aplicação, abordaremos
 completo da classe de teste que estamos criando incluindo todos os imports que estão sendo utilizados.<br/>
 
 #### Criando a estrutura inicial da classe de testes
-Primeiro vamos criar uma classe de teste que injeta uma instância TestRestTemplate e define as constantes que usaremos:
+Primeiro vamos criar uma classe de teste que injeta uma instância **TestRestTemplate** e define as constantes que usaremos:
 ```java
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringDataRestApplication.class, 
@@ -625,7 +625,7 @@ public class SpringDataRelationshipsTest {
 ```
 
 #### Testando o relacionamento de 1 para 1
-Vamos criar um método de teste que salva os objetos Library e Address fazendo solicitações POST para os recursos da coleção.<br/>
+Vamos criar um método de teste que salva os objetos **Library** e **Address** fazendo solicitações POST para os recursos da coleção.<br/>
 Em seguida, ele salva o relacionamento com uma solicitação PUT no recurso de associação e verifica se foi estabelecido com uma solicitação GET para o mesmo recurso:
 ```java
     @Test
@@ -657,7 +657,7 @@ Em seguida, ele salva o relacionamento com uma solicitação PUT no recurso de a
 ```
 
 #### Testando o relacionamento de 1 para muitos
-Vamos criar um método de teste que salva uma instância da Library e duas instâncias do Livro, envia uma solicitação PUT para cada novo objeto Book, estes objetos são 
+Vamos criar um método de teste que salva uma instância da **Library** e duas instâncias de **Book**, envia uma solicitação PUT para cada novo objeto Book, estes objetos são 
 associados à Library e em seguida verificamos se o relacionamento foi salvo:
 ```java
     @Test
@@ -694,10 +694,10 @@ associados à Library e em seguida verificamos se o relacionamento foi salvo:
 ```
 
 #### Testando o relacionamento de muitos para muitos
-Para testar o relacionamento muitos para muitos entre as entidades Book e Author, criaremos um método de teste que salva dois registro de Author e três registros de Book.<br/>
-Os registros 1 e 2 de Book serão relacionados com o registro 1 de Author, além disso relacionaremos também os registros 2 e 3 de Book com o registro 2 de Author.<br/>
-Enviamos uma solicitação PUT ao recurso de associação de Books com os 2 primeiros URIs de Books e os relacionamos ao objeto primeiro objeto Author.<br/>
-Enviamos uma solicitação PUT ao recurso de associação de Books com as URIs do segundo e terceiro objeto Books e os relacionamos ao objeto segundo objeto Author.
+Para testar o relacionamento muitos para muitos entre as entidades **Book** e **Author**, criaremos um método de teste que salva dois registros de **Author** e três 
+registros de **Book**.<br/>
+Enviamos uma solicitação PUT ao recurso de associação de Books com as URIs dos registros 1 e 2 de Books e as relacionamos ao objeto primeiro objeto Author.<br/>
+Enviamos uma solicitação PUT ao recurso de associação de Books com as URIs dos registros 2 e 3 de Books e as relacionamos ao objeto segundo objeto Author.<br/>
 Para finalizar testamos se os relacionametos foram criados conforme esperado.
 ```java
     @Test
