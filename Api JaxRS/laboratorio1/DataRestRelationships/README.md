@@ -10,6 +10,11 @@ tipos de relacionamentos:
  * 1 para muitos
  * Muitos para muitos
 
+### O que você irá precisar
+ * Seu IDE favorito
+ * JDK 11
+ * Maven 3.2 ou superior
+
 ### Estruturando nosso projeto
 Iremos primeiro estruturar nosso projeto, crie uma pasta chamada **spring-data-rest**, esta pasta será a pasta raiz de nosso projeto.<br/>
 Dentro desta pasta crie a seguinte estrutura de diretórios:<br/>
