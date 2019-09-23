@@ -9,10 +9,11 @@ tipos de relacionamentos:
  * 1 para 1
  * 1 para muitos
  * Muitos para muitos
- 
+
 ### Estruturando nosso projeto
 Iremos primeiro estruturar nosso projeto, crie uma pasta chamada **spring-data-rest**, esta pasta será a pasta raiz de nosso projeto.<br/>
 Dentro desta pasta crie a seguinte estrutura de diretórios:<br/>
+
 ```java
 └───src
     ├───main
@@ -30,7 +31,7 @@ Dentro desta pasta crie a seguinte estrutura de diretórios:<br/>
 
 ### Criando nosso pom.xml
 Crie o arquivo pom.xml da seguinte forma:
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -39,7 +40,7 @@ Crie o arquivo pom.xml da seguinte forma:
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.8.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>spring-data-rest</artifactId>
@@ -56,32 +57,34 @@ Crie o arquivo pom.xml da seguinte forma:
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
- 	
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>		
-		
-		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-rest</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
-        
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<!-- Início Dependências para compatibilidade com o Java 11 -->
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -136,7 +139,7 @@ Neste laboratório possuímos o cenário de uma biblioteca no qual possuímos as
  * Author
 
 Essas entidades devem ser criadas no pacote **com.springdatarest.model**, possuímos também a estrutura inicial de cada uma delas logo abaixo:
- 
+
 ```java
 // Classe Library
 public class Library {
