@@ -1,4 +1,4 @@
-## Acessando dados do JPA com REST
+## Acessando dados do JPA com Spring Data REST
 
 ### Material de referência
 
