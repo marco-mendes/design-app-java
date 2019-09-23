@@ -11,7 +11,7 @@ tipos de relacionamentos:
  * Muitos para muitos
  
 ### Estruturando nosso projeto
-Iremos primeiro estrutura nosso projeto, crie uma pasta chamada **spring-data-rest**, esta pasta será a pasta raiz de nosso projeto.<br/>
+Iremos primeiro estruturar nosso projeto, crie uma pasta chamada **spring-data-rest**, esta pasta será a pasta raiz de nosso projeto.<br/>
 Dentro desta pasta crie a seguinte estrutura de diretórios:<br/>
 ```java
 └───src
@@ -122,6 +122,7 @@ Crie o arquivo pom.xml da seguinte forma:
 	</build>
 
 </project>
+
 ```
 Nosso pom possui as dependências básicas para utilizar o Spring Data Rest, possuímos também algumas outras dependências utilizadas para manter a compatibilidade de nossa 
 aplicação com o Java 11.<br/>
