@@ -32,7 +32,7 @@ O Spring Cloud Gateway usa rotas para processar requisições de serviços downs
  * Criar as rotas de forma programática: Suas rotas serão criadas de forma programática, ou seja, você terá que criar Beans para definir suas rotas via código Java.
  * Criar as rotas via Yaml utilizando [Route Predicate Factory](https://cloud.spring.io/spring-cloud-gateway/reference/html/#gateway-request-predicates-factories) e 
  [GatewayFilter Factory](https://cloud.spring.io/spring-cloud-gateway/reference/html/#gatewayfilter-factories): 
- Suas configurações de rotas serão feitas através de um arquivo de configuração do SpringBoot que será carregado toda vez que a aplicação for iniciada.
+ Suas configurações de rotas serão criadas através de um arquivo de configuração do SpringBoot que será carregado toda vez que a aplicação for iniciada.
 
 #### Criando uma rota simples de forma programática
 Para começar, crie um novo Bean do tipo **RouteLocator** em **Application.java**.
@@ -45,7 +45,7 @@ public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 }
 ```
 
-O método **myRoutes** acima utiliza um **RouteLocatorBuilder** que pode ser facilmente usado para criar rotas. Além de apenas criar rotas, o **RouteLocatorBuilder** permite adicionar predicados e filtros às suas rotas, para que você possa manipular a rota com base em determinadas condições, bem como alterar a requisição/resposta como achar melhor.
+O método **myRoutes** acima utiliza um **RouteLocatorBuilder** que pode ser facilmente usado para criar rotas. Além de apenas criar rotas, o **RouteLocatorBuilder** permite adicionar predicates e filtros às suas rotas, para que você possa manipular a rota com base em determinadas condições, bem como alterar a requisição/resposta como achar melhor.
 
 Vamos criar uma rota que encaminha uma requisição para https://httpbin.org/get quando uma requisição é feita ao Gateway utilizando o path **/get**. Em nossa configuração dessa rota, adicionaremos um filtro que adicionará um cabeçalho(RequestHeader) em nossa requisição com o nome "Hello" e com o valor "World", essa operação será realizada antes de nossa requisição ser roteada.
 
@@ -63,9 +63,9 @@ public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 ```
 
 #### Criando uma rota simples utilizando Yaml
-Para criarmos uma rota simples utilizando Factories precisaremos utilizar um arquivo de configuração do SpringBoot, este arquivo geralmente se chama **application.yml** 
-e normamlmente fica localizado dentro do seguinte diretório: **src/main/resources/**.<br/>
-Podemos realizar as mesmas configurações que fizemos no exemplo acima utilizando Route Predicate Factory, para isso insira o seguinte conteúdo no arquivo de configuração 
+Para criarmos uma rota simples utilizando Yaml precisaremos utilizar um arquivo de configuração do SpringBoot, este arquivo geralmente se chama **application.yml** 
+e normamlmente fica localizado dentro do seguinte diretório: **src/main/resources/**<br/>
+Podemos realizar as mesmas configurações que fizemos no exemplo acima utilizando Yaml, para isso insira o seguinte conteúdo no arquivo de configuração 
 **application.yml**:
 ```yaml
 spring:
@@ -81,7 +81,7 @@ spring:
 ```
 Com apenas este trecho inserido em nosso arquivo application.yml realizamos a mesma configuração que havíamos feito de forma programática no tópico anterior.
 
-**_Observação importante_**: Arquivo com a extensão **.yml** são arquivos sensíveis no qual não podemos em hipótese alguma utilizar o caractere TAB, os espaçamentos devem ser 
+**_Observação importante_**: Arquivos com a extensão **.yml** são arquivos sensíveis no qual não podemos em hipótese alguma utilizar o caractere TAB, os espaçamentos devem ser 
 todos feitos utilizando o caracter de espaço simples.
 
 #### Testando nosso Gateway
@@ -121,7 +121,7 @@ usando o Hystrix. Isso é implementado por meio de um filtro simples que você p
 Neste exemplo, aproveitaremos a API de atraso do HTTPBin que aguarda um certo número de segundos antes de enviar uma resposta. Como essa API pode levar muito tempo para 
 enviar sua resposta, podemos agrupar a rota que usa essa API em um **HystrixCommand**. 
 
-### Utilização de forma programática
+#### Utilização de forma programática
 Adicione uma nova rota ao nosso objeto **RouteLocator** semelhante à seguinte:
 ```java
 // Esta alteração deve ser realizada no Bean myRoutes que criamos na classe Application.java.
@@ -140,7 +140,7 @@ public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 }
 ```
 
-### Utilização com Yaml
+#### Utilização com Yaml
 Podemos adicionar uma nova rota em nosso arquivo application.yml da seguinte forma:
 ```yaml
 spring:
@@ -312,12 +312,13 @@ fallback
 
 ### Escrevendo testes
 
-Como um bom desenvolvedor, devemos escrever alguns testes para garantir que o nosso Gateway esteja fazendo o que esperamos. Na maioria dos casos, queremos limitar as 
+Como bons desenvolvedores, devemos escrever alguns testes para garantir que o nosso Gateway esteja fazendo o que esperamos. Na maioria dos casos, queremos limitar as 
 dependências de recursos externos, especialmente em testes de unidade, portanto, não devemos depender do HTTPBin. Uma solução para esse problema é tornar o URI em nossas 
 rotas configurável, para que possamos alterar facilmente o URI, se necessário.
 
 #### Implementação programática
 Observação importante: Caso esteja utilizando a implementação via Yaml você poderá ir direto para o tópico [Criando a classe de teste](#criando-a-classe-de-teste).
+
 Na classe Application.java, crie uma nova classe chamada **UriConfiguration**.
 
 ```java
@@ -367,7 +368,7 @@ public RouteLocator myRoutes(RouteLocatorBuilder builder, UriConfiguration uriCo
 
 Como você pode ver, em vez de codificar a URL para HTTPBin, estamos obtendo a URL da nossa nova classe de configuração.
 
-Abaixo está o conteúdo completo de Application.java.
+No exemplo abaixo possuímos o conteúdo completo de Application.java.
 
 ```java
 import reactor.core.publisher.Mono;
@@ -493,10 +494,10 @@ WireMock em execução localmente. No teste, configuramos "stubs" para as APIs H
 Finalmente, usamos o **WebTestClient** para realmente fazer requisições ao Gateway e validar as respostas.
 
 ### Mais alguns exemplos
-Abordaremos neste tópico mais alguns exemplos utilizando Route Predicate Factories
+Abordaremos neste tópico mais alguns exemplos utilizando Route Predicate Factories e GatewayFilter Factories.
 
 #### Header Route Predicate Factory
-O Header Route Predicate Factory usa dois parâmetros: o nome do cabeçalho e uma expressão regular. Esse predicado corresponde a um cabeçalho que corresponde à expressão regular:
+O Header Route Predicate Factory usa dois parâmetros: o nome do cabeçalho e uma expressão regular. Esse predicate corresponde a um cabeçalho que corresponde à expressão regular:
 ```yaml
 spring:
   cloud:
@@ -516,7 +517,7 @@ A configuração programática pode ser feita da seguinte forma:
 .uri("http://example.com")
 ```
 
-#### Host Route Predicate Factor
+#### Host Route Predicate Factory
 O Host Route Predicate Factory usa um parâmetro: o padrão do nome do host. O padrão é um padrão no estilo Ant com "." Como separador.
 ```yaml
 spring:
@@ -609,6 +610,6 @@ A configuração programática pode ser feita da seguinte forma:
 ### Conclusão
 
 Parabéns! Você acabou de criar seu primeiro aplicativo Spring Cloud Gateway!<br/>
-Além do que foi mostrado neste laboratório existem vários Route Predicate Factories que podemos utilizar, caso queira conferir a lista completa você pode encontrá-la neste 
-[link](https://cloud.spring.io/spring-cloud-gateway/reference/html/).
+Além do que foi mostrado neste laboratório existem vários Route Predicate Factories e GatewayFilter Factories que podemos utilizar, caso queira conferir a lista completa 
+você pode encontrá-la neste [link](https://cloud.spring.io/spring-cloud-gateway/reference/html/).<br/>
 Caso queira verificar o código completo você pode encontrá-lo neste [link](./exemplos/completo/).
