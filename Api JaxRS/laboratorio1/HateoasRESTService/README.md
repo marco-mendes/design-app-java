@@ -241,7 +241,7 @@ Forneça um parâmetro name na url como por exemplo http://localhost:8080/greeti
 
 Essa alteração demonstra que o arranjo **@RequestParam** no **GreetingController** está funcionando conforme o esperado. O parâmetro name recebeu um valor padrão de "World", mas sempre pode ser substituído explicitamente pela string de consulta.
 
-### Resumo
+### Conclusão
 
 Parabéns! Você acabou de desenvolver um serviço da Web RESTful baseado em Hypermedia com o Spring HATEOAS.<br/>
 Caso queira verificar o código completo você pode encontrá-lo neste [link](./exemplos/completo/).

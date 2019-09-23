@@ -342,7 +342,7 @@ curl http://localhost:8080/people
 
 Um aspecto conveniente dessa interface controlada por Hypermedia é que você pode descobrir todos os terminais RESTful usando curl (ou qualquer cliente REST que desejar). Você não precisa trocar um contrato formal ou documento de interface com seus clientes.
 
-### Resumo
+### Conclusão
 
 Parabéns! Você desenvolveu um aplicativo com um front end RESTful baseado em Hypermedia e um backend baseado em JPA.<br/>
 Caso queira verificar o código completo você pode encontrá-lo neste [link](./exemplos/completo/).

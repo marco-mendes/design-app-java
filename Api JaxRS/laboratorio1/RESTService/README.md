@@ -194,7 +194,7 @@ Essa alteração demonstra que o arranjo **@RequestParam** no **GreetingControll
 
 Observe também como o atributo id mudou de 1 para 2. Isso prova que você está trabalhando na mesma instância **GreetingController** com várias solicitações e que seu campo id está sendo incrementado em cada chamada conforme o esperado.
 
-### Resumo
+### Conclusão
 
 Parabéns! Você acabou de desenvolver um web service RESTful com o Spring.<br/>
 Caso queira verificar o código completo você pode encontrá-lo neste [link](./exemplos/completo/).
