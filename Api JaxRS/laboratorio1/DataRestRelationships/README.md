@@ -213,7 +213,7 @@ Os relacionamentos entre essas entidades podem ser definidos da seguinte maneira
 ### Estruturando nossos models com JPA
 Iremos agora estruturar os models que criamos como Entidades do JPA e iremos também definir os relacionamentos entre essas entidades utilizando as annotations do JPA.<br/>
 
-#### Estruturando o Modelo Library
+#### Estruturando o Model Library
 Altere o model Library para que o mesmo contenha a seguinte estrutura:
 ```java
 import java.util.List;
@@ -424,7 +424,7 @@ public class SpringDataRestApplication {
 ```
 
 ### Executando e testando nossa aplicação
-Neste tópico iremos realizar alguns testes manuais ver como podemos utilizar nossa aplicação, realizaremos requisições HTTP utilizando Curl para testar o que desenvolvemos e 
+Neste tópico iremos realizar alguns testes manuais para ver como podemos utilizar nossa aplicação, realizaremos requisições HTTP utilizando Curl para testar o que desenvolvemos e 
 nos próximos tópicos montaremos um teste automátizado de nossa aplicação.
 
 Com a aplicação em execução iremos criar os objetos de nossas entidades e realizar o relacionamento entre cada um deles, iremos utilizar a ferramenta Curl mas também é 
@@ -527,14 +527,16 @@ curl -i -X DELETE http://localhost:8080/libraries/1/libraryAddress
 #### Criando um relacionamento de 1 para muitos
 Conforme vimos neste laboratório as entidades Library e Book possuem um relacionamento de 1 para muitos, para criarmos este relacionamento precisaremos primeiro criar instâncias 
 de nossas entidades.<br/>
-Como já possuímos um objeto Library criado iremos criar agora um objeto Book, isso pode ser feito da seguinte forma:
+Como já possuímos um objeto Library criado iremos criar agora duas instâncias do objeto Book, isso pode ser feito da seguinte forma:
 ```java
 curl -i -X POST -H "Content-Type:application/json" -d "{\"title\":\"Book1\"}" http://localhost:8080/books
+curl -i -X POST -H "Content-Type:application/json" -d "{\"title\":\"Book 2\"}" http://localhost:8080/books
 ```
 
 Agora iremos criar um relacionamento entre nossos objetos Book e Library, podemos fazer isso da seguinte forma:
 ```java
-curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/libraries/1" http://localhost:8080/books/1/library
+curl -i -X PATCH -H "Content-Type:text/uri-list" -d "http://localhost:8080/libraries/1" http://localhost:8080/books/1/library
+curl -i -X PATCH -H "Content-Type:text/uri-list" -d "http://localhost:8080/libraries/1" http://localhost:8080/books/2/library
 ```
 
 Para consultar o relacionamento que criamos podemos executar o seguinte comando: 
@@ -545,6 +547,7 @@ curl -i -X GET http://localhost:8080/libraries/1/books
 Caso queira excluir este relacionamento basta executar um DELETE da seguinte forma:
 ```java
 curl -i -X DELETE http://localhost:8080/books/1/library
+curl -i -X DELETE http://localhost:8080/books/2/library
 ```
 
 #### Criando um relacionamento de muitos para muitos
@@ -554,7 +557,6 @@ Iremos criar mais dois objetos Book e em seguida criaremos dois objetos Author, 
 já nosso segundo objeto Author se relacionará com o segundo e o terceiro objetos Book.<br/>
 Criando mais dois objetos Book:
 ```java
-curl -i -X POST -H "Content-Type:application/json" -d "{\"title\":\"Book 2\"}" http://localhost:8080/books
 curl -i -X POST -H "Content-Type:application/json" -d "{\"title\":\"Book 3\"}" http://localhost:8080/books
 ```
 
@@ -597,3 +599,34 @@ curl -i -X DELETE http://localhost:8080/authors/2/books/3
 
 
 ### Criando testes automatizados para nossa aplicação
+Vamos criar uma classe de teste que injeta uma instância TestRestTemplate e define as constantes que usaremos:
+```java
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = SpringDataRestApplication.class, 
+  webEnvironment = WebEnvironment.DEFINED_PORT)
+public class SpringDataRelationshipsTest {
+ 
+    @Autowired
+    private TestRestTemplate template;
+ 
+    private static String BOOK_ENDPOINT = "http://localhost:8080/books/";
+    private static String AUTHOR_ENDPOINT = "http://localhost:8080/authors/";
+    private static String ADDRESS_ENDPOINT = "http://localhost:8080/addresses/";
+    private static String LIBRARY_ENDPOINT = "http://localhost:8080/libraries/";
+ 
+    private static String LIBRARY_NAME = "My Library";
+    private static String AUTHOR_NAME = "George Orwell";
+    
+}
+```

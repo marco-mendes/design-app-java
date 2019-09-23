@@ -39,20 +39,26 @@ public class SpringDataRelationshipsTest {
     private static String AUTHOR_NAME = "George Orwell";
 
     @Test
-    public void whenSaveOneToOneRelationship_thenCorrect() {
+    public void testingOneToOneRelationship() {
+        // Criando instância de Library e cadastrando via POST
         Library library = new Library(LIBRARY_NAME);
         template.postForEntity(LIBRARY_ENDPOINT, library, Library.class);
-        
+
+        // Criando instância de Address e cadastrando via POST
         Address address = new Address("Main street, nr 1");
         template.postForEntity(ADDRESS_ENDPOINT, address, Address.class);
-         
+
+        // Definindo cabeçalho para Content-Type: text/uri-list
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.add("Content-type", "text/uri-list");
+
+        // Criando relacionamento 1 para 1
         HttpEntity<String> httpEntity 
           = new HttpEntity<>(ADDRESS_ENDPOINT + "/1", requestHeaders);
         template.exchange(LIBRARY_ENDPOINT + "/1/libraryAddress", 
           HttpMethod.PUT, httpEntity, String.class);
-     
+
+        // Conferindo se foi criado corretamente
         ResponseEntity<Library> libraryGetResponse 
           = template.getForEntity(ADDRESS_ENDPOINT + "/1/library", Library.class);
         assertEquals("library is incorrect", 
@@ -60,10 +66,12 @@ public class SpringDataRelationshipsTest {
     }
 
     @Test
-    public void whenSaveOneToManyRelationship_thenCorrect() {
+    public void testingOneToManyRelationship() {
+        // Criando instância de Library e cadastrando via POST
         Library library = new Library(LIBRARY_NAME);
         template.postForEntity(LIBRARY_ENDPOINT, library, Library.class);
-     
+
+        // Criando duas instâncias de Book e cadastrando via POST
         Book book1 = new Book("Dune");
         template.postForEntity(BOOK_ENDPOINT, book1, Book.class);
      
@@ -86,7 +94,7 @@ public class SpringDataRelationshipsTest {
     }
 
     @Test
-    public void whenSaveManyToManyRelationship_thenCorrect() throws JSONException {
+    public void testingManyToManyRelationship() throws JSONException {
         Author author1 = new Author(AUTHOR_NAME);
         template.postForEntity(AUTHOR_ENDPOINT, author1, Author.class);
      
