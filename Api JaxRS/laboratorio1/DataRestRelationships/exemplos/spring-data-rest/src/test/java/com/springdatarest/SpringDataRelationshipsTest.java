@@ -91,11 +91,17 @@ public class SpringDataRelationshipsTest {
         template.exchange(BOOK_ENDPOINT + "/2/library", 
           HttpMethod.PUT, bookHttpEntity, String.class);
 
-        // Testando se o relacionamento foi criado corretamente
+        // Testando se o relacionamento foi criado corretamente para o objeto Book 1
         ResponseEntity<Library> libraryGetResponse = 
           template.getForEntity(BOOK_ENDPOINT + "/1/library", Library.class);
         assertEquals("library is incorrect", 
           libraryGetResponse.getBody().getName(), LIBRARY_NAME);
+
+        // Testando se o relacionamento foi criado corretamente para o objeto Book 2
+        libraryGetResponse =
+                template.getForEntity(BOOK_ENDPOINT + "/2/library", Library.class);
+        assertEquals("library is incorrect",
+                libraryGetResponse.getBody().getName(), LIBRARY_NAME);
     }
 
     @Test
