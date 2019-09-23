@@ -696,8 +696,8 @@ associados à Library e em seguida verificamos se o relacionamento foi salvo:
 #### Testando o relacionamento de muitos para muitos
 Para testar o relacionamento muitos para muitos entre as entidades **Book** e **Author**, criaremos um método de teste que salva dois registros de **Author** e três 
 registros de **Book**.<br/>
-Enviamos uma solicitação PUT ao recurso de associação de Books com as URIs dos registros 1 e 2 de Books e as relacionamos ao objeto primeiro objeto Author.<br/>
-Enviamos uma solicitação PUT ao recurso de associação de Books com as URIs dos registros 2 e 3 de Books e as relacionamos ao objeto segundo objeto Author.<br/>
+Enviamos uma solicitação PUT ao recurso de associação de **Books** com as URIs dos registros 1 e 2 de **Books** e as relacionamos ao objeto primeiro objeto **Author**.<br/>
+Enviamos uma solicitação PUT ao recurso de associação de **Books** com as URIs dos registros 2 e 3 de **Books** e as relacionamos ao objeto segundo objeto **Author**.<br/>
 Para finalizar testamos se os relacionametos foram criados conforme esperado.
 ```java
     @Test
