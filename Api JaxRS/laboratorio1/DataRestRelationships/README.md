@@ -626,7 +626,7 @@ public class SpringDataRelationshipsTest {
 
 #### Testando o relacionamento de 1 para 1
 Vamos criar um método de teste que salva os objetos **Library** e **Address** fazendo solicitações POST para os recursos da coleção.<br/>
-Em seguida, ele salva o relacionamento com uma solicitação PUT no recurso de associação e verifica se foi estabelecido com uma solicitação GET para o mesmo recurso:
+Em seguida, ele salva o relacionamento com uma requisição PUT no recurso de associação e verifica se o relacionamento foi estabelecido corretamente através de um requisição GET:
 ```java
     @Test
     public void testingOneToOneRelationship() {
@@ -657,7 +657,7 @@ Em seguida, ele salva o relacionamento com uma solicitação PUT no recurso de a
 ```
 
 #### Testando o relacionamento de 1 para muitos
-Vamos criar um método de teste que salva uma instância de **Library** e duas instâncias de **Book**, envia uma solicitação PUT para cada novo objeto Book associando-os 
+Vamos criar um método de teste que salva uma instância de **Library** e duas instâncias de **Book**, envia uma requisição PUT para cada novo objeto Book associando-os 
 à Library e em seguida verificamos se o relacionamento foi salvo:
 ```java
     @Test
@@ -702,8 +702,8 @@ Vamos criar um método de teste que salva uma instância de **Library** e duas i
 #### Testando o relacionamento de muitos para muitos
 Para testar o relacionamento muitos para muitos entre as entidades **Book** e **Author**, criaremos um método de teste que salva dois registros de **Author** e três 
 registros de **Book**.<br/>
-Enviamos uma solicitação PUT relacionando os objetos 1 e 2 de **Book** ao primeiro objeto **Author**.<br/>
-Em seguida enviamos uma solicitação PUT relacionando os objetos 2 e 3 de **Book** ao segundo objeto **Author**.<br/>
+Enviamos uma requisição PUT relacionando os objetos 1 e 2 de **Book** ao primeiro objeto **Author**.<br/>
+Em seguida enviamos uma requisição PUT relacionando os objetos 2 e 3 de **Book** ao segundo objeto **Author**.<br/>
 Para finalizar testamos se os relacionamentos foram criados conforme esperado.
 ```java
     @Test
