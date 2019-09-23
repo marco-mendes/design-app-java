@@ -3,7 +3,7 @@
 ### Introdução
 
 Neste laboratório iremos introduzir o SpringBoot e alguns de seus principais recursos.<br/>
-Para melhor compreensão este laboratório foi divido em cinco partes:
+Para melhor compreensão este laboratório foi divido em seis partes:
 
 - #### [Introdução ao Spring Boot](./Introducao%20SpringBoot/)<br/>
 - #### [Construindo um Web Service RESTful](./RESTService/)<br/>
