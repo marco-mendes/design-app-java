@@ -1,2 +1,22 @@
 server:
   port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: addrequestheader_route
+          uri: http://httpbin.org:80
+          predicates:
+            - Path=/get
+          filters:
+            - AddRequestHeader=Hello, World
+        - id: hystrix_route
+          uri: http://httpbin.org:80
+          predicates:
+            - Host=*.hystrix.com
+          filters:
+            - name: Hystrix
+              args:
+                name: mycmd
+                fallbackUri: forward:/fallback

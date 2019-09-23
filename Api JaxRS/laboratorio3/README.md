@@ -4,6 +4,7 @@
 
 [O que é um API Gateway?](https://sensedia.com/api/api-gateway-governando-a-arquitetura-de-microservices/)<br/>
 [Criando um API Gateway com SpringCloudGateway](https://spring.io/guides/gs/gateway/)<br/>
+[Criando um API Gateway de forma programática e via Yaml](https://www.baeldung.com/spring-cloud-gateway)<br/>
 
 ### Introdução
 
@@ -26,8 +27,14 @@ Possuímos um código que pode ser utilizado como base para completar este tutor
 
 ### Criando uma rota simples
 
-O Spring Cloud Gateway usa rotas para processar requisições de serviços downstream. Neste tutorial, encaminharemos todos os nossos requests para o [HTTPBin](https://httpbin.org/). As rotas podem ser configuradas de várias maneiras, mas para este guia, usaremos a API Java fornecida pelo Spring Cloud Gateway.
+O Spring Cloud Gateway usa rotas para processar requisições de serviços downstream. Neste tutorial, encaminharemos todos os nossos requests para o 
+[HTTPBin](https://httpbin.org/). As rotas podem ser configuradas de duas maneiras, sendo elas:
+ * Criar as rotas de forma programática: Suas rotas serão criadas de forma programática, ou seja, você terá que criar Beans para definir suas rotas via código Java.
+ * Criar as rotas via Yaml utilizando [Route Predicate Factory](https://cloud.spring.io/spring-cloud-gateway/reference/html/#gateway-request-predicates-factories) e 
+ [GatewayFilter Factory](https://cloud.spring.io/spring-cloud-gateway/reference/html/#gatewayfilter-factories): 
+ Suas configurações de rotas serão feitas através de um arquivo de configuração do SpringBoot que será carregado toda vez que a aplicação for iniciada.
 
+#### Criando uma rota simples de forma programática
 Para começar, crie um novo Bean do tipo **RouteLocator** em **Application.java**.
 
 ```java
@@ -55,6 +62,29 @@ public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 }
 ```
 
+#### Criando uma rota simples utilizando Yaml
+Para criarmos uma rota simples utilizando Factories precisaremos utilizar um arquivo de configuração do SpringBoot, este arquivo geralmente se chama **application.yml** 
+e normamlmente fica localizado dentro do seguinte diretório: **src/main/resources/**.<br/>
+Podemos realizar as mesmas configurações que fizemos no exemplo acima utilizando Route Predicate Factory, para isso insira o seguinte conteúdo no arquivo de configuração 
+**application.yml**:
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: addrequestheader_route
+          uri: http://httpbin.org:80
+          predicates:
+            - Path=/get
+          filters:
+            - AddRequestHeader=Hello, World
+```
+Com apenas este trecho inserido em nosso arquivo application.yml realizamos a mesma configuração que havíamos feito de forma programática no tópico anterior.
+
+**_Observação importante_**: Arquivo com a extensão **.yml** são arquivos sensíveis no qual não podemos em hipótese alguma utilizar o caractere TAB, os espaçamentos devem ser 
+todos feitos utilizando o caracter de espaço simples.
+
+#### Testando nosso Gateway
 Para testar nosso Gateway é muito simples, basta executar **Application.java**, ele deve ser executado na porta 8080. Depois que o aplicativo estiver em execução, faça uma requisição para http://localhost:8080/get. Você pode fazer isso usando cURL emitindo o seguinte comando no seu terminal.
 
 ```java
@@ -84,10 +114,15 @@ Observe que **HTTPBin** mostra que o cabeçalho **Hello** com o valor **World** 
 
 ### Usando Hystrix
 
-Agora vamos fazer algo um pouco mais interessante. Como os serviços por trás do Gateway podem potencialmente se comportar mal, afetando nossos clientes, podemos querer envolver as rotas que criamos com [Circuit Breakers](https://microservices.io/patterns/reliability/circuit-breaker.html). Você pode fazer isso no Spring Cloud Gateway usando o Hystrix. Isso é implementado por meio de um filtro simples que você pode adicionar aos seus requests. Vamos criar outra rota para demonstrar isso.
+Agora vamos fazer algo um pouco mais interessante. Como os serviços por trás do Gateway podem potencialmente se comportar mal, afetando nossos clientes, podemos querer 
+envolver as rotas que criamos com [Circuit Breakers](https://microservices.io/patterns/reliability/circuit-breaker.html). Você pode fazer isso no Spring Cloud Gateway 
+usando o Hystrix. Isso é implementado por meio de um filtro simples que você pode adicionar aos seus requests. Vamos criar outra rota para demonstrar isso.
 
-Neste exemplo, aproveitaremos a API de atraso do HTTPBin que aguarda um certo número de segundos antes de enviar uma resposta. Como essa API pode levar muito tempo para enviar sua resposta, podemos agrupar a rota que usa essa API em um **HystrixCommand**. Adicione uma nova rota ao nosso objeto **RouteLocator** semelhante à seguinte:
+Neste exemplo, aproveitaremos a API de atraso do HTTPBin que aguarda um certo número de segundos antes de enviar uma resposta. Como essa API pode levar muito tempo para 
+enviar sua resposta, podemos agrupar a rota que usa essa API em um **HystrixCommand**. 
 
+### Utilização de forma programática
+Adicione uma nova rota ao nosso objeto **RouteLocator** semelhante à seguinte:
 ```java
 // Esta alteração deve ser realizada no Bean myRoutes que criamos na classe Application.java.
 @Bean
@@ -105,9 +140,36 @@ public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 }
 ```
 
-Existem algumas diferenças entre essa nova configuração de rota e a anterior que criamos. Por um lado, estamos usando um predicado de host em vez do predicado de caminho. Isso significa que, enquanto o host for **hystrix.com**, encaminharemos a requisição para HTTPBin e agruparemos a requisição em um **HystrixCommand**. Fazemos isso aplicando um filtro à rota. O filtro Hystrix pode ser configurado usando um objeto de configuração. Neste exemplo, estamos apenas dando ao **HystrixCommand** o nome **mycmd**.
+### Utilização com Yaml
+Podemos adicionar uma nova rota em nosso arquivo application.yml da seguinte forma:
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: addrequestheader_route
+          uri: http://httpbin.org:80
+          predicates:
+            - Path=/get
+          filters:
+            - AddRequestHeader=Hello, World
+        - id: hystrix_route
+          uri: http://httpbin.org:80
+          predicates:
+            - Host=*.hystrix.com
+          filters:
+            - name: Hystrix
+              args:
+                name: mycmd
+```
 
-Vamos testar esta nova rota. Inicie o aplicativo, mas desta vez vamos fazer uma requisição para **/delay/3**. Também é importante incluir um cabeçalho de host com o host **hystrix.com**, caso contrário a requisição não será roteada. Em cURL seria semelhante a isso:
+Existem algumas diferenças entre essa nova configuração de rota e a anterior que criamos. Por um lado, estamos usando um predicate de Host em vez do predicate de Path. 
+Isso significa que, enquanto o host for **hystrix.com**, encaminharemos a requisição para HTTPBin e agruparemos a requisição em um **HystrixCommand**. 
+Fazemos isso aplicando um filtro à rota. O filtro Hystrix pode ser configurado usando um objeto de configuração. 
+Neste exemplo, estamos apenas dando ao **HystrixCommand** o nome **mycmd**.
+
+Vamos testar esta nova rota. Inicie o aplicativo, mas desta vez vamos fazer uma requisição para **/delay/3**. Também é importante incluir um cabeçalho de host com o host 
+**hystrix.com**, caso contrário a requisição não será roteada. Em cURL seria semelhante a isso:
 
 ```java
 curl --dump-header - --header 'Host: www.hystrix.com' http://localhost:8080/delay/3
@@ -123,10 +185,13 @@ HTTP/1.1 504 Gateway Timeout
 content-length: 0
 ```
 
-Como você pode ver, o Hystrix atingiu o tempo limite aguardando a resposta do HTTPBin. Quando o Hystrix atinge o tempo limite, opcionalmente, podemos fornecer um fallback para que os clientes não recebam apenas um código **504**, mas algo mais significativo. Em um cenário de produção, você pode retornar alguns dados de um cache, por exemplo, mas em nosso exemplo simples, retornaremos apenas uma resposta, no lugar disso podemos retornar o corpo de nosso **fallback**.
+Como você pode ver, o Hystrix atingiu o tempo limite aguardando a resposta do HTTPBin. Quando o Hystrix atinge o tempo limite, opcionalmente, podemos fornecer um fallback para 
+que os clientes não recebam apenas um código **504**, mas algo mais significativo. Em um cenário de produção, você pode retornar alguns dados de um cache, por exemplo, 
+mas em nosso exemplo simples, retornaremos apenas uma resposta, no lugar disso podemos retornar o corpo de nosso **fallback**.
 
 Para fazer isso, vamos modificar nosso filtro Hystrix para fornecer um URL a ser chamado no caso de um timeout.
 
+#### Utilização de forma programática
 ```java
 // Esta alteração deve ser realizada no Bean myRoutes que criamos na classe Application.java.
 @Bean
@@ -146,7 +211,31 @@ public RouteLocator myRoutes(RouteLocatorBuilder builder) {
 }
 ```
 
-Agora, quando o percurso da Hystrix ultrapassar o timeout, ele fará uma chamada a **/fallback** em nossa aplicação Gateway. Vamos adicionar o endpoint **/fallback** ao nosso aplicativo.
+#### Utilização com Yaml
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: addrequestheader_route
+          uri: http://httpbin.org:80
+          predicates:
+            - Path=/get
+          filters:
+            - AddRequestHeader=Hello, World
+        - id: hystrix_route
+          uri: http://httpbin.org:80
+          predicates:
+            - Host=*.hystrix.com
+          filters:
+            - name: Hystrix
+              args:
+                name: mycmd
+                fallbackUri: forward:/fallback
+```
+
+Agora, quando o percurso da Hystrix ultrapassar o timeout, ele fará uma chamada a **/fallback** em nossa aplicação Gateway. Vamos adicionar o endpoint **/fallback** ao nosso 
+aplicativo.
 
 Em Application.java, adicione a annotation **@RestController** em nível de classe e adicione o seguinte **@RequestMapping** à classe.
 
@@ -203,6 +292,7 @@ public class Application {
     }
 }
 ```
+Caso esteja realizando a configuração utilizando Yaml não é necessário criar o Bean **myRoutes**.
 
 Para testar essa nova funcionalidade de fallback, reinicie o aplicativo e emita novamente o seguinte comando cURL:
 
@@ -222,8 +312,12 @@ fallback
 
 ### Escrevendo testes
 
-Como um bom desenvolvedor, devemos escrever alguns testes para garantir que o nosso Gateway esteja fazendo o que esperamos. Na maioria dos casos, queremos limitar as dependências de recursos externos, especialmente em testes de unidade, portanto, não devemos depender do HTTPBin. Uma solução para esse problema é tornar o URI em nossas rotas configurável, para que possamos alterar facilmente o URI, se necessário.
+Como um bom desenvolvedor, devemos escrever alguns testes para garantir que o nosso Gateway esteja fazendo o que esperamos. Na maioria dos casos, queremos limitar as 
+dependências de recursos externos, especialmente em testes de unidade, portanto, não devemos depender do HTTPBin. Uma solução para esse problema é tornar o URI em nossas 
+rotas configurável, para que possamos alterar facilmente o URI, se necessário.
 
+#### Implementação programática
+Observação importante: Caso esteja utilizando a implementação via Yaml você poderá ir direto para o tópico [Criando a classe de teste](#criando-a-classe-de-teste).
 Na classe Application.java, crie uma nova classe chamada **UriConfiguration**.
 
 ```java
@@ -336,6 +430,7 @@ class UriConfiguration {
 }
 ```
 
+#### Criando a classe de teste
 Crie uma nova classe chamada **ApplicationTest** em **src/main/test/java/gateway**. Na nova classe, adicione o seguinte conteúdo.
 
 ```java
@@ -393,9 +488,127 @@ public class ApplicationTest {
 
 Na verdade, nosso teste está aproveitando o WireMock do Spring Cloud Contract para suportar um servidor que pode simular as APIs do HTTPBin. A primeira coisa a observar é o uso do **@AutoConfigureWireMock(port = 0)**. Esta annotation iniciará o WireMock em uma porta aleatória para nós.
 
-Em seguida, observe que estamos aproveitando nossa classe **UriConfiguration** e configurando a propriedade **httpbin** na annotation **@SpringBootTest** para o servidor WireMock em execução localmente. No teste, configuramos "stubs" para as APIs HTTPBin que chamamos via Gateway e mock do comportamento que esperamos. Finalmente, usamos o **WebTestClient** para realmente fazer requisições ao Gateway e validar as respostas.
+Em seguida, observe que estamos aproveitando nossa classe **UriConfiguration** e configurando a propriedade **httpbin** na annotation **@SpringBootTest** para o servidor 
+WireMock em execução localmente. No teste, configuramos "stubs" para as APIs HTTPBin que chamamos via Gateway e mock do comportamento que esperamos. 
+Finalmente, usamos o **WebTestClient** para realmente fazer requisições ao Gateway e validar as respostas.
 
-### Resumo
+### Mais alguns exemplos
+Abordaremos neste tópico mais alguns exemplos utilizando Route Predicate Factories
+
+#### Header Route Predicate Factory
+O Header Route Predicate Factory usa dois parâmetros: o nome do cabeçalho e uma expressão regular. Esse predicado corresponde a um cabeçalho que corresponde à expressão regular:
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: header_route
+        uri: http://example.com
+        predicates:
+        - Header=X-Request-Id, \d+
+```
+
+A configuração programática pode ser feita da seguinte forma:
+```java
+//..route definition
+.route(r -> r.header("X-Request-Id", "\\d+")
+.id("header_route")
+.uri("http://example.com")
+```
+
+#### Host Route Predicate Factor
+O Host Route Predicate Factory usa um parâmetro: o padrão do nome do host. O padrão é um padrão no estilo Ant com "." Como separador.
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: host_route
+        uri: http://example.com
+        predicates:
+        - Host=**.example.com
+```
+
+A configuração programática pode ser feita da seguinte forma:
+```java
+//..route definition
+.route(r -> r.host("**.example.com")
+.id("host_route")
+.uri("http://example.com")
+```
+
+#### Path Route Predicate Factory
+O Path Route Predicate Factory usa um parâmetro: um padrão Spring PathMatcher:
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: path_route
+        uri: http://baeldung.com
+        predicates:
+        - Path=/articles/{articleId}
+```
+
+A configuração programática pode ser feita da seguinte forma:
+```java
+//..route definition
+.route(r -> r.path("/articles/"+articleId)
+.id("path_route")
+.uri("http://example.com")
+```
+
+#### AddRequestParameter WebFilter Factory
+O AddRequestParameter WebFilter Factory usa um parâmetro de nome e valor:
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: addrequestparameter_route
+        uri: http://baeldung.com
+        predicates:
+        - Path=/articles
+        filters:
+        - AddRequestParameter=foo, bar
+```
+
+A configuração programática pode ser feita da seguinte forma:
+```java
+//...route definition
+.route(r -> r.path("/articles")
+  .filters(f -> f.addRequestParameter("foo", "bar"))
+  .uri("http://example.com")
+  .id("addrequestparameter_route")
+```
+
+#### AddResponseHeader WebFilter Factory
+O AddResponseHeader WebFilter Factory usa um parâmetro de nome e valor:
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: addrequestheader_route
+        uri: http://baeldung.com
+        predicates:
+        - Path=/articles
+        filters:
+        - AddResponseHeader=X-SomeHeader, Bar
+```
+
+A configuração programática pode ser feita da seguinte forma:
+```java
+//...route definition
+.route(r -> r.path("/articles")
+  .filters(f -> f.addResponseHeader("X-SomeHeader", "Bar"))
+  .uri("http://example.com")
+  .id("addresponseheader_route")
+```
+
+### Conclusão
 
 Parabéns! Você acabou de criar seu primeiro aplicativo Spring Cloud Gateway!<br/>
+Além do que foi mostrado neste laboratório existem vários Route Predicate Factories que podemos utilizar, caso queira conferir a lista completa você pode encontrá-la neste 
+[link](https://cloud.spring.io/spring-cloud-gateway/reference/html/).
 Caso queira verificar o código completo você pode encontrá-lo neste [link](./exemplos/completo/).

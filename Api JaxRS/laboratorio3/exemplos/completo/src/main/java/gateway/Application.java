@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-// tag::code[]
 @SpringBootApplication
 @EnableConfigurationProperties(UriConfiguration.class)
 @RestController
@@ -22,7 +21,8 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    // tag::route-locator[]
+/* Configuração de forma programática
+
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder, UriConfiguration uriConfiguration) {
         String httpUri = uriConfiguration.getHttpbin();
@@ -40,17 +40,14 @@ public class Application {
                 .uri(httpUri))
             .build();
     }
-    // end::route-locator[]
-
-    // tag::fallback[]
+*/
     @RequestMapping("/fallback")
     public Mono<String> fallback() {
         return Mono.just("fallback");
     }
-    // end::fallback[]
+
 }
 
-// tag::uri-configuration[]
 @ConfigurationProperties
 class UriConfiguration {
     
@@ -64,5 +61,3 @@ class UriConfiguration {
         this.httpbin = httpbin;
     }
 }
-// end::uri-configuration[]
-// end::code[]
