@@ -535,8 +535,8 @@ curl -i -X POST -H "Content-Type:application/json" -d "{\"title\":\"Book 2\"}" h
 
 Agora iremos criar um relacionamento entre nossos objetos Book e Library, podemos fazer isso da seguinte forma:
 ```java
-curl -i -X PATCH -H "Content-Type:text/uri-list" -d "http://localhost:8080/libraries/1" http://localhost:8080/books/1/library
-curl -i -X PATCH -H "Content-Type:text/uri-list" -d "http://localhost:8080/libraries/1" http://localhost:8080/books/2/library
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/libraries/1" http://localhost:8080/books/1/library
+curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:8080/libraries/1" http://localhost:8080/books/2/library
 ```
 
 Para consultar o relacionamento que criamos podemos executar o seguinte comando: 
@@ -599,19 +599,12 @@ curl -i -X DELETE http://localhost:8080/authors/2/books/3
 
 
 ### Criando testes automatizados para nossa aplicação
-Vamos criar uma classe de teste que injeta uma instância TestRestTemplate e define as constantes que usaremos:
-```java
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
+Neste tópico criaremos testes automatizados para nossa aplicação, abordaremos primeiro algumas partes individuais de nossos testes, e em seguida disponibilizaremos o código 
+completo da classe de teste que estamos criando incluindo todos os imports que estão sendo utilizados.<br/>
 
+#### Criando a estrutura inicial da classe de testes
+Primeiro vamos criar uma classe de teste que injeta uma instância TestRestTemplate e define as constantes que usaremos:
+```java
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringDataRestApplication.class, 
   webEnvironment = WebEnvironment.DEFINED_PORT)
@@ -627,6 +620,160 @@ public class SpringDataRelationshipsTest {
  
     private static String LIBRARY_NAME = "My Library";
     private static String AUTHOR_NAME = "George Orwell";
-    
+    private static String AUTHOR_NAME_2 = "Orwell Richards";
 }
 ```
+
+#### Testando o relacionamento de 1 para 1
+Vamos criar um método de teste que salva os objetos Library e Address fazendo solicitações POST para os recursos da coleção.<br/>
+Em seguida, ele salva o relacionamento com uma solicitação PUT no recurso de associação e verifica se foi estabelecido com uma solicitação GET para o mesmo recurso:
+```java
+    @Test
+    public void testingOneToOneRelationship() {
+        // Criando instância de Library e cadastrando via POST
+        Library library = new Library(LIBRARY_NAME);
+        template.postForEntity(LIBRARY_ENDPOINT, library, Library.class);
+
+        // Criando instância de Address e cadastrando via POST
+        Address address = new Address("Main street, nr 1");
+        template.postForEntity(ADDRESS_ENDPOINT, address, Address.class);
+
+        // Definindo cabeçalho para Content-Type: text/uri-list
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.add("Content-type", "text/uri-list");
+
+        // Criando relacionamento 1 para 1
+        HttpEntity<String> httpEntity 
+          = new HttpEntity<>(ADDRESS_ENDPOINT + "/1", requestHeaders);
+        template.exchange(LIBRARY_ENDPOINT + "/1/libraryAddress", 
+          HttpMethod.PUT, httpEntity, String.class);
+
+        // Testando se o relacionamento foi criado corretamente
+        ResponseEntity<Library> libraryGetResponse 
+          = template.getForEntity(ADDRESS_ENDPOINT + "/1/library", Library.class);
+        assertEquals("library is incorrect", 
+          libraryGetResponse.getBody().getName(), LIBRARY_NAME);
+    }
+```
+
+#### Testando o relacionamento de 1 para muitos
+Vamos criar um método de teste que salva uma instância da Library e duas instâncias do Livro, envia uma solicitação PUT para cada novo objeto Book, estes objetos são 
+associados à Library e em seguida verificamos se o relacionamento foi salvo:
+```java
+    @Test
+    public void testingOneToManyRelationship() {
+        // Criando instância de Library e cadastrando via POST
+        Library library = new Library(LIBRARY_NAME);
+        template.postForEntity(LIBRARY_ENDPOINT, library, Library.class);
+
+        // Criando duas instâncias de Book e cadastrando via POST
+        Book book1 = new Book("Dune");
+        template.postForEntity(BOOK_ENDPOINT, book1, Book.class);
+     
+        Book book2 = new Book("1984");
+        template.postForEntity(BOOK_ENDPOINT, book2, Book.class);
+
+        // Definindo cabeçalho para Content-Type: text/uri-list
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.add("Content-Type", "text/uri-list");
+
+        // Criando relacionamento de 1 para muitos
+        HttpEntity<String> bookHttpEntity 
+          = new HttpEntity<>(LIBRARY_ENDPOINT + "/1", requestHeaders);
+        template.exchange(BOOK_ENDPOINT + "/1/library", 
+          HttpMethod.PUT, bookHttpEntity, String.class);
+        template.exchange(BOOK_ENDPOINT + "/2/library", 
+          HttpMethod.PUT, bookHttpEntity, String.class);
+
+        // Testando se o relacionamento foi criado corretamente
+        ResponseEntity<Library> libraryGetResponse = 
+          template.getForEntity(BOOK_ENDPOINT + "/1/library", Library.class);
+        assertEquals("library is incorrect", 
+          libraryGetResponse.getBody().getName(), LIBRARY_NAME);
+    }
+```
+
+#### Testando o relacionamento de muitos para muitos
+Para testar o relacionamento muitos para muitos entre as entidades Book e Author, criaremos um método de teste que salva dois registro de Author e três registros de Book.<br/>
+Os registros 1 e 2 de Book serão relacionados com o registro 1 de Author, além disso relacionaremos também os registros 2 e 3 de Book com o registro 2 de Author.<br/>
+Enviamos uma solicitação PUT ao recurso de associação de Books com os 2 primeiros URIs de Books e os relacionamos ao objeto primeiro objeto Author.<br/>
+Enviamos uma solicitação PUT ao recurso de associação de Books com as URIs do segundo e terceiro objeto Books e os relacionamos ao objeto segundo objeto Author.
+Para finalizar testamos se os relacionametos foram criados conforme esperado.
+```java
+    @Test
+    public void testingManyToManyRelationship() throws JSONException {
+        // Criando duas instâncias de Author e cadastrando via POST
+        Author author1 = new Author(AUTHOR_NAME_1);
+        template.postForEntity(AUTHOR_ENDPOINT, author1, Author.class);
+
+        Author author2 = new Author(AUTHOR_NAME_2);
+        template.postForEntity(AUTHOR_ENDPOINT, author2, Author.class);
+
+        // Criando três instâncias de Book e cadastrando via POST
+        Book book1 = new Book("Animal Farm");
+        template.postForEntity(BOOK_ENDPOINT, book1, Book.class);
+     
+        Book book2 = new Book("1984");
+        template.postForEntity(BOOK_ENDPOINT, book2, Book.class);
+
+        Book book3 = new Book("Lost");
+        template.postForEntity(BOOK_ENDPOINT, book3, Book.class);
+
+        // Definindo cabeçalho para Content-Type: text/uri-list
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.add("Content-type", "text/uri-list");
+
+        // Criando relacionamento de muitos para muitos com o objeto Author 1
+        HttpEntity<String> httpEntity = new HttpEntity<>(
+          BOOK_ENDPOINT + "/1\n" + BOOK_ENDPOINT + "/2", requestHeaders);
+        template.exchange(AUTHOR_ENDPOINT + "/1/books", 
+          HttpMethod.PUT, httpEntity, String.class);
+
+
+        // Testando se o relacionamento com o objeto Book 1 foi criado corretamente para o objeto Author 1
+        String jsonResponse = template
+                .getForObject(BOOK_ENDPOINT + "/1/authors", String.class);
+        JSONObject jsonObj = new JSONObject(jsonResponse).getJSONObject("_embedded");
+        JSONArray jsonArray = jsonObj.getJSONArray("authors");
+        assertEquals("author is incorrect",
+                jsonArray.getJSONObject(0).getString("name"), AUTHOR_NAME_1);
+
+
+        // Testando se o relacionamento com o objeto Book 2 foi criado corretamente para o objeto Author 1
+        jsonResponse = template
+                .getForObject(BOOK_ENDPOINT + "/2/authors", String.class);
+        jsonObj = new JSONObject(jsonResponse).getJSONObject("_embedded");
+        jsonArray = jsonObj.getJSONArray("authors");
+        assertEquals("author is incorrect",
+                jsonArray.getJSONObject(0).getString("name"), AUTHOR_NAME_1);
+
+
+        // Criando relacionamento de muitos para muitos com o objeto Author 2
+        HttpEntity<String> httpEntity1 = new HttpEntity<>(
+                BOOK_ENDPOINT + "/2\n" + BOOK_ENDPOINT + "/3", requestHeaders);
+        template.exchange(AUTHOR_ENDPOINT + "/2/books",
+                HttpMethod.PUT, httpEntity1, String.class);
+
+        // Testando se o relacionamento com o objeto Book 2 foi criado corretamente para o objeto Author 2
+        jsonResponse = template
+                .getForObject(BOOK_ENDPOINT + "/2/authors", String.class);
+        jsonObj = new JSONObject(jsonResponse).getJSONObject("_embedded");
+        jsonArray = jsonObj.getJSONArray("authors");
+        assertEquals("author is incorrect",
+                jsonArray.getJSONObject(1).getString("name"), AUTHOR_NAME_2);
+
+
+        // Testando se o relacionamento com o objeto Book 3 foi criado corretamente para o objeto Author 2
+        jsonResponse = template
+                .getForObject(BOOK_ENDPOINT + "/3/authors", String.class);
+        jsonObj = new JSONObject(jsonResponse).getJSONObject("_embedded");
+        jsonArray = jsonObj.getJSONArray("authors");
+        assertEquals("author is incorrect",
+                jsonArray.getJSONObject(0).getString("name"), AUTHOR_NAME_2);
+
+
+    }
+```
+
+#### Código completo de nosso teste
+O código completo de nosso teste incluindo também todos os nossos imports pode ser encontrado neste [link](./exemplos/spring-data-rest/src/test/java/com/springdatarest/SpringDataRelationshipsTest.java).
