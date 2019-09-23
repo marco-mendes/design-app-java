@@ -625,7 +625,7 @@ public class SpringDataRelationshipsTest {
 ```
 
 #### Testando o relacionamento de 1 para 1
-Vamos criar um método de teste que salva os objetos **Library** e **Address** fazendo solicitações POST para os recursos da coleção.<br/>
+Vamos criar um método de teste que salva os objetos **Library** e **Address** fazendo requisições POST para os recursos da coleção.<br/>
 Em seguida, ele salva o relacionamento com uma requisição PUT no recurso de associação e verifica se o relacionamento foi estabelecido corretamente através de um requisição GET:
 ```java
     @Test
@@ -657,8 +657,8 @@ Em seguida, ele salva o relacionamento com uma requisição PUT no recurso de as
 ```
 
 #### Testando o relacionamento de 1 para muitos
-Vamos criar um método de teste que salva uma instância de **Library** e duas instâncias de **Book**, envia uma requisição PUT para cada novo objeto Book associando-os 
-à Library e em seguida verificamos se o relacionamento foi salvo:
+Vamos criar um método de teste que salva uma instância de **Library** e duas instâncias de **Book**, envia uma requisição PUT para cada novo objeto **Book** associando-os 
+à **Library** e em seguida verificamos se o relacionamento foi salvo:
 ```java
     @Test
     public void testingOneToManyRelationship() {
@@ -783,3 +783,7 @@ Para finalizar testamos se os relacionamentos foram criados conforme esperado.
 
 #### Código completo de nosso teste
 O código completo de nosso teste incluindo também todos os nossos imports pode ser encontrado neste [link](./exemplos/spring-data-rest/src/test/java/com/springdatarest/SpringDataRelationshipsTest.java).
+
+### Conclusão
+Parabéns, você acabou de criar um projeto utilizando diferentes tipos de relacionamentos com o Spring Data REST.<br/>
+Caso queira verificar o código completo você pode encontrá-lo neste [link](https://github.com/corelioBH/design-app-java/tree/master/Api%20JaxRS/laboratorio1/DataRestRelationships/exemplos/spring-data-rest).
