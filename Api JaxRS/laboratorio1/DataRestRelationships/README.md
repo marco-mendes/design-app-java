@@ -657,8 +657,8 @@ Em seguida, ele salva o relacionamento com uma solicitação PUT no recurso de a
 ```
 
 #### Testando o relacionamento de 1 para muitos
-Vamos criar um método de teste que salva uma instância da **Library** e duas instâncias de **Book**, envia uma solicitação PUT para cada novo objeto Book, estes objetos são 
-associados à Library e em seguida verificamos se o relacionamento foi salvo:
+Vamos criar um método de teste que salva uma instância de **Library** e duas instâncias de **Book**, envia uma solicitação PUT para cada novo objeto Book associando-os 
+à Library e em seguida verificamos se o relacionamento foi salvo:
 ```java
     @Test
     public void testingOneToManyRelationship() {
@@ -702,9 +702,9 @@ associados à Library e em seguida verificamos se o relacionamento foi salvo:
 #### Testando o relacionamento de muitos para muitos
 Para testar o relacionamento muitos para muitos entre as entidades **Book** e **Author**, criaremos um método de teste que salva dois registros de **Author** e três 
 registros de **Book**.<br/>
-Enviamos uma solicitação PUT ao recurso de associação de **Books** com as URIs dos registros 1 e 2 de **Books** e as relacionamos ao objeto primeiro objeto **Author**.<br/>
-Enviamos uma solicitação PUT ao recurso de associação de **Books** com as URIs dos registros 2 e 3 de **Books** e as relacionamos ao objeto segundo objeto **Author**.<br/>
-Para finalizar testamos se os relacionametos foram criados conforme esperado.
+Enviamos uma solicitação PUT relacionando os objetos 1 e 2 de **Book** ao primeiro objeto **Author**.<br/>
+Em seguida enviamos uma solicitação PUT relacionando os objetos 2 e 3 de **Book** ao segundo objeto **Author**.<br/>
+Para finalizar testamos se os relacionamentos foram criados conforme esperado.
 ```java
     @Test
     public void testingManyToManyRelationship() throws JSONException {
