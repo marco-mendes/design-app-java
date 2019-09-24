@@ -136,7 +136,7 @@ Nosso pom possui as dependências básicas para utilizar o Spring Data Rest, pos
 aplicação com o Java 11.<br/>
 Além delas possuímos também nossa dependência **h2** que será utilizada para armazenar nossos dados em memória durante a execução da aplicação.
 
-### Modelos de nossas entidades
+### Models de nossas entidades
 Neste laboratório possuímos o cenário de uma biblioteca no qual possuímos as seguintes entidades:
  * Library
  * Address
@@ -444,7 +444,7 @@ Abaixo temos um exemplo de criação da entidade Library:
 ```java
 curl -i -X POST -H "Content-Type:application/json" -d "{\"name\":\"My Library\"}" http://localhost:8080/libraries
 ```
-Ao executarmos este comando teremos um retorno semelhante a este no qual podemos verificar todos os endepoints que nos dão acesso as funcionalidades de nosso objeto Library.<br/>
+Ao executarmos este comando teremos um retorno semelhante a este no qual podemos verificar todos os endpoints que nos dão acesso as funcionalidades de nosso objeto Library.<br/>
 O mesmo ocorrerá em todos os objetos que criamos em nossa aplicação.
 ```java
 HTTP/1.1 201
@@ -558,9 +558,9 @@ curl -i -X DELETE http://localhost:8080/books/2/library
 #### Criando um relacionamento de muitos para muitos
 Conforme vimos neste laboratório as entidades Book e Author possuem um relacionamento de muitos para muitos, para criarmos este relacionamento precisaremos primeiro criar 
 instâncias de nossas entidades.<br/>
-Iremos criar mais dois objetos Book e em seguida criaremos dois objetos Author, o primeiro objeto Author terá um relacionamento entre o primeiro e segundo objeto Book, 
+Iremos criar mais um objeto Book e em seguida criaremos dois objetos Author, o primeiro objeto Author terá um relacionamento entre o primeiro e segundo objeto Book, 
 já nosso segundo objeto Author se relacionará com o segundo e o terceiro objetos Book.<br/>
-Criando mais dois objetos Book:
+Criando mais um objeto Book:
 ```java
 curl -i -X POST -H "Content-Type:application/json" -d "{\"title\":\"Book 3\"}" http://localhost:8080/books
 ```
