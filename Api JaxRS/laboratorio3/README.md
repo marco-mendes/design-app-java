@@ -187,7 +187,7 @@ content-length: 0
 
 Como você pode ver, o Hystrix atingiu o tempo limite aguardando a resposta do HTTPBin. Quando o Hystrix atinge o tempo limite, opcionalmente, podemos fornecer um fallback para 
 que os clientes não recebam apenas um código **504**, mas algo mais significativo. Em um cenário de produção, você pode retornar alguns dados de um cache, por exemplo, 
-mas em nosso exemplo simples, retornaremos apenas uma resposta, no lugar disso podemos retornar o corpo de nosso **fallback**.
+mas em nosso exemplo simples, retornamos apenas uma resposta, no lugar disso podemos retornar o corpo de nosso **fallback**.
 
 Para fazer isso, vamos modificar nosso filtro Hystrix para fornecer um URL a ser chamado no caso de um timeout.
 
@@ -300,7 +300,7 @@ Para testar essa nova funcionalidade de fallback, reinicie o aplicativo e emita 
 curl --dump-header - --header 'Host: www.hystrix.com' http://localhost:8080/delay/3
 ```
 
-Com o fallback no lugar, agora vemos que recebemos 200 de volta do Gateway com o corpo de resposta do fallback.
+Com o fallback no lugar, agora vemos que recebemos o código de resposta 200 do Gateway com o corpo de resposta do fallback.
 
 ```java
 HTTP/1.1 200 OK
@@ -559,8 +559,8 @@ A configuração programática pode ser feita da seguinte forma:
 .uri("http://example.com")
 ```
 
-#### AddRequestParameter WebFilter Factory
-O AddRequestParameter WebFilter Factory usa um parâmetro de nome e valor:
+#### AddRequestParameter GatewayFilter Factory
+O AddRequestParameter GatewayFilter Factory usa um parâmetro de nome e valor:
 ```yaml
 spring:
   cloud:
@@ -583,8 +583,8 @@ A configuração programática pode ser feita da seguinte forma:
   .id("addrequestparameter_route")
 ```
 
-#### AddResponseHeader WebFilter Factory
-O AddResponseHeader WebFilter Factory usa um parâmetro de nome e valor:
+#### AddResponseHeader GatewayFilter Factory
+O AddResponseHeader GatewayFilter Factory usa um parâmetro de nome e valor:
 ```yaml
 spring:
   cloud:
