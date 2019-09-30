@@ -1,0 +1,1 @@
+docker run --name teste -p 8080:8080 --env-file .env -it 12factor:v0.0.1
