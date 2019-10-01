@@ -191,7 +191,8 @@ set H2_DB_NAME=testdb
 set H2_USERNAME=username
 set H2_PASSWORD=password
 ```
-Podemos usar uma ferramenta de gerenciamento de configuração como [Ansible](https://www.ansible.com/) ou [Chef](https://www.chef.io/) para automatizar esse processo.
+Este arquivo de configuração se chama **application.properties**, e está armazenado na pasta **src/main/resources** de [nossa aplicação de exemplo](./exemplo/spring-boot-12-factor).
+<br/>Podemos usar uma ferramenta de gerenciamento de configuração como [Ansible](https://www.ansible.com/) ou [Chef](https://www.chef.io/) para automatizar esse processo.
 
 ### 4º Fator - Backing Services
 Backing Services são serviços dos quais o aplicativo depende para operação. Por exemplo, um banco de dados ou um intermediário de mensagens. **Um aplicativo de doze 
@@ -255,4 +256,53 @@ H2_PASSWORD=password
 
 Finalmente, não precisamos necessariamente executar esses estágios manualmente. É aqui que [Jenkins](https://jenkins.io/) é bastante útil com seu pipeline declarativo.
 
-### 5º Fator - Processos 
+### 6º Fator - Processos 
+**Espera-se que um aplicativo de doze fatores seja executado em um ambiente de execução como processos sem estado**. Em outras palavras, eles não podem armazenar estado 
+persistente localmente entre solicitações. Eles podem gerar dados persistentes que precisam ser armazenados em um ou mais serviços de backup com estado.<br/>
+No caso do nosso exemplo, temos vários Endpoints expostos. Uma solicitação em qualquer um desses Endpoints é totalmente independente de qualquer solicitação feita antes dele. 
+Por exemplo, se acompanharmos as solicitações do usuário na memória e usarmos essas informações para atender a solicitações futuras, ela violará um aplicativo de doze fatores.<br/>
+Portanto, um aplicativo de doze fatores não impõe essa restrição, como sessões complicadas. Isso torna esse aplicativo altamente portátil e escalável. 
+Em um ambiente de execução em nuvem que oferece escala automatizada, é um comportamento bastante desejável dos aplicativos.
+
+### 7º Fator - Port Binding
+Um aplicativo da web tradicional em Java é desenvolvido como um WAR ou arquivo da web. Normalmente, é uma coleção de Servlets com dependências e espera um tempo de execução 
+do contêiner compatível, como o Tomcat. **Um aplicativo de doze fatores, pelo contrário, não espera tal dependência de tempo de execução**. É completamente independente 
+e requer apenas um Runtime como Java.<br/>
+No nosso caso, desenvolvemos um aplicativo usando o Spring Boot. O Spring Boot, além de muitos outros benefícios, fornece um servidor de aplicativos incorporado padrão. 
+Portanto, o JAR que geramos anteriormente usando o Maven é totalmente capaz de executar em qualquer ambiente apenas com um Runtime Java compatível:
+```java
+java -jar 12factor-0.0.1.jar
+```
+Aqui, nosso aplicativo simples expõe seus Endpoints através de uma ligação HTTP a uma porta específica como 8080. Ao iniciar o aplicativo, como fizemos acima, deve ser 
+possível acessar os serviços exportados com HTTP.<br/>
+Um aplicativo pode exportar vários serviços, como FTP ou WebSocket , vinculando-se a várias portas.
+
+### 8º Fator - Concorrência
+O Java oferece Thread como um modelo clássico para lidar com a simultaneidade em um aplicativo. Os threads são como processos leves e representam vários caminhos de execução 
+em um programa. Os encadeamentos são poderosos, mas têm limitações em termos de quanto isso pode ajudar na escalabilidade de um aplicativo.<br/>
+**A metodologia de doze fatores sugere que os aplicativos confiem nos processos de dimensionamento**. O que isso significa efetivamente é que os aplicativos devem ser projetados 
+para distribuir a carga de trabalho entre vários processos. No entanto, processos individuais são livres para alavancar um modelo de simultaneidade como o Thread internamente.<br/>
+Um aplicativo Java, quando iniciado, obtém um único processo que está vinculado à JVM subjacente. O que precisamos efetivamente é uma maneira de iniciar várias instâncias 
+do aplicativo com distribuição inteligente de carga entre elas. Como já empacotamos nosso aplicativo como um contêiner do Docker, o 
+[Kubernetes](https://www.baeldung.com/kubernetes)é uma escolha natural para essa orquestração.
+
+### 9º Fator - Descartabilidade
+Os processos de aplicativos podem ser encerrados de propósito ou por meio de um evento inesperado. Em qualquer um dos casos, **um aplicativo com doze fatores deve lidar com 
+isso normalmente**. Em outras palavras, um processo de inscrição deve ser completamente descartável, sem efeitos colaterais indesejados. Além disso, os processos 
+devem começar rapidamente.<br/>
+Por exemplo, em nosso aplicativo, um dos Endpoints é cria um novo registro de banco de dados para um objeto Movie. Agora, um aplicativo que manipula essa solicitação 
+pode falhar inesperadamente. No entanto, isso não deve afetar o estado do aplicativo. Quando um cliente envia a mesma solicitação novamente, 
+isso não deve resultar em registros duplicados.<br/>
+Em resumo, o aplicativo deve expor serviços idempotentes. Esse é outro atributo muito desejável de um serviço destinado a implantações na nuvem. Isso oferece 
+flexibilidade para interromper, mover ou girar novos serviços a qualquer momento, sem outras considerações.
+
+### 10º Fator - Paridade de Dev/Prod 
+É típico que os aplicativos sejam desenvolvidos em máquinas locais, testados em outros ambientes e finalmente implantados na produção. Geralmente é o caso em que esses 
+ambientes são diferentes. Por exemplo, a equipe de desenvolvimento trabalha em máquinas Windows, enquanto a implantação da produção acontece em máquinas Linux.<br/>
+**A metodologia de doze fatores sugere manter a diferença entre o ambiente de desenvolvimento e produção o mínimo possível**. Essas lacunas podem resultar de longos ciclos 
+de desenvolvimento, diferentes equipes envolvidas ou diferentes pilhas de tecnologias em uso.<br/>
+Agora, tecnologias como Spring Boot e Docker preenchem automaticamente essa lacuna em grande parte. Espera-se que um aplicativo em contêiner se comporte da mesma maneira, 
+não importa onde o executemos. Devemos usar os mesmos Backing Services(como o banco de dados) também.<br/>
+Além disso, deveríamos ter os processos certos, como integração e entrega contínuas, para facilitar ainda mais essa ponte.
+
+### 11º Fator - 
