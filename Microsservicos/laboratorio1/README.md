@@ -284,7 +284,7 @@ em um programa. Os encadeamentos são poderosos, mas têm limitações em termos
 para distribuir a carga de trabalho entre vários processos. No entanto, processos individuais são livres para alavancar um modelo de simultaneidade como o Thread internamente.<br/>
 Um aplicativo Java, quando iniciado, obtém um único processo que está vinculado à JVM subjacente. O que precisamos efetivamente é uma maneira de iniciar várias instâncias 
 do aplicativo com distribuição inteligente de carga entre elas. Como já empacotamos nosso aplicativo como um contêiner do Docker, o 
-[Kubernetes](https://www.baeldung.com/kubernetes)é uma escolha natural para essa orquestração.
+[Kubernetes](https://www.baeldung.com/kubernetes) é uma escolha natural para essa orquestração.
 
 ### 9º Fator - Descartabilidade
 Os processos de aplicativos podem ser encerrados de propósito ou por meio de um evento inesperado. Em qualquer um dos casos, **um aplicativo com doze fatores deve lidar com 
@@ -343,5 +343,4 @@ e a conteinerização de aplicativos, eles parecem atingir o ponto certo.
 
 ### Conclusão
 Neste tutorial, examinamos os conceitos da metodologia de doze fatores. Discutimos como alavancar uma arquitetura de microsserviço com o Spring Boot para entregá-los 
-efetivamente. Além disso, exploramos cada fator em detalhes e como aplicá-los ao nosso aplicativo. Também exploramos várias ferramentas para aplicar esses fatores 
-individuais de maneira eficaz com sucesso.
+efetivamente. Além disso, exploramos cada fator em detalhes. Também exploramos várias ferramentas para aplicar esses fatores individuais de maneira eficaz com sucesso.
