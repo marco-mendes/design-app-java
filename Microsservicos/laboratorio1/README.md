@@ -41,7 +41,7 @@ metodologia de doze fatores.
 Vamos agora definir um aplicativo simples que tentaremos desenvolver com as ferramentas e práticas que acabamos de discutir. Todos nós gostamos de assistir filmes, mas é um 
 desafio acompanhar os filmes que já assistimos.<br/>
 Agora, quem gostaria de começar um filme e depois abandoná-lo mais tarde? O que precisamos é de um serviço simples para gravar e consultar filmes que assistimos:<br/>
-<img src="12-factor-app.jpg"/>
+<img src="./exemplo/12-factor-app.jpg"/>
 
 Este é um microsserviço simples e padrão com um armazenamento de dados e um Endpoint REST. Precisamos definir um modelo que também será mapeado para persistência:
 ```java
