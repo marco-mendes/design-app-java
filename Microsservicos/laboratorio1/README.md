@@ -1,4 +1,4 @@
-## Metodologia Twelve-Factor em um microsserviço SpringBoot
+## Metodologia 12 Fatores(Twelve-Factor) em um microsserviço SpringBoot
 
 ### Material de preparação
 [Twelve-Factor Methodology in a Spring Boot Microservice](https://www.baeldung.com/spring-boot-12-factor)<br/>
@@ -7,8 +7,8 @@
 Neste tutorial, entenderemos a metodologia [The Twelve-Factor](https://12factor.net/), também conhecida como **12 fatores**.<br/>
 No processo, veremos como aplicar a metodologia **The Twelve-Factor** para o desenvolvimento de um microsserviço.
 
-### O que é a metodologia The Twelve-Factor?
-A metodologia **The Twelve-Factor** é um conjunto de doze práticas recomendadas para desenvolver aplicativos desenvolvidos para execução como serviço. 
+### O que é a metodologia 12 Fatores?
+A metodologia **12 Fatores** é um conjunto de doze práticas recomendadas para desenvolver aplicativos desenvolvidos para execução como serviço. 
 Isso foi originalmente elaborado pela Heroku para aplicativos implantados como serviços em sua plataforma em nuvem, em 2011. 
 Com o tempo, isso provou ser genérico o suficiente para qualquer desenvolvimento de [software como serviço (SaaS)](https://en.wikipedia.org/wiki/Software_as_a_service).
 
@@ -37,7 +37,7 @@ O Spring Boot é uma estrutura de aplicativos baseada no Spring, que tira muitos
 plataforma altamente opinativa, mas flexível, para desenvolver microsserviços. Neste tutorial, aproveitaremos o Spring Boot para fornecer um microsserviço usando a 
 metodologia de doze fatores.
 
-### Aplicando a metodologia The Twelve-Factor
+### Aplicando a metodologia 12 Fatores
 Vamos agora definir um aplicativo simples que tentaremos desenvolver com as ferramentas e práticas que acabamos de discutir. Todos nós gostamos de assistir filmes, mas é um 
 desafio acompanhar os filmes que já assistimos.<br/>
 Agora, quem gostaria de começar um filme e depois abandoná-lo mais tarde? O que precisamos é de um serviço simples para gravar e consultar filmes que assistimos:<br/>
