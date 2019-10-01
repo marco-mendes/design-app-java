@@ -305,4 +305,43 @@ Agora, tecnologias como Spring Boot e Docker preenchem automaticamente essa lacu
 não importa onde o executemos. Devemos usar os mesmos Backing Services(como o banco de dados) também.<br/>
 Além disso, deveríamos ter os processos certos, como integração e entrega contínuas, para facilitar ainda mais essa ponte.
 
-### 11º Fator - 
+### 11º Fator - Logs
+Logs são dados essenciais que um aplicativo gera durante sua vida útil. Eles fornecem informações valiosas sobre o funcionamento do aplicativo. Normalmente, um aplicativo 
+pode gerar logs em vários níveis, com diversos detalhes e saída em vários formatos diferentes.<br/>
+Um aplicativo de doze fatores, no entanto, se separa da geração e do processamento de logs. **Para esse aplicativo, os logs nada mais são do que um fluxo de eventos ordenado 
+por tempo**. Ele simplesmente grava esses eventos na saída padrão do ambiente de execução. A captura, armazenamento, curadoria e arquivamento desse fluxo devem ser 
+tratados pelo ambiente de execução.<br/>
+Existem várias ferramentas disponíveis para esse fim. Para começar, podemos usar o SLF4J para manipular o registro abstratamente em nosso aplicativo. Além disso, 
+podemos usar uma ferramenta como o Fluentd para coletar o fluxo de logs de aplicativos e Backing Services.<br/>
+Isso podemos fornecer ao Elasticsearch para armazenamento e indexação. Por fim, podemos gerar painéis significativos para visualização no Kibana.
+
+### 12º Fator - Processos de administração
+Frequentemente, precisamos executar algumas tarefas pontuais ou procedimentos de rotina com o estado do aplicativo. Por exemplo, consertando registros incorretos. 
+Agora, existem várias maneiras pelas quais podemos conseguir isso. Como nem sempre é necessário, podemos escrever um pequeno script para executá-lo separadamente de 
+outro ambiente.<br/>
+Agora, a metodologia de doze fatores sugere fortemente manter esses scripts de administração juntos com a base de código do aplicativo. Ao fazer isso, deve seguir os mesmos 
+princípios que aplicamos à base de código do aplicativo principal. Também é aconselhável usar uma ferramenta REPL interna do ambiente de execução para executar esses 
+scripts nos servidores de produção.<br/>
+Em nosso exemplo, como semeamos nosso aplicativo com os filmes já assistidos até agora? Embora possamos usar nosso pequeno e doce Endpoint, mas isso pode parecer 
+impraticável. O que precisamos é de um script para executar uma carga única. Podemos escrever uma pequena função Java para ler uma lista de filmes de um arquivo e 
+salvá-los em lote no banco de dados.<br/>
+Além disso, podemos usar o [Groovy integrado ao Java](https://www.baeldung.com/groovy-java-applications) runtime para iniciar esses processos.
+
+### Aplicações práticas
+Então, agora vimos todos os fatores sugeridos pela metodologia de doze fatores. O desenvolvimento de um aplicativo para ser um aplicativo de doze fatores certamente traz 
+seus benefícios, especialmente quando queremos implantá-los como serviços na nuvem. Mas, como todas as outras diretrizes, estrutura, padrões, devemos perguntar: 
+isso é uma bala de prata?<br/>
+Honestamente, nenhuma metodologia única em design e desenvolvimento de software afirma ser uma bala de prata. A metodologia de doze fatores não é exceção. 
+Embora alguns desses fatores sejam bastante intuitivos, e provavelmente já o façamos, outros podem não se aplicar a nós. É essencial avaliar esses fatores no backdrop 
+de nossos objetivos e escolher com sabedoria.<br/>
+É importante observar que todos esses fatores existem para nos ajudar a desenvolver um aplicativo que seja modular, independente, portátil, escalável e observável. 
+Dependendo da aplicação, podemos alcançá-los de outras formas. Também não é necessário adotar todos os fatores juntos. A adoção de alguns deles pode nos tornar melhores 
+do que éramos.<br/>
+Finalmente, esses fatores são bastante simples e elegantes. Eles têm maior importância em uma época em que exigimos que nossos aplicativos tenham maior produtividade e 
+menor latência, praticamente sem tempo de inatividade e falha. A adoção desses fatores nos dá o começo certo desde o início. Combinados com a arquitetura de microsserviço 
+e a conteinerização de aplicativos, eles parecem atingir o ponto certo.
+
+### Conclusão
+Neste tutorial, examinamos os conceitos da metodologia de doze fatores. Discutimos como alavancar uma arquitetura de microsserviço com o Spring Boot para entregá-los 
+efetivamente. Além disso, exploramos cada fator em detalhes e como aplicá-los ao nosso aplicativo. Também exploramos várias ferramentas para aplicar esses fatores 
+individuais de maneira eficaz com sucesso.
