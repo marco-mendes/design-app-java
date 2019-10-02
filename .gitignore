@@ -30,3 +30,6 @@ out/
 *.settings
 target/
 *.vscode
+
+node/
+node_modules/
