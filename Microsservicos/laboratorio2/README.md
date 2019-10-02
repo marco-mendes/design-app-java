@@ -130,7 +130,8 @@ Hora de executar o aplicativo de gateway e testar se tudo está funcionando:
 mvnw
 ```
 
-Vamos agora navegar para http://localhost:8080/ e efetuar login com o usuário **admin** e a senha **admin**. Clique no menu **Entities** e selecione a entidade **Car**, após isso crie um novo objeto Car utilizando o botão **Create a new Car**.<br/>
+Vamos agora navegar para http://localhost:8080/ e efetuar login com o usuário **admin** e a senha **admin**.<br/>
+Clique no menu **Entities** e selecione a entidade **Car**, após isso crie um novo objeto Car utilizando o botão **Create a new Car**.<br/>
 <img src="./exemplo/Gateway-1.png"/>
 
 Exemplo de criação de um objeto Car:<br/>
@@ -138,7 +139,7 @@ Exemplo de criação de um objeto Car:<br/>
 
 ### Criando o segundo Microservice Application
 
-Em seguida, vamos dar um passo adiante ao nosso sistema e criar um segundo componente do tipo Microservice Application. Esse novo componente gerenciará revendedores de
+Em seguida, vamos dar um passo adiante ao nosso sistema e criar um segundo componente do tipo **Microservice Application**. Esse novo componente gerenciará revendedores de
 automóveis, portanto, adicionaremos uma entidade chamada **dealer**.<br/>
 Abra um novo prompt de comando, navegue até nosso diretório **jhipster-microservices** e execute os seguintes comandos:
 
@@ -147,10 +148,9 @@ mkdir dealer-app && cd dealer-app
 yo jhipster
 ```
 
-Depois disso, digitamos dealerapp como o nome do aplicativo e escolhemos a porta 8082 para que ela seja executada (é fundamental que seja uma porta diferente daquela
-que estamos usando para o jhipster-registry e car-app).<br/>
-Para os outros parâmetros, podemos escolher qualquer opção que desejar. Lembre-se de que este é um microsserviço separado, para que ele possa usar diferentes tipos de
-banco de dados, estratégia de cache e testes do que o componente car-app.<br/>
+Depois disso, digitamos **dealerapp** como o nome do aplicativo e escolhemos a **porta 8082** para que ela seja executada (é fundamental que seja uma porta diferente daquela
+que estamos usando para o **jhipster-registry** e **car-app**).<br/>
+Para os outros parâmetros, podemos escolher qualquer opção que desejar. Lembre-se de que este é um microsserviço separado.<br/>
 Um exemplo completo de preenchimento seria:<br/>
 <img src="./exemplo/GerandoDealerApp.png"/>
 
@@ -163,7 +163,7 @@ yo jhipster:entity dealer
 Algumas perguntas serão feitas após gerar os 2 campos, você pode respoder da seguinte forma:<br/>
 <img src="./exemplo/GerandoEntidadeDealer.png"/>
 
-Não devemos esquecer de navegar para o aplicativo de gateway e pedir para gerar o código de front-end para a entidade do revendedor:
+Não devemos esquecer de navegar para nossa aplicação **Microservice Gateway** e pedir para gerar o código de front-end para a entidade do revendedor, podemos fazer isso da seguinte forma:
 
 ```java
 cd ../gateway-app
