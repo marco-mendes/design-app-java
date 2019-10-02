@@ -154,7 +154,7 @@ Para os outros parâmetros, podemos escolher qualquer opção que desejar. Lembr
 Um exemplo completo de preenchimento seria:<br/>
 <img src="./exemplo/GerandoDealerApp.png"/>
 
-Vamos adicionar alguns campos à nossa entidade Dealer. Por exemplo, **name** e **address** do tipo String:
+Vamos adicionar alguns campos à nossa entidade **Dealer**. Por exemplo, **name** e **address** do tipo String:
 
 ```java
 yo jhipster:entity dealer
@@ -173,22 +173,22 @@ yo jhipster:entity dealer
 Serão realizadas algumas perguntas durante a geração da entidade, responda da seguinte forma e termos nossa entidade criada:<br/>
 <img src="./exemplo/Gateway-GerandoEntidadeDealer.png"/>
 
-Por fim, execute o seguinte comando para navegar até o projeto dealer-app e executar o projeto:
+Por fim, execute o seguinte comando para navegar até o projeto **dealer-app** e executar o projeto:
 
 ```java
 cd ../dealer-app
 mvnw
 ```
 
-Em seguida, podemos visitar nosso aplicativo de gateway em http://localhost:8080 e atualizar a página para ver o item de menu recém-criado para a entidade Dealer.<br/>
-Antes de concluirmos , vamos dar uma olhada no aplicativo jhipster-registry novamente em http://localhost:8761/. O esperado é que a tabela **Instances Registered** possua nossos 3 componentes registrados como no exemplo abaixo:
+Em seguida, podemos visitar nosso aplicativo de gateway em http://localhost:8080 e atualizar a página para ver o item de menu recém-criado para a entidade **Dealer**.<br/>
+Antes de concluirmos , vamos dar uma olhada no aplicativo **jhipster-registry** novamente em http://localhost:8761/. O esperado é que a tabela **Instances Registered** possua nossos 3 componentes registrados como no exemplo abaixo:
 <img src="./exemplo/Gateway-3.png"/><br>
 
 É isso! Criamos uma arquitetura sofisticada composta por um aplicativo Gateway com todo o código front-end suportado por dois microsserviços em apenas alguns minutos.
 
 ### Conclusão
 
-Iniciar um projeto de arquitetura de microsserviço com o JHipster é bastante fácil, precisamos criar apenas quantos Microservice Applications e um Microservice Gateway e
+Iniciar um projeto de arquitetura de microsserviço com o JHipster é bastante fácil, precisamos clonar e executar o projeto **JHipster Registry**, criar quantos **Microservice Applications** forem necessários e criar um **Microservice Gateway**, com isso
 estamos prontos para começar.<br/>
 Você pode explorar a estrutura ainda mais no site oficial do [JHipster](https://www.jhipster.tech/microservices-architecture/).<br/>
 O código completo de nosso exemplo pode ser encontrado neste [link](./exemplo/jhipster-microservices/).
