@@ -90,7 +90,7 @@ Registered instance CARSAPP/carsapp:746e7525dffa737747dcdcee55ab43f8
 
 ### Instalando um Microservice Gateway
 
-Agora, o front-end. Criaremos um Microservice Gateway e indicaremos a ele que temos uma entidade em um componente existente para o qual queremos criar o código front-end.<br/>
+Agora, o front-end. Criaremos um **Microservice Gateway** e indicaremos a ele que temos uma entidade em um componente existente para o qual queremos criar o código front-end.<br/>
 Abra um novo prompt de comando, navegue até nosso diretório **jhipster-microservices** e execute os seguintes comandos:
 
 ```java
@@ -98,12 +98,12 @@ mkdir gateway-app && cd gateway-app
 yo jhipster
 ```
 
-Vamos seguir as instruções para criar um aplicativo do tipo Microservice Gateway. Nomearemos o gateway do aplicativo e selecionaremos as seguintes opções para os outros parâmetros:
+Vamos seguir as instruções para criar um aplicativo do tipo **Microservice Gateway**. Nomearemos o aplicativo como **gateway** e selecionaremos as seguintes opções para os outros parâmetros:
 
-- port: 8080
-- package: com.gateway
-- auth: JWT
-- service discovery: JHipster Registry
+- **port**: 8080
+- **package**: com.gateway
+- **auth**: JWT
+- **service discovery**: JHipster Registry
 
 Aqui está um resumo do conjunto completo de parâmetros:<br/>
 <img src="./exemplo/GerandoGateway.png"/>
@@ -117,7 +117,7 @@ yo jhipster:entity car
 Serão realizadas algumas perguntas durante a geração da entidade, responda da seguinte forma e termos nossa entidade criada:<br/>
 <img src="./exemplo/Gateway-GerandoEntidadeCar.png"/>
 
-O JHipster encontrará o arquivo Car.json, que faz parte do Aplicativo de Microsserviço existente que criamos anteriormente e usará os metadados contidos nesse arquivo para
+O JHipster encontrará o arquivo Car.json, que faz parte do **Microservice Application** existente que criamos anteriormente e usará os metadados contidos nesse arquivo para
 criar todo o código de interface do usuário necessário para essa entidade:
 
 ```java
@@ -130,10 +130,10 @@ Hora de executar o aplicativo de gateway e testar se tudo está funcionando:
 mvnw
 ```
 
-Vamos agora navegar para http://localhost:8080/ e efetuar login com o usuário **admin** e a senha **admin**. No menu superior, devemos ver um item Car que nos levará
-à página da lista de carros. Tudo ótimo!<br/>
+Vamos agora navegar para http://localhost:8080/ e efetuar login com o usuário **admin** e a senha **admin**. No menu Entities localizado do lado superior direito, devemos ver um submenu chamado Car que nos levará à página da lista de carros.<br/>
 
 <img src="./exemplo/Gateway-1.png"/><br/>
+
 Clique no menu **Entities** e selecione a entidade **Car**, após isso crie um novo objeto Car utilizando o botão **Create a new Car**.<br/>
 <img src="./exemplo/Gateway-2.png"/><br/>
 
