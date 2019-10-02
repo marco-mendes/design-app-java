@@ -41,7 +41,7 @@ Abra um novo prompt de comando, navegue até nosso diretório **jhipster-microse
 mkdir car-app && cd car-app
 yo jhipster
 ```
-Depois que o assistente for iniciado, siga as instruções para criar um aplicativo do tipo Microservice chamado **carapp**. Alguns outros parâmetros relevantes são:
+Depois que o assistente for iniciado, siga as instruções para criar um aplicativo do tipo Microservice chamado **carsapp**. Alguns outros parâmetros relevantes são:
  * port: 8081
  * package: com.car.app
  * authentication: JWT
@@ -67,14 +67,15 @@ Para finalizar, vamos executar nosso componente recém-criado:
 mvnw
 ```
 Antes de executar o comando acima, devemos garantir que o componente jhipster-registry esteja em funcionamento. Caso contrário, obteremos um erro.<br/>
-Se tudo corresse conforme o planejado, nosso aplicativo para carros seria iniciado e o registro do jhipster-registro nos informará que o aplicativo foi registrado com sucesso:
+Se tudo corresse conforme o planejado, nosso aplicativo para carros seria iniciado e o registro do jhipster-register nos informará que o aplicativo foi registrado com sucesso:
 ```java
-Registered instance CARAPP/carapp:746e7525dffa737747dcdcee55ab43f8
+Registered instance CARSAPP/carsapp:746e7525dffa737747dcdcee55ab43f8
   with status UP (replication=true)
 ```
 
 ### Instalando um Microservice Gateway
-Agora, o  front-end. Criaremos um Microservice Gateway e indicaremos a ele que temos uma entidade em um componente existente para o qual queremos criar o código front-end:
+Agora, o  front-end. Criaremos um Microservice Gateway e indicaremos a ele que temos uma entidade em um componente existente para o qual queremos criar o código front-end.<br/>
+Abra um novo prompt de comando, navegue até nosso diretório **jhipster-microservices** e execute os seguintes comandos:
 ```java
 mkdir gateway-app && cd gateway-app
 yo jhipster
@@ -86,15 +87,16 @@ Vamos seguir as instruções para criar um aplicativo do tipo Microservice Gatew
  * auth: JWT
  * service discovery: JHipster Registry
  
-Aqui está um resumo do conjunto completo de parâmetros:
-## COLOCAR UM PRINT AQUI
+Aqui está um resumo do conjunto completo de parâmetros:<br/>
+<img src="./exemplo/GerandoGateway.png"/>
 
 Vamos para a criação da entidade:
 ```java
 yo jhipster:entity car
 ```
-Quando solicitado que se deseja gerar um Microservice existente, escolha Sim , em seguida, digite o caminho relativo para o carro-aplicativo diretório raiz 
-(ex .: ../car-app). Por fim, quando perguntado se queremos atualizar a entidade, escolha Sim, gere novamente a entidade<br/>
+Serão realizadas algumas perguntas durante a geração da entidade, responda da seguinte forma e termos nossa entidade criada:<br/>
+<img src="./exemplo/Gateway-GerandoEntidadeCar.png"/>
+
 O JHipster encontrará o arquivo Car.json, que faz parte do Aplicativo de Microsserviço existente que criamos anteriormente e usará os metadados contidos nesse arquivo para 
 criar todo o código de interface do usuário necessário para essa entidade:
 ```java
@@ -114,7 +116,7 @@ Vamos agora navegar para http://localhost:8080/ e efetuar login com o usuário *
 ### Criando o segundo Microservice Application
 Em seguida, vamos dar um passo adiante ao nosso sistema e criar um segundo componente do tipo Microservice Application. Esse novo componente gerenciará revendedores de 
 automóveis, portanto, adicionaremos uma entidade chamada **dealer**.<br/>
-Vamos criar um novo diretório, navegar até ele e executar o comando yo jhipster:
+Abra um novo prompt de comando, navegue até nosso diretório **jhipster-microservices** e execute os seguintes comandos:
 ```java
 mkdir dealer-app && cd dealer-app
 yo jhipster
