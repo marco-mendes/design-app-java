@@ -130,12 +130,11 @@ Hora de executar o aplicativo de gateway e testar se tudo está funcionando:
 mvnw
 ```
 
-Vamos agora navegar para http://localhost:8080/ e efetuar login com o usuário **admin** e a senha **admin**. No menu Entities localizado do lado superior direito, devemos ver um submenu chamado Car que nos levará à página da lista de carros.<br/>
+Vamos agora navegar para http://localhost:8080/ e efetuar login com o usuário **admin** e a senha **admin**. Clique no menu **Entities** e selecione a entidade **Car**, após isso crie um novo objeto Car utilizando o botão **Create a new Car**.<br/>
+<img src="./exemplo/Gateway-1.png"/>
 
-<img src="./exemplo/Gateway-1.png"/><br/>
-
-Clique no menu **Entities** e selecione a entidade **Car**, após isso crie um novo objeto Car utilizando o botão **Create a new Car**.<br/>
-<img src="./exemplo/Gateway-2.png"/><br/>
+Exemplo de criação de um objeto Car:<br/>
+<img src="./exemplo/Gateway-2.png"/>
 
 ### Criando o segundo Microservice Application
 
