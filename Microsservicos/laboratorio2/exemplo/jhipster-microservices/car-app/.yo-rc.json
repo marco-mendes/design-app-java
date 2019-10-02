@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.cars.app"
+    },
+    "jhipsterVersion": "6.3.1",
+    "applicationType": "microservice",
+    "baseName": "carsapp",
+    "packageName": "com.cars.app",
+    "packageFolder": "com/cars/app",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "N2QwZWFkZDc5ODAwMDJkMzMzZmJjMTEwYWEwN2QzNWJlYTg2NTI5OGZmYjk3NTMxMGI1YzkyZGM3MzhkMWEzMjliNDc5YjVmNjI4Mzc1ZTI5OWQxNzQ2MjE0OTk0YTMyZGQ5MzI2ZDYwZGE1NGQyNWFlMjM1YTE3ZTllZWQyODU=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
