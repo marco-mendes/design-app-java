@@ -1,7 +1,8 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.gateway"
+      "packageName": "com.gateway",
+      "microservicePath": "../dealer-app"
     },
     "jhipsterVersion": "6.3.1",
     "applicationType": "gateway",
