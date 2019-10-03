@@ -106,15 +106,18 @@ Configure o etc/hosts da sua máquina com a seguinte entrada.
 Para rodar os nossos microsserviços (blog, post) e aplicação Web gateway abra três terminais na linha de comando e rode os seguintes comandos .
 
 ```sh
-./blog/mvnw
+cd ./blog
+./mvnw
 ```
 
 ```sh
-./post/mvnw
+cd ./store
+./mvnw
 ```
 
 ```sh
-./gateway/mvwn
+cd ./gateway
+./mvwn
 ```
 
 Abra seu navegador e acesse http: // localhost: 8761. Faça login e você verá uma página de boas-vindas que mostra que o gateway e os dois aplicativos foram registrados.
