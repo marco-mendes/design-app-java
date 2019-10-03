@@ -2,7 +2,7 @@
 
 Nessa dinâmica iremos rodar uma aplicação de microsserviços com a seguinte arquitetura base.
 
-![https://www.jhipster.tech/images/microservices_architecture_2.png]()
+<img src="https://www.jhipster.tech/images/microservices_architecture_2.png"/>
 
 Iremos usar para isso um acelerador de produtividade chamado JHipster que gera uma aplicação com os módulos acima, sem dependências de códigos proprietários. O JHipster tem a sua documentação aqui - https://www.jhipster.tech.
 
