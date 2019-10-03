@@ -1,0 +1,1 @@
+docker run --name spring-data-rest -p 8080:8080 -it spring-data-rest:latest

@@ -1,0 +1,10 @@
+version: '2'
+services:
+  executa-aplicacao:
+    container_name: SpringDataRest
+    image: spring-data-rest:latest
+    restart: always
+    ports:
+      - "5555:5555"
+    expose:
+      - "5555"
