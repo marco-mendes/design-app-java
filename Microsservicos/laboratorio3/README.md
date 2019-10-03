@@ -119,7 +119,7 @@ Após executarmos este comando teremos a imagem **maven:base** criada.
 
 Para cria a imagem docker de nossa aplicação precisaremos primeiro gerar o binário Java e logo em seguida criar uma imagem docker utilizando este binário.<br/>
 Podemos realizar estes 2 processos com um Dockerfile multistage, que consiste em um arquivo Dockerfile com vários estágios até a geração da imagem docker final.<br/>
-Podemos fazer isso crie um arquivo chamado **Dockerfile.app** com o seguinte conteúdo:
+Para fazer isso crie um arquivo chamado **Dockerfile.app** com o seguinte conteúdo:
 
 ```java
 # Estagio 1 do Build - Compilar o projeto
