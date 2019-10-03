@@ -213,7 +213,6 @@ curl -i -X PUT -H "Content-Type:text/uri-list" -d "http://localhost:5555/librari
 
 // Consultando o relacionamento criado
 curl -i -X GET http://localhost:5555/libraries/1/books
-curl -i -X GET http://localhost:5555/libraries/2/books
 
 // Deletando o relacionamento criado
 curl -i -X DELETE http://localhost:5555/books/1/library
