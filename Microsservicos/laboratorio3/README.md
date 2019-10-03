@@ -13,13 +13,16 @@ Em resumo ele contém um microsserviço que possui diferentes tipos de relaciona
 
 Faça os seguintes tutoriais para aclimatação de conceitos do Docker com a plataforma Katacoda.
 
-Execução de uma primeira imagem Docker
+Execução de uma primeira imagem Docker:
+
 https://www.katacoda.com/courses/docker/deploying-first-container
 
-Montagem uma imagem simples Docker
+Montagem uma imagem simples Docker:
+
 https://www.katacoda.com/courses/docker/2
 
-Montagem de build Docker com o conceito de Multi-Estágio
+Montagem de build Docker com o conceito de Multi-Estágio:
+
 https://www.katacoda.com/courses/docker/multi-stage-builds
 
 ### Passos para a criação da imagem docker de nossa aplicação
