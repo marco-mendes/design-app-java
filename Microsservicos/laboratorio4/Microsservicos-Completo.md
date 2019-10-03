@@ -1,10 +1,10 @@
-
-
 Nessa dinâmica iremos rodar uma aplicação de microsserviços com a seguinte arquitetura base.
 
 <img src="https://www.jhipster.tech/images/microservices_architecture_2.png"/>
 
-Iremos usar para isso um acelerador de produtividade chamado JHipster que gera uma aplicação com os módulos acima, sem dependências de códigos proprietários. O JHipster tem a sua documentação aqui - https://www.jhipster.tech.
+Iremos usar para isso um acelerador de produtividade chamado JHipster que gera uma aplicação com os módulos acima, sem dependências de códigos proprietários. 
+
+O JHipster tem a sua documentação aqui - https://www.jhipster.tech.
 
 Crie um arquivo chamado apps.jh na linha de comando. Esse arquivo possui comandos de uma DSL para a geração de aplicações Java da ferramenta JHipster. Ele irá gerar uma aplicação com dois Microsservicos: blog e post e um aplicação Web chamada gateway.
 
@@ -119,9 +119,20 @@ Para rodar os nossos microsserviços (blog, post) e aplicação Web gateway abra
 
 Abra seu navegador e acesse http: // localhost: 8761. Faça login e você verá uma página de boas-vindas que mostra que o gateway e os dois aplicativos foram registrados.
 
-Depois que tudo estiver em execução, abra um navegador, vá para http://localhost: 8080 e clique em entrar. Você deve ser redirecionado para o inquilino do Okta ou KeyCloack para fazer login e, em seguida, voltar para o gateway depois de inserir credenciais válidas. 
+Depois que tudo estiver em execução, abra um navegador, vá para http://localhost:8080 e clique em entrar. Você deve ser redirecionado para o inquilino do KeyCloack para fazer login e, em seguida, voltar para o gateway depois de inserir credenciais válidas. 
 
 Explore a aplicação e o código fonte.
+
+---
+
+Colocamos aqui recursos adicionais de estudo do JHipster
+
+* Livro do JHipster 5 - https://www.infoq.com/minibooks/jhipster-mini-book-5/
+* Material de aprendizagem online - https://www.jhipster.tech
+* Trabalho de aprendizagem colaborativo com o Spingular - https://www.spingular.com/#/
+* Editor Visual da DSL do JHipster chamado JDL Studio - https://start.jhipster.tech/jdl-studio/
+* Plugin para Eclipse - https://www.jhipster.tech/jhipster-ide/
+* Guias online do JHipster com a plataforma do Google - https://github.com/jhipster/jhipster-guides
 
 
 
