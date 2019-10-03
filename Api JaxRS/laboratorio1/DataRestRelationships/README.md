@@ -252,8 +252,38 @@ public class Library {
     @OneToMany(mappedBy = "library")
     private List<Book> books;
     
-    // Getters, Setters and Constructors
-   
+    public Library() {
+    }
+
+    public Library(String name) {
+        super();
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+    
 }
 ```
 
@@ -285,6 +315,39 @@ public class Address {
     private Library library;
 
     // Getters, Setters and Constructors
+    
+    public Address() {
+    }
+
+    public Address(String location) {
+        super();
+        this.location = location;
+    }
+    
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public Library getLibrary() {
+		return library;
+	}
+
+	public void setLibrary(Library library) {
+		this.library = library;
+	}
+ 
     
 }
 ```
@@ -321,7 +384,45 @@ public class Book {
     @ManyToMany(mappedBy = "books")
     private List<Author> authors;
     
-    // Getters, Setters and Constructors
+    public Book() {
+    }
+
+    public Book(String title) {
+        super();
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Library getLibrary() {
+        return library;
+    }
+
+    public void setLibrary(Library library) {
+        this.library = library;
+    }
+
+	public List<Author> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(List<Author> authors) {
+		this.authors = authors;
+	}
     
 }
 ```
@@ -358,12 +459,42 @@ public class Author {
       referencedColumnName = "id"))
     private List<Book> books;
     
-    // Getters, Setters and Constructors 
+    public Author() {
+    }
+
+    public Author(String name) {
+        super();
+        this.name = name;
+    }
+
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Book> getBooks() {
+		return books;
+	}
+
+	public void setBooks(List<Book> books) {
+		this.books = books;
+	}
+ 
 
 }
 ```
-O código completo desses models com os Getters, Setters e Constructors criados pode ser encontrado neste 
-[link](./exemplos/spring-data-rest/src/main/java/com/springdatarest/model/).
 
 ### Criando nossos repositórios
 Agora iremos criar repositórios com as operações Crud de cada um de nossos models.<br/>
