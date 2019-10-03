@@ -120,7 +120,7 @@ cd ./gateway
 ./mvwn
 ```
 
-Abra seu navegador e acesse http://localhost: 8761. Faça login e você verá uma página de boas-vindas que mostra que o gateway e os dois aplicativos foram registrados.
+Abra seu navegador e acesse http://localhost:8761. Faça login e você verá uma página de boas-vindas que mostra que o gateway e os dois aplicativos foram registrados.
 
 Depois que tudo estiver em execução, abra um navegador, vá para http://localhost:8080 e clique em entrar. Você deve ser redirecionado para o inquilino do KeyCloack para fazer login e, em seguida, voltar para o gateway depois de inserir credenciais válidas. 
 
