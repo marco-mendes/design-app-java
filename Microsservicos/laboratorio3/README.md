@@ -202,7 +202,6 @@ Podemos testar se nossa aplicação está em execução através de alguns coman
 ```java
 // Criando objeto Library
 curl -i -X POST -H "Content-Type:application/json" -d "{\"name\":\"My Library\"}" http://localhost:5555/libraries
-curl -i -X POST -H "Content-Type:application/json" -d "{\"name\":\"My Library\"}" http://localhost:5555/libraries
 
 // Criando objetos book
 curl -i -X POST -H "Content-Type:application/json" -d "{\"title\":\"Book1\"}" http://localhost:5555/books
