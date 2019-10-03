@@ -16,7 +16,7 @@ Faça os seguintes tutoriais para aclimatação de conceitos do Docker com a pla
 Execução de uma primeira imagem Docker:
 * https://www.katacoda.com/courses/docker/deploying-first-container
 
-Montagem uma imagem simples Docker:
+Montagem de uma imagem simples Docker:
 * https://www.katacoda.com/courses/docker/2
 
 Montagem de build Docker com o conceito de Multi-Estágio:
