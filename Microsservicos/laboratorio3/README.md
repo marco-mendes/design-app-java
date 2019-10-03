@@ -9,6 +9,19 @@ Neste laboratório discutiremos como criar uma imagem docker a partir de uma apl
 O código que utilizaremos neste laboratório para criar a imagem docker está disponíveis neste [link](./exemplo/spring-data-rest-base/).<br/>
 Em resumo ele contém um microsserviço que possui diferentes tipos de relacionamentos entre entidades do Spring Data REST.
 
+### Roteiros Introdutórios do Docker
+
+Faça os seguintes tutoriais para aclimatação de conceitos do Docker com a plataforma Katacoda.
+
+Execução de uma primeira imagem Docker
+https://www.katacoda.com/courses/docker/deploying-first-container
+
+Montagem uma imagem simples Docker
+https://www.katacoda.com/courses/docker/2
+
+Montagem de build Docker com o conceito de Multi-Estágio
+https://www.katacoda.com/courses/docker/multi-stage-builds
+
 ### Passos para a criação da imagem docker de nossa aplicação
 Para criar a imagem docker de nossa aplicação precisaremos primeiro seguir alguns passos e criar algumas imagens docker intermediárias que serão utilizadas para criamos a imagem 
 docker de nossa aplicação.<br/>
