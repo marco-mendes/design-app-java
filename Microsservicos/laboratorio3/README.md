@@ -2,12 +2,12 @@
 
 ### Material de preparação
 
-[Dockerizing a Spring Boot Application(https://www.baeldung.com/dockerizing-spring-boot-application)<br/>
+[Dockerizing a Spring Boot Application](https://www.baeldung.com/dockerizing-spring-boot-application)<br/>
 
 ### Introdução
 Neste laboratório discutiremos como criar uma imagem docker a partir de uma aplicação Spring Boot.<br/>
 O código que utilizaremos neste laboratório para criar a imagem docker está disponíveis neste [link](./exemplo/spring-data-rest-base/).<br/>
-Em resumo ele contém um microsserviço que possui diferentes tipos de relacionamentos com entidades do Spring Data REST.
+Em resumo ele contém um microsserviço que possui diferentes tipos de relacionamentos entre entidades do Spring Data REST.
 
 ### Passos para a criação da imagem docker de nossa aplicação
 Para criar a imagem docker de nossa aplicação precisaremos primeiro seguir alguns passos e criar algumas imagens docker intermediárias que serão utilizadas para criamos a imagem 
@@ -53,7 +53,7 @@ RUN apk add tzdata
 
 RUN cp /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
-# Variaveis que utilizaremos para a instalacao do maven
+# Argumentos que utilizaremos para a instalacao do maven
 ARG MAVEN_VERSION=3.6.2
 ARG USER_HOME_DIR="/root"
 ARG SHA=d941423d115cd021514bfd06c453658b1b3e39e6240969caf4315ab7119a77299713f14b620fb2571a264f8dff2473d8af3cb47b05acf0036fc2553199a5c1ee
