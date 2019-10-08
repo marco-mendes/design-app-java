@@ -60,13 +60,16 @@ Como exemplo, a arquitetura lógica do OpenShift é mostrada abaixo:
 Vamos conhecer o OpenShift. Para isso vamos rodar os seguintes tutoriais:
 
 * Inrodução ao OpenShift
+
 https://www.katacoda.com/openshift/courses/introduction
 
 * Introdução à linguagem OpenShift Do
+
 https://www.katacoda.com/openshift/courses/introduction/developing-with-odo
 
 
 * Implantação de Imagens Docker com o OpenShift
+
 https://www.katacoda.com/openshift/courses/introduction/deploying-images
 
 ---
@@ -102,6 +105,9 @@ O Quarkus é uma tecnologia que permite gerar código nativo (.EXE) para aplica�
 Mais informações sobre esse projeto estão aqui.
 https://quarkus.io
 
+---
+**Exercício 4**
+
 Rode os seguintes tutoriais para compreender como podemos trabalhar com computação Serverless no mundo Java.
 
 Iniciando com o Quarkus
@@ -112,10 +118,12 @@ Quarkus para Desenvolvedores SpringBoot
 
 * https://www.katacoda.com/openshift/courses/middleware/middleware-quarkus/spring
 
-* Aplicações Reativas com o Quarkus eo Kafka
+Aplicações Reativas com o Quarkus e o Kafka
 
-https://www.katacoda.com/openshift/courses/middleware/middleware-quarkus/kafka
+* https://www.katacoda.com/openshift/courses/middleware/middleware-quarkus/kafka
 
-* Monitoração de Aplicações com o Quarkus, Grafana e o Prometheus
+Monitoração de Aplicações com o Quarkus, Grafana e o Prometheus
 
 https://www.katacoda.com/openshift/courses/middleware/middleware-quarkus/monitoring
+
+---
