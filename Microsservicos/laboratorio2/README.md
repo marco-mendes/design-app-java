@@ -9,18 +9,6 @@
 Neste artigo, exploraremos um exemplo interessante com o [JHipster](https://jhipster.github.io/) - construindo uma arquitetura simples de microsserviços. Mostraremos como criar
 e implantar todas as peças necessárias e, no final, teremos um aplicativo de microsserviço completo em funcionamento.<br/>
 
-### Componentes de microsserviços JHipster
-
-Ao trabalhar em uma arquitetura de microsserviços com o JHipster, precisaremos criar e implantar pelo menos três projetos diferentes: um **JHipster Registry**, um **Microservice
-Gateway** e pelo menos um Microservice Application.<br/>
-
-- O **JHipster Registry** é uma parte essencial da arquitetura de microsserviço. Ele une todos os outros componentes e permite que eles se comuniquem.
-- O **Microservice Application** contém o código de back-end. Depois de executada, ela irá expor a API para o domínio em questão. Uma arquitetura de microsserviço pode ser
-  composta de muitos aplicativos de microsserviço, cada um contendo algumas entidades e regras de negócios relacionadas.
-- O **Microservice Gateway** possui todo o código front-end (Angular) e consumirá a API criada por todo o grupo de aplicativos de microsserviço:
-
-<img src="./exemplo/JHipster-Microservice-Architecture.png"/>
-
 ### Instalação do JHipster
 O JHipster pode ser instalado através do [NodeJS](https://nodejs.org/en/) que nada mais é do que um gerenciador de pacotes.<br/>
 Para podermos fazer isso primeiro precisaremos instalar o NodeJS.<br/>
@@ -33,6 +21,18 @@ npm install -g generator-jhipster
 ```
 Após isso já possuiremos o CLI do JHipster instalado e pronto para uso.
 
+
+### Componentes de microsserviços JHipster
+
+Ao trabalhar em uma arquitetura de microsserviços com o JHipster, precisaremos criar e implantar pelo menos três projetos diferentes: um **JHipster Registry**, um **Microservice
+Gateway** e pelo menos um Microservice Application.<br/>
+
+- O **JHipster Registry** é uma parte essencial da arquitetura de microsserviço. Ele une todos os outros componentes e permite que eles se comuniquem.
+- O **Microservice Application** contém o código de back-end. Depois de executada, ela irá expor a API para o domínio em questão. Uma arquitetura de microsserviço pode ser
+  composta de muitos aplicativos de microsserviço, cada um contendo algumas entidades e regras de negócios relacionadas.
+- O **Microservice Gateway** possui todo o código front-end (Angular) e consumirá a API criada por todo o grupo de aplicativos de microsserviço:
+
+<img src="./exemplo/JHipster-Microservice-Architecture.png"/>
 
 ### Criando um projeto de microsserviço
 
