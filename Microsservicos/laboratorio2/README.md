@@ -77,7 +77,7 @@ A captura de tela abaixo mostra o conjunto completo de opções:<br/>
 Após a criação de nosso projeto vamos adicionar uma entidade car ao nosso aplicativo:
 
 ```java
-jhipster:entity car
+jhipster entity car
 ```
 
 O assistente de criação da entidade será iniciado. Devemos seguir as instruções para criar uma entidade chamada **car** com três campos: **make** e **model** do tipo String, e **price** do tipo Double.<br/>
