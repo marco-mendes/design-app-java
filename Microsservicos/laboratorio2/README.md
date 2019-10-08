@@ -124,7 +124,7 @@ Aqui está um resumo do conjunto completo de parâmetros:<br/>
 Vamos para a criação da entidade:
 
 ```java
-jhipster:entity car
+jhipster entity car
 ```
 
 Serão realizadas algumas perguntas durante a geração da entidade, responda da seguinte forma e termos nossa entidade criada:<br/>
@@ -170,7 +170,7 @@ Um exemplo completo de preenchimento seria:<br/>
 Vamos adicionar alguns campos à nossa entidade **Dealer**. Por exemplo, **name** e **address** do tipo String:
 
 ```java
-jhipster:entity dealer
+jhipster entity dealer
 ```
 
 Algumas perguntas serão feitas após gerar os 2 campos, você pode respoder da seguinte forma:<br/>
@@ -180,7 +180,7 @@ Não devemos esquecer de navegar para nossa aplicação **Microservice Gateway**
 
 ```java
 cd ../gateway-app
-jhipster:entity dealer
+jhipster entity dealer
 ```
 
 Serão realizadas algumas perguntas durante a geração da entidade, responda da seguinte forma e termos nossa entidade criada:<br/>
@@ -200,7 +200,6 @@ Antes de concluirmos , vamos dar uma olhada no aplicativo **jhipster-registry** 
 É isso! Criamos uma arquitetura sofisticada composta por um aplicativo Gateway com todo o código front-end suportado por dois microsserviços em apenas alguns minutos.
 
 ### Conclusão
-
 Iniciar um projeto de arquitetura de microsserviço com o JHipster é bastante fácil, precisamos clonar e executar o projeto **JHipster Registry**, criar quantos **Microservice Applications** forem necessários e criar um **Microservice Gateway**, com isso
 estamos prontos para começar.<br/>
 Você pode explorar a estrutura ainda mais no site oficial do [JHipster](https://www.jhipster.tech/microservices-architecture/).<br/>
