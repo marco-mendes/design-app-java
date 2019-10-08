@@ -25,22 +25,44 @@ A arquitetura base do Kubernetes é mostrada na figura abaixo.
 
 Uma boa introdução ao Kubernetes e os conceitos dessa figura é fornecida [aqui](https://medium.com/google-cloud/kubernetes-101-pods-nodes-containers-and-clusters-c1509e409e16)
 
+---
 
-| Para entendermos como Kubernetes opera em nível básico, vamos rodar um tutorial introdutório para implantar uma aplicação nesse ambiente.Para isso, rode esse guia no Katacoda [Implantação de GuestBook com o Kubernetes.](https://www.katacoda.com/courses/kubernetes/guestbook) |
-| --- |
+**Exercicio 1**
+
+Para entendermos como Kubernetes opera em nível básico, vamos rodar um tutorial introdutório para implantar uma aplicação nesse ambiente.Para isso, rode esse guia no Katacoda:
+
+[Implantação de GuestBook com o Kubernetes.](https://www.katacoda.com/courses/kubernetes/guestbook)
+
+---
 
 Nesse ponto, vamos avaliar o nosso entendimento inicial do Kubernetes. 
-Você consegue explicar para o seu colega o que são:
+Você consegue explicar para o seu colega o que são os conceitos abaixo?
 
 * Pods
 * Nodes
-* Conteineres
 * Clusters
 * Services
 * Controllers
 
 **Tecnologias de PAAS de Conteineres Kubernetes**
 
-Dentro do CNCF, iremos operar com o conceito de plataformas de serviços que nos permitem operar ambientes Kubernetes.
+Dentro do CNCF, vamos operar com o conceito de plataformas de serviços que nos permitem operar ambientes Kubernetes.
 Exemplos dessas plataformas incluem o RedHat OpenShift ou Rancher.
+
+---
+
+** Exercício 2**
+
+Vamos conhecer o OpenShift. Para isso vamos rodar os seguintes tutoriais:
+
+* Inrodução ao OpenShift
+https://www.katacoda.com/openshift/courses/introduction
+
+* Introdução à linguagem OpenShift Do
+https://www.katacoda.com/openshift/courses/introduction/developing-with-odo
+
+* Implantação de Imagens Docker com o OpenShift
+https://www.katacoda.com/openshift/courses/introduction/deploying-images
+
+---
 
