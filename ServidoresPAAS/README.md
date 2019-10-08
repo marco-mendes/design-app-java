@@ -67,11 +67,12 @@ https://www.katacoda.com/openshift/courses/introduction/deploying-images
 
 ---
 
-Vamos agora explorar como o OpenShift poderá implantar uma aplicação baseada em JBOSS EAP. O JBoss Enterprise Application Platform é uma plataforma Java EE que inclui suporte completo ao Java EE 8. Usaremos o JBoss EAP 7.2, que é a versão mais recente a partir de janeiro de 2019 neste cenário.
-
 ---
 
 **Exercício 3**
+
+Vamos agora explorar como o OpenShift poderá implantar uma aplicação baseada em JBOSS EAP. O JBoss Enterprise Application Platform é uma plataforma Java EE que inclui suporte completo ao Java EE 8. Usaremos o JBoss EAP 7.2, que é a versão lançada em janeiro de 2019.
+
 
 Rode o tutorial abaixo, que mostra como uma aplicação tradicional que roda com o JBOSS EAP poderia rodar no OpenShift
 https://www.katacoda.com/openshift/courses/middleware/middleware-javaee8
