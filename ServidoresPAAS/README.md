@@ -1,4 +1,10 @@
-O objetivo desse laboratório é explorar como operar servidores de aplicação em plataformas como serviços nativas de nuvem.
+## Servidores PaaS(Platform as a Service)
+
+### Introdução
+PaaS(Platform as a Service ou Plataforma como Serviço) em computação, consiste no serviço propriamente dito de hospedagem e implementação de hardware e 
+software, que é usado para prover aplicações por meio da Internet.
+
+Neste laboratório exploraremos como operar servidores de aplicação em plataformas como serviços nativas de nuvem.
 
 **Iniciativa CNCF**
 
