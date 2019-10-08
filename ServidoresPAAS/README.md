@@ -51,7 +51,7 @@ Exemplos dessas plataformas incluem o RedHat OpenShift ou Rancher.
 
 ---
 
-** Exercício 2**
+**Exercício 2**
 
 Vamos conhecer o OpenShift. Para isso vamos rodar os seguintes tutoriais:
 
@@ -60,6 +60,7 @@ https://www.katacoda.com/openshift/courses/introduction
 
 * Introdução à linguagem OpenShift Do
 https://www.katacoda.com/openshift/courses/introduction/developing-with-odo
+
 
 * Implantação de Imagens Docker com o OpenShift
 https://www.katacoda.com/openshift/courses/introduction/deploying-images
