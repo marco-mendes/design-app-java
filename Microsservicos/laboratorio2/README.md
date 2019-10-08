@@ -21,6 +21,19 @@ Gateway** e pelo menos um Microservice Application.<br/>
 
 <img src="./exemplo/JHipster-Microservice-Architecture.png"/>
 
+### Instalação do JHipster
+O JHipster pode ser instalado através do [NodeJS](https://nodejs.org/en/) que nada mais é do que um gerenciador de pacotes.<br/>
+Para podermos fazer isso primeiro precisaremos instalar o NodeJS.<br/>
+Caso esteja utilizando Windows siga os passos deste [artigo](https://www.guru99.com/download-install-node-js.html) para instalar o NodeJS, caso esteja utilizando Linux siga 
+os passos deste [artigo](https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/) para instalar o NodeJS.
+
+Após concluir a instalação do NodeJS em sua máquina abra um prompt de comando e execute o seguinte comando para instalação do JHipster:
+```java
+npm install -g generator-jhipster
+```
+Após isso já possuiremos o CLI do JHipster instalado e pronto para uso.
+
+
 ### Criando um projeto de microsserviço
 
 Agora vamos instalar os três componentes principais do nosso projeto de microsserviço.<br/>
@@ -48,7 +61,7 @@ Abra um novo prompt de comando, navegue até nosso diretório **jhipster-microse
 
 ```java
 mkdir car-app && cd car-app
-yo jhipster
+jhipster
 ```
 
 Depois que o assistente for iniciado, siga as instruções para criar um aplicativo do tipo Microservice chamado **carsapp**. Alguns outros parâmetros relevantes são:
@@ -64,7 +77,7 @@ A captura de tela abaixo mostra o conjunto completo de opções:<br/>
 Após a criação de nosso projeto vamos adicionar uma entidade car ao nosso aplicativo:
 
 ```java
-yo jhipster:entity car
+jhipster:entity car
 ```
 
 O assistente de criação da entidade será iniciado. Devemos seguir as instruções para criar uma entidade chamada **car** com três campos: **make** e **model** do tipo String, e **price** do tipo Double.<br/>
@@ -95,7 +108,7 @@ Abra um novo prompt de comando, navegue até nosso diretório **jhipster-microse
 
 ```java
 mkdir gateway-app && cd gateway-app
-yo jhipster
+jhipster
 ```
 
 Vamos seguir as instruções para criar um aplicativo do tipo **Microservice Gateway**. Nomearemos o aplicativo como **gateway** e selecionaremos as seguintes opções para os outros parâmetros:
@@ -111,7 +124,7 @@ Aqui está um resumo do conjunto completo de parâmetros:<br/>
 Vamos para a criação da entidade:
 
 ```java
-yo jhipster:entity car
+jhipster:entity car
 ```
 
 Serão realizadas algumas perguntas durante a geração da entidade, responda da seguinte forma e termos nossa entidade criada:<br/>
@@ -145,7 +158,7 @@ Abra um novo prompt de comando, navegue até nosso diretório **jhipster-microse
 
 ```java
 mkdir dealer-app && cd dealer-app
-yo jhipster
+jhipster
 ```
 
 Depois disso, digitamos **dealerapp** como o nome do aplicativo e escolhemos a **porta 8082** para que ela seja executada (é fundamental que seja uma porta diferente daquela
@@ -157,7 +170,7 @@ Um exemplo completo de preenchimento seria:<br/>
 Vamos adicionar alguns campos à nossa entidade **Dealer**. Por exemplo, **name** e **address** do tipo String:
 
 ```java
-yo jhipster:entity dealer
+jhipster:entity dealer
 ```
 
 Algumas perguntas serão feitas após gerar os 2 campos, você pode respoder da seguinte forma:<br/>
@@ -167,7 +180,7 @@ Não devemos esquecer de navegar para nossa aplicação **Microservice Gateway**
 
 ```java
 cd ../gateway-app
-yo jhipster:entity dealer
+jhipster:entity dealer
 ```
 
 Serão realizadas algumas perguntas durante a geração da entidade, responda da seguinte forma e termos nossa entidade criada:<br/>
