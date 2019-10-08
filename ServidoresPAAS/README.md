@@ -1,7 +1,7 @@
-## Servidores PaaS(Platform as a Service)
+## Servidores PAAS(Platform as a Service)
 
 ### Introdução
-PaaS(Platform as a Service ou Plataforma como Serviço) em computação, consiste no serviço propriamente dito de hospedagem e implementação de hardware e 
+PAAS(Platform as a Service ou Plataforma como Serviço) em computação, consiste no serviço propriamente dito de hospedagem e implementação de hardware e 
 software, que é usado para prover aplicações por meio da Internet.
 
 Neste laboratório exploraremos como operar servidores de aplicação em plataformas como serviços nativas de nuvem.
@@ -65,7 +65,7 @@ Como exemplo, a arquitetura lógica do OpenShift é mostrada abaixo:
 
 Vamos conhecer o OpenShift. Para isso vamos rodar os seguintes tutoriais:
 
-* Inrodução ao OpenShift
+* Introdução ao OpenShift
 
 https://www.katacoda.com/openshift/courses/introduction
 
