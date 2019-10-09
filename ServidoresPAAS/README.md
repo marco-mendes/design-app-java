@@ -133,3 +133,32 @@ Monitoração de Aplicações com o Quarkus, Grafana e o Prometheus
 * https://www.katacoda.com/openshift/courses/middleware/middleware-quarkus/monitoring
 
 ---
+
+### APÊNDICE A – Definições Kubernetes
+**Nodes**<br/>
+Um Node é a menor unidade de hardware de computação do Kubernetes. É uma representação de uma única máquina no seu cluster.<br/>
+No exemplo abaixo possuímos uma representação visual de como seriam Nodes no Kubernetes:<br/>
+<img src="https://miro.medium.com/max/3465/1*uyMd-QxYaOk_APwtuScsOg.png"/>
+
+**Clusters**<br/>
+Embora trabalhar com Nodes individuais possa ser útil, não é o caminho do Kubernetes. Em geral, você deve pensar no cluster como um todo, em vez de se preocupar com os estados 
+individuais dos Nodes. No Kubernetes, os Nodes agrupam seus recursos para formar uma máquina mais poderosa.<br/>
+No exemplo abaixo possuímos uma representação visual de como seria um Cluster no Kubernetes:<br/>
+<img src="https://miro.medium.com/max/3270/1*KoMzLETQeN-c63x7xzSKPw.png"/>
+
+**Pod**<br/>
+Um Pod é a unidade básica de execução de um aplicativo Kubernetes e representa processos em execução no seu Cluster.<br/>
+Um Pod representa uma unidade de implantação: uma única instância de um aplicativo no Kubernetes, que pode consistir em um único contêiner ou um pequeno número de contêineres 
+fortemente acoplados e que compartilham recursos.<br/>
+No exemplo abaixo possuímos uma representação visual de como seria um Pod no Kubernetes:<br/>
+<img src="https://miro.medium.com/max/6000/1*8OD0MgDNu3Csq0tGpS8Obg.png"/>
+
+**Services**<br/>
+No Kubernetes, um Service é uma abstração que define um conjunto lógico de Pods e uma política pela qual acessá-los.<br/>
+No exemplo abaixo possuímos uma representação visual de como seria um Service no Kubernetes:<br/>
+<img src="https://linuxacademy.com/site-content/uploads/2019/05/Screen-Shot-2019-04-17-at-10.58.43-AM-1024x769.png?x96242"/>
+
+**Controllers**<br/>
+No Kubernetes, os Controllers são loops de controle que observam o estado do cluster, e faça ou solicite alterações quando necessário. Cada Controller tenta mover o estado 
+atual do Cluster para mais perto do estado desejado.
+
