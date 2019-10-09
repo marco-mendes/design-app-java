@@ -133,5 +133,3 @@ Monitoração de Aplicações com o Quarkus, Grafana e o Prometheus
 * https://www.katacoda.com/openshift/courses/middleware/middleware-quarkus/monitoring
 
 ---
-
-<center>APÊNDICE A – Definições do Kubernetes</center>
