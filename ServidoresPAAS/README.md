@@ -50,6 +50,8 @@ Você consegue explicar para o seu colega o que são os conceitos abaixo?
 * Services
 * Controllers
 
+(Dica: Veja a resposta no apêndice desse exercício)
+
 **Tecnologias de PAAS de Conteineres Kubernetes**
 
 Dentro do CNCF, vamos operar com o conceito de plataformas de serviços que nos permitem operar ambientes Kubernetes.
