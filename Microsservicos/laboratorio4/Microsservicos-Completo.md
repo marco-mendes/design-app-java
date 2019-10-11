@@ -12,9 +12,9 @@ O JHipster tem a sua documentação aqui - https://www.jhipster.tech.
 
 Pré-Requisitos
 ---
-**Java 11 
-**Maven
-**Docker
+ - **Java 11** 
+ - **Maven**
+ - **Docker**
 
 Caso você não tenha o Docker instalado, recomendamos o uso da plataforma online Katacoda. Coloquei uma explicação no apêndice de como fazer isso.
 
