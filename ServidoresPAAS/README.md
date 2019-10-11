@@ -69,7 +69,7 @@ Vamos conhecer o OpenShift. Para isso vamos rodar os seguintes tutoriais:
 
 * Introdução ao OpenShift
 
-https://www.katacoda.com/openshift/courses/introduction
+https://www.katacoda.com/openshift/courses/introduction/getting-started
 
 * Introdução à linguagem OpenShift Do
 
