@@ -109,7 +109,7 @@ A CNCF mantém um repositório de ferramentas de apoio para esse modelo de compu
 
 O Quarkus é uma tecnologia que permite gerar código nativo (.EXE) para aplicações Java para a operação de conteineres performáticos que podem ser escalados com o Docker eo Kubernetes. 
 
-!["Benchmarking de aplicações Quarkus"](https://quarkus.io/assets/images/quarkus_graphics_v3_bootmem_wide_03.png)
+!["Benchmarking de aplicações Quarkus"](https://quarkus.io/assets/images/quarkus_metrics_graphic_bootmem_wide.png)
 
 Mais informações sobre esse projeto estão aqui.
 https://quarkus.io
