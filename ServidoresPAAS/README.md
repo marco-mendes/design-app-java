@@ -13,6 +13,8 @@ que foi desenhada para disseminar o uso de tecnologias de nuvem e também a sua 
 
 !["Ferramentas da Plataforma CNCF"](https://landscape.cncf.io/images/landscape.png)
 
+<img src="https://landscape.cncf.io/images/landscape.png">
+
 **Tecnologias Kubernetes**
 
 Observe que uma tecnologias centrais do CNCF é o Kubernetes. 
