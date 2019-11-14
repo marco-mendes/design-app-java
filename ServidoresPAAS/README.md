@@ -11,7 +11,7 @@ Neste laboratório exploraremos como operar servidores de aplicação em platafo
 Durante todo esse laboratório iremos explorar ferramentas da iniciativa CNCF (Cloud Native Computing Foundation), 
 que foi desenhada para disseminar o uso de tecnologias de nuvem e também a sua adoção em ambientes locais (*on premises*).
 
-!["Ferramentas da Plataforma CNCF"](https://landscape.cncf.io/images/landscape.png)
+!["Ferramentas da Plataforma CNCF"](https://landscape.cncf.io/images/landscpe.png)
 
 **Tecnologias Kubernetes**
 
