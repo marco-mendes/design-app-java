@@ -13,7 +13,7 @@ que foi desenhada para disseminar o uso de tecnologias de nuvem e também a sua 
 
 !["Ferramentas da Plataforma CNCF"](https://landscape.cncf.io/images/landscape.png)
 
-<img src="https://landscape.cncf.io/images/landscape.png">
+<img src="https://landscape.cncf.io/images/landscape.png" width=20 height=200>
 
 **Tecnologias Kubernetes**
 
