@@ -19,7 +19,7 @@ A partir desta versão é um requisito básico possuir o JDK-8.
 Até o JUnit 4 possuíamos uma dependência única que continha toda a estrutura do JUnit, a partir do JUnit 5 essa dependência única foi dividida em algumas partes sendo elas:
 
 * **JUnit Jupiter Api**: Esta dependência provisiona a API pública para escrever testes para o JUnit.
-* **JUnit Jupiter Engine **: Esta dependência contém a implementação do mecanismo de teste JUnit Jupter que executa nossos testes de unidade.
+* **JUnit Jupiter Engine**: Esta dependência contém a implementação do mecanismo de teste JUnit Jupter que executa nossos testes de unidade.
 * **JUnit Vintage Engine**: Esta é uma dependência opcional que nos fornece suporte para execução de testes em um código que utilize versões 3 ou 4 do JUnit.
 
 
@@ -55,7 +55,7 @@ Até o JUnit 4 possuíamos uma dependência única que continha toda a estrutura
 
 
 
-Para utilizar o JUnit 5 em um projeto Maven precisamos também do plugin  **Maven Surefire Plugin** versão 2.22.0 ou superior.
+Para utilizar o JUnit 5 em um projeto Maven precisamos também do plugin  **Maven Surefire Plugin** versão 2.22.1 ou superior.
 
 ```java
 <build>
