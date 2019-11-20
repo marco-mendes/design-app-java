@@ -55,6 +55,7 @@ No JUnit 4 essa classe era conhecida como **Assume** presente no pacote  [org.ju
 Exemplo de uso:
 
 ```java
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -72,14 +73,16 @@ public class AssumptionsTest {
 	public void testeEmDev() {
 		String ambienteDev = "DEV";
 		Assumptions.assumeTrue(ambienteDev.equals(System.getProperty("ENV")));
-		// Algum código para teste
+		Assertions.assertTrue(ambienteDev.equals(System.getProperty("ENV")));
 	}
 	
 	@Test
 	public void testeEmProd() {
 		String ambientePROD = "PROD";
 		Assumptions.assumeTrue(ambientePROD.equals(System.getProperty("ENV")));
-		// Algum código para teste
+		// O teste será cancelado devido ao Assumption acima não ser verdadeiro
+		// O assert abaixo resultaria em um erro neste caso e não será executado
+		Assertions.assertTrue(ambientePROD.equals(System.getProperty("ENV")));
 	}
 	
 }

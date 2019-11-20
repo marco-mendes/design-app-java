@@ -87,9 +87,7 @@ Para utilizar o JUnit 5 em um projeto Maven precisamos também do plugin  **Mave
 
 As versões mais recentes do SpringBoot 2 já possuem as dependências **junit-jupiter-api**, **junit-jupiter-engine** e **junit-vintage-engine** inclusas na dependência **spring-boot-starter-test**.
 
-Com isso já teremos estas 3 dependências importadas ao importar a dependência **spring-boot-starter-test** bastando apenas importar também a dependência **junit-platform-runner**. 
-
-Bastando apenas importar a seguinte dependência para possuir acesso a toda a estrutura do JUnit:
+Com isso basta apenas importar a dependência **spring-boot-starter-test** para utilizar o JUnit no SpringBoot:
 
 ```java
 <dependency>
@@ -101,7 +99,7 @@ Bastando apenas importar a seguinte dependência para possuir acesso a toda a es
 
 
 
- Para importar o JUnit sem o **JUnit Vintage Engine** poderíamos apenas excluí-lo ao importar a dependência como o exemplo abaixo:
+Para importar o JUnit sem o **JUnit Vintage Engine** poderíamos apenas excluí-lo ao importar a dependência como o exemplo abaixo:
 
 ```java
 <dependency>
@@ -114,17 +112,6 @@ Bastando apenas importar a seguinte dependência para possuir acesso a toda a es
 		<artifactId>junit-vintage-engine</artifactId>
 		</exclusion>
 	</exclusions>
-</dependency>
-```
-
-Caso deseje utilizar recursos como Test Suites é necessário também importar a dependência **x** pois a mesma não vem inclusa por padrão na dependência **spring-boot-starter-test**:
-
-```java
-<dependency>
-    <groupId>org.junit.platform</groupId>
-    <artifactId>junit-platform-runner</artifactId>
-    <version>1.5.2</version>
-    <scope>test</scope>
 </dependency>
 ```
 
