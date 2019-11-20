@@ -55,14 +55,6 @@ Para utilizar basta adicionar as seguintes dependências no projeto Maven:
     <version>5.5.2</version>
     <scope>test</scope>
 </dependency>
-
-<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
-<dependency>
-    <groupId>org.junit.platform</groupId>
-    <artifactId>junit-platform-runner</artifactId>
-    <version>1.5.2</version>
-    <scope>test</scope>
-</dependency>
 ```
 
 
