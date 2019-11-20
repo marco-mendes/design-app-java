@@ -27,9 +27,9 @@ Até o JUnit 4 possuíamos uma dependência única que continha toda a estrutura
 
 **JUnit Vintage**: Fornece suporte para execução de testes em um código que utilize versões 3 ou 4 do JUnit.
 
+Para utilizar basta adicionar as seguintes dependências no projeto Maven:
 
 
- 	Para utilizar basta adicionar as seguintes dependências no projeto Maven:
 
 ```java
 <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
