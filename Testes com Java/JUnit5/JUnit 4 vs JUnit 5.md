@@ -27,10 +27,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
 @SpringBootTest
-public class TesteJUnitSpringBoot {
-	
+public class AssertionsTest {
+
 	@Test
 	public void validarNumeroTelefone() {
 		String regex = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})";
@@ -61,15 +60,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
 @SpringBootTest
-public class TesteJUnitSpringBoot {
-	
+public class AssumptionsTest {
+
 	@BeforeAll
 	public static void setaAmbiente() {
 		System.setProperty("ENV", "DEV");
 	}
-
+	
 	@Test
 	public void testeEmDev() {
 		String ambienteDev = "DEV";

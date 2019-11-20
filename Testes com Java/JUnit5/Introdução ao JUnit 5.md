@@ -18,9 +18,14 @@ A partir desta versão é um requisito básico possuir o JDK-8.
 
 Até o JUnit 4 possuíamos uma dependência única que continha toda a estrutura do JUnit, a partir do JUnit 5 essa dependência única foi dividida em algumas partes sendo elas:
 
+**JUnit Plataform**: contém elementos estruturais para execução de testes e define uma API para que outros *frameworks* possam ser executados pela plataforma do JUnit. 
+
+**JUnit Jupiter**: dividido em duas dependências, sendo elas: 
+
 * **JUnit Jupiter Api**: Esta dependência provisiona a API pública para escrever testes para o JUnit.
-* **JUnit Jupiter Engine**: Esta dependência contém a implementação do mecanismo de teste JUnit Jupter que executa nossos testes de unidade.
-* **JUnit Vintage Engine**: Esta é uma dependência opcional que nos fornece suporte para execução de testes em um código que utilize versões 3 ou 4 do JUnit.
+* **JUnit Jupiter Engine**: Esta dependência contém a implementação do mecanismo de teste JUnit Jupiter que executa nossos testes de unidade.
+
+**JUnit Vintage**: Fornece suporte para execução de testes em um código que utilize versões 3 ou 4 do JUnit.
 
 
 
@@ -51,6 +56,13 @@ Até o JUnit 4 possuíamos uma dependência única que continha toda a estrutura
     <scope>test</scope>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
+<dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-runner</artifactId>
+    <version>1.5.2</version>
+    <scope>test</scope>
+</dependency>
 ```
 
 
@@ -73,7 +85,11 @@ Para utilizar o JUnit 5 em um projeto Maven precisamos também do plugin  **Mave
 
 ### JUnit 5 em um projeto SpringBoot
 
-As versões mais recentes do SpringBoot 2 possuem suporte nativo ao JUnit 5 bastando apenas importar a seguinte dependência para possuir acesso a toda a estrutura do JUnit:
+As versões mais recentes do SpringBoot 2 já possuem as dependências **junit-jupiter-api**, **junit-jupiter-engine** e **junit-vintage-engine** inclusas na dependência **spring-boot-starter-test**.
+
+Com isso já teremos estas 3 dependências importadas ao importar a dependência **spring-boot-starter-test** bastando apenas importar também a dependência **junit-platform-runner**. 
+
+Bastando apenas importar a seguinte dependência para possuir acesso a toda a estrutura do JUnit:
 
 ```java
 <dependency>
@@ -101,6 +117,19 @@ As versões mais recentes do SpringBoot 2 possuem suporte nativo ao JUnit 5 bast
 </dependency>
 ```
 
+Caso deseje utilizar recursos como Test Suites é necessário também importar a dependência **x** pois a mesma não vem inclusa por padrão na dependência **spring-boot-starter-test**:
+
+```java
+<dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-runner</artifactId>
+    <version>1.5.2</version>
+    <scope>test</scope>
+</dependency>
+```
+
+
+
 
 
 ### Escrevendo um teste de unidade simples com SpringBoot e JUnit 5
@@ -120,10 +149,10 @@ Alguns pontos que devemos saber antes de criar nosso primeiro teste de unidade:
 
 
 
-Crie uma classe chamada **TesteJUnitSpringBoot** no pacote **com.exemplo** com o seguinte conteúdo:
+Crie uma classe chamada **TesteJUnitSpringBoot** no pacote **com.exemplo.junit5** com o seguinte conteúdo:
 
 ```java
-package com.exemplo;
+package com.exemplo.junit5;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
