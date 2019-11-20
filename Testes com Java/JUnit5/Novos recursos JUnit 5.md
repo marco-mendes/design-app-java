@@ -9,9 +9,9 @@ O JUnit 5 trouxe consigo uma série de novos recursos, dentre eles temos:
  - Testes dinâmicos com a anotação @TestFactory
  - Testes de Exceptions 
  - Anotação @DisplayName 
- - Anotação @Disabled 
- - Anotação @Nested 
- - Anotação @ExtendWith 
+ - Anotação @Disabled
+ - Anotação @RepeatedTest (n)
+ - Testes aninhados com a anotação @Nested 
 
 
 
@@ -136,3 +136,113 @@ Podemos verificar o resultado da execução deste teste logo abaixo:
 
 
 
+### Repetindo testes com a anotação @RepeatedTest (n)
+
+Esta anotação permite a *repetição* de um determinado teste “n” vezes, onde n deve ser substituído pelo número de repetições desejada do método que será testado.
+
+Podemos utilizar da seguinte forma:
+
+```java
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.RepeatedTest;
+
+public class RepetindoTestes {
+	
+	@RepeatedTest(10)
+	public void validarNumeroTelefone() {
+		// esse teste será executado 10 vezes
+		
+		String regex = "(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})";
+		String telefoneFixo = "(31) 3030-4040";
+		String telefoneCelular = "(31) 99558-2040";
+		Assertions.assertTrue(telefoneFixo.matches(regex));
+		Assertions.assertTrue(telefoneCelular.matches(regex));
+	}
+	
+}
+```
+
+O resultado da execução será algo semelhante a isto:
+
+<img src="./imagens/resultado-execucao-junit5-p3.PNG" style="float: left"/>
+
+
+
+### Criando testes aninhados com a anotação @Nested 
+
+ Eventualmente, queremos testar uma classe que possui vários métodos, cuja execução depende do estado interno do objeto. Para alguns testes, precisamos inicializar esse objeto de determinado modo; em outros testes, a configuração deve ser diferente para que o uso de outro método seja possível. Podemos criar vários métodos na mesma classe de teste, o que pode tornar o entendimento um pouco confuso; outra abordagem possível seria criar testes separados e agrupá-los em uma suite. O fato é que esses testes fazem parte do mesmo contexto, que é o objeto sendo testado, e queremos que eles rodem em conjunto. O JUnit 5 introduziu uma maneira elegante de resolver esse cenário: a anotação @Nested. 
+
+```java
+public class StackTest {
+
+    private Stack<String> stack;
+
+    @Test
+    @DisplayName("is instantiated with new Stack()")
+    void isInstantiatedWithNew() {
+        new Stack<>();
+    }
+
+    @Nested
+    @DisplayName("when new")
+    class WhenNew {
+
+        @BeforeEach
+        void createNewStack() {
+            stack = new Stack<>();
+        }
+
+        @Test
+        @DisplayName("is empty")
+        void isEmpty() {
+            assertTrue(stack.isEmpty());
+        }
+
+        @Test
+        @DisplayName("throws EmptyStackException when popped")
+        void throwsExceptionWhenPopped() {
+            assertThrows(EmptyStackException.class, () -> stack.pop());
+        }
+
+        @Test
+        @DisplayName("throws EmptyStackException when peeked")
+        void throwsExceptionWhenPeeked() {
+            assertThrows(EmptyStackException.class, () -> stack.peek());
+        }
+
+        @Nested
+        @DisplayName("after pushing an element")
+        class AfterPushing {
+
+            String anElement = "an element";
+
+            @BeforeEach
+            void pushAnElement() {
+                stack.push(anElement);
+            }
+
+            @Test
+            @DisplayName("it is no longer empty")
+            void isNotEmpty() {
+                assertFalse(stack.isEmpty());
+            }
+
+            @Test
+            @DisplayName("returns the element when popped and is empty")
+            void returnElementWhenPopped() {
+                assertEquals(anElement, stack.pop());
+                assertTrue(stack.isEmpty());
+            }
+
+            @Test
+            @DisplayName("returns the element when peeked but remains not empty")
+            void returnElementWhenPeeked() {
+                assertEquals(anElement, stack.peek());
+                assertFalse(stack.isEmpty());
+            }
+        }
+    }
+}
+```
+
+Caso queira se aprofundar nas regras de criação de testes aninhados consulte este [link]( https://www.petrikainulainen.net/programming/testing/junit-5-tutorial-writing-nested-tests/ ).
