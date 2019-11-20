@@ -1,4 +1,4 @@
-## JUnit 5
+## Introdução ao JUnit 5
 
 
 
@@ -103,11 +103,11 @@ As versões mais recentes do SpringBoot 2 possuem suporte nativo ao JUnit 5 bast
 
 
 
-### Escrevendo um teste de unidade simples com SpringBoot
+### Escrevendo um teste de unidade simples com SpringBoot e JUnit 5
 
 Iremos acessar o site  [Spring Initializr](https://start.spring.io/) para criar uma projeto SpringBoot básico
 
-<img src="./imagens/spring-initializr.png"/>
+<img src="C:/Users/Lenovo/Documents/Laboratorios TRT/Testes com Java/JUnit5/imagens/spring-initializr.PNG"/>
 
 Clique em Generate para baixar o projeto compactado.
 
@@ -120,53 +120,30 @@ Alguns pontos que devemos saber antes de criar nosso primeiro teste de unidade:
 
 
 
-# Colocar o conteúdo de teste aqui
-
-
-
-
-
-
-
-### JUnit 5 vs JUnit 4 - Anotações
-
-A maioria das anotações nas duas versões é a mesma, mas poucas diferem. Aqui está uma comparação rápida. 
-
-
-
-<img src="./imagens/features.png"/>
-
-
-
-### JUnit 5 - Assertions
-
-A partir do JUnit 5 a classe **Assert** foi renomeada para **Assertions** e foi movida do pacote  [**org.junit.Assert**](http://junit.org/junit4/javadoc/4.12/org/junit/Assert.html)  para o pacote  [**org.junit.jupiter.Assertions**](http://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Assertions.html).
-
-Com isso no lugar de utilizarmos **Assert.assertEquals** utilizaremos **Assertions.assertEquals** como no exemplo de código abaixo:
+Crie uma classe chamada **TesteJUnitSpringBoot** no pacote **com.exemplo** com o seguinte conteúdo:
 
 ```java
+package com.exemplo;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 @SpringBootTest
 public class TesteJUnitSpringBoot {
-
+	
 	@Test
-	public void meuTeste() {
-		String atual = "Minha String";
-		String esperado = "Minha String";
-		Assertions.assertEquals(esperado, atual);
+	public void validarEmail() {
+		String regex = 
+		        "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+		        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+		
+		String email = "teste123@teste.com.br";
+		Assertions.assertTrue(email.matches(regex));
+		
 	}
 	
 }
 ```
-
-
-
-### JUnit 5 - Assumptions(Premissas)
-
-
-
-
 
