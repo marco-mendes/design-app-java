@@ -107,7 +107,7 @@ As versões mais recentes do SpringBoot 2 possuem suporte nativo ao JUnit 5 bast
 
 Iremos acessar o site  [Spring Initializr](https://start.spring.io/) para criar uma projeto SpringBoot básico
 
-<img src="C:/Users/Lenovo/Documents/Laboratorios TRT/Testes com Java/JUnit5/imagens/spring-initializr.PNG"/>
+<img src="./imagens/spring-initializr.PNG"/>
 
 Clique em Generate para baixar o projeto compactado.
 
