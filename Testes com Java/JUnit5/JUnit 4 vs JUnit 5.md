@@ -8,7 +8,7 @@ A maioria das anotações nas duas versões é a mesma, mas poucas diferem. Aqui
 
 
 
-<img src="C:/Users/Lenovo/Documents/Laboratorios TRT/Testes com Java/JUnit5/imagens/features.png"/>
+<img src="./imagens/features.png"/>
 
 Uma observação importante é que todas as anotações do JUnit 4 foram migradas do pacote **org.junit** para o pacote **org.junit.jupiter.api** no JUnit 5.
 
