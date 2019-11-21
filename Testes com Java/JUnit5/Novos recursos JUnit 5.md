@@ -390,4 +390,4 @@ Dentro de @AfterAll
 AfterAllCallback
 ```
 
-Caso deseja explorar mais as extensões personalizadas do JUnit 5 leia este [artigo]( https://www.swtestacademy.com/junit-5-extensions/).
+Caso deseje explorar mais as extensões personalizadas do JUnit 5 leia este [artigo]( https://www.swtestacademy.com/junit-5-extensions/).
