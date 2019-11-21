@@ -394,4 +394,4 @@ Caso deseje explorar mais as extensões personalizadas do JUnit 5 leia este [art
 
 
 
-O código completo de nossos exemplos de JUnit 5 pode ser encontrado neste [link](./JUnit5/codigo/junit5/).
+O código completo de nossos exemplos de JUnit 5 pode ser encontrado neste [link](./codigo/junit5/).
