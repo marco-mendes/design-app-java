@@ -12,6 +12,7 @@ O JUnit 5 trouxe consigo uma série de novos recursos, dentre eles temos:
  - Anotação @Disabled
  - Anotação @RepeatedTest (n)
  - Testes aninhados com a anotação @Nested 
+ - Anotação @ExtendWith e extensões personalizadas
 
 
 
@@ -246,3 +247,134 @@ public class StackTest {
 ```
 
 Caso queira se aprofundar nas regras de criação de testes aninhados consulte este [link]( https://www.petrikainulainen.net/programming/testing/junit-5-tutorial-writing-nested-tests/ ).
+
+
+
+###  Anotação @ExtendWith e extensões personalizadas 
+
+A anotação **@ExtendWith** nos permite utilizar extensões personalizadas durante o ciclo de vida de nossos testes com o JUnit 5.
+
+O JUnit 5 fornece para nossas extensões retornos de chamada que podem ser usados para explorar os eventos do ciclo de vida dos testes. O modelo de extensão fornece várias interfaces para estender os testes em vários pontos do ciclo de vida de execução do teste: 
+
+<img src="./imagens/lifecycle-callbacks.png" style="float: left"/>
+
+Vamos ilustrar isso com um pequeno exemplo. 
+
+Dentro do pacote **com.exemplo.junit5** crie um novo pacote chamado **extensions**, utilizaremos este pacote para criar nossas extensão personalizada e um teste utilizando esta extensão.
+
+Crie uma classe chamada **TestLifeCycleExtensions** dentro de nosso pacote **extensions** que acabamos de criar e insira o seguinte conteúdo nesta classe:
+
+```java
+import org.junit.jupiter.api.extension.*;
+
+public class TestLifeCycleExtensions implements 
+					BeforeAllCallback,
+					BeforeEachCallback,
+					BeforeTestExecutionCallback, 
+					AfterTestExecutionCallback, 
+					AfterEachCallback, 
+					AfterAllCallback {
+ 
+    @Override
+    public void beforeAll(ExtensionContext context) {
+        log("BeforeAllCallback");
+    }
+ 
+    @Override
+    public void beforeEach(ExtensionContext context) {
+        log("BeforeEachCallback");
+    }
+ 
+    @Override
+    public void beforeTestExecution(ExtensionContext context) {
+        log("BeforeTestExecutionCallback");
+    }
+ 
+    @Override
+    public void afterTestExecution(ExtensionContext context) {
+        log("AfterTestExecutionCallback");
+    }
+ 
+    @Override
+    public void afterEach(ExtensionContext context) {
+        log("AfterEachCallback");
+    }
+ 
+    @Override
+    public void afterAll(ExtensionContext context) {
+        log("AfterAllCallback");
+    }
+ 
+    private void log(String logText) {
+        System.out.println(logText);
+    }
+	
+}
+```
+
+Observe que criamos uma classe que implementa todos Lifecycle callbacks que mostramos acima. Agora criaremos uma classe de teste para utilizar esta extensão, novamente no pacote **com.examplo.junit5.extensions** crie uma classe chamada **TestLifeCycleExtensionTest** e insira o seguinte conteúdo nela:
+
+```java
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+ 
+@ExtendWith(TestLifeCycleExtensions.class)
+public class TestLifeCycleExtensionTest {
+	
+    @BeforeAll
+    public static void beforeAll() {
+        System.out.println("Dentro de @BeforeAll");
+    }
+ 
+    @BeforeEach
+    public void beforeEach() {
+        System.out.println("Dentro de @BeforeEach");
+    }
+ 
+    @Test
+    public void primeiroTeste() {
+        System.out.println("Dentro do primeiro teste");
+    }
+ 
+    @Test
+    public void segundoTeste() {
+        System.out.println("Dentro do segundo teste");
+    }
+ 
+    @AfterEach
+    public void afterEach() {
+        System.out.println("Dentro de @AfterEach");
+    }
+ 
+    @AfterAll
+    public static void afterAll() {
+        System.out.println("Dentro de @AfterAll");
+    }
+    
+}
+```
+
+Ao executarmos nossa classe **TestLifeCycleExtensionTest** teremos um resultado semelhante a este:
+
+```java
+BeforeAllCallback
+Dentro de @BeforeAll
+BeforeEachCallback
+Dentro de @BeforeEach
+BeforeTestExecutionCallback
+Dentro do primeiro teste
+AfterTestExecutionCallback
+Dentro de @AfterEach
+AfterEachCallback
+BeforeEachCallback
+Dentro de @BeforeEach
+BeforeTestExecutionCallback
+Dentro do segundo teste
+AfterTestExecutionCallback
+Dentro de @AfterEach
+AfterEachCallback
+Dentro de @AfterAll
+AfterAllCallback
+```
+
+Caso deseja explorar mais as extensões personalizadas do JUnit 5 leia este [artigo]( https://www.swtestacademy.com/junit-5-extensions/).
