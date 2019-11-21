@@ -129,7 +129,7 @@ public class TesteDisplayNameEDisabled {
 }
 ```
 
-Neste trecho de código estamos alterando o nome de exibição do método **testShowSomething** para "Teste ainda não implementado" utilizando a anotação **@DisplayName**, além disso estamos desativando a execução deste teste com o anotação **@Disabled**.
+Neste trecho de código estamos alterando o nome de exibição do método **testShowSomething** para **Teste ainda não implementado** utilizando a anotação **@DisplayName**, além disso estamos desativando a execução deste teste com o anotação **@Disabled**.
 
 Podemos verificar o resultado da execução deste teste logo abaixo:
 
@@ -174,7 +174,20 @@ O resultado da execução será algo semelhante a isto:
  Eventualmente, queremos testar uma classe que possui vários métodos, cuja execução depende do estado interno do objeto. Para alguns testes, precisamos inicializar esse objeto de determinado modo; em outros testes, a configuração deve ser diferente para que o uso de outro método seja possível. Podemos criar vários métodos na mesma classe de teste, o que pode tornar o entendimento um pouco confuso; outra abordagem possível seria criar testes separados e agrupá-los em uma suite. O fato é que esses testes fazem parte do mesmo contexto, que é o objeto sendo testado, e queremos que eles rodem em conjunto. O JUnit 5 introduziu uma maneira elegante de resolver esse cenário: a anotação @Nested. 
 
 ```java
-public class StackTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.EmptyStackException;
+import java.util.Stack;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
+
+public class TesteAninhado {
 
     private Stack<String> stack;
 
