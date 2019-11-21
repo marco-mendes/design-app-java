@@ -117,7 +117,7 @@ Iremos acessar o site  [Spring Initializr](https://start.spring.io/) para criar 
 
 <img src="./imagens/spring-initializr.PNG"/>
 
-Clique em Generate para baixar o projeto compactado.
+Altere o valor do campo **Group** para **com.exemplo** e o valor do campo **Artifact** para **junit5**, após isso clique em **Generate** para baixar o projeto compactado.
 
 Após isso extraia o projeto e o importe no Eclipse.
 
