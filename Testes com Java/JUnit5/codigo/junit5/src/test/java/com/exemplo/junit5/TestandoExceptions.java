@@ -1,4 +1,4 @@
-package com.examplo.junit5;
+package com.exemplo.junit5;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
