@@ -275,7 +275,7 @@ Vamos ilustrar isso com um pequeno exemplo.
 
 Dentro do pacote **com.exemplo.junit5** crie um novo pacote chamado **extensions**, utilizaremos este pacote para criar nossas extensão personalizada e um teste utilizando esta extensão.
 
-Crie uma classe chamada **TestLifeCycleExtensions** dentro de nosso pacote **extensions** que acabamos de criar e insira o seguinte conteúdo nesta classe:
+Crie uma classe chamada **TestLifeCycleExtensions** dentro de nosso pacote **com.exemplo.junit5.extensions** que acabamos de criar e insira o seguinte conteúdo nesta classe:
 
 ```java
 import org.junit.jupiter.api.extension.*;
@@ -369,7 +369,7 @@ public class TestLifeCycleExtensionTest {
 
 Ao executarmos nossa classe **TestLifeCycleExtensionTest** teremos um resultado semelhante a este:
 
-```java
+```
 BeforeAllCallback
 Dentro de @BeforeAll
 BeforeEachCallback
