@@ -1,3 +1,0 @@
-2019-11-21 17:06:40 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BOOKS" not found; SQL statement:
-INSERT INTO books (id, title, isbn) VALUES (1, 'Coração de Tinta', 978-8535907728), (2, 'Eu sou o número 4', '978-006-19-6955-3'), (3, 'Harry Potter e A Pedra Filosofal', '9788551001462'), (4, 'A Bússola de ouro', '9788573028423'), (5, 'A Ultima Música', '9788563219077') [42102-200]

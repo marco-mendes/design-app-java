@@ -56,10 +56,14 @@ public class BookController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@PutMapping(path="books")
-	public ResponseEntity<?> update(@RequestBody Book book){
-		bookService.updateBook(book);
-		return new ResponseEntity<>(HttpStatus.OK);
+	@PutMapping(path="books/{id}")
+	public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody Book book){
+		if(bookService.getBookById(id).isPresent()) {
+			bookService.updateBook(book);
+			return new ResponseEntity<>(book, HttpStatus.OK);			
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}		
 	}
 	
 }
