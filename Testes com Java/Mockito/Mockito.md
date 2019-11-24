@@ -59,5 +59,7 @@ As versões mais novas do SpringBoot já contém essas dependências autocontida
 
 ### Aplicação de exemplo
 
-Neste laboratório utilizaremos o projeto de uma API de Livros que pode ser baixado no seguinte link:
+Neste laboratório utilizaremos o projeto de uma API de Livros que pode ser baixado neste [link](./codigo/BookApi.zip)
+
+Após baixar o projeto de exemplo basta que o importem para o eclipse para podermos utilizar. 
 
