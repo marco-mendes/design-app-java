@@ -58,14 +58,29 @@ public class BookServiceTest {
 	}
 	
 	@Test
-	public void testeBookService() {
+	public void testeGetAllBooks() {
 		assertEquals(books, bookService.getAllBooks());
+	}
+	
+	@Test
+	public void testeGetBookById() {
 		assertEquals(books.get(0), bookService.getBookById(1L).get());
 		assertEquals(books.get(1), bookService.getBookById(2L).get());
 		assertEquals(books.get(2), bookService.getBookById(3L).get());
-		assertEquals(books.get(3), bookService.getBookById(4L).get());
+		assertEquals(books.get(3), bookService.getBookById(4L).get());		
+	}
+
+	@Test
+	public void testeAddBook() {
+		assertEquals(novoLivro, bookService.addBook(novoLivro));
+	}
+	
+	public void testeUpdateBook() {
 		assertEquals(bookTesteUpdate, bookService.updateBook(bookTesteUpdate));
-		assertEquals(novoLivro, bookService.updateBook(novoLivro));
+	}
+	
+	@Test
+	public void testeDeleteBook() {
 		
 		verify(bookRepository, never()).deleteById(1L);
 		bookService.deleteBook(1L);
