@@ -173,7 +173,7 @@ public class BookServiceTest {
 No exemplo acima possuímos duas novas anotações e um novo método, são eles:
 
 * **@Mock**: Esta anotação cria um objeto Mock ao qual devemos atribuir em seguida os comportamentos esperados para este objeto. Poderíamos também substituir a anotação **@Mock**, pela anotação **@Spy**, a diferença entre elas é que a anotação **@Spy** cria uma instância que pode executar os métodos reais do objeto e ainda realizar o Mock de comportamentos desse objeto.
-* **@InjectMocks**: Esta anotação cria uma instância da classe alvo e injeta nela os objetos Mocks criados através da anotação @Mock
+* **@InjectMocks**: Esta anotação cria uma instância da classe alvo e injeta nela os objetos Mocks criados através da anotação **@Mock**.
 * **Mockito.when()**: É um método do Mockito que nos permite atribuir comportamentos ao nosso objeto Mock, com o retorno deste invocamos o método **thenReturn**() no qual definimos o que será retornado por este método.
 
 Observe que em nosso método **setup**() estamos dizendo ao Mockito através do método **Mockito.when(0** que quando o método **findAll()** de nosso objeto Mock **BookRepository** for invocado deverá ser retornada a lista de livros que definimos em nosso método de **setup**.
@@ -297,9 +297,9 @@ public class BookServiceTest {
 
 Neste exemplo utilizamos o método **when** da classe **Mockito** para atribuir novos comportamentos ao nosso objeto **bookRepository**. Além disso possuímos 2 novos métodos do Mockito, sendo eles:
 
-* **Mockito.doAnswer**() e **Mockito.thenAnswer**:  Às vezes, você precisa executar algumas ações com os argumentos passados para o método, por exemplo, adicionar alguns valores, fazer alguns cálculos ou até modificá-los. Estes métodos fornecem a interface de resposta que está sendo executada no momento em que o método é chamado, essa interface permite que você interaja com os parâmetros por meio de um argumento do tipo **InvocationOnMock**. Além disso, o valor de retorno do método de resposta será o valor de retorno do método simulado.
+* **Mockito.doAnswer**() e **Mockito.thenAnswer()**:  Às vezes, você precisa executar algumas ações com os argumentos passados para o método, por exemplo, adicionar alguns valores, fazer alguns cálculos ou até modificá-los. Estes métodos fornecem a interface de resposta que está sendo executada no momento em que o método é chamado, essa interface permite que você interaja com os parâmetros por meio de um argumento do tipo **InvocationOnMock**. Além disso, o valor de retorno do método de resposta será o valor de retorno do método simulado.
 
-  A diferença entre eles é que o **Mockito.doAnswer** é utilizado para Mockar métodos que possuem retorno do tipo void.
+  A diferença entre eles é que o **Mockito.doAnswer()** é utilizado para Mockar métodos que possuem retorno do tipo void.
 
 * **Mockito.verify**(): Verifica quantas vezes um determinado método foi invocado em um objeto Mockado.
 
