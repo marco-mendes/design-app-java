@@ -4,7 +4,7 @@
 
 Uma das características fundamentais de testes de unidade é isolar determinado componente e testar seus métodos da melhor forma possível. Em alguns casos isso não é possível pois muitas vezes dependemos de um serviço externo ou dependemos de uma camada de persistência para executar os testes de alguns componentes.
 
-Imagine que você precisa testar um código que faz acesso à uma camada de persistência por meio de um DAO/Repository. 
+Imagine que você precisa testar um código que faz acesso à uma camada de persistência. 
 
 Para esse código funcionar em produção, é necessário que algum mecanismo de persistência esteja disponível. Para o código de testes de unidade isso é impraticável: ele vai ficar lento, mais complexo, vai perder o isolamento.
 Uma solução para este caso seria simular o acesso à camada de persistência, isso seria possível utilizando Mocks.
@@ -73,9 +73,9 @@ Este projeto possui um Controller que recebe nossas requisições HTTP e realiza
 
 ### Criando nosso primeiro teste Mock
 
-Neste exemplo iremos testar a classe **BookService** que nada mais é do que um serviço mapeia alguns dos métodos de nossa classe **BookRepository**.
+Neste exemplo iremos testar a classe **BookService** que nada mais é do que um serviço que mapeia alguns dos métodos de nossa classe **BookRepository**.
 
-Em um cenário comum ao chamar qualquer método da classe **BookService** nossa aplicação seria obrigada a realizar acesso a nossa camada de persistência que em si realiza acesso a nossa base de dados H2, porém ao fazer isso estaríamos perdendo nosso isolamento de código pois estaríamos acessando recursos de nossa camada de persistência.
+Em um cenário comum ao invocar qualquer método da classe **BookService** nossa aplicação seria obrigada a realizar acesso a nossa camada de persistência que em si realiza acesso a nossa base de dados H2, porém ao fazer isso estaríamos perdendo nosso isolamento de código pois estaríamos acessando recursos de nossa camada de persistência.
 
 Para contornar este problema podemos utilizar o Mockito para criar um Mock de nossa camada de persistência e atribuir a ela alguns comportamentos esperados para determinadas chamadas de método.
 
@@ -172,11 +172,11 @@ public class BookServiceTest {
 
 No exemplo acima possuímos duas novas anotações e um novo método, são eles:
 
-* **@Mock**: Esta anotação cria um objeto Mock ao qual devemos atribuir em seguida os comportamentos esperados para este objeto. Poderíamos também substituir a anotação **@Mock**, pela anotação **@Spy**, a diferença entre elas é que a anotação **@Spy** cria uma instância que pode executar os métodos reais do objeto e ainda realizar o Mock de comportamentos desse objeto.
+* **@Mock**: Esta anotação cria um objeto Mock. Podemos também substituir a anotação **@Mock**, pela anotação **@Spy**, a diferença entre elas é que a anotação **@Spy** cria uma instância que pode executar os métodos reais do objeto e ainda realizar o Mock de comportamentos desse objeto.
 * **@InjectMocks**: Esta anotação cria uma instância da classe alvo e injeta nela os objetos Mocks criados através da anotação **@Mock**.
-* **Mockito.when()**: É um método do Mockito que nos permite atribuir comportamentos ao nosso objeto Mock, com o retorno deste invocamos o método **thenReturn**() no qual definimos o que será retornado por este método.
+* **Mockito.when()**: É um método do Mockito que nos permite atribuir comportamentos ao nosso objeto Mock, com o retorno deste método invocamos o método **thenReturn**() no qual definimos o que será retornado por este método.
 
-Observe que em nosso método **setup**() estamos dizendo ao Mockito através do método **Mockito.when(0** que quando o método **findAll()** de nosso objeto Mock **BookRepository** for invocado deverá ser retornada a lista de livros que definimos em nosso método de **setup**.
+Observe que em nosso método **setup**() estamos dizendo ao Mockito através do método **Mockito.when()** que quando o método **findAll()** de nosso objeto Mock **BookRepository** for invocado o mesmo deverá  retornar a lista de livros que definimos.
 
 O Mockito funciona desta forma, criamos um Mock de uma dependência interna da classe que iremos testar, atribuímos comportamentos a este objeto Mock e por fim injetamos o objeto Mockado em nosso objeto que será testado através da anotação **@InjectMocks**.
 
@@ -297,7 +297,7 @@ public class BookServiceTest {
 
 Neste exemplo utilizamos o método **when** da classe **Mockito** para atribuir novos comportamentos ao nosso objeto **bookRepository**. Além disso possuímos 2 novos métodos do Mockito, sendo eles:
 
-* **Mockito.doAnswer**() e **Mockito.thenAnswer()**:  Às vezes, você precisa executar algumas ações com os argumentos passados para o método, por exemplo, adicionar alguns valores, fazer alguns cálculos ou até modificá-los. Estes métodos fornecem a interface de resposta que está sendo executada no momento em que o método é chamado, essa interface permite que você interaja com os parâmetros por meio de um argumento do tipo **InvocationOnMock**. Além disso, o valor de retorno do método de resposta será o valor de retorno do método simulado.
+* **Mockito.doAnswer**() e **Mockito.thenAnswer()**:  Estes métodos fornecem a interface de resposta que está sendo executada no momento em que o método é chamado, essa interface permite que você interaja com os parâmetros por meio de um argumento do tipo **InvocationOnMock**. Além disso, o valor de retorno do método de resposta será o valor de retorno do método simulado.
 
   A diferença entre eles é que o **Mockito.doAnswer()** é utilizado para Mockar métodos que possuem retorno do tipo void.
 
