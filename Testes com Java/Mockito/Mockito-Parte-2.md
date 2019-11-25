@@ -93,9 +93,9 @@ public class BookControllerTest {
     private ObjectMapper objectMapper;
 
     List<Book> books;
-	Book novoLivro = new Book("Meu novo Livro", "897979");
-	Book novoLivroComId = new Book(1, "Meu novo Livro", "897979");
-	Book livroAtualizado = new Book(1, "Meu novo Livro - Atualizado", "897979");
+    Book novoLivro = new Book("Meu novo Livro", "897979");
+    Book novoLivroComId = new Book(1, "Meu novo Livro", "897979");
+    Book livroAtualizado = new Book(1, "Meu novo Livro - Atualizado", "897979");
     
     @BeforeEach
     public void setup() {
