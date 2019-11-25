@@ -58,7 +58,6 @@ public class BookControllerTest {
     	
     	Mockito.when(bookService.getAllBooks()).thenReturn(books);
     	Mockito.when(bookService.getBookById(1)).thenReturn(Optional.of(books.get(0)));
-    	Mockito.when(bookService.getBookById(2)).thenReturn(Optional.of(books.get(1)));
     	Mockito.when(bookService.saveBook(novoLivro)).thenReturn(novoLivroComId);
     	Mockito.when(bookService.saveBook(novoLivroComId)).thenReturn(livroAtualizado);
     	Mockito.doNothing().when(bookService).deleteBook(Mockito.anyInt());

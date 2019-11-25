@@ -108,7 +108,6 @@ public class BookControllerTest {
     	
     	Mockito.when(bookService.getAllBooks()).thenReturn(books);
     	Mockito.when(bookService.getBookById(1)).thenReturn(Optional.of(books.get(0)));
-    	Mockito.when(bookService.getBookById(2)).thenReturn(Optional.of(books.get(1)));
     	Mockito.when(bookService.saveBook(novoLivro)).thenReturn(novoLivroComId);
     	Mockito.when(bookService.saveBook(novoLivroComId)).thenReturn(livroAtualizado);
     	Mockito.doNothing().when(bookService).deleteBook(Mockito.anyInt());
@@ -218,6 +217,7 @@ Neste exemplo estamos realizando o Mock de nosso **BookService** utilizando a an
 
 Vimos no exemplo acima vários usos de nosso objeto MockMvc, abordaremos abaixo alguns dos métodos desse objeto:
 
+* **perform()**: Execute uma requisição e retorne um tipo que permita encadear ações adicionais, como realizar asserções e obter o resultado da requisição.
 * **get()**: Realiza uma requisição do tipo **get** ao nosso servidor, recebe como parâmetro o path que deverá se acessado.
 * **post()**: Realiza uma requisição do tipo **post** ao nosso servidor, recebe como parâmetro o path que deverá se acessado.
 * **put()**: Realiza uma requisição do tipo **put** ao nosso servidor, recebe como parâmetro o path que deverá se acessado.
@@ -226,6 +226,5 @@ Vimos no exemplo acima vários usos de nosso objeto MockMvc, abordaremos abaixo 
 * **content()**: Define o conteúdo que será enviado em conjunto com a requisição, normalmente utilizado em conjunto com as requisições do tipo **post** e **put**.
 * **contentType()**: Define o valor do cabeçalho **ContentType** de nossa requisição.
 * **characterEncoding()**: Define o tipo de codificação de caracteres que nossa requisição deve suportar.
-* **andExpect()**: Este método espera que uma condição seja verdadeira em relação a resposta de nossa requisição, caso a condição não seja verdadeira nosso teste falhará.
+* **andExpect()**: Este método espera que uma condição do tipo **MockMvcResultMatchers** para realizar uma asserção, caso a condição não seja verdadeira o teste falhará.
 * **andReturn()**: Retorna um objeto do tipo **MvcResult** que contém o resultado de nossa requisição.
-
