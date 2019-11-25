@@ -175,10 +175,10 @@ public class BookControllerTest {
     }
 
     @Test
-    public void deleteBook() throws Exception {
-		Mockito.verify(bookService, Mockito.never()).deleteBook(1);    	
+    public void testeDeleteBook() throws Exception {
+    	Mockito.verify(bookService, Mockito.never()).deleteBook(1);    	
     	
-		mvc.perform(MockMvcRequestBuilders
+    	mvc.perform(MockMvcRequestBuilders
     			.delete("/v1/books/{id}", 1))
     			.andExpect(MockMvcResultMatchers.status().isOk());
     	
