@@ -32,7 +32,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 public class BookControllerTest {
-
+	
 	@MockBean
 	BookService bookService;
 	

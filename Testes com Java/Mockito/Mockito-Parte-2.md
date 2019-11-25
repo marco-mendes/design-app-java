@@ -4,7 +4,7 @@
 
 Abordaremos aqui como realizar testes de Controllers utilizando Mockito, JUnit 5 e o Spring Boot.
 
-O Spring Boot nos fornece uma classe que nos fornece suporte ao teste Spring MVC do lado servidor.
+O Spring Boot nos fornece uma classe que fornece suporte ao teste Spring MVC do lado servidor.
 
 Estamos falando da classe **MockMvc**.
 
@@ -20,6 +20,7 @@ No exemplo abaixo possuímos a configuração básica para uso:
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.web.servlet.MockMvc;
 
 
@@ -82,8 +83,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @AutoConfigureMockMvc
 public class BookControllerTest {
 
-	@MockBean
-	BookService bookService;
+    @MockBean
+    BookService bookService;
 	
     @Autowired
     private MockMvc mvc;
@@ -211,7 +212,7 @@ public class BookControllerTest {
 
 Neste exemplo estamos realizando o Mock de nosso **BookService** utilizando a anotação **@MockBean**, esta anotação injeta os objetos Mockados no [Spring ApplicationContext]( https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/ApplicationContext.html ). O mock substituirá qualquer [bean]( https://www.baeldung.com/spring-bean#bean-definition ) existente do mesmo tipo no ApplicationContext.
 
- *No Spring, os objetos que formam a espinha dorsal do seu aplicativo e gerenciados pelo contêiner Spring IoC são chamados de **beans**. Um **bean** é um objeto que é instanciado, montado e gerenciado por um contêiner Spring IoC.* 
+*Um **bean** é um objeto que é instanciado, montado e gerenciado por um contêiner Spring IoC.* 
 
 
 
@@ -223,7 +224,8 @@ Vimos no exemplo acima vários usos de nosso objeto MockMvc, abordaremos abaixo 
 * **delete()**: Realiza uma requisição do tipo **delete** ao nosso servidor, recebe como parâmetro o path que deverá se acessado.
 * **accept()**: Define o cabeçalho da requisição para o tipo de **MediaType** aceito pela requisição.
 * **content()**: Define o conteúdo que será enviado em conjunto com a requisição, normalmente utilizado em conjunto com as requisições do tipo **post** e **put**.
-* **contentType()**: Define o valor do cabeçalho ContentType de nossa requisição.
+* **contentType()**: Define o valor do cabeçalho **ContentType** de nossa requisição.
 * **characterEncoding()**: Define o tipo de codificação de caracteres que nossa requisição deve suportar.
-* **andExpect()**: Este método espera que uma condição seja verdadeira em relação a resposta de nossa requisição.
+* **andExpect()**: Este método espera que uma condição seja verdadeira em relação a resposta de nossa requisição, caso a condição não seja verdadeira nosso teste falhará.
 * **andReturn()**: Retorna um objeto do tipo **MvcResult** que contém o resultado de nossa requisição.
+
