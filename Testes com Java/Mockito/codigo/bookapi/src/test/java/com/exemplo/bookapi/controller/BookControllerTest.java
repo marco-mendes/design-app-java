@@ -7,7 +7,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.anyLong;
+import static org.mockito.Mockito.anyInt;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.nio.charset.StandardCharsets;
@@ -40,8 +40,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-
-import com.exemplo.bookapi.entities.Book;
+import com.exemplo.bookapi.entity.Book;
 import com.exemplo.bookapi.repository.BookRepository;
 import com.exemplo.bookapi.service.BookService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -51,9 +50,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @AutoConfigureMockMvc
 public class BookControllerTest {
 
-	@MockBean
-	BookRepository bookRepository;
-	
 	@MockBean
 	BookService bookService;
 	
@@ -65,33 +61,24 @@ public class BookControllerTest {
 
     List<Book> books;
 	Book novoLivro = new Book("Meu novo Livro", "897979");
-	Book novoLivroComId = new Book(1L, "Meu novo Livro", "897979");
-	Book livroAtualizado = new Book(1L, "Meu novo Livro - Atualizado", "897979");
+	Book novoLivroComId = new Book(1, "Meu novo Livro", "897979");
+	Book livroAtualizado = new Book(1, "Meu novo Livro - Atualizado", "897979");
     
     @BeforeEach
     public void setup() {
     	books = new ArrayList();
 		
-		books.add(new Book(1L, "O Senhor dos Anéis", "12345"));
-		books.add(new Book(2L, "Harry Potter e a pedra filosofal", "23456"));
-		books.add(new Book(3L, "Jogos Vorazes", "34567"));
-		books.add(new Book(4L, "Percy Jackson o ladrão de raios", "45678"));
-
-		/*
-		when(bookRepository.findAll()).thenReturn(books);
-    	when(bookRepository.findById(1L)).thenReturn(Optional.of(books.get(0)));
-    	when(bookRepository.findById(2L)).thenReturn(Optional.of(books.get(1)));
-    	when(bookRepository.save(novoLivro)).thenReturn(novoLivroComId);
-    	when(bookRepository.save(novoLivroComId)).thenReturn(livroAtualizado);
-    	doNothing().when(bookRepository).deleteById(anyLong());
-    	*/
+		books.add(new Book(1, "O Senhor dos Anéis", "12345"));
+		books.add(new Book(2, "Harry Potter e a pedra filosofal", "23456"));
+		books.add(new Book(3, "Jogos Vorazes", "34567"));
+		books.add(new Book(4, "Percy Jackson o ladrão de raios", "45678"));
     	
-		when(bookService.getAllBooks()).thenReturn(books);
-    	when(bookService.getBookById(1L)).thenReturn(Optional.of(books.get(0)));
-    	when(bookService.getBookById(2L)).thenReturn(Optional.of(books.get(1)));
-    	when(bookService.addBook(novoLivro)).thenReturn(novoLivroComId);
-    	when(bookService.updateBook(novoLivroComId)).thenReturn(livroAtualizado);
-    	doNothing().when(bookService).deleteBook(anyLong());
+		Mockito.when(bookService.getAllBooks()).thenReturn(books);
+    	Mockito.when(bookService.getBookById(1)).thenReturn(Optional.of(books.get(0)));
+    	Mockito.when(bookService.getBookById(2)).thenReturn(Optional.of(books.get(1)));
+    	Mockito.when(bookService.saveBook(novoLivro)).thenReturn(novoLivroComId);
+    	Mockito.when(bookService.saveBook(novoLivroComId)).thenReturn(livroAtualizado);
+    	Mockito.doNothing().when(bookService).deleteBook(anyInt());
     	
     }
     
@@ -162,9 +149,13 @@ public class BookControllerTest {
 
     @Test
     public void deleteBook() throws Exception {
-    	mvc.perform(MockMvcRequestBuilders
+		verify(bookService, never()).deleteBook(1);    	
+    	
+		mvc.perform(MockMvcRequestBuilders
     			.delete("/v1/books/{id}", 1))
     			.andExpect(MockMvcResultMatchers.status().isOk());
+    	
+    	verify(bookService, times(1)).deleteBook(1);
     }
     
     public static String asJsonString(final Object obj) {

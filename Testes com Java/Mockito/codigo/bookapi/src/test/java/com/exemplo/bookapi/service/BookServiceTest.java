@@ -6,7 +6,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.anyLong;
+import static org.mockito.Mockito.anyInt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.exemplo.bookapi.entities.Book;
+import com.exemplo.bookapi.entity.Book;
 import com.exemplo.bookapi.repository.BookRepository;
 import com.exemplo.bookapi.service.BookService;
 
@@ -39,22 +39,22 @@ public class BookServiceTest {
 	public void setup() {
 		books = new ArrayList();
 		
-		books.add(new Book(1L, "Coração de Tinta", "12345"));
-		books.add(new Book(2L, "A Bússola de ouro", "23456"));
-		books.add(new Book(3L, "Casos de Uso Eficazes", "34567"));
-		books.add(new Book(4L, "Padrões de Projeto", "45678"));
+		books.add(new Book(1, "Coração de Tinta", "12345"));
+		books.add(new Book(2, "A Bússola de ouro", "23456"));
+		books.add(new Book(3, "Casos de Uso Eficazes", "34567"));
+		books.add(new Book(4, "Padrões de Projeto", "45678"));
 		
-		bookTesteUpdate = new Book(2L, "A Bússola de ouro - 2ºReimpressão", "67890");
-		novoLivro = new Book(5L, "Discover to Deliver", "08978");
+		bookTesteUpdate = new Book(2, "A Bússola de ouro - 2ºReimpressão", "67890");
+		novoLivro = new Book(5, "Discover to Deliver", "08978");
 		
 		when(bookRepository.findAll()).thenReturn(books);
-		when(bookRepository.findById(1L)).thenReturn(Optional.of(books.get(0)));
-		when(bookRepository.findById(2L)).thenReturn(Optional.of(books.get(1)));
-		when(bookRepository.findById(3L)).thenReturn(Optional.of(books.get(2)));
-		when(bookRepository.findById(4L)).thenReturn(Optional.of(books.get(3)));
+		when(bookRepository.findById(1)).thenReturn(Optional.of(books.get(0)));
+		when(bookRepository.findById(2)).thenReturn(Optional.of(books.get(1)));
+		when(bookRepository.findById(3)).thenReturn(Optional.of(books.get(2)));
+		when(bookRepository.findById(4)).thenReturn(Optional.of(books.get(3)));
 		when(bookRepository.save(bookTesteUpdate)).thenReturn(bookTesteUpdate);	
 		when(bookRepository.save(novoLivro)).thenReturn(novoLivro);
-		doNothing().when(bookRepository).deleteById(anyLong());
+		doNothing().when(bookRepository).deleteById(anyInt());
 	}
 	
 	@Test
@@ -64,31 +64,31 @@ public class BookServiceTest {
 	
 	@Test
 	public void testeGetBookById() {
-		assertEquals(books.get(0), bookService.getBookById(1L).get());
-		assertEquals(books.get(1), bookService.getBookById(2L).get());
-		assertEquals(books.get(2), bookService.getBookById(3L).get());
-		assertEquals(books.get(3), bookService.getBookById(4L).get());		
+		assertEquals(books.get(0), bookService.getBookById(1).get());
+		assertEquals(books.get(1), bookService.getBookById(2).get());
+		assertEquals(books.get(2), bookService.getBookById(3).get());
+		assertEquals(books.get(3), bookService.getBookById(4).get());		
 	}
 
 	@Test
 	public void testeAddBook() {
-		assertEquals(novoLivro, bookService.addBook(novoLivro));
+		assertEquals(novoLivro, bookService.saveBook(novoLivro));
 	}
 	
 	public void testeUpdateBook() {
-		assertEquals(bookTesteUpdate, bookService.updateBook(bookTesteUpdate));
+		assertEquals(bookTesteUpdate, bookService.saveBook(bookTesteUpdate));
 	}
 	
 	@Test
 	public void testeDeleteBook() {
 		
-		verify(bookRepository, never()).deleteById(1L);
-		bookService.deleteBook(1L);
-		verify(bookRepository, times(1)).deleteById(1L);
+		verify(bookRepository, never()).deleteById(1);
+		bookService.deleteBook(1);
+		verify(bookRepository, times(1)).deleteById(1);
 		
-		verify(bookRepository, never()).deleteById(10L);
-		bookService.deleteBook(10L);
-		verify(bookRepository, times(1)).deleteById(10L);
+		verify(bookRepository, never()).deleteById(10);
+		bookService.deleteBook(10);
+		verify(bookRepository, times(1)).deleteById(10);
 		
 	}
 	

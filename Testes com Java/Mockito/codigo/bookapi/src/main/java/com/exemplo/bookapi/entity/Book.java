@@ -1,4 +1,4 @@
-package com.exemplo.bookapi.entities;
+package com.exemplo.bookapi.entity;
 
 import javax.persistence.*;
 
@@ -8,7 +8,7 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     private String title;
     @Column(unique = true)
     private String isbn;
@@ -21,7 +21,7 @@ public class Book {
         this.isbn = isbn;
     }
     
-    public Book(Long id, String title, String isbn) {
+    public Book(Integer id, String title, String isbn) {
     	this.id = id;
         this.title = title;
         this.isbn = isbn;
@@ -43,11 +43,11 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

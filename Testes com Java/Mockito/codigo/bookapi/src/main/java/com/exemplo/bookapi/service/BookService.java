@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exemplo.bookapi.entities.Book;
+import com.exemplo.bookapi.entity.Book;
 import com.exemplo.bookapi.repository.BookRepository;
 
 @Service
@@ -21,19 +21,15 @@ public class BookService {
 		return books;
 	}
 	
-	public Optional<Book> getBookById(Long id) {
+	public Optional<Book> getBookById(int id) {
 		return bookRepository.findById(id);
 	}
 
-	public Book addBook(Book book) {
+	public Book saveBook(Book book) {
 		return bookRepository.save(book);
 	}
-	
-	public Book updateBook(Book book) {
-		return bookRepository.save(book);
-	}
-	
-	public void deleteBook(Long id) {
+		
+	public void deleteBook(int id) {
 		bookRepository.deleteById(id);
 	}
 		
