@@ -48,12 +48,15 @@ Com estes procedimentos, podemos observar o comportamento de todo o ambiente da 
 **Performance** — Não testa o front, testa apenas os requisitos não funcionais **Funcional** — Testa o Front, bem como usabilidade e funcionalidades
 
 **Performance** — Testa a escalabilidade da aplicação e monitora o uso dos recursos de hardware
+
 **Funcional** — Não testa a escalabilidade da aplicação e monitora o uso dos recursos de hardware
 
 **Performance** — Projetado para determinar como uma aplicação / sistema irá realizar ao longo do tempo
+
 **Funcional** — Não pode determinar como uma aplicação / sistema irá realizar ao longo do tempo
 
 **Performance** — Requer uma aplicação totalmente funcional para que os cenários sejam executados adequadamente
+
 **Funcional** — Não requer uma aplicação totalmente funcional para que os cenários sejam executados adequadamente
 
 
