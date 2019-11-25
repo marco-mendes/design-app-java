@@ -2,46 +2,26 @@ package com.exemplo.bookapi.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.anyInt;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.exemplo.bookapi.entity.Book;
-import com.exemplo.bookapi.repository.BookRepository;
 import com.exemplo.bookapi.service.BookService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -78,7 +58,7 @@ public class BookControllerTest {
     	Mockito.when(bookService.getBookById(2)).thenReturn(Optional.of(books.get(1)));
     	Mockito.when(bookService.saveBook(novoLivro)).thenReturn(novoLivroComId);
     	Mockito.when(bookService.saveBook(novoLivroComId)).thenReturn(livroAtualizado);
-    	Mockito.doNothing().when(bookService).deleteBook(anyInt());
+    	Mockito.doNothing().when(bookService).deleteBook(Mockito.anyInt());
     	
     }
     
@@ -149,13 +129,13 @@ public class BookControllerTest {
 
     @Test
     public void deleteBook() throws Exception {
-		verify(bookService, never()).deleteBook(1);    	
+		Mockito.verify(bookService, Mockito.never()).deleteBook(1);    	
     	
 		mvc.perform(MockMvcRequestBuilders
     			.delete("/v1/books/{id}", 1))
     			.andExpect(MockMvcResultMatchers.status().isOk());
     	
-    	verify(bookService, times(1)).deleteBook(1);
+    	Mockito.verify(bookService, Mockito.times(1)).deleteBook(1);
     }
     
     public static String asJsonString(final Object obj) {
