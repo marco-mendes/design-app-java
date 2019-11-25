@@ -51,12 +51,12 @@ public class BookControllerTest {
     public void setup() {
     	books = new ArrayList();
 		
-		books.add(new Book(1, "O Senhor dos Anéis", "12345"));
-		books.add(new Book(2, "Harry Potter e a pedra filosofal", "23456"));
-		books.add(new Book(3, "Jogos Vorazes", "34567"));
-		books.add(new Book(4, "Percy Jackson o ladrão de raios", "45678"));
+    	books.add(new Book(1, "O Senhor dos Anéis", "12345"));
+    	books.add(new Book(2, "Harry Potter e a pedra filosofal", "23456"));
+    	books.add(new Book(3, "Jogos Vorazes", "34567"));
+    	books.add(new Book(4, "Percy Jackson o ladrão de raios", "45678"));
     	
-		Mockito.when(bookService.getAllBooks()).thenReturn(books);
+    	Mockito.when(bookService.getAllBooks()).thenReturn(books);
     	Mockito.when(bookService.getBookById(1)).thenReturn(Optional.of(books.get(0)));
     	Mockito.when(bookService.getBookById(2)).thenReturn(Optional.of(books.get(1)));
     	Mockito.when(bookService.saveBook(novoLivro)).thenReturn(novoLivroComId);
