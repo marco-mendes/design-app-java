@@ -157,7 +157,7 @@ public class TesteJUnitSpringBoot {
 
 ### Erro comum
 Algumas vezes quando estamos realizando testes no qual um de nossos objetos possui muitas dependências auto injetadas pelo Spring dentro de si com a 
-anotação @Autowired ocorre de a instância do objeto não ser injetada pelo @Autowired e retornar como null ocasionando NullPointerExceptions durante a 
+anotação **@Autowired** ocorre de a instância do objeto não ser injetada pelo **@Autowired** e retornar como null ocasionando **NullPointerExceptions** durante a 
 execução de nosso teste.
 
 Para contornar este problemas podemos inserir a seguinte anotação no nível de classe
@@ -171,9 +171,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 //Declaração de classe e métodos
 
 ```
-Estaremos dizendo ao SpringBoot para executar nossos testes utilizando a extensão SpringExtension. 
+Estaremos dizendo ao SpringBoot para executar nossos testes utilizando a extensão **SpringExtension**.
 
-Altere também a anotação @SpringBootTest para que ela receba a classe main de nossa aplicação como parâmetro como o exemplo abaixo:
+Altere também a anotação **@SpringBootTest** para que ela receba a classe main de nossa aplicação como parâmetro como o exemplo abaixo:
 ```java
 // Imports da aplicação
 
