@@ -95,6 +95,19 @@
 
 		<dependency>
 		    <groupId>au.com.dius</groupId>
+		    <artifactId>pact-jvm-provider-junit5_2.12</artifactId>
+		    <version>3.5.24</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>au.com.dius</groupId>
+		    <artifactId>pact-jvm-consumer-junit5</artifactId>
+		    <version>4.0.3</version>
+		</dependency>
+		
+
+		<dependency>
+		    <groupId>au.com.dius</groupId>
 		    <artifactId>pact-jvm-provider-spring</artifactId>
 		    <scope>test</scope>
 		    <version>4.0.1</version>

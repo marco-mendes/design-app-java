@@ -1,21 +1,20 @@
 package example.weather;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.Optional;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.MockitoAnnotations.initMocks;
 
-@RunWith(SpringRunner.class)
+import java.util.Optional;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestTemplate;
+
+
+@SpringBootTest
 public class WeatherClientTest {
 
     private WeatherClient subject;
@@ -23,9 +22,8 @@ public class WeatherClientTest {
     @Mock
     private RestTemplate restTemplate;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
-        initMocks(this);
         subject = new WeatherClient(restTemplate, "http://localhost:8089", "someAppId");
     }
 

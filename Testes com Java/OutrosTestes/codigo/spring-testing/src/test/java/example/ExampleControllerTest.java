@@ -1,21 +1,24 @@
 package example;
 
-import example.person.Person;
-import example.person.PersonRepository;
-import example.weather.WeatherResponse;
-import example.weather.WeatherClient;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mock;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.BDDMockito.given;
 
 import java.util.Optional;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-import static org.mockito.BDDMockito.anyString;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.MockitoAnnotations.initMocks;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import example.person.Person;
+import example.person.PersonRepository;
+import example.weather.WeatherClient;
+import example.weather.WeatherResponse;
+
+//Teste Unidade
+@SpringBootTest
 public class ExampleControllerTest {
 
     private ExampleController subject;
@@ -27,9 +30,8 @@ public class ExampleControllerTest {
     private WeatherClient weatherClient;
 
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
-        initMocks(this);
         subject = new ExampleController(personRepository, weatherClient);
     }
 

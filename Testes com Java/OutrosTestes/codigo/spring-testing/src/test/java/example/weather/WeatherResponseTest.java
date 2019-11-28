@@ -1,12 +1,16 @@
 package example.weather;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import example.helper.FileLoader;
-import org.junit.Test;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import example.helper.FileLoader;
+
+@SpringBootTest
 public class WeatherResponseTest {
 
     @Test
