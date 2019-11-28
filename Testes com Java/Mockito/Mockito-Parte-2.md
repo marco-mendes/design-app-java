@@ -228,3 +228,5 @@ Vimos no exemplo acima vários usos de nosso objeto MockMvc, abordaremos abaixo 
 * **characterEncoding()**: Define o tipo de codificação de caracteres que nossa requisição deve suportar.
 * **andExpect()**: Este método espera que uma condição do tipo **MockMvcResultMatchers** para realizar uma asserção, caso a condição não seja verdadeira o teste falhará.
 * **andReturn()**: Retorna um objeto do tipo **MvcResult** que contém o resultado de nossa requisição.
+
+O código completo deste laboratório pode ser encontrado neste [link](./codigo/bookapi).
