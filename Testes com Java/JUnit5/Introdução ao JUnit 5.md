@@ -165,6 +165,7 @@ Para contornar este problemas podemos inserir a seguinte anotação no nível de
 ```java
 // Outros imports
 
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
