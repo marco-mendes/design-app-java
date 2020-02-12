@@ -2,7 +2,7 @@
 
 ### Introdução
 
-Neste laboratório iremos introduzir o SpringBoot e alguns de seus principais recursos.<br/>
+Neste laboratório iremos apresentar o SpringBoot e alguns de seus principais recursos.<br/>
 Para melhor compreensão este laboratório foi divido em seis partes:
 
 - #### [Introdução ao Spring Boot](./Introducao%20SpringBoot/)<br/>
