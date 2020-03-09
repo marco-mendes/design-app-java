@@ -42,8 +42,8 @@ Para entendermos como Kubernetes opera em nível básico, vamos rodar um tutoria
 
 ---
 
-Nesse ponto, vamos avaliar o nosso entendimento inicial do Kubernetes. 
-Você consegue explicar para o seu colega o que são os conceitos abaixo?
+Vamos avaliar o nosso entendimento inicial do Kubernetes. 
+Forneça uma descrição dos seguintes conceitos (1 a 3 linhas por conceito).
 
 * Pods
 * Nodes
@@ -81,6 +81,12 @@ https://www.katacoda.com/openshift/courses/introduction/developing-with-odo
 
 https://www.katacoda.com/openshift/courses/introduction/deploying-images
 
+Vamos avaliar o nosso entendimento do Open Shift.
+
+* O que é o Open Shift?
+* Quais as principais funções fornecidades pelo Open Shift?
+* Qual a relação entre o OpenShift e o Kuberntes?
+
 ---
 
 ---
@@ -92,6 +98,11 @@ Vamos agora explorar como o OpenShift poderá implantar uma aplicação baseada 
 
 Rode agora o tutorial abaixo, que mostra como uma aplicação tradicional que roda com o JBOSS EAP poderia rodar no OpenShift
 https://www.katacoda.com/openshift/courses/middleware/middleware-javaee8
+
+Vamos avaliar o nosso entendimento do Open Shift para a hospedagem de aplicações.
+
+* O OpenShift é um servidor de aplicação? Sim ou não?
+* Qual a relação entre o OpenShift e a especificação Java EE?
 
 ---
 
@@ -134,6 +145,14 @@ Aplicações Reativas com o Quarkus e o Kafka
 Monitoração de Aplicações com o Quarkus, Grafana e o Prometheus
 
 * https://www.katacoda.com/openshift/courses/middleware/middleware-quarkus/monitoring
+
+
+Vamos avaliar o nosso entendimento desses vários conceitos.
+
+* O que é a computação serverless e qual a sua relação com arquitetura de entrega contínua?
+* O que é o Quarkus?
+* O que é o Kafka?
+* Quais as funções fornecidas pelo Grafana e Prometheus dentro do CNCF?
 
 ---
 
