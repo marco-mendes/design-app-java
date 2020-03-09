@@ -51,7 +51,9 @@ Forneça uma descrição dos seguintes conceitos (1 a 3 linhas por conceito).
 * Services
 * Controllers
 
-(Dica: Veja a resposta no apêndice desse exercício)
+(Dica: Veja dicas no apêndice desse exercício)
+
+Responda também como o Kubernetes pode apoiar esforços de arquitetura de entrega contínua.
 
 **Tecnologias de PAAS de Conteineres Kubernetes**
 
@@ -85,7 +87,8 @@ Vamos avaliar o nosso entendimento do Open Shift.
 
 * O que é o Open Shift?
 * Quais as principais funções fornecidades pelo Open Shift?
-* Qual a relação entre o OpenShift e o Kuberntes?
+* Qual a relação entre o OpenShift e o Kubernetes?
+* Como a tecnologia OpenShift e o conceito PAAS podem facilitar arquiteturas de entrega contínua. 
 
 ---
 
