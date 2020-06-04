@@ -5,7 +5,7 @@
 [Princípios do SOLID com mais exemplos](https://howtodoinjava.com/best-practices/5-class-design-principles-solid-in-java/)
 
 ### Introdução
-Como vimos no material de preparação, o SOLID é composto por 5 princípios orientados a objeto que tem por objetivo manter o código organizado e bem estruturado.<br/>
+O SOLID é composto por 5 princípios orientados a objeto que tem por objetivo manter o código organizado e bem estruturado.<br/>
 Os princípios do SOLID são:
  * S - Single Responsability (Princípio da responsabilidade única)
  * O - Open/Closed (Princípio do Aberto/Fechado)
